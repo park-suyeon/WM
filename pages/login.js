@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
+import InputBox from "../components/InputBox";
 
 const Navigator = styled.div`
   background-color: #ebf8ff;
@@ -124,14 +125,8 @@ export default function Home() {
         <div className="text">환영합니다. 로그인을 해주세요.</div>
         <Line></Line>
         <div>
-          <div>
-            <div className="id_text">아이디</div>
-            <input className="id" placeholder="아이디를 입력하세요" />
-          </div>
-          <div>
-            <div className="id_text">비밀번호</div>
-            <input className="password" type="password" placeholder="●●●●●●" />
-          </div>
+          <InputBox text="아이디" placeholder="아이디를 입력하세요" />
+          <InputBox text="패스워드" placeholder="패스워드를 입력하세요" />
           <div className="id_remember">
             <input id="remember" type="checkbox"></input>
             <label for="remember">아이디 기억하기</label>

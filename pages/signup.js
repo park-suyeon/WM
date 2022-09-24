@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
+import InputBox from "../components/InputBox";
 const SignUpBlock = styled.div`
   background-color: #ebf8ff;
   display: flex;
@@ -85,28 +86,13 @@ export default function Home() {
               placeholder="이름을 입력하세요"
             ></input>
           </div>
-          <div>
-            아이디<br></br>
-            <input
-              className="Id"
-              type="text"
-              placeholder="아이디를 입력하세요"
-            ></input>
-            <button> 중복확인</button>
-          </div>
-          <div>
-            비밀번호<br></br>
-            <input className="Pw" type="password"></input>
-          </div>
-          <div>
-            비밀번호 확인<br></br>
-            <input className="Pw" type="password"></input>
-            <button> 중복확인</button>
-          </div>
-          <div>
-            생년월일<br></br>
-            <input className="Birth" type="text"></input>
-          </div>
+          <InputBox text="아이디" placeholder="아이디를 입력하세요" />
+          <InputBox text="비밀번호" placeholder="비밀번호를 입력하세요" />
+          <InputBox
+            text="비밀번호 확인"
+            placeholder="비밀번호를 다시 입력하세요"
+          />
+          <InputBox text="생일" placeholder="생일을 입력하세요" />
           <div>
             <input type="checkbox"></input> 개인정보 수집에 동의합니다.
             <br></br>
