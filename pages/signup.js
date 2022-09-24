@@ -13,7 +13,7 @@ const SignUpBlock = styled.div`
   .nav {
     display: flex;
   }
-  .account {
+  .login {
     display: flex;
     & > div {
       padding: 10px 20px;
@@ -71,14 +71,9 @@ export default function Home() {
         <div className="header">
           <div className="nav">
             <div className="link">홈</div>
-            <div className="link">지도</div>
-            <div className="link">게시판</div>
           </div>
-          <div className="account">
-            <div>한국어</div>
-            <div>로그인</div>
-            <div className="membership">회원가입</div>
-          </div>
+          <div className="login">로그인</div>
+          <div className="membership">회원가입</div>
         </div>
         <div className="InformationBlock">
           <div className="Hi">환영합니다. 회원가입을 해주세요.</div>
