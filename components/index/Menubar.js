@@ -11,23 +11,25 @@ const MenubarBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: 30px;
 
   .icon {
     margin-bottom: 25px;
+    cursor: pointer;
   }
 `;
 const Menubar = (props) => {
   return (
     <MenubarBlock>
       <div>
-        <div className="icon">1</div>
-        <div className="icon">2</div>
+        <img className="icon" src="\images\logo.png"></img>
+        <img className="icon" src="\images\icon\search.png"></img>
       </div>
       <div>
-        <div className="icon">3</div>
-        <div className="icon">4</div>
-        <div>5</div>
+        <img className="icon" src="\images\icon\call.png"></img>
+        <img className="icon" src="\images\icon\login.png"></img>
+        <img className="icon" src="\images\icon\logout.png"></img>
       </div>
     </MenubarBlock>
   );

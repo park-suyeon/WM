@@ -75,7 +75,7 @@ export default function Home() {
           <div className="Hi">환영합니다. 회원가입을 해주세요.</div>
           <InputBox text="이름" placeholder="이름을 입력하세요" />
           <InputBox text="아이디" placeholder="아이디를 입력하세요" />
-          <InputBox text="비밀번호" placeholder="비밀번호를 입력하세요" />
+          <InputBox text="비밀번호" placeholder="●●●●●●" />
           <InputBox
             text="비밀번호 확인"
             placeholder="비밀번호를 다시 입력하세요"
