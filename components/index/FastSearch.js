@@ -4,7 +4,7 @@ const FastSearchBlock = styled.div`
   position: fixed;
   background-color: white;
   top: 40px;
-  left: 20px;
+  left: 140px;
   width: 600px;
   bottom: 40px;
   border-radius: 20px;
@@ -24,20 +24,16 @@ const FastSearch = (props) => {
   return (
     <FastSearchBlock>
       <div>
-        <img className="icon" src="\images\icon\lift.png">
-          휠체어 리프트
-        </img>
-        <img className="icon" src="\images\icon\charge.png">
-          휠체어 급속충전기
-        </img>
-        <img className="icon" src="\images\icon\elevator.png">
-          승강기
-        </img>
-        <img className="icon" src="\images\icon\ramp.png">
-          경사로
-        </img>
-        <img className="icon" src="\images\icon\division.png"></img>
-        <img className="icon" src="\images\icon\more.png"></img>
+        <img className="icon" src="\images\icon\lift.png" />
+        휠체어 리프트
+        <img className="icon" src="\images\icon\charge.png" />
+        휠체어 급속충전기
+        <img className="icon" src="\images\icon\elevator.png" />
+        승강기
+        <img className="icon" src="\images\icon\ramp.png" />
+        경사로
+        <img className="icon" src="\images\icon\division.png" />
+        <img className="icon" src="\images\icon\more.png" />
       </div>
     </FastSearchBlock>
   );

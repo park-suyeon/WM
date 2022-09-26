@@ -23,13 +23,13 @@ const Menubar = (props) => {
   return (
     <MenubarBlock>
       <div>
-        <img className="icon" src="\images\logo.png"></img>
-        <img className="icon" src="\images\icon\search.png"></img>
+        <img className="icon" src="\images\logo.png" />
+        <img className="icon" src="\images\icon\search.png" />
       </div>
       <div>
-        <img className="icon" src="\images\icon\call.png"></img>
-        <img className="icon" src="\images\icon\login.png"></img>
-        <img className="icon" src="\images\icon\logout.png"></img>
+        <img className="icon" src="\images\icon\call.png" />
+        <img className="icon" src="\images\icon\login.png" />
+        <img className="icon" src="\images\icon\logout.png" />
       </div>
     </MenubarBlock>
   );

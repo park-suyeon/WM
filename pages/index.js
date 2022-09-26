@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <Map></Map>
       <Menubar></Menubar>
-      {/* <FastSearch></FastSearch> */}
+      <FastSearch></FastSearch>
     </div>
   );
 }
