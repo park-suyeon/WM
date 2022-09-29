@@ -3,13 +3,14 @@ const NavBlock = styled.div`
   background-color: #ebf8ff;
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 20px;
+  font-size: 12px;
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     & > .home {
-      padding: 10px 20px;
+      padding: 5px 10px;
       cursor: pointer;
     }
     & > .nav_right {
@@ -25,7 +26,7 @@ const NavBlock = styled.div`
   .membership {
     background-color: white;
     color: blue;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
     padding: 10px 20px;
   }

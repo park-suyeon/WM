@@ -28,34 +28,36 @@ const LoginBlock = styled.div`
   & > button {
     color: white;
     background-color: #4461f2;
-    width: 520px;
-    height: 50px;
-    font-size: 18px;
+    width: 240px;
+    height: 40px;
+    font-size: 12px;
     border-style: hidden;
-    border-radius: 13px;
-  }
-  .fine {
-    display: flex;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 20px;
-    & > a {
-      text-decoration: underline;
-      cursor: pointer;
-    }
+    border-radius: 10px;
+    font-weight: 400;
   }
   .text {
     text-align: left;
     padding: 10px 20px;
-    font-size: 36px;
+    font-size: 20px;
     margin-bottom: 22px;
+    font-weight: 600;
   }
   .id_remember {
     display: flex;
-    margin-bottom: 36px;
-  }
-  .fine_text {
-    margin-right: 3px;
+    margin-bottom: 30px;
+    color: #6b7280;
+    & > #box {
+      box-sizing: border-box;
+      border: 0.7px solid #9fa6b2;
+      border-radius: 3px;
+      width: 10px;
+      height: 10px;
+    }
+    & > #boxText {
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+    }
   }
 `;
 export default function Home() {
@@ -74,13 +76,11 @@ export default function Home() {
           <InputBox text="아이디" placeholder="아이디를 입력하세요" />
           <InputBox text="비밀번호" placeholder="●●●●●●" />
           <div className="id_remember">
-            <input id="remember" type="checkbox"></input>
-            <label for="remember">아이디 기억하기</label>
+            <input id="box" type="checkbox"></input>
+            <label id="boxText" for="remember">
+              아이디 기억하기
+            </label>
           </div>
-        </div>
-        <div className="fine">
-          <div className="fine_text">아이디나 비밀번호를 잊어버리셨나요?</div>
-          <a>아이디, 비밀번호 찾기</a>
         </div>
         <button>로그인</button>
       </LoginBlock>
