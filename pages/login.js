@@ -5,18 +5,16 @@ import InputBox from "../components/InputBox";
 import Nav from "../components/Nav";
 
 const Line = styled.div`
-  background-color: white;
+  background-color: #4461f2;
   height: 5px;
   width: 100%;
   margin-bottom: 42px;
 `;
 const LoginBlock = styled.div`
-  background-color: #ebf8ff;
+  background-color: white;
   color: #0f3f62;
   font-size: 14px;
   width: 100%;
-
-  background-color: #ebf8ff;
   display: block;
   position: absolute;
   top: 50%;

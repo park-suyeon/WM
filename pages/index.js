@@ -14,7 +14,7 @@ const Content = styled.div`
   left: 0;
   width: 100vw;
   .moveNav {
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
   }
 `;
 export default function Home() {

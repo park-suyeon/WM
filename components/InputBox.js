@@ -7,7 +7,7 @@ const InputBoxBlock = styled.div`
     padding: 10px 20px;
     font-size: 12px;
     font-weight: 500;
-    width: 240px;
+    width: 280px;
     height: 30px;
     border-radius: 10px;
     border-style: hidden;

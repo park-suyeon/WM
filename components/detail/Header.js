@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.div`
   display: flex;
-  padding: 24px;
+  padding: 24px 24px 0px 24px;
   align-items: center;
   & > .logo {
     margin-right: 13px;
