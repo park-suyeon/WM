@@ -74,7 +74,11 @@ export default function Home() {
         <Line></Line>
         <div>
           <InputBox text="아이디" placeholder="아이디를 입력하세요" />
-          <InputBox text="비밀번호" placeholder="●●●●●●" />
+          <InputBox
+            text="비밀번호"
+            placeholder="비밀번호를 입력하세요"
+            type="password"
+          />
           <div className="id_remember">
             <input id="box" type="checkbox"></input>
             <label id="boxText" for="remember">
