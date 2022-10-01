@@ -8,6 +8,15 @@ const Map = styled.div`
   height: 100vh;
   background-image: url("/images/IndexMap.png");
 `;
+const Content = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  .moveNav {
+    padding: 20px;
+  }
+`;
 export default function Home() {
   return (
     <div>
@@ -17,8 +26,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Map></Map>
-      <Menubar></Menubar>
-      <FastSearch></FastSearch>
+      {/* <Menubar></Menubar> */}
+      <Content>
+        <div className="moveNav">
+          <FastSearch></FastSearch>
+        </div>
+      </Content>
     </div>
   );
 }
