@@ -1,13 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
+import ButtonBox from "../components/index/ButtonBox";
 import InputBox from "../components/InputBox";
 import Nav from "../components/Nav";
+
+const Line = styled.div`
+  background-color: white;
+  height: 5px;
+  width: 100%;
+  margin-bottom: 42px;
+`;
 const SignUpBlock = styled.div`
   background-color: #ebf8ff;
   display: flex;
   flex-direction: column;
   padding: 50px;
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -36,8 +45,13 @@ const SignUpBlock = styled.div`
     background-color: #ebf8ff;
     justify-content: space-between;
     padding: 30px;
+    position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .Name {
     background-color: #eaf0f7;
@@ -46,19 +60,28 @@ const SignUpBlock = styled.div`
   .Id {
     background-color: #eaf0f7;
   }
-  .SignupButton {
-    background-color: #4461f2;
-    font-size: 20px;
-    color: #eaf0f7;
-    text-align: center;
-    width: 250px;
-    height: 50px;
-    border-radius: 13px;
-    border-color: none;
-  }
+
   .Hi {
     font-size: 24px;
     font-weight: bold;
+    margin: 30px;
+  }
+  .signup_agree {
+    display: flex;
+    margin-bottom: 30px;
+    color: #6b7280;
+    & > #box {
+      box-sizing: border-box;
+      border: 0.7px solid #9fa6b2;
+      border-radius: 3px;
+      width: 10px;
+      height: 10px;
+    }
+    & > #boxText {
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+    }
   }
 `;
 export default function Home() {
@@ -81,11 +104,13 @@ export default function Home() {
             placeholder="비밀번호를 다시 입력하세요"
           />
           <InputBox text="생일" placeholder="생일을 입력하세요" />
-          <div>
-            <input type="checkbox"></input> 개인정보 수집에 동의합니다.
-            <br></br>
-            <button className="SignupButton">회원가입 &#8594; </button>
+          <div className="signup_agree">
+            <input id="box" type="checkbox"></input>
+            <label id="boxText" for="remember">
+              개인정보 수집에 동의합니다.
+            </label>
           </div>
+          <ButtonBox text="회원가입" />
         </div>
       </SignUpBlock>
     </div>
