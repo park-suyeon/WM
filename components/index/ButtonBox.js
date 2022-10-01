@@ -9,13 +9,15 @@ const ButtonBox = styled.div`
     border-style: hidden;
     border-radius: 10px;
     font-weight: 400;
-    text-align: center;
+    display: flex;
+    align-items: center;
   }
   .signup_text {
     color: white;
     font-size: 12px;
     font-weight: 400;
-    text-align: center;
+    display: flex;
+    align-items: center;
   }
 `;
 const Button = (props) => {

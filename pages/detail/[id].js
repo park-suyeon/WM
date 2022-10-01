@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
+import Header from "../../components/detail/Header";
 import FastSearch from "../../components/index/FastSearch";
 import Menubar from "../../components/index/Menubar";
 const Map = styled.div`
@@ -14,32 +15,54 @@ const Content = styled.div`
   left: 0;
   width: 100vw;
 `;
-const Header = styled.div`
-  display: flex;
-  padding: 24px;
-  align-items: center;
-  & > .logo {
-    margin-right: 13px;
-  }
-  & > .searchBar {
-    height: 40px;
-    width: 100%;
-    border-radius: 999px;
-    border: 2px solid #1093ff;
-    background-color: white;
-    padding: 10px;
+const Detail = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 55vh;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 10px;
+  & > .Main {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    & > input {
-      border: none;
+    .Placename {
       font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
-    & > img {
-      margin-right: 15px;
+    .Address {
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+    .Buttons {
+      display: flex;
+    }
+    .Start {
+      font-size: 12px;
+      border: 2px solid #3a96fb;
+      border-radius: 15px;
+      margin-right: 20px;
+      padding: 5px 15px;
+      display: flex;
+      align-items: center;
+    }
+    .Arrival {
+      font-size: 12px;
+      color: white;
+      border: 2px solid #3a96fb;
+      border-radius: 15px;
+      background-color: #3a96fb;
+      padding: 5px 15px;
+      display: flex;
+      align-items: center;
+    }
+    .icon {
+      margin-right: 5px;
     }
   }
 `;
-
 export default function Home() {
   return (
     <div>
@@ -50,14 +73,26 @@ export default function Home() {
       </Head>
       <Map></Map>
       <Content>
-        <Header>
-          <img className="logo" src="/images/logo.png" />
-          <div className="searchBar">
-            <img src="/images/icon/search.png" />
-            <input></input>
-          </div>
-        </Header>
+        <Header />
       </Content>
+      <Detail>
+        <div className="Main">
+          <div className="Placename">구로나눔장애인자립생활센터</div>
+          <div className="Address">
+            서울 구로구 가마산로 286 SR친오애, 405호
+          </div>
+          <div className="Buttons">
+            <div className="Start">
+              <img className="icon" src="/images/icon/Group.png" />
+              출발
+            </div>
+            <div className="Arrival">
+              <img className="icon" src="/images/icon/Group.png" />
+              도착
+            </div>
+          </div>
+        </div>
+      </Detail>
     </div>
   );
 }
