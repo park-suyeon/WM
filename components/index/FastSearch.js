@@ -37,6 +37,10 @@ const FastSearch = (props) => {
         <div className="text">휠체어 급속충전기</div>
       </div>
       <div className="searchWrap">
+        <img className="icon" src="\images\icon\charge.png" />
+        <div className="text">장애인 화장실</div>
+      </div>
+      <div className="searchWrap">
         <img className="icon" src="\images\icon\lift.png" />
         <div className="text">휠체어 리프트</div>
       </div>
