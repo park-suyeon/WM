@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import FastSearch from "../components/index/FastSearch";
-import Menubar from "../components/index/Menubar";
+import Header from "../components/detail/Header";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -26,8 +26,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Map></Map>
-      {/* <Menubar></Menubar> */}
+
       <Content>
+        <Header></Header>
         <div className="moveNav">
           <FastSearch></FastSearch>
         </div>
