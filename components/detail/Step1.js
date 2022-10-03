@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 const UpdateWrapper = styled.div`
-  position: fixed;
   background-color: #ebf8ff;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  bottom: 0px;
 
   .title {
     height: 60px;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const UpdateWrapper = styled.div`
-  position: fixed;
   background-color: #ebf8ff;
   display: flex;
   flex-direction: column;
@@ -24,9 +23,7 @@ const UpdateWrapper = styled.div`
   .midTitle {
     font-weight: 600;
     font-size: 15px;
-    padding-top: 30px;
-    text-align: left;
-    margin: 15px;
+    white-space: nowrap;
   }
   .textBox {
     width: 100%;
@@ -45,7 +42,22 @@ const UpdateWrapper = styled.div`
     height: 100%;
   }
   .icon {
-    margin: 10px;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+  }
+  .midTitleWrap {
+    display: flex;
+    text-align: left;
+    margin: 30px 15px 15px 15px;
+  }
+  .choice {
+    font-weight: 500;
+    font-size: 10px;
+    color: #677185;
+    padding: 5px 0px 0px 5px;
+    white-space: nowrap;
   }
 `;
 
@@ -57,13 +69,17 @@ export default function Step2() {
         <div className="line"></div>
       </div>
       <div>
-        <div className="midTitle">
-          [휠체어 급속 충전기]상세 설명을 입력해 주세요.
+        <div className="midTitleWrap">
+          <div className="midTitle">
+            [휠체어 급속 충전기]상세 설명을 입력해 주세요.
+          </div>
+          <div className="choice">선택</div>
         </div>
         <div className="textBox">
           <input className="text"></input>
         </div>
-        <div>
+        <div className="midTitleWrap">
+          <div className="midTitle">사진 추가</div>
           <img className="icon" src="/images/icon/plus.png" />
         </div>
       </div>

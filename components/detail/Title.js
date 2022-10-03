@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const Detail = styled.div`
-  position: fixed;
   width: 100vw;
-  left: 0;
   background-color: white;
   border-radius: 10px 10px 0px 0px;
   & > .Main {

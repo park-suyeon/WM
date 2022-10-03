@@ -5,16 +5,26 @@ import Header from "../../components/detail/Header";
 import FastSearch from "../../components/index/FastSearch";
 import Menubar from "../../components/index/Menubar";
 import Title from "../../components/detail/Title";
+import Photo from "../../components/detail/Photo";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url("/images/IndexMap.png");
 `;
-const Content = styled.div`
+const Content1 = styled.div`
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100vw;
+`;
+const Contente2 = styled.div`
+  position: fixed;
+  top: 260px;
+  left: 0;
+  width: 100vw;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
 `;
 export default function Home() {
   return (
@@ -25,10 +35,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Map></Map>
-      <Content>
+      <Content1>
         <Header></Header>
-      </Content>
-      <Title></Title>
+      </Content1>
+      <Contente2>
+        <Title></Title>
+        <Photo></Photo>
+      </Contente2>
     </div>
   );
 }
