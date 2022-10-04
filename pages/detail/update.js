@@ -1,21 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import FastSearch from "../components/index/FastSearch";
-import Header from "../components/detail/Header";
+import Header from "../../components/detail/Header";
+import FastSearch from "../../components/index/FastSearch";
+import Title from "../../components/detail/Title";
+import Step1 from "../../components/detail/Step1";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url("/images/IndexMap.png");
 `;
-const Content = styled.div`
+const Content1 = styled.div`
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100vw;
-  .moveNav {
-    padding: 0px 20px 20px 20px;
-  }
+`;
+const Content2 = styled.div`
+  position: fixed;
+  top: 260px;
+  left: 0;
+  width: 100vw;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
 `;
 export default function Home() {
   return (
@@ -26,13 +34,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Map></Map>
-
-      <Content>
+      <Content1>
         <Header></Header>
-        <div className="moveNav">
-          <FastSearch></FastSearch>
-        </div>
-      </Content>
+      </Content1>
+      <Content2>
+        <Title></Title>
+        <Step1></Step1>
+      </Content2>
     </div>
   );
 }

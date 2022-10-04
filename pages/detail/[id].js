@@ -6,23 +6,29 @@ import Line from "../../components/detail/Line";
 import ShareCallBox from "../../components/detail/ShareCall";
 import FastSearch from "../../components/index/FastSearch";
 import Menubar from "../../components/index/Menubar";
+import Title from "../../components/detail/Title";
+import Photo from "../../components/detail/Photo";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url("/images/IndexMap.png");
 `;
+<<<<<<< HEAD
 
 const Content = styled.div`
+=======
+const Content1 = styled.div`
+>>>>>>> 4e5e3b55775d55b58378ee51d351bfd022528191
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100vw;
 `;
-const Detail = styled.div`
+const Contente2 = styled.div`
   position: fixed;
-  width: 100vw;
-  height: 55vh;
+  top: 260px;
   left: 0;
+<<<<<<< HEAD
   bottom: 0;
   background-color: white;
   border-radius: 10px;
@@ -73,6 +79,12 @@ const Detail = styled.div`
       height: 20px;
     }
   }
+=======
+  width: 100vw;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+>>>>>>> 4e5e3b55775d55b58378ee51d351bfd022528191
 `;
 const LocationIcon = styled.div``;
 export default function Home() {
@@ -84,6 +96,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Map></Map>
+<<<<<<< HEAD
       <Content>
         <Header />
       </Content>
@@ -125,6 +138,15 @@ export default function Home() {
           <img className="icon" src="/images/icon/location pin.png" />
         </div>
       </Detail>
+=======
+      <Content1>
+        <Header></Header>
+      </Content1>
+      <Contente2>
+        <Title></Title>
+        <Photo></Photo>
+      </Contente2>
+>>>>>>> 4e5e3b55775d55b58378ee51d351bfd022528191
     </div>
   );
 }
