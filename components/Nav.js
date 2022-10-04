@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const NavBlock = styled.div`
-  background-color: #ebf8ff;
+  background-color: white;
   display: flex;
   flex-direction: column;
   padding: 20px;

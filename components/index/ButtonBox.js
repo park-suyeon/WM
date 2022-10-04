@@ -1,31 +1,18 @@
 import styled from "styled-components";
 const ButtonBox = styled.div`
-  .signup_button {
-    color: white;
-    background-color: #4461f2;
-    width: 240px;
-    height: 40px;
-    font-size: 12px;
-    border-style: hidden;
-    border-radius: 10px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-  }
-  .signup_text {
-    color: white;
-    font-size: 12px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  background-color: #4461f2;
+  width: 240px;
+  height: 40px;
+  font-size: 12px;
+  border-style: hidden;
+  border-radius: 10px;
+  font-weight: 400;
 `;
 const Button = (props) => {
-  return (
-    <ButtonBox>
-      <div className="signup_button"> {props.text}</div>
-      <div className="signup_text"> {props.text} </div>
-    </ButtonBox>
-  );
+  return <ButtonBox>{props.text}</ButtonBox>;
 };
 export default Button;

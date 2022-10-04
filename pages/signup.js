@@ -6,13 +6,14 @@ import InputBox from "../components/InputBox";
 import Nav from "../components/Nav";
 
 const Line = styled.div`
-  background-color: white;
-  height: 5px;
-  width: 100%;
+  background-color: #4461f2;
+  height: 3px;
+  width: 100vw;
   margin-bottom: 42px;
+  margin-top: 10px;
 `;
 const SignUpBlock = styled.div`
-  background-color: #ebf8ff;
+  background-color: white;
   display: flex;
   flex-direction: column;
   padding: 50px;
@@ -42,13 +43,7 @@ const SignUpBlock = styled.div`
   .InformationBlock {
     display: flex;
     flex-direction: column;
-    background-color: #ebf8ff;
-    justify-content: space-between;
     padding: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +59,6 @@ const SignUpBlock = styled.div`
   .Hi {
     font-size: 24px;
     font-weight: bold;
-    margin: 30px;
   }
   .signup_agree {
     display: flex;
@@ -84,6 +78,7 @@ const SignUpBlock = styled.div`
     }
   }
 `;
+
 export default function Home() {
   return (
     <div>
@@ -96,14 +91,16 @@ export default function Home() {
         <Nav></Nav>
         <div className="InformationBlock">
           <div className="Hi">환영합니다. 회원가입을 해주세요.</div>
+          <Line />
           <InputBox text="이름" placeholder="이름을 입력하세요" />
           <InputBox text="아이디" placeholder="아이디를 입력하세요" />
-          <InputBox text="비밀번호" placeholder="●●●●●●" />
+          <InputBox type="password" text="비밀번호" placeholder="●●●●●●" />
           <InputBox
             text="비밀번호 확인"
+            type="password"
             placeholder="비밀번호를 다시 입력하세요"
           />
-          <InputBox text="생일" placeholder="생일을 입력하세요" />
+          <InputBox type="month" text="생일" placeholder="생일을 입력하세요" />
           <div className="signup_agree">
             <input id="box" type="checkbox"></input>
             <label id="boxText" for="remember">

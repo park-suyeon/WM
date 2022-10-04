@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "../../components/detail/Header";
+import Line from "../../components/detail/Line";
+import ShareCallBox from "../../components/detail/ShareCall";
 import FastSearch from "../../components/index/FastSearch";
 import Menubar from "../../components/index/Menubar";
 const Map = styled.div`
@@ -9,6 +11,7 @@ const Map = styled.div`
   height: 100vh;
   background-image: url("/images/IndexMap.png");
 `;
+
 const Content = styled.div`
   position: fixed;
   top: 0;
@@ -38,31 +41,40 @@ const Detail = styled.div`
     }
     .Buttons {
       display: flex;
+      padding-top: 3px;
+      padding-bottom: 10px;
     }
     .Start {
       font-size: 12px;
       border: 2px solid #3a96fb;
-      border-radius: 15px;
+      border-radius: 20px;
       margin-right: 20px;
       padding: 5px 15px;
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
     .Arrival {
       font-size: 12px;
       color: white;
       border: 2px solid #3a96fb;
-      border-radius: 15px;
+      border-radius: 20px;
       background-color: #3a96fb;
       padding: 5px 15px;
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
     .icon {
+      display: flex;
+      align-items: center;
       margin-right: 5px;
+      width: 15px;
+      height: 20px;
     }
   }
 `;
+const LocationIcon = styled.div``;
 export default function Home() {
   return (
     <div>
@@ -91,6 +103,26 @@ export default function Home() {
               도착
             </div>
           </div>
+        </div>
+        <Line />
+        <ShareCallBox />
+        <Line />
+
+        <div>
+          <div className="LocationName">
+            서울 구로구 가마산로 286 SR친오애, 405호 대림역 4번 출구에서487m
+          </div>
+          <div className="StartTime"> 이용시간: 9 : 00 에 영업 시작</div>
+          <div className="Tel">02-3433-0600</div>
+          <div className="Homepage">http://www.koddi.or.kr/</div>
+        </div>
+
+        <div className="LocationIcon">
+          <img className="icon" src="/images/icon/location pin.png" />
+          <div>충전</div>
+          <div>경사로</div>
+          <div>승강기</div>
+          <img className="icon" src="/images/icon/location pin.png" />
         </div>
       </Detail>
     </div>
