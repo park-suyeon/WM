@@ -13,12 +13,7 @@ const Map = styled.div`
   height: 100vh;
   background-image: url("/images/IndexMap.png");
 `;
-<<<<<<< HEAD
-
-const Content = styled.div`
-=======
 const Content1 = styled.div`
->>>>>>> 4e5e3b55775d55b58378ee51d351bfd022528191
   position: fixed;
   top: 0px;
   left: 0;
@@ -28,63 +23,10 @@ const Contente2 = styled.div`
   position: fixed;
   top: 260px;
   left: 0;
-<<<<<<< HEAD
-  bottom: 0;
-  background-color: white;
-  border-radius: 10px;
-  & > .Main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .Placename {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .Address {
-      font-size: 12px;
-      margin-bottom: 3px;
-    }
-    .Buttons {
-      display: flex;
-      padding-top: 3px;
-      padding-bottom: 10px;
-    }
-    .Start {
-      font-size: 12px;
-      border: 2px solid #3a96fb;
-      border-radius: 20px;
-      margin-right: 20px;
-      padding: 5px 15px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-    .Arrival {
-      font-size: 12px;
-      color: white;
-      border: 2px solid #3a96fb;
-      border-radius: 20px;
-      background-color: #3a96fb;
-      padding: 5px 15px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-    .icon {
-      display: flex;
-      align-items: center;
-      margin-right: 5px;
-      width: 15px;
-      height: 20px;
-    }
-  }
-=======
   width: 100vw;
   overflow: scroll;
   display: flex;
   flex-direction: column;
->>>>>>> 4e5e3b55775d55b58378ee51d351bfd022528191
 `;
 const LocationIcon = styled.div``;
 export default function Home() {
@@ -96,49 +38,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Map></Map>
-<<<<<<< HEAD
-      <Content>
-        <Header />
-      </Content>
-      <Detail>
-        <div className="Main">
-          <div className="Placename">구로나눔장애인자립생활센터</div>
-          <div className="Address">
-            서울 구로구 가마산로 286 SR친오애, 405호
-          </div>
-          <div className="Buttons">
-            <div className="Start">
-              <img className="icon" src="/images/icon/Group.png" />
-              출발
-            </div>
-            <div className="Arrival">
-              <img className="icon" src="/images/icon/Group.png" />
-              도착
-            </div>
-          </div>
-        </div>
-        <Line />
-        <ShareCallBox />
-        <Line />
-
-        <div>
-          <div className="LocationName">
-            서울 구로구 가마산로 286 SR친오애, 405호 대림역 4번 출구에서487m
-          </div>
-          <div className="StartTime"> 이용시간: 9 : 00 에 영업 시작</div>
-          <div className="Tel">02-3433-0600</div>
-          <div className="Homepage">http://www.koddi.or.kr/</div>
-        </div>
-
-        <div className="LocationIcon">
-          <img className="icon" src="/images/icon/location pin.png" />
-          <div>충전</div>
-          <div>경사로</div>
-          <div>승강기</div>
-          <img className="icon" src="/images/icon/location pin.png" />
-        </div>
-      </Detail>
-=======
       <Content1>
         <Header></Header>
       </Content1>
@@ -146,7 +45,6 @@ export default function Home() {
         <Title></Title>
         <Photo></Photo>
       </Contente2>
->>>>>>> 4e5e3b55775d55b58378ee51d351bfd022528191
     </div>
   );
 }
