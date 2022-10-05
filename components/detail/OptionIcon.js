@@ -42,7 +42,7 @@ const OptionBox = styled.div`
     }
   }
   .plus {
-    width: 16px;
+    width: 8px;
     justify-content: flex-end;
   }
 `;
@@ -55,7 +55,7 @@ const OptionIcon = (props) => {
         <div className="runway">경사로</div>
         <div className="elevator">승강기</div>
       </div>
-      <img className="plus" src="/images/icon/add.png" />
+      <img className="plus" src="/images/icon/open.png" />
     </OptionBox>
   );
 };

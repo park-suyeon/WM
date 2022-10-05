@@ -11,7 +11,7 @@ const Location = styled.div`
   .contentWrapper {
     padding: 9px 30px;
     width: 100%;
-    border-bottom: 1.5px solid #ededed;
+    border-bottom: 2px solid #ededed;
     display: flex;
     align-items: center;
     .icon {

@@ -4,7 +4,7 @@ const Detail = styled.div`
   width: 100vw;
   background-color: white;
   border-radius: 10px 10px 0px 0px;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 2px solid #ededed;
 
   & > .Main {
     display: flex;
@@ -19,7 +19,7 @@ const Detail = styled.div`
     }
     .Address {
       font-size: 13px;
-      margin-bottom: 9px;
+      margin-bottom: 12px;
     }
     .Buttons {
       display: flex;

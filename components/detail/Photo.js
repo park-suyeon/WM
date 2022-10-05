@@ -4,10 +4,11 @@ const PhotoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
+  justify-content: center;
 
   .final {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 11px;
     color: #545454;
     display: flex;
     text-align: right;
@@ -17,7 +18,8 @@ const PhotoWrapper = styled.div`
   }
   .photos {
     display: flex;
-    margin: 0px 28px 35px 28px;
+    justify-content: center;
+    margin-bottom: 30px;
   }
   .photo1 {
     width: 168px;
