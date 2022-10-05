@@ -4,11 +4,12 @@ const Detail = styled.div`
   width: 100vw;
   background-color: white;
   border-radius: 10px 10px 0px 0px;
+
   & > .Main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px;
+    padding: 15px;
     .Placename {
       font-size: 18px;
       font-weight: bold;
@@ -42,6 +43,9 @@ const Detail = styled.div`
     }
     .icon {
       margin-right: 5px;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
     }
   }
 `;

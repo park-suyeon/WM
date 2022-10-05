@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 
 const Line = styled.div`
   background-color: #4461f2;
-  height: 3px;
+  height: 5px;
   width: 100vw;
   margin-bottom: 42px;
   margin-top: 10px;
@@ -62,7 +62,7 @@ const SignUpBlock = styled.div`
   }
   .signup_agree {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     color: #6b7280;
     & > #box {
       box-sizing: border-box;
@@ -100,7 +100,7 @@ export default function Home() {
             type="password"
             placeholder="비밀번호를 다시 입력하세요"
           />
-          <InputBox type="month" text="생일" placeholder="생일을 입력하세요" />
+          <InputBox text="생일" placeholder="생일을 입력하세요" />
           <div className="signup_agree">
             <input id="box" type="checkbox"></input>
             <label id="boxText" for="remember">

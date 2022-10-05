@@ -8,6 +8,8 @@ import FastSearch from "../../components/index/FastSearch";
 import Menubar from "../../components/index/Menubar";
 import Title from "../../components/detail/Title";
 import Photo from "../../components/detail/Photo";
+import MainLocation from "../../components/detail/Location";
+import Button from "../../components/index/ButtonBox";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -15,12 +17,13 @@ const Map = styled.div`
 `;
 const Content1 = styled.div`
   position: fixed;
-  top: 0px;
+  top: 260px;
   left: 0;
   width: 100vw;
 `;
 const Contente2 = styled.div`
   position: fixed;
+  background-color: white;
   top: 260px;
   left: 0;
   width: 100vw;
@@ -28,7 +31,6 @@ const Contente2 = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const LocationIcon = styled.div``;
 export default function Home() {
   return (
     <div>
@@ -43,7 +45,13 @@ export default function Home() {
       </Content1>
       <Contente2>
         <Title></Title>
+        <Line></Line>
+        <ShareCallBox></ShareCallBox>
+        <Line></Line>
+        <MainLocation></MainLocation>
+        <Line></Line>
         <Photo></Photo>
+        <Button text="등록 및 수정"></Button>
       </Contente2>
     </div>
   );

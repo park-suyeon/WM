@@ -19,10 +19,11 @@ const Sharecall = styled.div`
   .icon {
     margin-right: 3px;
     margin-top: 3px;
-    width: 15px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   .call {
     display: flex;
@@ -47,7 +48,7 @@ const ShareCallBox = (props) => {
         전화
       </div>
       <div className="RoadView">
-        <img className="icon" src="/images/icon/location pin.png" />
+        <img className="icon" src="/images/location.png" />
         거리뷰
       </div>
       <div className="ShareSelect">
