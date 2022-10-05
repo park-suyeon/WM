@@ -4,48 +4,52 @@ const Detail = styled.div`
   width: 100vw;
   background-color: white;
   border-radius: 10px 10px 0px 0px;
+  border-bottom: 1px solid #ededed;
 
   & > .Main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 25px 15px 10px 15px;
     .Placename {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: bold;
       margin-bottom: 5px;
     }
     .Address {
-      font-size: 12px;
-      margin-bottom: 3px;
+      font-size: 13px;
+      margin-bottom: 9px;
     }
     .Buttons {
       display: flex;
     }
     .Start {
-      font-size: 12px;
       border: 2px solid #3a96fb;
-      border-radius: 15px;
+      border-radius: 20px;
       margin-right: 20px;
-      padding: 5px 15px;
+      padding: 6px;
       display: flex;
       align-items: center;
+      width: 90px;
+      height: 35px;
     }
     .Arrival {
-      font-size: 12px;
       color: white;
       border: 2px solid #3a96fb;
-      border-radius: 15px;
+      border-radius: 20px;
       background-color: #3a96fb;
-      padding: 5px 15px;
+      padding: 6px;
       display: flex;
       align-items: center;
+      width: 90px;
+      height: 35px;
     }
     .icon {
-      margin-right: 5px;
+      margin-right: 13px;
+    }
+    .text {
+      font-size: 14px;
       justify-content: center;
-      width: 16px;
-      height: 16px;
     }
   }
 `;
@@ -59,11 +63,11 @@ const Title = (props) => {
         <div className="Buttons">
           <div className="Start">
             <img className="icon" src="/images/icon/Group.png" />
-            출발
+            <div className="text">출발</div>
           </div>
           <div className="Arrival">
             <img className="icon" src="/images/icon/Group.png" />
-            도착
+            <div className="text">도착</div>
           </div>
         </div>
       </div>

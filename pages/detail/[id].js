@@ -2,14 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "../../components/detail/Header";
-import Line from "../../components/detail/Line";
 import ShareCallBox from "../../components/detail/ShareCall";
 import FastSearch from "../../components/index/FastSearch";
-import Menubar from "../../components/index/Menubar";
 import Title from "../../components/detail/Title";
 import Photo from "../../components/detail/Photo";
 import MainLocation from "../../components/detail/Location";
-import Button from "../../components/index/ButtonBox";
+import Button from "../../components/detail/Button";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -17,7 +15,7 @@ const Map = styled.div`
 `;
 const Content1 = styled.div`
   position: fixed;
-  top: 260px;
+  top: 0px;
   left: 0;
   width: 100vw;
 `;
@@ -45,11 +43,8 @@ export default function Home() {
       </Content1>
       <Contente2>
         <Title></Title>
-        <Line></Line>
         <ShareCallBox></ShareCallBox>
-        <Line></Line>
         <MainLocation></MainLocation>
-        <Line></Line>
         <Photo></Photo>
         <Button text="등록 및 수정"></Button>
       </Contente2>

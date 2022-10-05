@@ -5,6 +5,7 @@ import Header from "../../components/detail/Header";
 import FastSearch from "../../components/index/FastSearch";
 import Title from "../../components/detail/Title";
 import Step1 from "../../components/detail/Step1";
+import ShareCallBox from "../../components/detail/ShareCall";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -39,6 +40,7 @@ export default function Home() {
       </Content1>
       <Content2>
         <Title></Title>
+        <ShareCallBox></ShareCallBox>
         <Step1></Step1>
       </Content2>
     </div>
