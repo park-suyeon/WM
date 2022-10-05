@@ -10,6 +10,7 @@ import Title from "../../components/detail/Title";
 import Photo from "../../components/detail/Photo";
 import MainLocation from "../../components/detail/Location";
 import Button from "../../components/index/ButtonBox";
+import OptionIcon from "../../components/detail/OptionIcon";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -17,8 +18,8 @@ const Map = styled.div`
 `;
 const Content1 = styled.div`
   position: fixed;
-  top: 260px;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100vw;
 `;
 const Contente2 = styled.div`
@@ -49,6 +50,8 @@ export default function Home() {
         <ShareCallBox></ShareCallBox>
         <Line></Line>
         <MainLocation></MainLocation>
+        <Line></Line>
+        <OptionIcon></OptionIcon>
         <Line></Line>
         <Photo></Photo>
         <Button text="등록 및 수정"></Button>

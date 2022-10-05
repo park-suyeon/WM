@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
 const Detail = styled.div`
-  width: 100vw;
-  background-color: white;
-  border-radius: 10px 10px 0px 0px;
-
-  & > .Main {
+  .Main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
+
     .Placename {
       font-size: 18px;
       font-weight: bold;

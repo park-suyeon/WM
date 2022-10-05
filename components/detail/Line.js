@@ -2,10 +2,10 @@ import styled from "styled-components";
 const Line = styled.div`
   background-color: #bdbdbd;
   height: 1px;
-  width: 100%;
+  width: 100vw;
 `;
 
 const LineView = (props) => {
-  return <Line>{props}</Line>;
+  return <Line></Line>;
 };
-export default Line;
+export default LineView;
