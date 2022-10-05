@@ -7,7 +7,12 @@ import FastSearch from "../../components/index/FastSearch";
 import Title from "../../components/detail/Title";
 import Photo from "../../components/detail/Photo";
 import MainLocation from "../../components/detail/Location";
+<<<<<<< HEAD
 import Button from "../../components/detail/Button";
+=======
+import Button from "../../components/index/ButtonBox";
+import OptionIcon from "../../components/detail/OptionIcon";
+>>>>>>> 768b65608b4b106bc00482796664175c5426c599
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -16,7 +21,11 @@ const Map = styled.div`
 const Content1 = styled.div`
   position: fixed;
   top: 0px;
+<<<<<<< HEAD
   left: 0;
+=======
+  left: 0px;
+>>>>>>> 768b65608b4b106bc00482796664175c5426c599
   width: 100vw;
 `;
 const Contente2 = styled.div`
@@ -45,6 +54,12 @@ export default function Home() {
         <Title></Title>
         <ShareCallBox></ShareCallBox>
         <MainLocation></MainLocation>
+<<<<<<< HEAD
+=======
+        <Line></Line>
+        <OptionIcon></OptionIcon>
+        <Line></Line>
+>>>>>>> 768b65608b4b106bc00482796664175c5426c599
         <Photo></Photo>
         <Button text="등록 및 수정"></Button>
       </Contente2>
