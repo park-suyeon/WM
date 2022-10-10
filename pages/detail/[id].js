@@ -24,7 +24,8 @@ const Content1 = styled.div`
 const Contente2 = styled.div`
   position: fixed;
   background-color: white;
-  top: 260px;
+  height: 70vh;
+  bottom: 0px;
   left: 0;
   width: 100vw;
   overflow: scroll;
