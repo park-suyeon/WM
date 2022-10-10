@@ -3,7 +3,6 @@ const Sharecall = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
   background-color: white;
   width: 100%;
   height: 40px;
@@ -31,6 +30,7 @@ const Sharecall = styled.div`
     margin-left: 40px;
   }
   .RoadView {
+    margin-left: 10px;
     display: flex;
     align-items: center;
   }

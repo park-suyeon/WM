@@ -2,7 +2,7 @@ import styled from "styled-components";
 const ButtonBox = styled.div`
   color: white;
   background-color: #4461f2;
-  font-size: 12px;
+  font-size: 14px;
   width: 240px;
   height: 40px;
   border-style: hidden;

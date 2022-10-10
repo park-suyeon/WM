@@ -4,15 +4,14 @@ const ButtonBox = styled.div`
   background-color: #4461f2;
   width: 240px;
   height: 40px;
-  font-size: 12px;
+  font-size: 14px;
   border-style: hidden;
   border-radius: 10px;
   font-weight: 400;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  justify-content: center;
 `;
 const Button = (props) => {
   return <ButtonBox>{props.text}</ButtonBox>;

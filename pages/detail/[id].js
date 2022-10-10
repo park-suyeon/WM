@@ -31,6 +31,7 @@ const Contente2 = styled.div`
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 export default function Home() {
   return (
@@ -47,12 +48,11 @@ export default function Home() {
       <Contente2>
         <Title></Title>
         <Line></Line>
-        <ShareCallBox></ShareCallBox>
+        {/* <ShareCallBox></ShareCallBox>  */}
         <Line></Line>
         <MainLocation></MainLocation>
         <Line></Line>
         <OptionIcon></OptionIcon>
-        <Line></Line>
         <Photo></Photo>
         <Button text="등록 및 수정"></Button>
       </Contente2>

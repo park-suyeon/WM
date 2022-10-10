@@ -1,10 +1,10 @@
 import styled from "styled-components";
 const OptionBox = styled.div`
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-left: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
 
   .icon {
     width: 12px;
@@ -13,7 +13,8 @@ const OptionBox = styled.div`
   .plus {
     width: 12px;
     height: 12px;
-    margin-left: 100px;
+    margin-left: 30px;
+    cursor: pointer;
   }
   .charge {
     font-size: 15px;
