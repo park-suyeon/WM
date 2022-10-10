@@ -4,10 +4,10 @@ const HeaderWrapper = styled.div`
   display: flex;
   padding: 24px 24px 0px 24px;
   align-items: center;
-  & > .logo {
+  .logo {
     margin-right: 13px;
   }
-  & > .searchBar {
+  .searchBar {
     height: 40px;
     width: 100%;
     border-radius: 999px;
@@ -16,13 +16,15 @@ const HeaderWrapper = styled.div`
     padding: 10px;
     display: flex;
     align-items: center;
-    & > input {
-      border: none;
-      font-size: 18px;
-    }
-    & > img {
-      margin-right: 15px;
-    }
+    font-size: 18px;
+    padding-left: 40px;
+  }
+  .icon {
+    position: fixed;
+    left: 105px;
+    top: 40px;
+    transform: scaleX(-1);
+    transition: 0.3s;
   }
 `;
 
@@ -30,10 +32,8 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <img className="logo" src="/images/logo.png" />
-      <div className="searchBar">
-        <img src="/images/icon/search.png" />
-        <input></input>
-      </div>
+      <input className="searchBar" />
+      <img className="icon" src="/images/icon/search.png" />
     </HeaderWrapper>
   );
 }

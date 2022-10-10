@@ -14,12 +14,12 @@ const FastSearchBlock = styled.div`
     background-color: white;
     & > .icon {
       cursor: pointer;
-      margin: 5px;
-      height: 12px;
+      margin-right: 5px;
+      height: 13px;
     }
     & > .text {
       cursor: pointer;
-      font-size: 11px;
+      font-size: 12px;
       white-space: nowrap;
     }
   }
@@ -36,7 +36,7 @@ const FastSearch = (props) => {
         <div className="text">휠체어 급속충전기</div>
       </div>
       <div className="searchWrap">
-        <img className="icon" src="\images\icon\charge.png" />
+        <img className="icon" src="\images\icon\wc.png" />
         <div className="text">장애인 화장실</div>
       </div>
       <div className="searchWrap">

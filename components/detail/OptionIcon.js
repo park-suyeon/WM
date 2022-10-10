@@ -52,11 +52,13 @@ const OptionBox = styled.div`
 const OptionIcon = (props) => {
   return (
     <OptionBox>
-      <img className="icon" src="/images/icon/disabled.png" />
-      <div className="charge"> 충전 </div>
-      <div className="runway">경사로</div>
-      <div className="elevator">승강기</div>
-      <img className="plus" src="/images/icon/add.png" />
+      <div className="leftWrapper">
+        <img className="icon" src="/images/icon/disabled.png" />
+        <div className="charge"> 충전 </div>
+        <div className="runway">경사로</div>
+        <div className="elevator">승강기</div>
+      </div>
+      <img className="plus" src="/images/icon/open.png" />
     </OptionBox>
   );
 };
