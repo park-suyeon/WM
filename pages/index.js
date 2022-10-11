@@ -3,6 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import FastSearch from "../components/index/FastSearch";
 import Header from "../components/detail/Header";
+
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -36,3 +37,8 @@ export default function Home() {
     </div>
   );
 }
+// export async function getServerSideProps() {
+//   await mongodbconnect();
+//   const placeList = await placemodel.find();
+//   return { props: { placeList: placeList } };
+// }
