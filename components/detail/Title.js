@@ -1,29 +1,27 @@
 import styled from "styled-components";
 
 const Detail = styled.div`
-  width: 100vw;
-  background-color: white;
+  width: 100%;
   border-radius: 10px 10px 0px 0px;
   border-bottom: 2px solid #ededed;
+  /* box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 15px 10px 15px;
+  background-color: white;
 
-  & > .Main {
+  .Placename {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .Address {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .Buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 15px 10px 15px;
-
-    .Placename {
-      font-size: 19px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .Address {
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-    .Buttons {
-      display: flex;
-    }
     .Start {
       border: 2px solid #3a96fb;
       border-radius: 20px;
@@ -58,18 +56,16 @@ const Detail = styled.div`
 const Title = (props) => {
   return (
     <Detail>
-      <div className="Main">
-        <div className="Placename">구로나눔장애인자립생활센터</div>
-        <div className="Address">서울 구로구 가마산로 286 SR친오애, 405호</div>
-        <div className="Buttons">
-          <div className="Start">
-            <img className="icon" src="/images/icon/Group.png" />
-            <div className="text">출발</div>
-          </div>
-          <div className="Arrival">
-            <img className="icon" src="/images/icon/Group.png" />
-            <div className="text">도착</div>
-          </div>
+      <div className="Placename">서울특별시청</div>
+      <div className="Address">서울 중구 세종대로 110</div>
+      <div className="Buttons">
+        <div className="Start">
+          <img className="icon" src="/images/icon/Group.png" />
+          <div className="text">출발</div>
+        </div>
+        <div className="Arrival">
+          <img className="icon" src="/images/icon/Group.png" />
+          <div className="text">도착</div>
         </div>
       </div>
     </Detail>

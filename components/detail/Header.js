@@ -24,7 +24,6 @@ const HeaderWrapper = styled.div`
     left: 105px;
     top: 40px;
     transform: scaleX(-1);
-    transition: 0.3s;
   }
 `;
 

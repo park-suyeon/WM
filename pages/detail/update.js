@@ -6,7 +6,7 @@ import FastSearch from "../../components/index/FastSearch";
 import Title from "../../components/detail/Title";
 import Step1 from "../../components/detail/Step1";
 import ShareCallBox from "../../components/detail/ShareCall";
-import Button from "../../components/detail/Button";
+import ButtonBox from "../../components/index/ButtonBox";
 const Map = styled.div`
   width: 100vw;
   height: 100vh;
@@ -20,12 +20,15 @@ const Content1 = styled.div`
 `;
 const Content2 = styled.div`
   position: fixed;
-  top: 260px;
+  background-color: #ebf8ff;
+  height: 70vh;
+  bottom: 0px;
   left: 0;
   width: 100vw;
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 export default function Home() {
   return (
@@ -43,7 +46,7 @@ export default function Home() {
         <Title></Title>
         <ShareCallBox></ShareCallBox>
         <Step1></Step1>
-        <Button text="다음"></Button>
+        <ButtonBox text="다음" />
       </Content2>
     </div>
   );

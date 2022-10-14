@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Location = styled.div`
-  width: 100vw;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -14,14 +14,65 @@ const Location = styled.div`
     border-bottom: 2px solid #ededed;
     display: flex;
     align-items: center;
+    .addres {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .addressLine1 {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        .addressOption1 {
+          width: 34px;
+          height: 18px;
+          border: 1px solid #979797;
+          color: #979797;
+          border-radius: 5px;
+          font-size: 8px;
+          margin-right: 10px;
+          text-align: center;
+          padding: 1px;
+        }
+      }
+      .addressLine2 {
+        display: flex;
+        align-items: center;
+        .addressOption2 {
+          width: 28px;
+          height: 18px;
+          border: 1px solid #979797;
+          color: #979797;
+          border-radius: 5px;
+          font-size: 8px;
+          margin-right: 10px;
+          text-align: center;
+          padding: 1px;
+        }
+        .addressOption3 {
+          width: 18px;
+          height: 18px;
+          border: 1px solid #979797;
+          color: #979797;
+          border-radius: 5px;
+          font-size: 8px;
+          margin-right: 10px;
+          text-align: center;
+          padding: 1px;
+        }
+      }
+    }
     .icon {
       align-items: center;
-      margin-right: 10px;
+      margin-right: 20px;
     }
     .text {
+      font-size: 15px;
     }
-    font-size: 15px;
-    color: #545454;
+    .subText {
+      font-size: 15px;
+      color: #545454;
+      margin-right: 20px;
+    }
   }
 `;
 
@@ -30,8 +81,17 @@ const MainLocation = (props) => {
     <Location>
       <div className="contentWrapper">
         <img className="icon" src="/images/location.png" />
-        <div className="text">
-          서울 구로구 가마산로 286 SR친오애, 405호 대림역 4번 출구에서487m
+        <div className="addres">
+          <div className="addressLine1">
+            <div className="addressOption1">도로명</div>
+            <div className="text">서울 중구 세종대로 110</div>
+          </div>
+          <div className="addressLine2">
+            <div className="addressOption2">지번</div>
+            <div className="subText">태평로1가 31</div>
+            <div className="addressOption3">우</div>
+            <div className="subText">04524</div>
+          </div>
         </div>
       </div>
       <div className="contentWrapper">
