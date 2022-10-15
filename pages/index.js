@@ -3,12 +3,9 @@ import Image from "next/image";
 import styled from "styled-components";
 import FastSearch from "../components/index/FastSearch";
 import Header from "../components/detail/Header";
+import dynamic from "next/dynamic";
+const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
-const Map = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/images/IndexMap.png");
-`;
 const Content = styled.div`
   position: fixed;
   top: 0;

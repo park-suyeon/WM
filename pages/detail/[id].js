@@ -13,12 +13,8 @@ import MorePhoto from "../../components/detail/MorePhoto";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
-
-const Map = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/images/IndexMap.png");
-`;
+import dynamic from "next/dynamic";
+const Map = dynamic(() => import("../../components/Map"), { ssr: false });
 const Content1 = styled.div`
   position: fixed;
   top: 0px;
