@@ -53,11 +53,11 @@ const Detail = styled.div`
   }
 `;
 
-const Title = (props) => {
+const Title = ({ title, address }) => {
   return (
     <Detail>
-      <div className="Placename">서울특별시청</div>
-      <div className="Address">서울 중구 세종대로 110</div>
+      <div className="Placename">{title}</div>
+      <div className="Address">{address}</div>
       <div className="Buttons">
         <div className="Start">
           <img className="icon" src="/images/icon/Group.png" />

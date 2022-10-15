@@ -10,6 +10,9 @@ import MainLocation from "../../components/detail/Location";
 import ButtonBox from "../../components/index/ButtonBox";
 import OptionIcon from "../../components/detail/OptionIcon";
 import MorePhoto from "../../components/detail/MorePhoto";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useQuery } from "@tanstack/react-query";
 
 const Map = styled.div`
   width: 100vw;
@@ -35,6 +38,13 @@ const Contente2 = styled.div`
   align-items: center;
 `;
 export default function Home() {
+  const router = useRouter();
+  const id = router.query.id;
+  const { isLoading, error, data } = useQuery(["place", id], () =>
+    axios(`/api/place/${id}`).then((res) => res.data)
+  );
+  if (isLoading) return "로딩중";
+  console.log(data);
   return (
     <div>
       <Head>
@@ -47,10 +57,10 @@ export default function Home() {
         <Header></Header>
       </Content1>
       <Contente2>
-        <Title></Title>
+        <Title title={data.name} address={data.address}></Title>
         <ShareCallBox></ShareCallBox>
         <MainLocation></MainLocation>
-        <OptionIcon></OptionIcon>
+        <OptionIcon options={data.options}></OptionIcon>
         {/* <Photo></Photo> */}
         <MorePhoto></MorePhoto>
         <ButtonBox text="등록 및 수정" />
