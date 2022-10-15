@@ -7,8 +7,9 @@ import FastSearch from "../../components/index/FastSearch";
 import Title from "../../components/detail/Title";
 import Photo from "../../components/detail/Photo";
 import MainLocation from "../../components/detail/Location";
-import Button from "../../components/detail/Button";
+import ButtonBox from "../../components/index/ButtonBox";
 import OptionIcon from "../../components/detail/OptionIcon";
+import MorePhoto from "../../components/detail/MorePhoto";
 
 const Map = styled.div`
   width: 100vw;
@@ -50,8 +51,9 @@ export default function Home() {
         <ShareCallBox></ShareCallBox>
         <MainLocation></MainLocation>
         <OptionIcon></OptionIcon>
-        <Photo></Photo>
-        <Button text="등록 및 수정"></Button>
+        {/* <Photo></Photo> */}
+        <MorePhoto></MorePhoto>
+        <ButtonBox text="등록 및 수정" />
       </Contente2>
     </div>
   );

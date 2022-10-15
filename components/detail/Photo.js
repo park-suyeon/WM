@@ -7,40 +7,40 @@ const PhotoWrapper = styled.div`
   justify-content: center;
 
   .final {
+    width: 100%;
     font-weight: 400;
     font-size: 11px;
     color: #545454;
     display: flex;
-    text-align: right;
     justify-content: flex-end;
     align-items: center;
     margin: 0px 22px 23px 0px;
+    .text {
+      margin-right: 3px;
+    }
   }
   .photos {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-  }
-  .photo1 {
-    width: 168px;
-    height: 200px;
-    margin-right: 10px;
-  }
-  .photoLeft {
-    display: flex;
-    flex-direction: column;
-  }
-  .photo2 {
-    margin-bottom: 10px;
-    width: 141px;
-    height: 95px;
-  }
-  .photo3 {
-    width: 141px;
-    height: 95px;
-  }
-  .text {
-    margin-right: 3px;
+    .photo1 {
+      width: 168px;
+      height: 200px;
+      margin-right: 10px;
+    }
+    .photoLeft {
+      display: flex;
+      flex-direction: column;
+      .photo2 {
+        margin-bottom: 10px;
+        width: 141px;
+        height: 95px;
+      }
+      .photo3 {
+        width: 141px;
+        height: 95px;
+      }
+    }
   }
 `;
 

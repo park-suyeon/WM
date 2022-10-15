@@ -1,19 +1,20 @@
 import styled from "styled-components";
-const ButtonBox = styled.div`
+const Button = styled.div`
   color: white;
   background-color: #4461f2;
-  width: 240px;
-  height: 40px;
+  width: 50%;
+  height: 50px;
   font-size: 14px;
   border-style: hidden;
   border-radius: 10px;
   font-weight: 400;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  margin: 10px;
 `;
-const Button = (props) => {
-  return <ButtonBox>{props.text}</ButtonBox>;
+const ButtonBox = (props) => {
+  return <Button>{props.text}</Button>;
 };
-export default Button;
+export default ButtonBox;
