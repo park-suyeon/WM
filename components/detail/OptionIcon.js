@@ -4,7 +4,6 @@ const OptionBox = styled.div`
   margin-bottom: 10px;
   margin-left: 30px;
   display: flex;
-  align-items: center;
 
   .icon {
     width: 12px;
