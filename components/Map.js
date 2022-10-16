@@ -2,6 +2,7 @@ import { NaverMap, Marker } from "react-naver-maps";
 import { RenderAfterNavermapsLoaded } from "react-naver-maps"; // 패키지 불러오기
 
 function App(props) {
+  console.log(process.env.NEXT_PUBLIC_MAP_CLIENT_ID);
   return (
     <>
       <RenderAfterNavermapsLoaded // Render후 Navermap로드
