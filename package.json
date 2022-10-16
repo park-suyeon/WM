@@ -10,12 +10,13 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.12.0",
+    "@types/navermaps": "^3.0.17",
     "axios": "^1.1.2",
     "mongoose": "^6.6.5",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-naver-maps": "^0.0.13",
+    "react-naver-maps": "^0.0.11",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
