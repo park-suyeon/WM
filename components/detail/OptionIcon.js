@@ -40,7 +40,7 @@ const OptionBox = styled.div`
       padding-top: 1px;
       background-color: #3a96fb;
       border-radius: 20px;
-      width: 65px;
+      width: 75px;
       height: 25px;
       text-align: center;
       color: white;
@@ -64,7 +64,7 @@ const OptionIcon = ({ options }) => {
       return <div className="runway">경사로</div>;
     }
     if (option === "엘리베이터") {
-      return <div className="elevator">승강기</div>;
+      return <div className="elevator">엘리베이터</div>;
     }
     if (option === "휠체어충전기") {
       return <div className="charge"> 충전 </div>;
