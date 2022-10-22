@@ -24,7 +24,12 @@ const InputBox = (props) => {
   return (
     <InputBoxBlock>
       <div className="id_text"> {props.text} </div>
-      <input className="id" placeholder={props.placeholder} type={props.type} />
+      <input
+        className="id"
+        placeholder={props.placeholder}
+        type={props.type}
+        {...props}
+      />
     </InputBoxBlock>
   );
 };

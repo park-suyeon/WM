@@ -1,3 +1,4 @@
+import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
@@ -78,7 +79,23 @@ const SignUpBlock = styled.div`
     }
   }
 `;
-
+const onSubmitHandler = (e) => {
+  e.preventDefault();
+  const name = e.target.name.value;
+  const id = e.target.id.value;
+  const password = e.target.password.value;
+  const passwordconfirm = e.target.passwordconfirm.value;
+  const birthday = e.target.birthday.value;
+  const privarcy = e.target.privarcy.checked;
+  axios.post("/api/account", {
+    name,
+    id,
+    password,
+    passwordconfirm,
+    birthday,
+    privarcy,
+  });
+};
 export default function Home() {
   return (
     <div>
@@ -89,26 +106,36 @@ export default function Home() {
       </Head>
       <SignUpBlock>
         <Nav></Nav>
-        <div className="InformationBlock">
+        <form className="InformationBlock" onSubmit={onSubmitHandler}>
           <div className="Hi">환영합니다. 회원가입을 해주세요.</div>
           <Line />
-          <InputBox text="이름" placeholder="이름을 입력하세요" />
-          <InputBox text="아이디" placeholder="아이디를 입력하세요" />
-          <InputBox type="password" text="비밀번호" placeholder="●●●●●●" />
+          <InputBox text="이름" placeholder="이름을 입력하세요" name="name" />
+          <InputBox text="아이디" placeholder="아이디를 입력하세요" name="id" />
+          <InputBox
+            type="password"
+            text="비밀번호"
+            placeholder="●●●●●●"
+            name="password"
+          />
           <InputBox
             text="비밀번호 확인"
             type="password"
             placeholder="비밀번호를 다시 입력하세요"
+            name="passwordconfirm"
           />
-          <InputBox text="생일" placeholder="생일을 입력하세요" />
+          <InputBox
+            text="생일"
+            placeholder="생일을 입력하세요"
+            name="birthday"
+          />
           <div className="signup_agree">
-            <input id="box" type="checkbox"></input>
+            <input id="box" type="checkbox" name="privarcy"></input>
             <label id="boxText" for="remember">
               개인정보 수집에 동의합니다.
             </label>
           </div>
-          <ButtonBox text="회원가입" />
-        </div>
+          <input text="회원가입" type="submit" />
+        </form>
       </SignUpBlock>
     </div>
   );

@@ -15,6 +15,6 @@ const Button = styled.div`
   margin: 10px;
 `;
 const ButtonBox = (props) => {
-  return <Button>{props.text}</Button>;
+  return <Button type={props.type}>{props.text}</Button>;
 };
 export default ButtonBox;
