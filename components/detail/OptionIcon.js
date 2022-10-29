@@ -17,7 +17,8 @@ const OptionBox = styled.div`
     }
     .text {
       font-size: 15px;
-      margin: 3px 10px 3px 10px;
+      margin: 3px 10px;
+      text-align: center;
     }
     .charge {
       background-color: #62d2ff;
@@ -43,16 +44,12 @@ const OptionBox = styled.div`
       margin-right: 10px;
     }
     .toilet {
-      background-color: #3a96fb;
+      background-color: #bdecff;
       border-radius: 20px;
-      width: 75px;
-      height: 25px;
-      align-items: center;
-      color: white;
       margin-right: 10px;
     }
     .lift {
-      background-color: #3a96fb;
+      background-color: #4461f2;
       border-radius: 20px;
       height: 25px;
       align-items: center;
@@ -60,11 +57,10 @@ const OptionBox = styled.div`
       margin-right: 10px;
     }
     .etc {
-      background-color: #3a96fb;
+      background-color: #c4c4c4;
       border-radius: 20px;
       height: 25px;
       align-items: center;
-      color: white;
     }
   }
   .minus {
@@ -93,16 +89,32 @@ const OptionIcon = ({ options }) => {
       );
     }
     if (option === "휠체어충전기") {
-      return <div className="charge"> 충전 </div>;
+      return (
+        <div className="charge">
+          <div className="text">충전</div>
+        </div>
+      );
     }
     if (option === "장애인화장실") {
-      return <div className="toilet"> 장애인 화장실 </div>;
+      return (
+        <div className="toilet">
+          <div className="text">장애인 화장실</div>
+        </div>
+      );
     }
     if (option === "휠체어리프트") {
-      return <div className="lift"> 휠체어 리프트 </div>;
+      return (
+        <div className="lift">
+          <div className="text">리프트</div>
+        </div>
+      );
     }
     if (option === "기타") {
-      return <div className="etc"> 기타 </div>;
+      return (
+        <div className="etc">
+          <div className="text">기타</div>
+        </div>
+      );
     }
   });
   return (

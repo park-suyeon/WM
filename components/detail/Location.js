@@ -23,8 +23,8 @@ const Location = styled.div`
         align-items: center;
         margin-bottom: 7px;
         .addressOption1 {
-          width: 34px;
-          height: 18px;
+          width: 36px;
+          height: 20px;
           border: 1px solid #979797;
           color: #979797;
           border-radius: 5px;
@@ -38,8 +38,8 @@ const Location = styled.div`
         display: flex;
         align-items: center;
         .addressOption2 {
-          width: 28px;
-          height: 18px;
+          width: 30px;
+          height: 20px;
           border: 1px solid #979797;
           color: #979797;
           border-radius: 5px;
@@ -49,8 +49,8 @@ const Location = styled.div`
           padding: 1px;
         }
         .addressOption3 {
-          width: 18px;
-          height: 18px;
+          width: 20px;
+          height: 20px;
           border: 1px solid #979797;
           color: #979797;
           border-radius: 5px;
@@ -101,10 +101,6 @@ const MainLocation = (props) => {
       <div className="contentWrapper">
         <img className="icon" src="/images/phone.png" />
         <div className="text">02-3433-0600</div>
-      </div>
-      <div className="contentWrapper">
-        <img className="icon" src="/images/homepage.png" />
-        <div className="text">http://www.koddi.or.kr/</div>
       </div>
     </Location>
   );

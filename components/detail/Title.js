@@ -16,9 +16,58 @@ const Detail = styled.div`
     font-weight: bold;
     margin-bottom: 5px;
   }
-  .Address {
-    font-size: 13px;
-    margin-bottom: 12px;
+  .Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    .text {
+      font-size: 15px;
+      margin: 3px 10px;
+      text-align: center;
+    }
+    .charge {
+      background-color: #62d2ff;
+      border-radius: 20px;
+      height: 25px;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .slope {
+      background-color: #c248ad;
+      border-radius: 20px;
+      height: 25px;
+      align-items: center;
+      color: white;
+      margin-right: 10px;
+    }
+    .elevator {
+      background-color: #3a96fb;
+      border-radius: 20px;
+      height: 25px;
+      align-items: center;
+      color: white;
+      margin-right: 10px;
+    }
+    .toilet {
+      background-color: #bdecff;
+      border-radius: 20px;
+      margin-right: 10px;
+    }
+    .lift {
+      background-color: #4461f2;
+      border-radius: 20px;
+      height: 25px;
+      align-items: center;
+      color: white;
+      margin-right: 10px;
+    }
+    .etc {
+      background-color: #c4c4c4;
+      border-radius: 20px;
+      height: 25px;
+      align-items: center;
+    }
   }
   .Buttons {
     display: flex;
@@ -100,7 +149,7 @@ const Title = ({ title, options }) => {
   return (
     <Detail>
       <div className="Placename">{title}</div>
-      <div className="Address">{address}</div>
+      {Options}
       <div className="Buttons">
         <div className="Start">
           <img className="icon" src="/images/icon/Group.png" />
