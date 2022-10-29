@@ -53,13 +53,12 @@ export default function Home() {
         <Header></Header>
       </Content1>
       <Contente2>
-        <Title title={data.name} address={data.address}></Title>
+        <Title title={data.name}></Title>
         <ShareCallBox></ShareCallBox>
-        <MainLocation></MainLocation>
         <OptionIcon options={data.options}></OptionIcon>
         {/* <Photo></Photo> */}
         <MorePhoto></MorePhoto>
-        <ButtonBox text="등록 및 수정" />
+        <MainLocation title={data.name} address={data.address}></MainLocation>
       </Contente2>
     </div>
   );

@@ -2,18 +2,34 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import FastSearch from "../components/index/FastSearch";
+import Facilities from "../components/subway/Facilities";
 import Header from "../components/detail/Header";
 import dynamic from "next/dynamic";
+import Station from "../components/subway/Station";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
-const Content = styled.div`
+const Content1 = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   .moveNav {
-    padding: 0px 20px 20px 20px;
+    padding: 0px 0px 0px 20px;
   }
+`;
+const Contente2 = styled.div`
+  position: fixed;
+  background-color: white;
+  height: 70vh;
+  bottom: 0px;
+  left: 0;
+  width: 100vw;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
   return (
@@ -25,12 +41,17 @@ export default function Home() {
       </Head>
       <Map></Map>
 
-      <Content>
+      <Content1>
         <Header></Header>
         <div className="moveNav">
           <FastSearch></FastSearch>
         </div>
-      </Content>
+      </Content1>
+      <Contente2>
+        <Station></Station>
+        <Facilities></Facilities>
+        <Title title={data.name} address={data.address}></Title>
+      </Contente2>
     </div>
   );
 }

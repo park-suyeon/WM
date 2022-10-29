@@ -11,11 +11,11 @@ const PhotoWrapper = styled.div`
     flex-direction: column;
     .title {
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
       padding: 12px 45px;
     }
     .content {
-      font-size: 12px;
+      font-size: 13px;
       color: #545454;
       padding-left: 95px;
       padding-bottom: 20px;
@@ -39,23 +39,40 @@ const PhotoWrapper = styled.div`
       }
     }
   }
-
-  .finalWrapper {
-    width: 100%;
-    font-weight: 400;
-    font-size: 11px;
-    color: #545454;
+  .editWrapper {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    .final {
+    .finalWrapper {
       width: 100%;
+      font-size: 12px;
+      color: #545454;
       display: flex;
       justify-content: flex-end;
-      text-align: right;
-      .text {
-        margin-right: 3px;
+      flex-direction: column;
+      margin-right: 20px;
+      .final {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        text-align: right;
+        margin-bottom: 5px;
+        .text {
+          margin-right: 3px;
+        }
+      }
+    }
+    .edit {
+      background: #4461f2;
+      width: 50px;
+      height: 50px;
+      border-radius: 99px;
+      border: none;
+      align-items: center;
+      padding: 12px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      .icon {
+        height: 25px;
       }
     }
   }
@@ -92,15 +109,20 @@ const MorePhoto = (props) => {
         </div>
       </div>
 
-      <div className="finalWrapper">
-        <div className="final">
-          <div className="text">최종 수정인 :</div>
-          <div>박수연</div>
+      <div className="editWrapper">
+        <div className="finalWrapper">
+          <div className="final">
+            <div className="text">최종 수정인 :</div>
+            <div>박수연</div>
+          </div>
+          <div className="final">
+            <div className="text">최종 수정일 :</div>
+            <div>2022.09.01</div>
+          </div>
         </div>
-        <div className="final">
-          <div className="text">최종 수정일 :</div>
-          <div>2022.09.01</div>
-        </div>
+        <button className="edit">
+          <img className="icon" src="/images/icon/edit.png" />
+        </button>
       </div>
     </PhotoWrapper>
   );
