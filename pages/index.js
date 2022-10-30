@@ -18,6 +18,7 @@ const Content1 = styled.div`
   }
 `;
 const Contente2 = styled.div`
+  z-index: 1000;
   position: fixed;
   background-color: white;
   height: 60vh;

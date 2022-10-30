@@ -4,6 +4,10 @@ const FastSearchBlock = styled.div`
   display: flex;
   overflow: scroll;
   align-items: center;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
   & > .searchWrap {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -12,6 +16,7 @@ const FastSearchBlock = styled.div`
     margin-right: 10px;
     align-items: center;
     background-color: white;
+
     & > .icon {
       cursor: pointer;
       margin-right: 7px;
