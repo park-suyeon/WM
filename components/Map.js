@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 
 function App() {
   const mapElement = useRef(null);
-  console.log("map");
   useEffect(() => {
     const { naver } = window;
     if (!mapElement.current || !naver) return;
