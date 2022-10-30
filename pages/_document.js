@@ -33,6 +33,10 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <style />
+          <script
+            type="text/javascript"
+            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_CLIENT_ID}`}
+          ></script>
         </Head>
         <body>
           <Main />

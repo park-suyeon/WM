@@ -42,6 +42,7 @@ const Recommend = styled.div`
   .overLook {
     display: flex;
     justify-content: space-between;
+
     .back {
       height: 12px;
       margin-left: 15px;
@@ -52,7 +53,7 @@ const Recommend = styled.div`
       transform: rotate(-180deg);
     }
   }
-  /* .optionsWrapper {
+  .optionsWrapper {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -104,7 +105,7 @@ const Recommend = styled.div`
       height: 25px;
       align-items: center;
     }
-  } */
+  }
 `;
 const RecommendPlace = ({ title, options }) => {
   const Options = options?.map((option) => {

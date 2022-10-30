@@ -31,8 +31,10 @@ const StationBlock = styled.div`
     background-color: white;
     border: 2px solid #c66a28;
     border-radius: 30px;
+    display: flex;
     align-items: center;
-    /* position: fixed; */
+    justify-content: center;
+    position: absolute;
     padding: 10px;
     .text {
       font-weight: 700;
@@ -53,15 +55,15 @@ const StationBlock = styled.div`
     }
   }
 `;
-const Station = (props) => {
+const Station = ({ title, left, right }) => {
   return (
     <StationBlock>
       <div className="line">
-        <div className="previousStation">공덕</div>
-        <div className="nextStation">삼각지</div>
+        <div className="previousStation">{left}</div>
+        <div className="nextStation">{right}</div>
       </div>
       <div className="stationName">
-        <div className="text">효창공원앞</div>
+        <div className="text">{title}</div>
       </div>
       <div className="distanceWrapper">
         <div className="exit">3번 출구</div>

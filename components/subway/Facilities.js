@@ -8,7 +8,7 @@ const FacilitiesBlock = styled.div`
   .title {
     font-size: 13px;
     margin-bottom: 15px;
-    justify-self: start;
+    width: 100%;
   }
   .blockWrap {
     display: flex;
