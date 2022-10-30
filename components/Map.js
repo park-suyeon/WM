@@ -1,23 +1,30 @@
-// import { NaverMap, Marker } from "react-naver-maps";
-// import { RenderAfterNavermapsLoaded } from "react-naver-maps"; // 패키지 불러오기
+import { useEffect, useRef } from "react";
 
-function App(props) {
-  console.log(process.env.NEXT_PUBLIC_MAP_CLIENT_ID);
-  return (
-    <>
-      {/* <RenderAfterNavermapsLoaded // Render후 Navermap로드
-        ncpClientId={process.env.NEXT_PUBLIC_MAP_CLIENT_ID} // 자신의 네이버 계정에서 발급받은 Client ID
-        error={<p>Maps Load Error</p>}
-        loading={<p>Maps Loading...</p>}
-      >
-        <NaverMap
-          id="react-naver-maps-introduction"
-          style={{ width: "100%", height: "100vh" }}
-          center={{ lat: 37.497175, lng: 127.027926 }}
-        ></NaverMap>
-      </RenderAfterNavermapsLoaded> */}
-    </>
-  );
+function App() {
+  const mapElement = useRef(null);
+  console.log("map");
+  useEffect(() => {
+    const { naver } = window;
+    if (!mapElement.current || !naver) return;
+
+    // 지도에 표시할 위치의 위도와 경도 좌표를 파라미터로 넣어줍니다.
+    const location = new naver.maps.LatLng(37.5656, 126.9769);
+    const mapOptions = {
+      center: location,
+      zoom: 17,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT,
+      },
+    };
+    const map = new naver.maps.Map(mapElement.current, mapOptions);
+    new naver.maps.Marker({
+      position: location,
+      map,
+    });
+  }, []);
+
+  return <div ref={mapElement} style={{ minHeight: "400px" }} />;
 }
 
 export default App;
