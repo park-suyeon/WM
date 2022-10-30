@@ -7,6 +7,9 @@ import Header from "../components/detail/Header";
 import dynamic from "next/dynamic";
 import Station from "../components/subway/Station";
 import RecommendPlace from "../components/index/RecommendPlace";
+import useCoordinate from "../hooks/useCoordinate";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 const Content1 = styled.div`
   position: fixed;
@@ -33,9 +36,10 @@ const Contente2 = styled.div`
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
-  // const { isLoading, error, data } = useQuery(["place", id], () =>
-  //   axios(`/api/place/${id}`).then((res) => res.data)
-  // );
+  const [lat, lon] = useCoordinate();
+  const { isLoading, error } = useQuery(["subway", lat, lon], () =>
+    axios.get(`/api/subway`, { params: { lat, lon } }).then((res) => res.data)
+  );
   const data = {
     name: "효창공원",
     options: ["경사로"],

@@ -111,42 +111,42 @@ const RecommendPlace = ({ title, options }) => {
   const Options = options?.map((option) => {
     if (option === "경사로") {
       return (
-        <div className="slope">
+        <div className="slope" key={option}>
           <div className="text">경사로</div>
         </div>
       );
     }
     if (option === "엘리베이터") {
       return (
-        <div className="elevator">
+        <div className="elevator" key={option}>
           <div className="text">엘리베이터</div>
         </div>
       );
     }
     if (option === "휠체어충전기") {
       return (
-        <div className="charge">
+        <div className="charge" key={option}>
           <div className="text">충전</div>
         </div>
       );
     }
     if (option === "장애인화장실") {
       return (
-        <div className="toilet">
+        <div className="toilet" key={option}>
           <div className="text">장애인 화장실</div>
         </div>
       );
     }
     if (option === "휠체어리프트") {
       return (
-        <div className="lift">
+        <div className="lift" key={option}>
           <div className="text">리프트</div>
         </div>
       );
     }
     if (option === "기타") {
       return (
-        <div className="etc">
+        <div className="etc" key={option}>
           <div className="text">기타</div>
         </div>
       );
