@@ -6,6 +6,7 @@ import Facilities from "../components/subway/Facilities";
 import Header from "../components/detail/Header";
 import dynamic from "next/dynamic";
 import Station from "../components/subway/Station";
+import RecommendPlace from "../components/index/RecommendPlace";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 const Content1 = styled.div`
@@ -20,7 +21,7 @@ const Content1 = styled.div`
 const Contente2 = styled.div`
   position: fixed;
   background-color: white;
-  height: 70vh;
+  height: 60vh;
   bottom: 0px;
   left: 0;
   width: 100vw;
@@ -50,7 +51,9 @@ export default function Home() {
       <Contente2>
         <Station></Station>
         <Facilities></Facilities>
-        {/* <Title title={data.name} options={data.option}></Title> */}
+        <RecommendPlace></RecommendPlace>
+        {/* <Title title={data.name} options={data.
+options}></Title> */}
       </Contente2>
     </div>
   );

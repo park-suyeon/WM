@@ -1,45 +1,55 @@
 import styled from "styled-components";
 const StationBlock = styled.div`
   display: flex;
-
   flex-direction: column;
   width: 100%;
   align-items: center;
-  height: 50px;
   margin-top: 30px;
-  & > .line {
+  .line {
     width: 90%;
-    height: 30px;
+    height: 25px;
     align-items: center;
     background-color: #c66a28;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
-    padding-left: 13px;
-    padding-right: 13px;
-    margin-top: 10px;
-    & > .previousStation {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 7.5px;
+    .previousStation {
       color: white;
-      font-size: 14px;
+      font-size: 13px;
     }
-    & > .nextStation {
+    .nextStation {
       color: white;
-      font-size: 14px;
+      font-size: 13px;
     }
   }
-  & > .stationName {
+  .stationName {
     width: 40%;
-    height: 50px;
+    height: 40px;
     background-color: white;
     border: 2px solid #c66a28;
     border-radius: 30px;
     align-items: center;
-    position: fixed;
+    /* position: fixed; */
     padding: 10px;
-    & > .text {
+    .text {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 17px;
       text-align: center;
+    }
+  }
+  .distanceWrapper {
+    display: flex;
+    margin-top: 15px;
+    .exit {
+      font-size: 12px;
+      margin-right: 6px;
+    }
+    .distance {
+      font-size: 12px;
+      color: #c248ad;
     }
   }
 `;
@@ -52,6 +62,10 @@ const Station = (props) => {
       </div>
       <div className="stationName">
         <div className="text">효창공원앞</div>
+      </div>
+      <div className="distanceWrapper">
+        <div className="exit">3번 출구</div>
+        <div className="distance">50m</div>
       </div>
     </StationBlock>
   );
