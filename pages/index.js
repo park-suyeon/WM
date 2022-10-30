@@ -50,7 +50,7 @@ export default function Home() {
       <Contente2>
         <Station></Station>
         <Facilities></Facilities>
-        <Title title={data.name} address={data.address}></Title>
+        {/* <Title title={data.name} options={data.option}></Title> */}
       </Contente2>
     </div>
   );

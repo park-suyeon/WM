@@ -149,7 +149,7 @@ const Title = ({ title, options }) => {
   return (
     <Detail>
       <div className="Placename">{title}</div>
-      {Options}
+      <div className="Wrapper">{Options}</div>
       <div className="Buttons">
         <div className="Start">
           <img className="icon" src="/images/icon/Group.png" />
