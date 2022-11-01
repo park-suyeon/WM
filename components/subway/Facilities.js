@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const FacilitiesBlock = styled.div`
   display: flex;
-  padding: 15px;
+  padding: 0px 15px;
   flex-direction: column;
   width: 100%;
   align-items: center;
@@ -68,8 +68,8 @@ const Facilities = (props) => {
             <div className="textOn">2번 출구</div>
           </div>
           <div className="detailed">
-            <img className="icon" src="\images\icon\callStaff_black.png" />
-            <div className="textOn">직원 호출</div>
+            <img className="icon" src="\images\icon\footplate_black.png" />
+            <div className="textOn">안전발판</div>
           </div>
           <div className="detailed">
             <img className="icon" src="\images\icon\charge_gray.png" />
