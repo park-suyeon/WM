@@ -17,10 +17,12 @@ const FacilitiesBlock = styled.div`
       display: flex;
       flex-direction: column;
       margin-right: 10px;
+      overflow-wrap: normal;
       .detailed {
         display: flex;
         margin-bottom: 15px;
         height: 30px;
+        white-space: pre;
         .icon {
           height: 19px;
           margin-right: 9px;
@@ -37,10 +39,12 @@ const FacilitiesBlock = styled.div`
     & > .block2 {
       display: flex;
       flex-direction: column;
+      overflow-wrap: normal;
       .detailed {
         display: flex;
         margin-bottom: 15px;
         height: 30px;
+        white-space: pre;
         .icon {
           height: 19px;
           margin-right: 9px;
