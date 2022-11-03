@@ -24,10 +24,10 @@ const Login = styled.div`
 export default function LoginButton() {
   return (
     <Login>
-      <a className="iconWrapper" href="/login">
+      <div className="iconWrapper">
         <img className="icon" src="/images/icon/login.png" />
         <div className="text">로그인</div>
-      </a>
+      </div>
     </Login>
   );
 }
