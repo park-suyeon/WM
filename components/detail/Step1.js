@@ -27,6 +27,7 @@ const UpdateWrapper = styled.div`
     .buttonWrap {
       display: flex;
       align-items: center;
+
       .button {
         background-color: white;
         width: 140px;

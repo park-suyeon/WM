@@ -101,25 +101,13 @@ export default function Step2() {
       <div className="content">
         <div className="midTitleWrap">
           <div className="midTitle">
-            [휠체어 급속 충전기]상세 설명을 입력해 주세요.
+            [#태그]해당 장소 특징에 대해 간략히 입력해 주세요
           </div>
           <div className="choice">선택</div>
         </div>
-        <div className="recordWrapper">
-          <img className="memberIcon" src="/images/icon/member.png" />
-          <div className="record">
-            <div className="recordContent">건물 후문 출입구에 위치</div>
-            <div className="recordText">
-              <div className="who">박수연</div>
-              <div className="words">님이</div>
-              <div className="when">2022.09.01 </div>
-              <div className="words">등록한 내용입니다.</div>
-            </div>
-          </div>
-        </div>
         <input
           className="text"
-          placeholder="수정할 내용이 있으면 입력해 주세요"
+          placeholder="해당 장소에서의 경험을 해시태그로 입력해 주세요. #태그 입력(ex. #유동인구 많음 #공간협소)"
         ></input>
         <div className="midTitleWrap">
           <div className="midTitle">사진 추가</div>
