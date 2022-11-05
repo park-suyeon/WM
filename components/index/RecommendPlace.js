@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Recommend = styled.div`
   width: 100%;
   border-top: #ededed solid 2px;
+  align-items: center;
   .title {
     background: #1093ff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -11,7 +12,6 @@ const Recommend = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
     .titleText {
       font-weight: 700;
       font-size: 14px;
@@ -19,7 +19,7 @@ const Recommend = styled.div`
       margin: 10px 25px 10px 10px;
     }
   }
-  .wrap {
+  .mainWrap {
     display: flex;
     align-items: center;
     .contentWrapper {
@@ -40,7 +40,7 @@ const Recommend = styled.div`
         margin-bottom: 12px;
         overflow-wrap: normal;
         .text {
-          font-size: 18px;
+          font-size: 15px;
           margin: 3px 10px;
           text-align: center;
         }
@@ -119,6 +119,16 @@ const Recommend = styled.div`
       cursor: pointer;
     }
   }
+  .dotWrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    .dot {
+      height: 7px;
+      margin-right: 8px;
+      margin-bottom: 10px;
+    }
+  }
 `;
 const RecommendPlace = ({ title, options }) => {
   const Options = options?.map((option) => {
@@ -170,7 +180,7 @@ const RecommendPlace = ({ title, options }) => {
       <div className="title">
         <div className="titleText">우리 동네 별점 높은 플레이스!</div>
       </div>
-      <div className="wrap">
+      <div className="mainWrap">
         <img className="back" src="\images\icon\plus_blue.png" />
         <div className="contentWrapper">
           <div className="Placename">{title}</div>
@@ -182,6 +192,13 @@ const RecommendPlace = ({ title, options }) => {
           </div>
         </div>
         <img className="next" src="\images\icon\plus_blue.png" />
+      </div>
+      <div className="dotWrapper">
+        <img className="dot" src="\images\icon\dotOn.png" />
+        <img className="dot" src="\images\icon\dotOff.png" />
+        <img className="dot" src="\images\icon\dotOff.png" />
+        <img className="dot" src="\images\icon\dotOff.png" />
+        <img className="dot" src="\images\icon\dotOff.png" />
       </div>
     </Recommend>
   );

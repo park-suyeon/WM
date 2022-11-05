@@ -4,7 +4,7 @@ const StationBlock = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
-  margin-top: 30px;
+  padding-top: 20px;
   .line {
     width: 90%;
     height: 25px;
@@ -45,6 +45,7 @@ const StationBlock = styled.div`
   .distanceWrapper {
     display: flex;
     margin-top: 15px;
+    margin-bottom: 5px;
     .exit {
       font-size: 12px;
       margin-right: 6px;

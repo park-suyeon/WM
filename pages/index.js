@@ -10,6 +10,8 @@ import RecommendPlace from "../components/index/RecommendPlace";
 import useCoordinate from "../hooks/useCoordinate";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import PresentPosition from "../components/index/PresentPosition";
+import LoginButton from "../components/index/LoginButton";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 const Content1 = styled.div`
   position: fixed;
@@ -20,8 +22,21 @@ const Content1 = styled.div`
     padding: 0px 0px 0px 20px;
   }
 `;
-const Contente2 = styled.div`
+const ContentWrapper = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
   z-index: 1000;
+  height: 60vh;
+  width: 100vw;
+`;
+const Content2 = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 10px;
+`;
+const Content3 = styled.div`
   position: fixed;
   background-color: white;
   height: 60vh;
@@ -61,20 +76,26 @@ export default function Home() {
           <FastSearch></FastSearch>
         </div>
       </Content1>
-      <Contente2>
-        <Station
-          title={data.name}
-          left={data.left}
-          right={data.right}
-        ></Station>
-        <Facilities></Facilities>
-        <RecommendPlace
-          title={data.name}
-          options={data.options}
-        ></RecommendPlace>
-        {/* <Title title={data.name} options={data.
-options}></Title> */}
-      </Contente2>
+      <ContentWrapper>
+        <Content2>
+          <PresentPosition></PresentPosition>
+          <LoginButton></LoginButton>
+        </Content2>
+        <Content3>
+          <Station
+            title={data.name}
+            left={data.left}
+            right={data.right}
+          ></Station>
+          <Facilities></Facilities>
+          <RecommendPlace
+            title={data.name}
+            options={data.options}
+          ></RecommendPlace>
+          {/* <Title title={data.name} options={data.
+    options}></Title> */}
+        </Content3>
+      </ContentWrapper>
     </div>
   );
 }
