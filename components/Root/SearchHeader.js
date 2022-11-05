@@ -16,12 +16,12 @@ const SearchHeader = styled.div`
     margin-bottom: 10px;
   }
   .swapicon {
-    position: fixed;
+    position: absolute;
     top: 60px;
     right: 10px;
   }
   .xicon {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 15px;
   }

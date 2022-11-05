@@ -28,7 +28,7 @@ const Transfer = styled.div`
 
   .TransferLineBar1 {
     display: flex;
-    width: 110px;
+    width: ${(props) => props.width}px;
     height: 20px;
     z-index: 1;
     align-items: center;
@@ -44,9 +44,9 @@ const Transfer = styled.div`
     }
   }
 `;
-const TransferLine = ({ lineText, time, left }) => {
+const TransferLine = ({ lineText, time, left, width }) => {
   return (
-    <Transfer left={left} lineText={lineText}>
+    <Transfer left={left} lineText={lineText} width={width}>
       <div className="TransferCircle1">
         <div className="Transfertext">{lineText}</div>
       </div>

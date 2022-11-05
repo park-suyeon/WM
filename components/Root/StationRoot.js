@@ -1,27 +1,28 @@
 import styled from "styled-components";
 const RootBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-
   .LineWrapper {
     display: flex;
     flex-direction: column;
     position: absolute;
     left: 20px;
-    height: 80%;
     width: 10%;
     .LineBar1 {
       display: flex;
-      position: relative;
-      left: 20%;
+      position: absolute;
+      left: 10px;
+      top: 30px;
       justify-content: center;
       border-left: 15px solid #3cb449;
       height: 100px;
     }
+
     .LineCircle1 {
       display: flex;
       align-items: center;
       justify-content: center;
+      position: absolute;
+      top: 10px;
+      left: 2.5px;
       z-index: 1;
       height: 30px;
       width: 30px;
@@ -43,18 +44,76 @@ const RootBlock = styled.div`
         font-weight: bolder;
       }
     }
-
-    .TransferLine {
+    .LineCircle2 {
       display: flex;
-      position: relative;
-      left: 20%;
+      align-items: center;
       justify-content: center;
-      border-left: 15px dashed #c4c4c4;
-      height: 100px;
+      position: absolute;
+      top: 130px;
+      left: 2.5px;
+      z-index: 1;
+      height: 30px;
+      width: 30px;
+      border-radius: 99999px;
+      background-color: #3cb449;
+      margin: -1.5px 0px -2px 0px;
+      .text2 {
+        font-size: 13px;
+        color: white;
+        font-weight: bold;
+      }
     }
   }
+  .LineBar2 {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    left: 30px;
+    top: 55%;
+    justify-content: center;
+    border-left: 15px dashed #545454;
+    height: 100px;
+  }
+  .stationBlock {
+    display: flex;
+    flex-direction: row;
+    .stationName {
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      left: 60px;
+      top: 0px;
+    }
+    .stationicon {
+      width: 18px;
+      height: 17px;
+      position: relative;
+      left: 70px;
+      top: 2px;
+    }
+    .exit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      left: 77px;
+      font-size: 15px;
+      color: #c248ad;
+    }
+  }
+  .text {
+  }
+
+  .TransferLine {
+    display: flex;
+    position: relative;
+    left: 20%;
+    justify-content: center;
+    border-left: 15px dashed #c4c4c4;
+    height: 100px;
+  }
 `;
-const RootLine = (props) => {
+const StationRoot = (props) => {
   return (
     <RootBlock>
       <div className="LineWrapper">
@@ -62,19 +121,40 @@ const RootLine = (props) => {
           <div className="LineNumber1">2</div>
         </div>
         <div className="LineBar1"></div>
-        <div className="LineCircle1">
-          <div className="text1">도착</div>
+        <div className="LineCircle2">
+          <div className="text2">출발</div>
         </div>
-        <div className="TransferLine"></div>
+      </div>
+      <div className="stationBlock">
+        <div className="stationName">서초</div>
+        <img className="stationicon" src="/images/icon/toilet_black.png" />
+        <div className="exit">2번출구</div>
+      </div>
+      <div className="stationBlock">
+        <div className="exit">방배 방향 | </div>
+        <img className="stationicon" src="/images/icon/toilet_black.png" />
+      </div>
+      <div className="exit">5분</div>
+      <div className="LineBar2"></div>
+      <div className="LineWrapper">
         <div className="LineCircle1">
           <div className="LineNumber1">2</div>
         </div>
         <div className="LineBar1"></div>
-        <div className="LineCircle1">
-          <div className="text1">도착</div>
+        <div className="LineCircle2">
+          <div className="text2">출발</div>
         </div>
+      </div>
+      <div className="stationBlock">
+        <div className="stationName">서초</div>
+        <img className="stationicon" src="/images/icon/toilet_black.png" />
+        <div className="exit">2번출구</div>
+      </div>
+      <div className="stationBlock">
+        <div className="exit">방배 방향 | </div>
+        <img className="stationicon" src="/images/icon/toilet_black.png" />
       </div>
     </RootBlock>
   );
 };
-export default RootLine;
+export default StationRoot;
