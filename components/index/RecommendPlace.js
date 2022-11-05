@@ -39,6 +39,7 @@ const Recommend = styled.div`
         width: 100%;
         margin-bottom: 12px;
         overflow-wrap: normal;
+        justify-content: center;
         .text {
           font-size: 15px;
           margin: 3px 10px;
@@ -123,10 +124,12 @@ const Recommend = styled.div`
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: center;
     .dot {
       height: 7px;
       margin-right: 8px;
       margin-bottom: 10px;
+      cursor: pointer;
     }
   }
 `;

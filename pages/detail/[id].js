@@ -32,6 +32,8 @@ const Contente2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
   const router = useRouter();
@@ -56,9 +58,9 @@ export default function Home() {
         <Title title={data.name}></Title>
         <ShareCallBox></ShareCallBox>
         <OptionIcon options={data.options}></OptionIcon>
+        <MainLocation title={data.name} address={data.address}></MainLocation>
         {/* <Photo></Photo> */}
         <MorePhoto></MorePhoto>
-        <MainLocation title={data.name} address={data.address}></MainLocation>
       </Contente2>
     </div>
   );

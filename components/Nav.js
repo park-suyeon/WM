@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 const NavBlock = styled.div`
   background-color: white;
   display: flex;
@@ -35,10 +36,16 @@ const Nav = (props) => {
   return (
     <NavBlock>
       <div className="header">
-        <img className="home" src="/images/logo.png"></img>
+        <Link href="/">
+          <img className="home" src="/images/logo.png"></img>
+        </Link>
         <div className="nav_right">
-          <div className="login">로그인</div>
-          <div className="membership">회원가입</div>
+          <Link href="/login">
+            <div className="login">로그인</div>
+          </Link>
+          <Link href="/signup">
+            <div className="membership">회원가입</div>
+          </Link>
         </div>
       </div>
     </NavBlock>

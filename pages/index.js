@@ -52,15 +52,16 @@ const Content3 = styled.div`
 `;
 export default function Home() {
   const [lat, lon] = useCoordinate();
-  const { isLoading, error } = useQuery(["subway", lat, lon], () =>
-    axios.get(`/api/subway`, { params: { lat, lon } }).then((res) => res.data)
+  const {
+    isLoading,
+    error,
+    data: data,
+  } = useQuery(["subway", lat, lon], () =>
+    axios
+      .get(`/api/subway/close`, { params: { lat, lon } })
+      .then((res) => res.data)
   );
-  const data = {
-    name: "효창공원",
-    options: ["경사로"],
-    left: "공덕",
-    right: "삼각지",
-  };
+  if (isLoading) return null;
   return (
     <div>
       <Head>
@@ -90,7 +91,7 @@ export default function Home() {
           <Facilities></Facilities>
           <RecommendPlace
             title={data.name}
-            options={data.options}
+            options={[data.options]}
           ></RecommendPlace>
           {/* <Title title={data.name} options={data.
     options}></Title> */}

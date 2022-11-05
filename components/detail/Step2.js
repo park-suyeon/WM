@@ -67,7 +67,10 @@ export default function Step2() {
           </div>
           <div className="choice">선택</div>
         </div>
-        <input className="text"></input>
+        <input
+          className="text"
+          placeholder="수정할 내용이 있으면 입력해 주세요"
+        ></input>
         <div className="midTitleWrap">
           <div className="midTitle">사진 추가</div>
           <img className="icon" src="/images/icon/plus.png" />

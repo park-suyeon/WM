@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const PhotoWrapper = styled.div`
   display: flex;
@@ -71,6 +72,7 @@ const PhotoWrapper = styled.div`
       align-items: center;
       padding: 12px;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
       .icon {
         height: 25px;
       }
@@ -120,9 +122,11 @@ const MorePhoto = (props) => {
             <div>2022.09.01</div>
           </div>
         </div>
-        <button className="edit">
-          <img className="icon" src="/images/icon/edit.png" />
-        </button>
+        <Link href="/detail/update">
+          <div className="edit">
+            <img className="icon" src="/images/icon/edit.png" />
+          </div>
+        </Link>
       </div>
     </PhotoWrapper>
   );

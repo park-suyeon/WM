@@ -9,6 +9,7 @@ const Present = styled.div`
     border-radius: 20px;
     align-items: center;
     margin-right: 9px;
+    cursor: pointer;
     .icon {
       width: 26px;
       margin: 15px;

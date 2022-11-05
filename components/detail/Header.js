@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -6,6 +7,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
   .logo {
     margin-right: 13px;
+    cursor: pointer;
   }
   .searchBar {
     height: 40px;
@@ -30,7 +32,9 @@ const HeaderWrapper = styled.div`
 export default function Header() {
   return (
     <HeaderWrapper>
-      <img className="logo" src="/images/logo.png" />
+      <Link href="/">
+        <img className="logo" src="/images/logo.png" />
+      </Link>
       <input className="searchBar" />
       <img className="icon" src="/images/icon/search.png" />
     </HeaderWrapper>
