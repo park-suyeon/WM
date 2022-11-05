@@ -112,8 +112,18 @@ const StationLine = (props) => {
         <div className="LineBar">
           <div className="iconCircle">
             <img className="icon" src="/images/icon/wheelchair.png" />
-            <TransferLine lineText={2} time={6} left={100}></TransferLine>
-            <TransferLine lineText={4} time={10} left={800}></TransferLine>
+            <TransferLine
+              lineText={2}
+              time={6}
+              left={150}
+              width={110}
+            ></TransferLine>
+            <TransferLine
+              lineText={4}
+              time={10}
+              left={800}
+              width={140}
+            ></TransferLine>
           </div>
         </div>
       </div>

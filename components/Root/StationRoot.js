@@ -2,10 +2,10 @@ import styled from "styled-components";
 const RootBlock = styled.div`
   .LineWrapper {
     display: flex;
-    position: relative;
+    flex-direction: column;
+    position: absolute;
     left: 20px;
     width: 10%;
-    height: 50%;
     .LineBar1 {
       display: flex;
       position: absolute;
@@ -15,6 +15,7 @@ const RootBlock = styled.div`
       border-left: 15px solid #3cb449;
       height: 100px;
     }
+
     .LineCircle1 {
       display: flex;
       align-items: center;
@@ -63,6 +64,16 @@ const RootBlock = styled.div`
       }
     }
   }
+  .LineBar2 {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    left: 30px;
+    top: 55%;
+    justify-content: center;
+    border-left: 15px dashed #545454;
+    height: 100px;
+  }
   .stationBlock {
     display: flex;
     flex-direction: row;
@@ -89,6 +100,8 @@ const RootBlock = styled.div`
       font-size: 15px;
       color: #c248ad;
     }
+  }
+  .text {
   }
 
   .TransferLine {
@@ -122,6 +135,25 @@ const StationRoot = (props) => {
         <img className="stationicon" src="/images/icon/toilet_black.png" />
       </div>
       <div className="exit">5분</div>
+      <div className="LineBar2"></div>
+      <div className="LineWrapper">
+        <div className="LineCircle1">
+          <div className="LineNumber1">2</div>
+        </div>
+        <div className="LineBar1"></div>
+        <div className="LineCircle2">
+          <div className="text2">출발</div>
+        </div>
+      </div>
+      <div className="stationBlock">
+        <div className="stationName">서초</div>
+        <img className="stationicon" src="/images/icon/toilet_black.png" />
+        <div className="exit">2번출구</div>
+      </div>
+      <div className="stationBlock">
+        <div className="exit">방배 방향 | </div>
+        <img className="stationicon" src="/images/icon/toilet_black.png" />
+      </div>
     </RootBlock>
   );
 };
