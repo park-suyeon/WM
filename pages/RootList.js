@@ -3,12 +3,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import SearchHeader from "../components/root/SearchHeader";
 import dynamic from "next/dynamic";
-import StationLineBar from "../components/root/StationLine";
-import TransportSelect from "../components/root/TransportSelect";
-import TimeUnit from "../components/root/ViewTime";
+import StationLineBar from "../components/root/StationLineBar";
+import TimeUnit from "../components/root/TimeUnit";
 import FacilityWrapper from "../components/root/FacilityWrapper";
 import Order from "../components/search/Order";
-const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 const Content1 = styled.div`
   z-index: 1;
@@ -34,7 +32,6 @@ export default function Home() {
 
       <Content1>
         <SearchHeader></SearchHeader>
-        <TransportSelect></TransportSelect>
         <Order></Order>
       </Content1>
       <Contente2>
@@ -72,8 +69,3 @@ export default function Home() {
     </div>
   );
 }
-// export async function getServerSideProps() {
-//   await mongodbconnect();
-//   const placeList = await placemodel.find();
-//   return { props: { placeList: placeList } };
-// }
