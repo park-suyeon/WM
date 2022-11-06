@@ -29,7 +29,7 @@ const Facility = styled.div`
   /* } */
 `;
 
-const FacilityType = (props) => {
+const FacilityWrapper = (props) => {
   return (
     <Facility>
       <div className="faciltyContent">
@@ -43,4 +43,4 @@ const FacilityType = (props) => {
     </Facility>
   );
 };
-export default FacilityType;
+export default FacilityWrapper;
