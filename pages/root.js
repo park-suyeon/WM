@@ -1,36 +1,42 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import SearchHeader from "../components/Root/SearchHeader";
+import SearchHeader from "../components/root/SearchHeader";
 import dynamic from "next/dynamic";
-import RootLine from "../components/Root/StationRoot";
-import ViewTime from "../components/Root/TimeUnit";
-import Location1 from "../components/Root/Location";
-import Location2 from "../components/Root/Location2";
+import RootLine from "../components/root/StationRoot";
+import ViewTime from "../components/root/TimeUnit";
+import Location1 from "../components/root/Location";
+import Location2 from "../components/root/Location2";
 import Order from "../components/search/Order";
+import FacilityWrapper from "../components/root/FacilityWrapper";
+import Start from "../components/root/Start";
+import Destination from "../components/root/Destination";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
-const Content1 = styled.div`
-  position: absolute;
-  z-index: 1;
+const Header = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
 `;
-const Contente2 = styled.div`
-  position: absolute;
-  background-color: none;
+const Body = styled.div`
   height: 78vh;
-  bottom: 0px;
-  left: 0;
-  width: 80%;
-  overflow: scroll;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
-
+const Content1 = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const Content2 = styled.div`
+  display: flex;
+  width: 100%;
+`;
+const Content3 = styled.div`
+  width: 100%;
+`;
 export default function Home() {
   return (
     <div>
@@ -41,23 +47,22 @@ export default function Home() {
       </Head>
       {/* <Map></Map> */}
 
-      <Content1>
+      <Header>
         <SearchHeader></SearchHeader>
         <Order></Order>
-      </Content1>
-
-      <Contente2>
-        <ViewTime></ViewTime>
-        <Location1></Location1>
-        <RootLine></RootLine>
-        <Location2></Location2>
-        {/* <Title title={data.name} options={data.option}></Title> */}
-      </Contente2>
+      </Header>
+      <Body>
+        <Content1>
+          <ViewTime></ViewTime>
+          <Start></Start>
+        </Content1>
+        <Content2>
+          <RootLine></RootLine>
+        </Content2>
+        <Content3>
+          <Destination></Destination>
+        </Content3>
+      </Body>
     </div>
   );
 }
-// export async function getServerSideProps() {
-//   await mongodbconnect();
-//   const placeList = await placemodel.find();
-//   return { props: { placeList: placeList } };
-// }
