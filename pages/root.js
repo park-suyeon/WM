@@ -7,6 +7,7 @@ import TimeUnit from "../components/root/TimeUnit";
 import Order from "../components/search/Order";
 import Start from "../components/root/Start";
 import Destination from "../components/root/Destination";
+import StationRoot from "../components/Root/StationRoot";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
@@ -49,11 +50,11 @@ export default function Home() {
       </Header>
       <Body>
         <Content1>
-          <ViewTime></ViewTime>
+          <TimeUnit></TimeUnit>
           <Start></Start>
         </Content1>
         <Content2>
-          <RootLine></RootLine>
+          <StationRoot></StationRoot>
         </Content2>
         <Content3>
           <Destination></Destination>
