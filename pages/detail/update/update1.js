@@ -7,7 +7,7 @@ import Title from "../../../components/detail/Title";
 import Step1 from "../../../components/detail/Step1";
 import ShareCallBox from "../../../components/detail/ShareCall";
 import ButtonBox from "../../../components/index/ButtonBox";
-const Map = dynamic(() => import("../../../components/Map"), { ssr: false });
+import Map from "../../../components/Map";
 
 const Content1 = styled.div`
   position: fixed;
@@ -31,12 +31,6 @@ const Content2 = styled.div`
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
-  const router = useRouter();
-  const id = router.query.id;
-  const { isLoading, error, data } = useQuery(["place", id], () =>
-    axios(`/api/place/${id}`).then((res) => res.data)
-  );
-  if (isLoading) return "로딩중";
   return (
     <div>
       <Head>

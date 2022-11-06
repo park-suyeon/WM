@@ -24,7 +24,7 @@ function App() {
       map,
     });
   }, [lat, lon]);
-  return <div ref={mapElement} style={{ minHeight: "400px" }} />;
+  return <div ref={mapElement} style={{ minHeight: "1000px" }} />;
 }
 
 export default App;
