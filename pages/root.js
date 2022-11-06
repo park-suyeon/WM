@@ -8,7 +8,7 @@ import StationLine from "../components/Root/StationLineBar";
 import RootLine from "../components/Root/StationRoot";
 import TransportSelect from "../components/Root/HeaderSelect";
 import ViewTime from "../components/Root/TimeUnit";
-import ChooseWays from "../components/Root/recommend";
+import ChooseWays from "../components/Root/ChooseWays";
 import Location1 from "../components/Root/Location";
 import Location2 from "../components/Root/Location2";
 
