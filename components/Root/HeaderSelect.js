@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderSelect = styled.div`
+const TransportSelect = styled.div`
   background-color: #1093ff;
   display: flex;
   flex-direction: column;
@@ -28,9 +28,9 @@ const HeaderSelect = styled.div`
     }
   }
 `;
-const TransportSelect = (props) => {
+const HeaderSelect = (props) => {
   return (
-    <HeaderSelect>
+    <TransportSelect>
       <div className="Wrapper">
         <div className="transportWrapper">
           <img className="img" src="/images/icon/taxi.png" />{" "}
@@ -45,7 +45,7 @@ const TransportSelect = (props) => {
           <div className="text">휠체어</div>
         </div>
       </div>
-    </HeaderSelect>
+    </TransportSelect>
   );
 };
-export default TransportSelect;
+export default HeaderSelect;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SearchHeader = styled.div`
+const SearchBlock = styled.div`
   background-color: #1093ff;
   padding: 24px 10px 0px 15px;
   display: flex;
@@ -26,15 +26,15 @@ const SearchHeader = styled.div`
     right: 15px;
   }
 `;
-const SearchBlock = (props) => {
+const SearchHeader = (props) => {
   return (
-    <SearchHeader>
+    <SearchBlock>
       <img className="xicon" src="/images/icon/x.png" />
       <input className="searchBar" placeholder="출발지 입력" />
       <img className="swapicon" src="/images/icon/swap.png" />
       <input className="searchBar" placeholder="도착지 입력" />
       <div></div>
-    </SearchHeader>
+    </SearchBlock>
   );
 };
-export default SearchBlock;
+export default SearchHeader;

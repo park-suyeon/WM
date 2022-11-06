@@ -74,7 +74,7 @@ const StationWrapper = styled.div`
     }
   }
 `;
-const StationLine = (props) => {
+const StationLineBar = (props) => {
   return (
     <StationWrapper>
       <div className="LineWrapper">
@@ -99,4 +99,4 @@ const StationLine = (props) => {
     </StationWrapper>
   );
 };
-export default StationLine;
+export default StationLineBar;

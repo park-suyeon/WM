@@ -25,7 +25,7 @@ const TimeBlock = styled.div`
     }
   }
 `;
-const ViewTime = (props) => {
+const TimeUnit = (props) => {
   return (
     <TimeBlock>
       <div className="TimeWrapper">
@@ -35,4 +35,4 @@ const ViewTime = (props) => {
     </TimeBlock>
   );
 };
-export default ViewTime;
+export default TimeUnit;
