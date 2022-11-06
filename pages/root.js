@@ -3,14 +3,11 @@ import Image from "next/image";
 import styled from "styled-components";
 import SearchHeader from "../components/Root/SearchHeader";
 import dynamic from "next/dynamic";
-import Station from "../components/subway/Station";
-import StationLine from "../components/Root/StationLineBar";
 import RootLine from "../components/Root/StationRoot";
-import TransportSelect from "../components/Root/HeaderSelect";
 import ViewTime from "../components/Root/TimeUnit";
-import ChooseWays from "../components/Root/ChooseWays";
 import Location1 from "../components/Root/Location";
 import Location2 from "../components/Root/Location2";
+import Order from "../components/search/Order";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
@@ -46,7 +43,7 @@ export default function Home() {
 
       <Content1>
         <SearchHeader></SearchHeader>
-        <ChooseWays></ChooseWays>
+        <Order></Order>
       </Content1>
 
       <Contente2>
