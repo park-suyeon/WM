@@ -4,7 +4,7 @@ const StartLocation = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  left: 20px;
+  left: 25px;
   .startStation {
     font-size: 18px;
     font-weight: bolder;

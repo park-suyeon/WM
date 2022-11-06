@@ -24,7 +24,7 @@ const Content1 = styled.div`
 const Contente2 = styled.div`
   position: absolute;
   background-color: none;
-  height: 80vh;
+  height: 78vh;
   bottom: 0px;
   left: 0;
   width: 80%;

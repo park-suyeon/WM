@@ -4,8 +4,8 @@ const AriveLocation = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 80%;
-  left: 20px;
+  bottom: 10px;
+  left: 25px;
   .startStation {
     font-size: 18px;
     font-weight: bolder;
