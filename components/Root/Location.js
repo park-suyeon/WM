@@ -30,7 +30,7 @@ const StartLocation = styled.div`
     margin: 0px 4px 0px 4px;
   }
 `;
-const Location1 = (props) => {
+const Location = (props) => {
   return (
     <StartLocation>
       <div className="wrapper">
@@ -47,4 +47,4 @@ const Location1 = (props) => {
     </StartLocation>
   );
 };
-export default Location1;
+export default Location;
