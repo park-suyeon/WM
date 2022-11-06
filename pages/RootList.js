@@ -1,17 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import FastSearch from "../components/index/FastSearch";
-import Facilities from "../components/subway/Facilities";
 import SearchHeader from "../components/Root/SearchHeader";
 import dynamic from "next/dynamic";
-import Station from "../components/subway/Station";
-import PlaceListWrapper from "../components/detail/PlaceList";
 import StationLine from "../components/Root/StationLineBar";
 import TransportSelect from "../components/Root/HeaderSelect";
 import ViewTime from "../components/Root/TimeUnit";
-import FacilityType from "../components/Root/facilityWrapper";
-import ChooseWays from "../components/Root/recommend";
+import FacilityWrapper from "../components/Root/FacilityWrapper";
+import Order from "../components/search/Order";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 const Content1 = styled.div`
@@ -25,6 +21,7 @@ const Contente2 = styled.div`
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  border-top: solid 2.5px #ededed;
 `;
 export default function Home() {
   return (
@@ -38,21 +35,40 @@ export default function Home() {
       <Content1>
         <SearchHeader></SearchHeader>
         <TransportSelect></TransportSelect>
-        <ChooseWays></ChooseWays>
+        <Order></Order>
       </Content1>
       <Contente2>
         <ViewTime></ViewTime>
         <StationLine></StationLine>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
-        {/* <Title title={data.name} options={data.option}></Title> */}
+        <FacilityWrapper></FacilityWrapper>
       </Contente2>
+      <Contente2>
+        <ViewTime></ViewTime>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <ViewTime></ViewTime>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <ViewTime></ViewTime>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <ViewTime></ViewTime>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <ViewTime></ViewTime>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+
+      {/* <Title title={data.name} options={data.option}></Title> */}
     </div>
   );
 }

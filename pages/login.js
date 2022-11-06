@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
+import ButtonBox from "../components/index/ButtonBox";
 import InputBox from "../components/InputBox";
 import Nav from "../components/Nav";
 
@@ -8,7 +9,7 @@ const Line = styled.div`
   background-color: #4461f2;
   height: 5px;
   width: 100%;
-  margin-bottom: 42px;
+  margin-bottom: 40px;
 `;
 const LoginBlock = styled.div`
   background-color: white;
@@ -23,16 +24,6 @@ const LoginBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  & > button {
-    color: white;
-    background-color: #4461f2;
-    width: 240px;
-    height: 40px;
-    font-size: 12px;
-    border-style: hidden;
-    border-radius: 10px;
-    font-weight: 400;
-  }
   .text {
     text-align: left;
     padding: 10px 20px;
@@ -84,7 +75,7 @@ export default function Home() {
             </label>
           </div>
         </div>
-        <button>로그인</button>
+        <ButtonBox text="로그인" />
       </LoginBlock>
     </div>
   );

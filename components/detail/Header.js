@@ -20,6 +20,7 @@ const HeaderWrapper = styled.div`
     align-items: center;
     font-size: 18px;
     padding-left: 40px;
+    box-shadow: 0px 6px 10px rgba(16, 147, 255, 0.2);
   }
   .icon {
     position: fixed;

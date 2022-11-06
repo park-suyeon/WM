@@ -4,6 +4,7 @@ const OptionBox = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  border-bottom: 2px solid #ededed;
 
   .Wrapper {
     display: flex;
@@ -123,7 +124,7 @@ const OptionIcon = ({ options }) => {
         <img className="icon" src="/images/icon/disabled.png" />
         {Options}
       </div>
-      <img className="minus" src="/images/icon/open.png" />
+      {/* <img className="minus" src="/images/icon/open.png" /> */}
     </OptionBox>
   );
 };

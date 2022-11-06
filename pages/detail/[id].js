@@ -23,6 +23,7 @@ const Content1 = styled.div`
 `;
 const Contente2 = styled.div`
   position: fixed;
+  z-index: 100;
   background-color: white;
   height: 70vh;
   bottom: 0px;

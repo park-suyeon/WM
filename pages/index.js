@@ -31,15 +31,15 @@ const ContentWrapper = styled.div`
   width: 100vw;
 `;
 const Content2 = styled.div`
+  position: absolute;
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: 100vw;
   padding-right: 10px;
 `;
 const Content3 = styled.div`
   position: fixed;
   background-color: white;
-  height: 60vh;
   bottom: 0px;
   left: 0;
   width: 100vw;
@@ -70,7 +70,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.icon" />
       </Head>
       <Map></Map>
-
       <Content1>
         <Header></Header>
         <div className="moveNav">

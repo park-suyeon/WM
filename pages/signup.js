@@ -17,7 +17,6 @@ const SignUpBlock = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 50px;
 
   .header {
     display: flex;
@@ -134,7 +133,7 @@ export default function Home() {
               개인정보 수집에 동의합니다.
             </label>
           </div>
-          <input text="회원가입" type="submit" />
+          <ButtonBox text="회원가입"></ButtonBox>
         </form>
       </SignUpBlock>
     </div>

@@ -13,18 +13,18 @@ const PhotoWrapper = styled.div`
     .title {
       font-size: 15px;
       font-weight: 600;
-      padding: 12px 45px;
+      padding: 12px 30px;
     }
     .content {
       font-size: 13px;
       color: #545454;
-      padding-left: 95px;
+      padding-left: 30px;
       padding-bottom: 20px;
     }
     .photos {
       display: flex;
       margin-bottom: 30px;
-      margin-left: 150px;
+      margin-left: 30px;
       overflow: scroll;
       .photo1 {
         width: 100px;

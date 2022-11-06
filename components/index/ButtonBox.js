@@ -2,9 +2,15 @@ import styled from "styled-components";
 const Button = styled.div`
   color: white;
   background-color: #4461f2;
-  width: 45%;
-  height: 50px;
   font-size: 14px;
+  color: white;
+  background-color: #4461f2;
+  width: 280px;
+  height: 40px;
+  font-size: 12px;
+  border-style: hidden;
+  border-radius: 10px;
+  font-weight: 400;
   border-style: hidden;
   border-radius: 12px;
   font-weight: 400;
