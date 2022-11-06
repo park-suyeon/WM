@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import SearchHeader from "../components/Root/SearchHeader";
+import SearchHeader from "../components/root/SearchHeader";
 import dynamic from "next/dynamic";
-import StationLine from "../components/Root/StationLineBar";
-import TransportSelect from "../components/Root/HeaderSelect";
-import ViewTime from "../components/Root/TimeUnit";
-import FacilityWrapper from "../components/Root/FacilityWrapper";
+import StationLine from "../components/root/StationLineBar";
+import TransportSelect from "../components/root/HeaderSelect";
+import ViewTime from "../components/root/TimeUnit";
+import FacilityWrapper from "../components/root/FacilityWrapper";
 import Order from "../components/search/Order";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
