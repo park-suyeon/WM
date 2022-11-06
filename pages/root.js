@@ -3,12 +3,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import SearchHeader from "../components/root/SearchHeader";
 import dynamic from "next/dynamic";
-import RootLine from "../components/root/StationRoot";
-import ViewTime from "../components/root/TimeUnit";
-import Location1 from "../components/root/Location";
-import Location2 from "../components/root/Location2";
+import TimeUnit from "../components/root/TimeUnit";
 import Order from "../components/search/Order";
-import FacilityWrapper from "../components/root/FacilityWrapper";
 import Start from "../components/root/Start";
 import Destination from "../components/root/Destination";
 
