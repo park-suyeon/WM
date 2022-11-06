@@ -22,6 +22,14 @@ const Content1 = styled.div`
     padding: 0px 0px 0px 20px;
   }
 `;
+const ContentWrapper = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  height: 60vh;
+  width: 100vw;
+`;
 const Content2 = styled.div`
   position: absolute;
   display: flex;
@@ -31,7 +39,6 @@ const Content2 = styled.div`
 `;
 const Content3 = styled.div`
   position: fixed;
-  z-index: 100;
   background-color: white;
   bottom: 0px;
   left: 0;
@@ -69,18 +76,20 @@ export default function Home() {
           <FastSearch></FastSearch>
         </div>
       </Content1>
-      <Content2>
-        <PresentPosition></PresentPosition>
-        <LoginButton></LoginButton>
-      </Content2>
-      <Content3>
-        <Station
-          title={data.name}
-          left={data.left}
-          right={data.right}
-        ></Station>
-        <Facilities></Facilities>
-      </Content3>
+      <ContentWrapper>
+        <Content2>
+          <PresentPosition></PresentPosition>
+          <LoginButton></LoginButton>
+        </Content2>
+        <Content3>
+          <Station
+            title={data.name}
+            left={data.left}
+            right={data.right}
+          ></Station>
+          <Facilities></Facilities>
+        </Content3>
+      </ContentWrapper>
     </div>
   );
 }
