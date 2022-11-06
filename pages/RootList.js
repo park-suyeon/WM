@@ -3,9 +3,9 @@ import Image from "next/image";
 import styled from "styled-components";
 import SearchHeader from "../components/root/SearchHeader";
 import dynamic from "next/dynamic";
-import StationLine from "../components/root/StationLine";
+import StationLineBar from "../components/root/StationLine";
 import TransportSelect from "../components/root/TransportSelect";
-import ViewTime from "../components/root/ViewTime";
+import TimeUnit from "../components/root/ViewTime";
 import FacilityWrapper from "../components/root/FacilityWrapper";
 import Order from "../components/search/Order";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
@@ -38,33 +38,33 @@ export default function Home() {
         <Order></Order>
       </Content1>
       <Contente2>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
       </Contente2>
       <Contente2>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
       </Contente2>
       <Contente2>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
       </Contente2>
       <Contente2>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
       </Contente2>
       <Contente2>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
       </Contente2>
       <Contente2>
-        <ViewTime></ViewTime>
-        <StationLine></StationLine>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
       </Contente2>
 
