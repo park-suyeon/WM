@@ -41,24 +41,6 @@ const StationWrapper = styled.div`
         color: white;
       }
     }
-
-    .TransferCircle2 {
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-      left: 400%;
-      justify-content: center;
-      border-radius: 99999px;
-      width: 30px;
-      height: 30px;
-      background-color: #0ab5eb;
-      .Transfertext {
-        font-size: 18px;
-        font-weight: bolder;
-        color: white;
-      }
-    }
   }
   .iconCircle {
     display: flex;

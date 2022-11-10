@@ -3,9 +3,7 @@ import styled from "styled-components";
 const AriveLocation = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  bottom: 10px;
-  left: 25px;
+  margin-left: 25px;
   .startStation {
     font-size: 18px;
     font-weight: bolder;

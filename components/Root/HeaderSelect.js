@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderSelect = styled.div`
+const HeaderBlock = styled.div`
   background-color: #1093ff;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,8 @@ const HeaderSelect = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 5px 24px;
     .transportWrapper {
       display: flex;
       flex-direction: row;
@@ -27,9 +28,9 @@ const HeaderSelect = styled.div`
     }
   }
 `;
-const TransportSelect = (props) => {
+const HeaderSelect = (props) => {
   return (
-    <HeaderSelect>
+    <HeaderBlock>
       <div className="Wrapper">
         <div className="transportWrapper">
           <img className="img" src="/images/icon/taxi.png" />{" "}
@@ -44,7 +45,7 @@ const TransportSelect = (props) => {
           <div className="text">휠체어</div>
         </div>
       </div>
-    </HeaderSelect>
+    </HeaderBlock>
   );
 };
-export default TransportSelect;
+export default HeaderSelect;

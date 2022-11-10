@@ -6,6 +6,8 @@ const OrderrWrapper = styled.div`
   border-top: 4px solid #ededed;
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  z-index: 3;
   .text {
     font-weight: 500;
     font-size: 15px;
