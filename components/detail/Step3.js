@@ -28,7 +28,7 @@ const UpdateWrapper = styled.div`
       padding-bottom: 7px;
       .midTitle {
         font-weight: 600;
-        font-size: 17px;
+        font-size: 16px;
       }
       .choice {
         font-weight: 500;
@@ -101,7 +101,7 @@ export default function Step2() {
       <div className="content">
         <div className="midTitleWrap">
           <div className="midTitle">
-            [#태그]해당 장소 특징에 대해 간략히 입력해 주세요
+            [#태그]해당 장소에 대해 간략히 입력해 주세요
           </div>
           <div className="choice">선택</div>
         </div>

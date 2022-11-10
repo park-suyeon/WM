@@ -1,17 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import Header from "../../components/detail/Header";
-import FastSearch from "../../components/index/FastSearch";
-import Title from "../../components/detail/Title";
-import Step1 from "../../components/detail/Step1";
-import ShareCallBox from "../../components/detail/ShareCall";
-import ButtonBox from "../../components/index/ButtonBox";
-const Map = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/images/IndexMap.png");
-`;
+import Header from "../../../components/detail/Header";
+import Title from "../../../components/detail/Title";
+import Step2 from "../../../components/detail/Step2";
+import ShareCallBox from "../../../components/detail/ShareCall";
+import ButtonBox from "../../../components/index/ButtonBox";
+import Map from "../../../components/Map";
 const Content1 = styled.div`
   position: fixed;
   top: 0px;
@@ -20,6 +15,7 @@ const Content1 = styled.div`
 `;
 const Content2 = styled.div`
   position: fixed;
+  z-index: 100;
   background-color: #ebf8ff;
   height: 70vh;
   bottom: 0px;
@@ -29,6 +25,8 @@ const Content2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
   return (
@@ -45,8 +43,8 @@ export default function Home() {
       <Content2>
         <Title></Title>
         <ShareCallBox></ShareCallBox>
-        <Step1></Step1>
-        <ButtonBox text="다음" />
+        <Step2></Step2>
+        <ButtonBox text="저장" />
       </Content2>
     </div>
   );

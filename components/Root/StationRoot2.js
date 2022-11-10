@@ -12,7 +12,6 @@ const RootBlock2 = styled.div`
     justify-content: center;
     border-left: 15px dashed #545454;
     height: 100px;
-    z-index: -1;
   }
   .transferWrapper {
     display: flex;

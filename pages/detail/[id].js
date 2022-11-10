@@ -21,8 +21,9 @@ const Content1 = styled.div`
   left: 0px;
   width: 100vw;
 `;
-const Contente2 = styled.div`
+const Content2 = styled.div`
   position: fixed;
+  z-index: 100;
   background-color: white;
   height: 70vh;
   bottom: 0px;
@@ -54,14 +55,14 @@ export default function Home() {
       <Content1>
         <Header></Header>
       </Content1>
-      <Contente2>
+      <Content2>
         <Title title={data.name}></Title>
         <ShareCallBox></ShareCallBox>
         <OptionIcon options={data.options}></OptionIcon>
         <MainLocation title={data.name} address={data.address}></MainLocation>
         {/* <Photo></Photo> */}
         <MorePhoto></MorePhoto>
-      </Contente2>
+      </Content2>
     </div>
   );
 }

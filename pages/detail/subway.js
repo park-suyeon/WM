@@ -1,18 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import FastSearch from "../components/index/FastSearch";
-import Facilities from "../components/subway/Facilities";
-import Header from "../components/detail/Header";
+import FastSearch from "../../components/index/FastSearch";
+import Facilities from "../../components/subway/Facilities";
+import Header from "../../components/detail/Header";
 import dynamic from "next/dynamic";
-import Station from "../components/subway/Station";
-import RecommendPlace from "../components/index/RecommendPlace";
-import useCoordinate from "../hooks/useCoordinate";
+import Station from "../../components/subway/Station";
+import useCoordinate from "../../hooks/useCoordinate";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import PresentPosition from "../components/index/PresentPosition";
-import LoginButton from "../components/index/LoginButton";
-const Map = dynamic(() => import("../components/Map"), { ssr: false });
+import PresentPosition from "../../components/index/PresentPosition";
+import LoginButton from "../../components/index/LoginButton";
+
+const Map = dynamic(() => import("../../components/Map"), { ssr: false });
 const Content1 = styled.div`
   position: fixed;
   top: 0;
@@ -88,12 +88,6 @@ export default function Home() {
             right={data.right}
           ></Station>
           <Facilities></Facilities>
-          <RecommendPlace
-            title={data.name}
-            options={[data.options]}
-          ></RecommendPlace>
-          {/* <Title title={data.name} options={data.
-    options}></Title> */}
         </Content3>
       </ContentWrapper>
     </div>

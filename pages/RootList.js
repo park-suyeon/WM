@@ -3,11 +3,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import SearchHeader from "../components/Root/SearchHeader";
 import dynamic from "next/dynamic";
-import Station from "../components/subway/Station";
 import StationLine from "../components/Root/StationLineBar";
 import Order from "../components/search/Order";
-import HeaderSelect from "../components/Root/HeaderSelect";
 import TimeUnit from "../components/Root/TimeUnit";
+import FacilityWrapper from "../components/Root/FacilityWrapper";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 const Content1 = styled.div`
@@ -21,6 +20,7 @@ const Contente2 = styled.div`
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  border-top: solid 2.5px #ededed;
 `;
 export default function Home() {
   return (
@@ -33,27 +33,53 @@ export default function Home() {
 
       <Content1>
         <SearchHeader></SearchHeader>
-        <HeaderSelect></HeaderSelect>
         <Order></Order>
       </Content1>
       <Contente2>
         <TimeUnit></TimeUnit>
         <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
         <TimeUnit></TimeUnit>
         <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
         <TimeUnit></TimeUnit>
         <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
         <TimeUnit></TimeUnit>
         <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
         <TimeUnit></TimeUnit>
         <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
         {/* <Title title={data.name} options={data.option}></Title> */}
       </Contente2>
+      {/* <Contente2>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2>
+      <Contente2>
+        <TimeUnit></TimeUnit>
+        <StationLineBar></StationLineBar>
+        <FacilityWrapper></FacilityWrapper>
+      </Contente2> */}
+
+      {/* <Title title={data.name} options={data.option}></Title> */}
     </div>
   );
 }
-// export async function getServerSideProps() {
-//   await mongodbconnect();
-//   const placeList = await placemodel.find();
-//   return { props: { placeList: placeList } };
-// }

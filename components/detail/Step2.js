@@ -28,7 +28,7 @@ const UpdateWrapper = styled.div`
       padding-bottom: 7px;
       .midTitle {
         font-weight: 600;
-        font-size: 17px;
+        font-size: 16px;
       }
       .choice {
         font-weight: 500;

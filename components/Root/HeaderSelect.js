@@ -6,6 +6,7 @@ const HeaderBlock = styled.div`
   flex-direction: column;
   width: 100vw;
   position: relative;
+  padding-bottom: 10px;
   .Wrapper {
     display: flex;
     flex-direction: row;

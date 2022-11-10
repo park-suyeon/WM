@@ -6,18 +6,17 @@ const StationWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding-bottom: 10px;
-  border-bottom: solid 3px #ededed;
+
   .LineWrapper {
     display: flex;
     justify-content: center;
     width: 100%;
     height: 20px;
-    padding: 30px 0px 30px 0px;
+    margin-bottom: 15px;
     align-items: center;
     .LineBar {
       display: flex;
       width: 80%;
-      border-width: 20px;
       border-radius: 99px;
       border-bottom: 20px solid #d9d9d9;
     }
@@ -53,41 +52,11 @@ const StationWrapper = styled.div`
     background-color: #c4c4c4;
     .icon {
       width: 15px;
-      height: 16px;
       margin: 2px;
-    }
-  }
-
-  .facilityWrapper {
-    display: flex;
-    flex-direction: row;
-    margin-left: 15px;
-    .icon {
-      width: 15px;
-      height: 16px;
-      margin: 2px;
-    }
-
-    .faciltyContent {
-      display: flex;
-      flex-direction: row;
-      margin: 3px 3px 3px 0px;
-      .facilitytext {
-        font-size: 13px;
-        color: #545454;
-        padding: 0px 2px 0px 2px;
-      }
-    }
-    .division {
-      display: flex;
-      position: fixed;
-      border-left: 2px solid #545454;
-      height: 25px;
-      margin: 5px;
     }
   }
 `;
-const StationLine = (props) => {
+const StationLineBar = (props) => {
   return (
     <StationWrapper>
       <div className="LineWrapper">
@@ -109,18 +78,7 @@ const StationLine = (props) => {
           </div>
         </div>
       </div>
-      <div className="facilityWrapper">
-        <div className="faciltyContent">
-          <img className="icon" src="/images/icon/elevator_black.png" />
-          <div className="facilitytext">엘리베이터 4회</div>
-        </div>
-
-        <div className="faciltyContent">
-          <img className="icon" src="/images/icon/lift_black.png" />
-          <div className="facilitytext">리프트 0회</div>
-        </div>
-      </div>
     </StationWrapper>
   );
 };
-export default StationLine;
+export default StationLineBar;

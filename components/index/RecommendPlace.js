@@ -97,11 +97,22 @@ const Recommend = styled.div`
       .hashtagWrapper {
         display: flex;
         overflow-wrap: normal;
+        margin-bottom: 12px;
         .hashtag {
           color: #1093ff;
           font-size: 14px;
           margin-right: 12px;
           white-space: pre;
+        }
+      }
+      .imgWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        img {
+          width: 90px;
+          height: 80px;
+          margin-right: 10px;
         }
       }
     }
@@ -192,6 +203,11 @@ const RecommendPlace = ({ title, options }) => {
             <div className="hashtag">#휠체어 우선</div>
             <div className="hashtag">#경사로 완만</div>
             <div className="hashtag">#직원 호출 가능한</div>
+          </div>
+          <div className="imgWrapper">
+            <img className="img" src="\images\photo1.jpg" />
+            <img className="img" src="\images\photo2.jpg" />
+            <img className="img" src="\images\photo3.jpg" />
           </div>
         </div>
         <img className="next" src="\images\icon\plus_blue.png" />
