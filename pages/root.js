@@ -5,33 +5,28 @@ import SearchHeader from "../components/Root/SearchHeader";
 import dynamic from "next/dynamic";
 import Station from "../components/subway/Station";
 import StationLine from "../components/Root/StationLineBar";
-import RootLine from "../components/Root/StationRoot";
 import TransportSelect from "../components/Root/HeaderSelect";
-import ViewTime from "../components/Root/TimeUnit";
-import ChooseWays from "../components/Root/recommend";
-import Location1 from "../components/Root/Location";
+import Location1 from "../components/Root/Location1";
 import Location2 from "../components/Root/Location2";
+import Order from "../components/search/Order";
+import StationRoot1 from "../components/Root/StationRoot1";
+import StationRoot2 from "../components/Root/StationRoot2";
+import StationRoot3 from "../components/Root/StationRoot3";
+import TimeTransfer from "../components/Root/Timetransfer";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 const Content1 = styled.div`
-  position: absolute;
   z-index: 1;
   top: 0;
-  left: 0;
   width: 100vw;
 `;
 const Contente2 = styled.div`
-  position: absolute;
+  position: relative;
   background-color: none;
-  height: 78vh;
-  bottom: 0px;
-  left: 0;
-  width: 80%;
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 `;
 
 export default function Home() {
@@ -46,13 +41,15 @@ export default function Home() {
 
       <Content1>
         <SearchHeader></SearchHeader>
-        <ChooseWays></ChooseWays>
+        <Order></Order>
       </Content1>
 
       <Contente2>
-        <ViewTime></ViewTime>
+        <TimeTransfer></TimeTransfer>
         <Location1></Location1>
-        <RootLine></RootLine>
+        <StationRoot1></StationRoot1>
+        <StationRoot2></StationRoot2>
+        <StationRoot3></StationRoot3>
         <Location2></Location2>
         {/* <Title title={data.name} options={data.option}></Title> */}
       </Contente2>
