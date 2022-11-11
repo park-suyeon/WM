@@ -16,12 +16,21 @@ const RootBlock3 = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    .stationName {
+    .startName {
       font-size: 18px;
       color: black;
       font-weight: bolder;
       margin-top: 5px;
-      padding: 1px;
+      margin-left: 2px;
+    }
+    .arriveName {
+      font-size: 18px;
+      color: black;
+      font-weight: bolder;
+      margin-top: 5px;
+      margin-left: 2px;
+      position: relative;
+      top: 50px;
     }
     .icon {
       margin-top: 8px;
@@ -46,12 +55,24 @@ const RootBlock3 = styled.div`
       color: black;
       margin-top: 5px;
       padding-left: 3px;
+      position: relative;
+      top: 20px;
     }
     .exitText {
       margin-top: 5px;
       padding-left: 3px;
       font-size: 13px;
       color: #c248ad;
+      position: relative;
+      top: 45px;
+    }
+    .exiticon {
+      margin-top: 8px;
+      margin-left: 15px;
+      width: 17px;
+      height: 17px;
+      position: relative;
+      top: 45px;
     }
   }
   .moreicon {
@@ -63,28 +84,35 @@ const RootBlock3 = styled.div`
     cursor: pointer;
   }
 `;
-const StationRoot3 = (props) => {
+const StationRoot3 = ({ exit, direction, quick, time, start, arrive }) => {
   return (
-    <RootBlock3>
+    <RootBlock3
+      exit={exit}
+      direction={direction}
+      quick={quick}
+      time={time}
+      start={start}
+      arrive={arrive}
+    >
       <div className="rootwrapper">
         <SubwayLine lineText={4}></SubwayLine>
         <div className="placeWrapper">
           <div className="placeline">
-            <div className="stationName">사당</div>
+            <div className="startName">{start}</div>
           </div>
           <div className="placeline">
-            <div className="directionText">당고개행</div>
+            <div className="directionText">{direction}</div>
             <img className="icon" src="/images/icon/toilet_black.png" />
             <div className="transferText">빠른 환승 </div>
-            <div className="transferText">4-1</div>
+            <div className="transferText">{quick}</div>
           </div>
           <div className="placeline">
-            <div className="timeText">20분</div>
+            <div className="timeText">{time}분</div>
           </div>
           <div className="placeline">
-            <div className="stationName">명동</div>
-            <img className="icon" src="/images/icon/toilet_black.png" />
-            <div className="exitText">3번 출구</div>
+            <div className="arriveName">{arrive}</div>
+            <img className="exiticon" src="/images/icon/toilet_black.png" />
+            <div className="exitText">{exit}번 출구</div>
           </div>
         </div>
         <img className="moreicon" src="/images/icon/more.png" />

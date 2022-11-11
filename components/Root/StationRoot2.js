@@ -27,23 +27,21 @@ const RootBlock2 = styled.div`
     .divisionline {
       border-left: solid 2px black;
       height: 20px;
-      margin: 0px 4px 0px 4px;
+      margin: 0px 0px 0px 4px;
     }
   }
 `;
 
-const StationRoot2 = (props) => {
+const StationRoot2 = ({ transferway, transfertime }) => {
   return (
     <RootBlock2>
-      {/* <div className="lineWrapper"> */}
       <div className="transferBar"></div>
       <div className="transferWrapper">
         <div className="text">환승</div>
         <div className="divisionline "></div>
-        <div className="text">휠체어 </div>
-        <div className="text">5분</div>
+        <div className="text">{transferway} </div>
+        <div className="text">{transfertime}분</div>
       </div>
-      {/* </div> */}
     </RootBlock2>
   );
 };

@@ -16,22 +16,23 @@ const TimeBlock = styled.div`
       font-size: 28px;
       font-weight: bold;
     }
-    .TimeUnit {
+    .transferUnit {
       display: flex;
       padding-bottom: 5px;
       font-size: 12px;
       color: #545454;
+      margin-left: 5px;
     }
   }
 `;
-const TimeTransfer = (props) => {
+const TimeTransfer = ({ time, timeunit, transfer }) => {
   return (
-    <TimeBlock>
+    <TimeBlock time={time} transfer={transfer}>
       <div className="TimeWrapper">
-        <div className="Time">30</div>
-        <div className="Time">분</div>
-        <div className="TimeUnit">환승</div>
-        <div className="TimeUnit">3회</div>
+        <div className="Time">{time}</div>
+        <div className="Time">{timeunit}</div>
+        <div className="transferUnit">환승</div>
+        <div className="transferUnit">{transfer}회</div>
       </div>
     </TimeBlock>
   );

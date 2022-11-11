@@ -26,19 +26,18 @@ const Facility = styled.div`
     height: 25px;
     margin: 5px;
   }
-  /* } */
 `;
 
-const FacilityWrapper = (props) => {
+const FacilityWrapper = ({ firstcount, secondcount }) => {
   return (
     <Facility>
       <div className="faciltyContent">
         <img className="icon" src="/images/icon/elevator_black.png" />
-        <div className="facilitytext">엘리베이터 4회</div>
+        <div className="facilitytext">엘리베이터 {firstcount}회</div>
       </div>
       <div className="faciltyContent">
         <img className="icon" src="/images/icon/lift_black.png" />
-        <div className="facilitytext">리프트 0회</div>
+        <div className="facilitytext">리프트 {secondcount}회</div>
       </div>
     </Facility>
   );

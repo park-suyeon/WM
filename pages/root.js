@@ -9,7 +9,6 @@ import StationRoot2 from "../components/Root/StationRoot2";
 import StationRoot3 from "../components/Root/StationRoot3";
 import Start from "../components/Root/Start";
 import Destination from "../components/Root/Destination";
-import TimeUnit from "../components/Root/TimeUnit";
 import TimeTransfer from "../components/Root/Timetransfer";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
@@ -43,11 +42,26 @@ export default function Home() {
       </Content1>
 
       <Contente2>
-        <TimeTransfer></TimeTransfer>
+        {/* exit, direction, quick, time, start, arrive */}
+        <TimeTransfer time={30} timeunit={"분"} transfer={2}></TimeTransfer>
         <Start></Start>
-        <StationRoot1></StationRoot1>
-        <StationRoot2></StationRoot2>
-        <StationRoot3></StationRoot3>
+        <StationRoot1
+          start={"서초"}
+          exit={2}
+          direction={"방배"}
+          quick={"3-4"}
+          time={5}
+          arrive={"사당"}
+        ></StationRoot1>
+        <StationRoot2 transferway={"휠체어"} transfertime={5}></StationRoot2>
+        <StationRoot3
+          start={"사당"}
+          exit={3}
+          direction={"당고개행"}
+          quick={"4-1"}
+          time={20}
+          arrive={"명동"}
+        ></StationRoot3>
         <Destination></Destination>
         {/* <Title title={data.name} options={data.option}></Title> */}
       </Contente2>
