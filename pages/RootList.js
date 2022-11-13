@@ -53,33 +53,6 @@ export default function Home() {
         <FacilityWrapper></FacilityWrapper>
         {/* <Title title={data.name} options={data.option}></Title> */}
       </Contente2>
-      {/* <Contente2>
-        <TimeUnit></TimeUnit>
-        <StationLineBar></StationLineBar>
-        <FacilityWrapper></FacilityWrapper>
-      </Contente2>
-      <Contente2>
-        <TimeUnit></TimeUnit>
-        <StationLineBar></StationLineBar>
-        <FacilityWrapper></FacilityWrapper>
-      </Contente2>
-      <Contente2>
-        <TimeUnit></TimeUnit>
-        <StationLineBar></StationLineBar>
-        <FacilityWrapper></FacilityWrapper>
-      </Contente2>
-      <Contente2>
-        <TimeUnit></TimeUnit>
-        <StationLineBar></StationLineBar>
-        <FacilityWrapper></FacilityWrapper>
-      </Contente2>
-      <Contente2>
-        <TimeUnit></TimeUnit>
-        <StationLineBar></StationLineBar>
-        <FacilityWrapper></FacilityWrapper>
-      </Contente2> */}
-
-      {/* <Title title={data.name} options={data.option}></Title> */}
     </div>
   );
 }
