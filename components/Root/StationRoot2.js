@@ -10,7 +10,7 @@ const RootBlock2 = styled.div`
 
   .transferBar {
     justify-content: center;
-    border-left: 15px dashed #545454;
+    border-left: 15px dotted #545454;
     height: 100px;
   }
   .transferWrapper {
