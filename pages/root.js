@@ -43,7 +43,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Map></Map> */}
-
       <Header>
         <SearchHeader></SearchHeader>
         <Order></Order>
