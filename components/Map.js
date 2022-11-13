@@ -87,8 +87,8 @@ const Tmap = () => {
                 center: new Tmapv3.LatLng(${lat ? lat : dLat},${
       lon ? lon : dLon
     }),
-                width: "600px",
-                height: "600px",
+                width: "2000px",
+                height: "1500px",
                 zoom:15
             });
           }
