@@ -9,7 +9,7 @@ import StationRoot2 from "../components/rootc/StationRoot2";
 import StationRoot3 from "../components/rootc/StationRoot3";
 import Start from "../components/rootc/Start";
 import Destination from "../components/rootc/Destination";
-import TimeTransfer from "../components/rootc/Timetransfer";
+import TimeTransfer from "../components/rootc/TimeTransfer";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
