@@ -26,8 +26,8 @@ const DestinationPoint = styled.div`
     flex-direction: column;
     .start {
       font-weight: 700;
-      font-size: 15px;
-      margin-left: 20px;
+      font-size: 18px;
+      margin-left: 10px;
       padding-bottom: 6px;
     }
   }

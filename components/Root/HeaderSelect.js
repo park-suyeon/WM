@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TransportSelect = styled.div`
+const HeaderBlock = styled.div`
   background-color: #1093ff;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,8 @@ const TransportSelect = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 5px 24px;
     .transportWrapper {
       display: flex;
       flex-direction: row;
@@ -30,7 +31,7 @@ const TransportSelect = styled.div`
 `;
 const HeaderSelect = (props) => {
   return (
-    <TransportSelect>
+    <HeaderBlock>
       <div className="Wrapper">
         <div className="transportWrapper">
           <img className="img" src="/images/icon/taxi.png" />{" "}
@@ -45,7 +46,7 @@ const HeaderSelect = (props) => {
           <div className="text">휠체어</div>
         </div>
       </div>
-    </TransportSelect>
+    </HeaderBlock>
   );
 };
 export default HeaderSelect;

@@ -1,39 +1,31 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import SearchHeader from "../components/root/SearchHeader";
+import SearchHeader from "../components/Root/SearchHeader";
 import dynamic from "next/dynamic";
-import TimeUnit from "../components/root/TimeUnit";
 import Order from "../components/search/Order";
-import Start from "../components/root/Start";
-import Destination from "../components/root/Destination";
-import StationRoot from "../components/Root/StationRoot";
+import StationRoot1 from "../components/Root/StationRoot1";
+import StationRoot2 from "../components/Root/StationRoot2";
+import StationRoot3 from "../components/Root/StationRoot3";
+import Start from "../components/Root/Start";
+import Destination from "../components/Root/Destination";
+import TimeTransfer from "../components/Root/Timetransfer";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
-const Header = styled.div`
+const Content1 = styled.div`
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100vw;
 `;
-const Body = styled.div`
-  height: 78vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-const Content1 = styled.div`
+const Contente2 = styled.div`
+  background-color: white;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
 `;
-const Content2 = styled.div`
-  display: flex;
-  width: 100%;
-`;
-const Content3 = styled.div`
-  width: 100%;
-`;
+
 export default function Home() {
   return (
     <div>
@@ -43,22 +35,41 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Map></Map> */}
-      <Header>
+
+      <Content1>
         <SearchHeader></SearchHeader>
         <Order></Order>
-      </Header>
-      <Body>
-        <Content1>
-          <TimeUnit></TimeUnit>
-          <Start></Start>
-        </Content1>
-        <Content2>
-          <StationRoot></StationRoot>
-        </Content2>
-        <Content3>
-          <Destination></Destination>
-        </Content3>
-      </Body>
+      </Content1>
+
+      <Contente2>
+        {/* exit, direction, quick, time, start, arrive */}
+        <TimeTransfer time={30} timeunit={"분"} transfer={2}></TimeTransfer>
+        <Start></Start>
+        <StationRoot1
+          start={"서초"}
+          exit={2}
+          direction={"방배"}
+          quick={"3-4"}
+          time={5}
+          arrive={"사당"}
+        ></StationRoot1>
+        <StationRoot2 transferway={"휠체어"} transfertime={5}></StationRoot2>
+        <StationRoot3
+          start={"사당"}
+          exit={3}
+          direction={"당고개행"}
+          quick={"4-1"}
+          time={20}
+          arrive={"명동"}
+        ></StationRoot3>
+        <Destination></Destination>
+        {/* <Title title={data.name} options={data.option}></Title> */}
+      </Contente2>
     </div>
   );
 }
+// export async function getServerSideProps() {
+//   await mongodbconnect();
+//   const placeList = await placemodel.find();
+//   return { props: { placeList: placeList } };
+// }

@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import SearchHeader from "../components/root/SearchHeader";
+import SearchHeader from "../components/Root/SearchHeader";
 import dynamic from "next/dynamic";
-import StationLineBar from "../components/root/StationLineBar";
-import TimeUnit from "../components/root/TimeUnit";
-import FacilityWrapper from "../components/root/FacilityWrapper";
+import StationLine from "../components/Root/StationLineBar";
 import Order from "../components/search/Order";
+import TimeUnit from "../components/Root/TimeUnit";
+import FacilityWrapper from "../components/Root/FacilityWrapper";
+const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
 const Content1 = styled.div`
   z-index: 1;
@@ -36,10 +37,23 @@ export default function Home() {
       </Content1>
       <Contente2>
         <TimeUnit></TimeUnit>
-        <StationLineBar></StationLineBar>
+        <StationLine></StationLine>
         <FacilityWrapper></FacilityWrapper>
+        <TimeUnit></TimeUnit>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+        <TimeUnit></TimeUnit>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+        <TimeUnit></TimeUnit>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+        <TimeUnit></TimeUnit>
+        <StationLine></StationLine>
+        <FacilityWrapper></FacilityWrapper>
+        {/* <Title title={data.name} options={data.option}></Title> */}
       </Contente2>
-      <Contente2>
+      {/* <Contente2>
         <TimeUnit></TimeUnit>
         <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
@@ -63,7 +77,7 @@ export default function Home() {
         <TimeUnit></TimeUnit>
         <StationLineBar></StationLineBar>
         <FacilityWrapper></FacilityWrapper>
-      </Contente2>
+      </Contente2> */}
 
       {/* <Title title={data.name} options={data.option}></Title> */}
     </div>

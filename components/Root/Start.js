@@ -27,7 +27,7 @@ const StartPoint = styled.div`
     flex-direction: column;
     .start {
       font-weight: 700;
-      font-size: 15px;
+      font-size: 18px;
       margin-left: 20px;
       padding-bottom: 6px;
     }
@@ -42,7 +42,7 @@ const Start = (props) => {
       </div>
       <div className="content">
         <div className="start">서초역 2호선</div>
-        <FacilityWrapper></FacilityWrapper>
+        <FacilityWrapper firstcount={4} secondcount={0}></FacilityWrapper>
       </div>
     </StartPoint>
   );
