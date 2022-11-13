@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
-import SearchHeader from "../components/Root/SearchHeader";
+import SearchHeader from "../components/rootc/SearchHeader";
 import dynamic from "next/dynamic";
 import Order from "../components/search/Order";
-import StationRoot1 from "../components/Root/StationRoot1";
-import StationRoot2 from "../components/Root/StationRoot2";
-import StationRoot3 from "../components/Root/StationRoot3";
-import Start from "../components/Root/Start";
-import Destination from "../components/Root/Destination";
-import TimeTransfer from "../components/Root/Timetransfer";
+import StationRoot1 from "../components/rootc/StationRoot1";
+import StationRoot2 from "../components/rootc/StationRoot2";
+import StationRoot3 from "../components/rootc/StationRoot3";
+import Start from "../components/rootc/Start";
+import Destination from "../components/rootc/Destination";
+import TimeTransfer from "../components/rootc/TimeTransfer";
 
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 

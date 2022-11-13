@@ -4,7 +4,6 @@ const Facility = styled.div`
   flex-direction: row;
   margin-left: 20px;
   margin-bottom: 10px;
-
   .icon {
     width: 15px;
     margin-right: 4px;
