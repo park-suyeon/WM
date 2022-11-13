@@ -13,8 +13,8 @@ data2.forEach((e) => {
     call,
     lat,
     lon,
-    safeDistence,
-    safeFooter,
+    safeDistance,
+    Foothold,
   ] = e.split(",");
   result.push({
     _lineCode,
@@ -25,8 +25,8 @@ data2.forEach((e) => {
     call,
     lat,
     lon,
-    safeDistence,
-    safeFooter,
+    safeDistance,
+    Foothold,
   });
 });
 console.log(result);
