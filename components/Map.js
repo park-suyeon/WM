@@ -1,6 +1,3 @@
-import { useEffect, useRef } from "react";
-import useCoordinate from "../hooks/useCoordinate";
-
 // function App() {
 //   const mapElement = useRef(null);
 //   const [lat, lon] = useCoordinate();
@@ -26,43 +23,41 @@ import useCoordinate from "../hooks/useCoordinate";
 //   }, [lat, lon]);
 //   return <div ref={mapElement} style={{ minHeight: "1000px" }} />;
 // }
-function App() {
-  const mapElement = useRef(null);
-  const [lat, lon] = useCoordinate();
-  const { Tmapv3 } = window;
-  useEffect(() => {
-    if (!Tmapv3) return;
-    var map = new Tmapv3.Map("tmap_div", {
-      // 지도가 생성될 div
-      center: new Tmapv3.LatLng(lat, lon),
-      width: "100%", // 지도의 넓이
-      height: "400px", // 지도의 높이
-      zoom: 16, // 지도 줌레벨
-    });
-  }, [lat, lon, Tmapv3]);
-  useEffect(() => {
-    const script = document.createElement("script");
+import { useEffect } from "react";
+import useCoordinate from "../hooks/useCoordinate";
 
-    script.src = `//apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=${process.env.NEXT_PUBLIC_TMAP_CLIENT_ID}`;
+const Tmap = () => {
+  const [lat, lon] = useCoordinate();
+  const dLat = 37.566481622437934;
+  const dLon = 126.98502302169841;
+  useEffect(() => {
+    if (!lat) return;
+    const script = document.createElement("script");
+    script.innerHTML = `         
+        if(!window.tmapControl?.setted) {
+          window.tmapControl = {
+            setted: true,
+          }
+        function initTmap() {
+            var map = new Tmapv3.Map("TMapApp", {
+                center: new Tmapv3.LatLng(${lat ? lat : dLat},${
+      lon ? lon : dLon
+    }),
+                width: "600px",
+                height: "600px",
+                zoom:15
+            });
+          }
+        
+
+          initTmap();
+        } 
+   `;
     script.type = "text/javascript";
     script.async = "async";
-    document.head.appendChild(script);
-    const onLoadTMap = () => {
-      console.log("tmap load1");
-      console.log("tmap load2");
-      var map = new window.Tmapv3.Map("tmap_ div", {
-        // 지도가 생성될 div
-        center: new window.Tmapv3.LatLng(lat, lon),
-        width: "100%", // 지도의 넓이
-        height: "400px", // 지도의 높이
-        zoom: 16, // 지도 줌레벨
-      });
-    };
-    script.addEventListener("load", onLoadTMap);
+    document.head?.appendChild(script);
+  }, [lat, lon]);
+  return <div id="TMapApp"></div>;
+};
 
-    return () => script.removeEventListener("load", onLoadTMap);
-  }, []);
-
-  return <div id="tmap_div" style={{ minHeight: "1000px" }} />;
-}
-export default App;
+export default Tmap;
