@@ -50,7 +50,7 @@ function App() {
     const onLoadTMap = () => {
       console.log("tmap load1");
       console.log("tmap load2");
-      var map = new window.Tmapv3.Map("tmap_div", {
+      var map = new window.Tmapv3.Map("tmap_ div", {
         // 지도가 생성될 div
         center: new window.Tmapv3.LatLng(lat, lon),
         width: "100%", // 지도의 넓이
