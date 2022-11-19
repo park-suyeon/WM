@@ -47,33 +47,39 @@ const UpdateWrapper = styled.div`
           font-size: 12px;
           font-weight: 500;
         } */
-        & > .activeButton {
+        &.activeButton {
           background-color: #0f3f62;
           opacity: 40%;
-        }
-        & > .activeText {
-          color: #0f3f62;
+          color: white;
         }
       }
     }
   }
 `;
 
-export default function Step1() {
-  const data = [
-    "입구 경사로",
-    "휠체어 급속 충전기",
-    "승강기",
-    "휠체어 리크트",
-    "장애인 화장실",
-    "기타",
-  ];
-  let [btnActive, SetBtnActive] = useState("");
+export const data = [
+  "입구 경사로",
+  "휠체어 급속 충전기",
+  "승강기",
+  "휠체어 리프트",
+  "장애인 화장실",
+  "기타",
+];
+export default function Step1({ btnActive, SetBtnActive }) {
   const toggleActive = (e) => {
+    console.log(e.target.value);
     SetBtnActive((prev) => {
-      return e.target.value;
+      if (prev.includes(e.target.value)) {
+        return prev.filter((item) => {
+          return item !== e.target.value;
+        });
+      }
+
+      return [...prev, e.target.value];
     });
   };
+  console.log(btnActive);
+  console.log(data);
   return (
     <UpdateWrapper>
       {/* {data.map(item,idx) => {
@@ -84,31 +90,67 @@ export default function Step1() {
       <div className="content">
         <div className="midTitle">어떤 편의시설을 지원하나요?</div>
         <div className="buttonWrap">
-          <button className="button" value={data[0]}>
+          <button
+            className={`button ${
+              btnActive.includes(data[0]) && "activeButton"
+            }`}
+            value={data[0]}
+            onClick={toggleActive}
+          >
             {/* <div className="text">입구 경사로</div> */}
             {data[0]}
           </button>
-          <div className="button" value={data[1]}>
+          <button
+            className={`button ${
+              btnActive.includes(data[1]) && "activeButton"
+            }`}
+            value={data[1]}
+            onClick={toggleActive}
+          >
             {/* <div className="text">휠체어 급속 충전기</div> */}
             {data[1]}
-          </div>
+          </button>
         </div>
         <div className="buttonWrap">
-          <button className="button" value={data[2]}>
+          <button
+            className={`button ${
+              btnActive.includes(data[2]) && "activeButton"
+            }`}
+            value={data[2]}
+            onClick={toggleActive}
+          >
             {/* <div className="text">승강기</div> */}
             {data[2]}
           </button>
-          <button className="button" value={data[3]} onClick={data}>
+          <button
+            className={`button ${
+              btnActive.includes(data[3]) && "activeButton"
+            }`}
+            value={data[3]}
+            onClick={toggleActive}
+          >
             {/* <div className="text">휠체어 리프트</div> */}
             {data[3]}
           </button>
         </div>
         <div className="buttonWrap">
-          <button className="button" value={data[4]}>
+          <button
+            className={`button ${
+              btnActive.includes(data[4]) && "activeButton"
+            }`}
+            value={data[4]}
+            onClick={toggleActive}
+          >
             {/* <div className="text">장애인 화장실</div> */}
             {data[4]}
           </button>
-          <button className="button" value={data[5]}>
+          <button
+            className={`button ${
+              btnActive.includes(data[5]) && "activeButton"
+            }`}
+            value={data[5]}
+            onClick={toggleActive}
+          >
             {/* <div className="text">기타</div> */}
             {data[5]}
           </button>

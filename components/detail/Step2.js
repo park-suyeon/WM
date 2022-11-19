@@ -94,15 +94,13 @@ const UpdateWrapper = styled.div`
   }
 `;
 
-export default function Step2() {
+export default function Step2({ name, setPlaceOption }) {
   return (
     <UpdateWrapper>
       <div className="title">보행장애인 편의 시설 정보 등록</div>
       <div className="content">
         <div className="midTitleWrap">
-          <div className="midTitle">
-            [휠체어 급속 충전기]상세 설명을 입력해 주세요.
-          </div>
+          <div className="midTitle">[{name}]상세 설명을 입력해 주세요.</div>
           <div className="choice">선택</div>
         </div>
         <div className="recordWrapper">
@@ -119,6 +117,11 @@ export default function Step2() {
         </div>
         <input
           className="text"
+          onChange={(e) => {
+            setPlaceOption((prev) => {
+              return { ...prev, [name]: e.target.value };
+            });
+          }}
           placeholder="수정할 내용이 있으면 입력해 주세요"
         ></input>
         <div className="midTitleWrap">

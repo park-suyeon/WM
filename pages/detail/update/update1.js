@@ -5,9 +5,14 @@ import Header from "../../../components/detail/Header";
 import FastSearch from "../../../components/index/FastSearch";
 import Title from "../../../components/detail/Title";
 import Step1 from "../../../components/detail/Step1";
+import { data } from "../../../components/detail/Step1";
+import Step2 from "../../../components/detail/Step2";
+import Step3 from "../../../components/detail/Step3";
 import ShareCallBox from "../../../components/detail/ShareCall";
 import ButtonBox from "../../../components/index/ButtonBox";
 import Map from "../../../components/Map";
+import { useRef, useState } from "react";
+import axios from "axios";
 
 const Content1 = styled.div`
   position: fixed;
@@ -31,6 +36,30 @@ const Content2 = styled.div`
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
+  const [currentStep, setCurrentStep] = useState("1");
+  const [btnActive, SetBtnActive] = useState([]);
+  const [placeOption, setPlaceOption] = useState({});
+  const step2ref = useRef(0);
+  const id = "634400ba562a10fc789991e6";
+  console.log(data);
+  const next = () => {
+    const i = step2ref.current;
+    if (currentStep === "1") {
+      setCurrentStep(data[i]);
+      step2ref.current++;
+    }
+    if (currentStep !== "1" && currentStep !== "3") {
+      setCurrentStep(data[i]);
+      step2ref.current++;
+    }
+    if (i === data.length) {
+      setCurrentStep("3");
+    }
+    if (currentStep === "3") {
+      axios.put(`/api/place/${id}`, placeOption);
+    }
+  };
+  console.log(placeOption);
   return (
     <div>
       <Head>
@@ -45,8 +74,17 @@ export default function Home() {
       <Content2>
         <Title></Title>
         <ShareCallBox></ShareCallBox>
-        <Step1></Step1>
-        <ButtonBox text="다음" />
+        {currentStep === "1" && (
+          <Step1 btnActive={btnActive} SetBtnActive={SetBtnActive}></Step1>
+        )}
+        {currentStep !== "1" && currentStep !== "3" && (
+          <Step2 name={currentStep} setPlaceOption={setPlaceOption}></Step2>
+        )}
+        {currentStep === "3" && <Step3></Step3>}
+        <ButtonBox
+          text={currentStep === "3" ? "저장" : "다음"}
+          onClick={next}
+        />
       </Content2>
     </div>
   );

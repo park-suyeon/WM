@@ -8,7 +8,7 @@ const Place = new Schema({
   startTime: String,
   phone: String,
   webSite: String,
-  options: [String],
+  options: [Object],
   images: [String],
   updatedAt: Date,
 });
