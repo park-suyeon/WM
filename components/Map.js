@@ -28,8 +28,8 @@ import useCoordinate from "../hooks/useCoordinate";
 
 const Tmap = () => {
   const [lat, lon] = useCoordinate();
-  const dLat = 37.566481622437934;
-  const dLon = 126.98502302169841;
+  const dLat = { lat };
+  const dLon = { lon };
   useEffect(() => {
     if (!lat) return;
     const script = document.createElement("script");
@@ -43,13 +43,11 @@ const Tmap = () => {
                 center: new Tmapv3.LatLng(${lat ? lat : dLat},${
       lon ? lon : dLon
     }),
-                width: "600px",
-                height: "600px",
-                zoom:15
+                
+                height: "1000px",
+                zoom:17
             });
           }
-        
-
           initTmap();
         } 
    `;
