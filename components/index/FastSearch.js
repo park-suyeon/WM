@@ -34,7 +34,9 @@ const FastSearch = ({ fastSearch, setFastSearch }) => {
     <FastSearchBlock>
       <div
         className="searchWrap"
-        style={{ background: fastSearch === "charger" && "yellow" }}
+        style={{
+          background: fastSearch === "charger" && "#E0F4FF",
+        }}
         onClick={() => setFastSearch("charger")}
       >
         <img className="icon" src="\images\icon\charge_blue.png" />
@@ -42,7 +44,9 @@ const FastSearch = ({ fastSearch, setFastSearch }) => {
       </div>
       <div
         className="searchWrap"
-        style={{ background: fastSearch === "toilet" && "yellow" }}
+        style={{
+          background: fastSearch === "toilet" && "#E0F4FF",
+        }}
         onClick={() => setFastSearch("toilet")}
       >
         <img className="icon" src="\images\icon\toilet_blue.png" />
@@ -50,7 +54,7 @@ const FastSearch = ({ fastSearch, setFastSearch }) => {
       </div>
       <div
         className="searchWrap"
-        style={{ background: fastSearch === "food" && "yellow" }}
+        style={{ background: fastSearch === "food" && "#E0F4FF" }}
         onClick={() => setFastSearch("food")}
       >
         <img className="icon" src="\images\icon\restaurant.png" />
@@ -58,7 +62,7 @@ const FastSearch = ({ fastSearch, setFastSearch }) => {
       </div>
       <div
         className="searchWrap"
-        style={{ background: fastSearch === "cafe" && "yellow" }}
+        style={{ background: fastSearch === "cafe" && "#E0F4FF" }}
         onClick={() => setFastSearch("cafe")}
       >
         <img className="icon" src="\images\icon\cafe.png" />
