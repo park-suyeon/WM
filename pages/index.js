@@ -28,8 +28,9 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 1000;
-  height: 60vh;
+  height: 63vh;
   width: 100vw;
+  bottom: 0;
 `;
 const Content2 = styled.div`
   position: absolute;
@@ -109,8 +110,6 @@ export default function Home() {
             title={data.name}
             options={[data.options]}
           ></RecommendPlace>
-          {/* <Title title={data.name} options={data.
-    options}></Title> */}
         </Content3>
       </ContentWrapper>
     </div>
