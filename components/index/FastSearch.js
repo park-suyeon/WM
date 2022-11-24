@@ -29,22 +29,38 @@ const FastSearchBlock = styled.div`
     }
   }
 `;
-const FastSearch = (props) => {
+const FastSearch = ({ fastSearch, setFastSearch }) => {
   return (
     <FastSearchBlock>
-      <div className="searchWrap">
+      <div
+        className="searchWrap"
+        style={{ background: fastSearch === "charger" && "yellow" }}
+        onClick={() => setFastSearch("charger")}
+      >
         <img className="icon" src="\images\icon\charge_blue.png" />
         <div className="text">휠체어 급속충전기</div>
       </div>
-      <div className="searchWrap">
+      <div
+        className="searchWrap"
+        style={{ background: fastSearch === "toilet" && "yellow" }}
+        onClick={() => setFastSearch("toilet")}
+      >
         <img className="icon" src="\images\icon\toilet_blue.png" />
         <div className="text">장애인 화장실</div>
       </div>
-      <div className="searchWrap">
+      <div
+        className="searchWrap"
+        style={{ background: fastSearch === "food" && "yellow" }}
+        onClick={() => setFastSearch("food")}
+      >
         <img className="icon" src="\images\icon\restaurant.png" />
         <div className="text">맛집</div>
       </div>
-      <div className="searchWrap">
+      <div
+        className="searchWrap"
+        style={{ background: fastSearch === "cafe" && "yellow" }}
+        onClick={() => setFastSearch("cafe")}
+      >
         <img className="icon" src="\images\icon\cafe.png" />
         <div className="text">카페</div>
       </div>

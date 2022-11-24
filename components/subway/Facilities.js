@@ -60,40 +60,58 @@ const FacilitiesBlock = styled.div`
     }
   }
 `;
-const Facilities = (props) => {
+const Facilities = ({ data }) => {
   return (
     <FacilitiesBlock>
       <div className="title">시설정보</div>
       <div className="blockWrap">
         <div className="block1">
-          <div className="detailed">
+          <div
+            className="detailed"
+            style={{ opacity: data.lift === "0" ? 0.4 : 1 }}
+          >
             <img className="icon" src="\images\icon\lift_black.png" />
             <div className="textOn">휠체어리프트</div>
             <div className="textOn">2번 출구</div>
           </div>
-          <div className="detailed">
+          <div
+            className="detailed"
+            style={{ opacity: data.safe === "0" ? 0.4 : 1 }}
+          >
             <img className="icon" src="\images\icon\footplate_black.png" />
             <div className="textOn">안전발판</div>
           </div>
-          <div className="detailed">
+          <div
+            className="detailed"
+            style={{ opacity: data.charge === "0" ? 0.4 : 1 }}
+          >
             <img className="icon" src="\images\icon\charge_gray.png" />
-            <div className="textOff">휠체어 급속충전</div>
+            <div className="textOn">휠체어 급속충전</div>
           </div>
         </div>
         <div className="block2">
-          <div className="detailed">
+          <div
+            className="detailed"
+            style={{ opacity: data.toilet === "0" ? 0.4 : 1 }}
+          >
             <img className="icon" src="\images\icon\toilet_gray.png" />
-            <div className="textOff">장애인 화장실</div>
+            <div className="textOn">장애인 화장실</div>
           </div>
-          <div className="detailed">
+          <div
+            className="detailed"
+            style={{ opacity: data.elevator === "0" ? 0.4 : 1 }}
+          >
             <img className="icon" src="\images\icon\elevator_black.png" />
             <div className="textOn">엘리베이터</div>
             <div className="textOn">3번출구</div>
           </div>
-          <div className="detailed">
+          <div
+            className="detailed"
+            style={{ opacity: data.distance === "-" ? 0.4 : 1 }}
+          >
             <img className="icon" src="\images\icon\distance_black.png" />
             <div className="textOn">열차 승강장 간격</div>
-            <div className="textOn">4cm</div>
+            <div className="textOn">{data.distance}cm</div>
           </div>
         </div>
       </div>

@@ -29,20 +29,21 @@ export default async function handler(req, res) {
   await mongodbconnect();
   console.log("place api start");
   const configList = await ConfigModel.find();
-  const subwayValues = configList[0].subway;
+  const subwayValues = { ...configList[0] };
 
-  console.log(subwayValues);
-  let closestSubway = subwayValues[0];
-  subwayValues.forEach((sb) => {
+  console.log("subwayValues=", subwayValues);
+  let closestSubway = subwayValues._doc["2-대림"];
+  console.log("before:", closestSubway);
+  Object.values(subwayValues._doc).forEach((sb) => {
+    console.log("sb=", sb);
     if (
+      sb.lat &&
       getDistance(closestSubway.lat, closestSubway.lon, lat, lon) >
-      getDistance(sb.lat, sb.lon, lat, lon)
+        getDistance(sb.lat, sb.lon, lat, lon)
     ) {
       closestSubway = sb;
     }
   });
-
-  res
-    .status(200)
-    .json({ ...closestSubway, left: "test left", right: "test right" });
+  console.log(closestSubway);
+  res.status(200).json({ ...closestSubway });
 }

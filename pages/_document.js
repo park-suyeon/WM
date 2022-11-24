@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-
+import Script from "next/script";
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
@@ -37,14 +37,14 @@ export default class MyDocument extends Document {
             type="text/javascript"
             src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_CLIENT_ID}`}
           ></script> */}
-          <script
-            type="text/javascript"
-            src={`https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=${process.env.NEXT_PUBLIC_TMAP_CLIENT_ID}`}
-          ></script>
         </Head>
         <body>
           <Main />
           <NextScript />
+          <script
+            type="text/javascript"
+            src={`https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=${process.env.NEXT_PUBLIC_TMAP_CLIENT_ID}`}
+          ></script>
         </body>
       </Html>
     );

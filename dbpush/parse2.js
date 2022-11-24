@@ -1,7 +1,6 @@
 const fs = require("fs");
 const data = fs.readFileSync("./mainFacility.csv").toString();
 const data2 = data.split("\r\n");
-console.log(data2);
 const result = [];
 data2.forEach((e) => {
   const [
@@ -29,5 +28,4 @@ data2.forEach((e) => {
     Foothold,
   });
 });
-console.log(result);
 module.exports = result;

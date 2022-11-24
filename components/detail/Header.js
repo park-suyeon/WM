@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useState } from "react";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -31,12 +32,17 @@ const HeaderWrapper = styled.div`
 `;
 
 export default function Header() {
+  const [searchText, setSearchText] = useState("");
+  console.log(searchText);
   return (
     <HeaderWrapper>
       <Link href="/">
         <img className="logo" src="/images/logo.png" />
       </Link>
-      <input className="searchBar" />
+      <input
+        className="searchBar"
+        onChange={(e) => setSearchText(e.target.value)}
+      />
       <img className="icon" src="/images/icon/search.png" />
     </HeaderWrapper>
   );
