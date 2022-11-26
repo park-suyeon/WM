@@ -52,7 +52,7 @@ const FastSearch = ({ fastSearch, setFastSearch }) => {
         <img className="icon" src="\images\icon\toilet_blue.png" />
         <div className="text">장애인 화장실</div>
       </div>
-      <div
+      {/* <div
         className="searchWrap"
         style={{ background: fastSearch === "food" && "#E0F4FF" }}
         onClick={() => setFastSearch("food")}
@@ -66,8 +66,8 @@ const FastSearch = ({ fastSearch, setFastSearch }) => {
         onClick={() => setFastSearch("cafe")}
       >
         <img className="icon" src="\images\icon\cafe.png" />
-        <div className="text">카페</div>
-      </div>
+        <div className="text">카페</div> */}
+      {/* </div> */}
     </FastSearchBlock>
   );
 };

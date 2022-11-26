@@ -1,8 +1,8 @@
-const fs = require("fs");
-const data = fs.readFileSync("./wheelchairCharger.csv").toString();
-const data2 = data.split("\r\n");
+const fs = require('fs');
+const data = fs.readFileSync('./wheelchairCharger.csv').toString();
+const data2 = data.split('\r\n');
 const result = [];
-data2.forEach((e) => {
+data2.forEach(e => {
   const [
     placeName,
     province,
@@ -23,7 +23,7 @@ data2.forEach((e) => {
     management,
     callManagement,
     dateOfUpdate,
-  ] = e.split(",");
+  ] = e.split(',');
   result.push({
     placeName,
     province,
@@ -46,5 +46,4 @@ data2.forEach((e) => {
     dateOfUpdate,
   });
 });
-console.log(result);
 module.exports = result;

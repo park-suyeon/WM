@@ -1,5 +1,5 @@
-import styled, { useTheme } from "styled-components";
-import { useState } from "react";
+import styled, {useTheme} from 'styled-components';
+import {useState} from 'react';
 const UpdateWrapper = styled.div`
   background-color: #ebf8ff;
   display: flex;
@@ -58,19 +58,18 @@ const UpdateWrapper = styled.div`
 `;
 
 export const data = [
-  "입구 경사로",
-  "휠체어 급속 충전기",
-  "승강기",
-  "휠체어 리프트",
-  "장애인 화장실",
-  "기타",
+  '입구 경사로',
+  '휠체어 급속 충전기',
+  '승강기',
+  '휠체어 리프트',
+  '장애인 화장실',
+  '기타',
 ];
-export default function Step1({ btnActive, SetBtnActive }) {
-  const toggleActive = (e) => {
-    console.log(e.target.value);
-    SetBtnActive((prev) => {
+export default function Step1({btnActive, SetBtnActive}) {
+  const toggleActive = e => {
+    SetBtnActive(prev => {
       if (prev.includes(e.target.value)) {
-        return prev.filter((item) => {
+        return prev.filter(item => {
           return item !== e.target.value;
         });
       }
@@ -78,8 +77,6 @@ export default function Step1({ btnActive, SetBtnActive }) {
       return [...prev, e.target.value];
     });
   };
-  console.log(btnActive);
-  console.log(data);
   return (
     <UpdateWrapper>
       {/* {data.map(item,idx) => {
@@ -92,7 +89,7 @@ export default function Step1({ btnActive, SetBtnActive }) {
         <div className="buttonWrap">
           <button
             className={`button ${
-              btnActive.includes(data[0]) && "activeButton"
+              btnActive.includes(data[0]) && 'activeButton'
             }`}
             value={data[0]}
             onClick={toggleActive}
@@ -102,7 +99,7 @@ export default function Step1({ btnActive, SetBtnActive }) {
           </button>
           <button
             className={`button ${
-              btnActive.includes(data[1]) && "activeButton"
+              btnActive.includes(data[1]) && 'activeButton'
             }`}
             value={data[1]}
             onClick={toggleActive}
@@ -114,7 +111,7 @@ export default function Step1({ btnActive, SetBtnActive }) {
         <div className="buttonWrap">
           <button
             className={`button ${
-              btnActive.includes(data[2]) && "activeButton"
+              btnActive.includes(data[2]) && 'activeButton'
             }`}
             value={data[2]}
             onClick={toggleActive}
@@ -124,7 +121,7 @@ export default function Step1({ btnActive, SetBtnActive }) {
           </button>
           <button
             className={`button ${
-              btnActive.includes(data[3]) && "activeButton"
+              btnActive.includes(data[3]) && 'activeButton'
             }`}
             value={data[3]}
             onClick={toggleActive}
@@ -136,7 +133,7 @@ export default function Step1({ btnActive, SetBtnActive }) {
         <div className="buttonWrap">
           <button
             className={`button ${
-              btnActive.includes(data[4]) && "activeButton"
+              btnActive.includes(data[4]) && 'activeButton'
             }`}
             value={data[4]}
             onClick={toggleActive}
@@ -146,7 +143,7 @@ export default function Step1({ btnActive, SetBtnActive }) {
           </button>
           <button
             className={`button ${
-              btnActive.includes(data[5]) && "activeButton"
+              btnActive.includes(data[5]) && 'activeButton'
             }`}
             value={data[5]}
             onClick={toggleActive}

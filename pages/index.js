@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import PresentPosition from "../components/index/PresentPosition";
 import LoginButton from "../components/index/LoginButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 const Index = styled.div`
   @media screen and (max-width: 768px) {
@@ -94,11 +94,17 @@ export default function Home() {
     isLoading: wheelchairLoding,
     error: wheelchairError,
     data: wheelchairData,
-  } = useQuery(["wheelchair", lat, lon], () =>
+  } = useQuery(["wheelchair"], () =>
     axios.get(`/api/wheelchair`).then((res) => res.data)
   );
+  useEffect(() => {
+    if (fastSearch === "charger") {
+      window.tmap.setWheelchairMark(wheelchairData || []);
+    }
+  }, [fastSearch]);
+  console.log("wheelchairdata", wheelchairData);
   if (isLoading) return null;
-  console.log(wheelchairData);
+  console.log("map : ", Map);
   return (
     <Index>
       <Head>

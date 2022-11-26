@@ -1,6 +1,7 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import Script from "next/script";
+/* eslint-disable @next/next/no-sync-scripts */
+import Document, {Html, Head, Main, NextScript} from 'next/document';
+import {ServerStyleSheet} from 'styled-components';
+import Script from 'next/script';
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
@@ -9,8 +10,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -32,19 +32,14 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <style />
-          {/* <script
-            async
+          <script
             type="text/javascript"
-            src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_CLIENT_ID}`}
-          ></script> */}
+            src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx64c3f3ee91094fdeb859ff596b725ea1"
+          ></script>
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script
-            type="text/javascript"
-            src={`https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=${process.env.NEXT_PUBLIC_TMAP_CLIENT_ID}`}
-          ></script>
         </body>
       </Html>
     );
