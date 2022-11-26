@@ -15,7 +15,7 @@ import LoginButton from "../components/index/LoginButton";
 import { useState } from "react";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 const Index = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     .Content1 {
       position: fixed;
       top: 0;
@@ -52,32 +52,64 @@ const Index = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 10px 10px 0px 0px;
+      border-radius: 0px 10px 10px 0px;
       box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
+    }
+  }
+  @media screen and (min-width: 480px) {
+    .Header {
+    }
+    .Content1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 500px;
+      .moveNav {
+        padding: 0px 0px 0px 20px;
+      }
+    }
+    .ContentWrapper {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      height: 63vh;
+      width: 100vw;
+      bottom: 0;
+    }
+    .Content2 {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      bottom: 0;
+      right: 0;
+      width: 100vw;
+      padding-right: 10px;
+    }
+
+    .Content3 {
+      /* position: fixed; */
+      background-color: white;
+      left: 0;
+      width: 500px;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 0px 10px 0px 10px;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
     }
   }
 `;
 
-const Content2 = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  width: 100vw;
-  padding-right: 10px;
-`;
-const Content3 = styled.div`
-  position: fixed;
-  background-color: white;
-  bottom: 0px;
-  left: 0;
-  width: 100vw;
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px 10px 0px 0px;
-  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
-`;
 export default function Home() {
   const [lat, lon] = useCoordinate();
   const [fastSearch, setFastSearch] = useState();
@@ -111,6 +143,7 @@ export default function Home() {
         ></mets>
       </Head>
       <Map></Map>
+
       <div className="Content1">
         <Header></Header>
         <div className="moveNav">
@@ -132,10 +165,10 @@ export default function Home() {
             right={data.right}
           ></Station>
           <Facilities data={data}></Facilities>
-          <RecommendPlace
+          {/* <RecommendPlace
             title={data.name}
             options={[data.options]}
-          ></RecommendPlace>
+          ></RecommendPlace> */}
         </div>
       </div>
     </Index>
