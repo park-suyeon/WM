@@ -94,6 +94,7 @@ const Detail = styled.div`
     }
     .icon {
       margin-right: 13px;
+      width: 16px;
     }
     .text {
       font-size: 14px;
@@ -152,11 +153,11 @@ const Title = ({ title, options }) => {
       <div className="Wrapper">{Options}</div>
       <div className="Buttons">
         <div className="Start">
-          <img className="icon" src="/images/icon/Group.png" />
+          <img className="icon" src="/images/icon/pin_blue(2).png" />
           <div className="text">출발</div>
         </div>
         <div className="Arrival">
-          <img className="icon" src="/images/icon/Group.png" />
+          <img className="icon" src="/images/icon/pin_white.png" />
           <div className="text">도착</div>
         </div>
       </div>

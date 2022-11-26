@@ -26,6 +26,10 @@ const PhotoWrapper = styled.div`
       margin-bottom: 30px;
       margin-left: 30px;
       overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
       .photo1 {
         width: 100px;
         margin-right: 10px;
