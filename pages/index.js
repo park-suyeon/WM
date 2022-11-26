@@ -138,10 +138,10 @@ export default function Home() {
             right={data.right}
           ></Station>
           <Facilities data={data}></Facilities>
-          <RecommendPlace
+          {/* <RecommendPlace
             title={data.name}
             options={[data.options]}
-          ></RecommendPlace>
+          ></RecommendPlace> */}
         </div>
       </div>
     </Index>
