@@ -40,7 +40,6 @@ const Tmap = () => {
             setted: true,
           }
         function initTmap() {
-
             var map = new Tmapv2.Map("TMapApp", {
                 center: new Tmapv2.LatLng(${lat ? lat : dLat},${
         lon ? lon : dLon
