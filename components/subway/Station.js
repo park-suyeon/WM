@@ -26,7 +26,7 @@ const StationBlock = styled.div`
     }
   }
   .stationName {
-    width: 40%;
+    width: 280px;
     height: 40px;
     background-color: white;
     border: 2px solid #c66a28;

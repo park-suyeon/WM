@@ -17,7 +17,6 @@ const MapButtons = styled.div`
 `;
 const TmapBlock = styled.div`
   position: relative;
-
   .routes {
     background-color: white;
     position: absolute;
@@ -49,10 +48,6 @@ const Tmap = () => {
   return (
     <TmapBlock>
       <div id="TMapApp"></div>
-      <MapButtons>
-        <PresentPosition></PresentPosition>
-        <LoginButton></LoginButton>
-      </MapButtons>
       {route && (
         <div className="routes">
           {route.map((v, index) => {

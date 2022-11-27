@@ -38,7 +38,7 @@ const Index = styled.div`
       position: absolute;
       display: flex;
       justify-content: flex-end;
-      width: 100vw;
+      /* width: 100vw; */
       padding-right: 10px;
     }
 
@@ -48,7 +48,7 @@ const Index = styled.div`
       background-color: white;
       bottom: 0px;
       left: 0;
-      width: 100vw;
+      /* width: 100vw; */
       overflow: scroll;
       display: flex;
       flex-direction: column;
@@ -62,7 +62,7 @@ const Index = styled.div`
     }
   }
   //데스크탑
-  @media screen and (min-width: 1025px) {
+  @media screen and (min-width: 769px) {
     .Content1 {
       position: fixed;
       top: 0;
@@ -77,16 +77,17 @@ const Index = styled.div`
       display: flex;
       flex-direction: column;
       z-index: 1000;
-      width: 100vw;
+      /* width: 100vw; */
       bottom: 0;
     }
     .Content2 {
       display: flex;
       bottom: 0;
       left: 0;
-      width: 100vw;
+      /* width: 100vw; */
       padding-right: 10px;
       padding-bottom: 10px;
+      margin-left: 10px;
     }
 
     .Content3 {
