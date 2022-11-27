@@ -103,7 +103,7 @@ const StationRoot3 = ({ exit, direction, quick, time, start, arrive }) => {
           <div className="placeline">
             <div className="directionText">{direction}</div>
             <img className="icon" src="/images/icon/toilet_black.png" />
-            <div className="transferText">빠른 환승 </div>
+            <div className="transferText">안전 환승 </div>
             <div className="transferText">{quick}</div>
           </div>
           <div className="placeline">

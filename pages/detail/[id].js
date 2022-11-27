@@ -1,20 +1,20 @@
-import Head from "next/head";
-import Image from "next/image";
-import styled from "styled-components";
-import Header from "../../components/detail/Header";
-import ShareCallBox from "../../components/detail/ShareCall";
-import FastSearch from "../../components/index/FastSearch";
-import Title from "../../components/detail/Title";
-import Photo from "../../components/detail/Photo";
-import MainLocation from "../../components/detail/Location";
-import ButtonBox from "../../components/index/ButtonBox";
-import OptionIcon from "../../components/detail/OptionIcon";
-import MorePhoto from "../../components/detail/MorePhoto";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useQuery } from "@tanstack/react-query";
-import dynamic from "next/dynamic";
-const Map = dynamic(() => import("../../components/Map"), { ssr: false });
+import Head from 'next/head';
+import Image from 'next/image';
+import styled from 'styled-components';
+import Header from '../../components/detail/Header';
+import ShareCallBox from '../../components/detail/ShareCall';
+import FastSearch from '../../components/index/FastSearch';
+import Title from '../../components/detail/Title';
+import Photo from '../../components/detail/Photo';
+import MainLocation from '../../components/detail/Location';
+import ButtonBox from '../../components/index/ButtonBox';
+import OptionIcon from '../../components/detail/OptionIcon';
+import MorePhoto from '../../components/detail/MorePhoto';
+import axios from 'axios';
+import {useRouter} from 'next/router';
+import {useQuery} from '@tanstack/react-query';
+import dynamic from 'next/dynamic';
+const Map = dynamic(() => import('../../components/Map'), {ssr: false});
 const Content1 = styled.div`
   position: fixed;
   top: 0px;
@@ -39,11 +39,10 @@ const Content2 = styled.div`
 export default function Home() {
   const router = useRouter();
   const id = router.query.id;
-  const { isLoading, error, data } = useQuery(["place", id], () =>
-    axios(`/api/place/${id}`).then((res) => res.data)
+  const {isLoading, error, data} = useQuery(['place', id], () =>
+    axios(`/api/place/${id}`).then(res => res.data),
   );
-  if (isLoading) return "로딩중";
-  console.log(data);
+  if (isLoading) return '로딩중';
   return (
     <div>
       <Head>

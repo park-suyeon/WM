@@ -124,11 +124,11 @@ export default function Step2({ name, setPlaceOption }) {
           }}
           placeholder="수정할 내용이 있으면 입력해 주세요"
         ></input>
-        <div className="midTitleWrap">
+        {/* <div className="midTitleWrap">
           <div className="midTitle">사진 추가</div>
           <img className="plusIcon" src="/images/icon/plus_gray.png" />
           <div className="choice">선택</div>
-        </div>
+        </div> */}
       </div>
     </UpdateWrapper>
   );

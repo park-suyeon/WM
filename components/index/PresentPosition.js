@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Present = styled.div`
   .iconWrapper {
@@ -19,7 +19,11 @@ const Present = styled.div`
 
 export default function PresentPosition() {
   return (
-    <Present>
+    <Present
+      onClick={() => {
+        window.tmap.moveCenter();
+      }}
+    >
       <div className="iconWrapper">
         <img className="icon" src="/images/icon/presentPosition.png" />
       </div>

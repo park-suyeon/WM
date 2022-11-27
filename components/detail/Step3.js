@@ -109,11 +109,11 @@ export default function Step2() {
           className="text"
           placeholder="해당 장소에서의 경험을 해시태그로 입력해 주세요. #태그 입력(ex. #유동인구 많음 #공간협소)"
         ></input>
-        <div className="midTitleWrap">
+        {/* <div className="midTitleWrap">
           <div className="midTitle">사진 추가</div>
           <img className="plusIcon" src="/images/icon/plus_gray.png" />
           <div className="choice">선택</div>
-        </div>
+        </div> */}
       </div>
     </UpdateWrapper>
   );

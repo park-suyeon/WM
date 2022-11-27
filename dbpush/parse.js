@@ -1,16 +1,15 @@
-const fs = require("fs");
-const data = fs.readFileSync("./elevator2.csv").toString();
-const data2 = data.split("\n");
-console.log(data2);
+const fs = require('fs');
+const data = fs.readFileSync('./elevator2.csv').toString();
+const data2 = data.split('\n');
 const result = {};
-data2.forEach((e) => {
-  const parsedData = e.split(",");
+data2.forEach(e => {
+  const parsedData = e.split(',');
   const tempLocation = parsedData[1]
-    ?.replace("POINT(", "")
-    .replace(")", "")
-    .split(" ");
+    ?.replace('POINT(', '')
+    .replace(')', '')
+    .split(' ');
 
-  const tempName = parsedData[9]?.replace("\r", "");
+  const tempName = parsedData[9]?.replace('\r', '');
   if (!tempName || !tempLocation) return;
   result[tempName] = {
     latitude: Number(tempLocation[0]),
@@ -18,5 +17,4 @@ data2.forEach((e) => {
     name: tempName,
   };
 });
-console.log(result);
-fs.writeFileSync("./p.json", JSON.stringify({ subway: result }));
+fs.writeFileSync('./p.json', JSON.stringify({subway: result}));
