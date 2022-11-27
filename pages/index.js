@@ -15,7 +15,8 @@ import LoginButton from "../components/index/LoginButton";
 import { useState } from "react";
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 const Index = styled.div`
-  @media screen and (min-width: 768px) {
+  //모바일
+  @media screen and (max-width: 768px) {
     .Content1 {
       position: fixed;
       top: 0;
@@ -29,12 +30,11 @@ const Index = styled.div`
       position: fixed;
       display: flex;
       flex-direction: column;
-      z-index: 1000;
-      height: 63vh;
       width: 100vw;
       bottom: 0;
     }
     .Content2 {
+      z-index: 10;
       position: absolute;
       display: flex;
       justify-content: flex-end;
@@ -43,6 +43,7 @@ const Index = styled.div`
     }
 
     .Content3 {
+      z-index: 10;
       position: fixed;
       background-color: white;
       bottom: 0px;
@@ -52,7 +53,7 @@ const Index = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 0px 10px 10px 0px;
+      border-radius: 10px 10px 0px 0px;
       box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
       &::-webkit-scrollbar {
         display: none;
@@ -60,9 +61,8 @@ const Index = styled.div`
       }
     }
   }
-  @media screen and (min-width: 480px) {
-    .Header {
-    }
+  //데스크탑
+  @media screen and (min-width: 1025px) {
     .Content1 {
       position: fixed;
       top: 0;
@@ -77,30 +77,28 @@ const Index = styled.div`
       display: flex;
       flex-direction: column;
       z-index: 1000;
-      height: 63vh;
       width: 100vw;
       bottom: 0;
     }
     .Content2 {
-      position: absolute;
       display: flex;
-      flex-direction: column;
       bottom: 0;
-      right: 0;
+      left: 0;
       width: 100vw;
       padding-right: 10px;
+      padding-bottom: 10px;
     }
 
     .Content3 {
-      /* position: fixed; */
       background-color: white;
       left: 0;
+      bottom: 0;
       width: 500px;
       overflow: scroll;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 0px 10px 0px 10px;
+      border-radius: 0px 10px 10px 0px;
       box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
       &::-webkit-scrollbar {
         display: none;
