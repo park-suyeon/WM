@@ -5,12 +5,25 @@ var selectedLocation;
 var currentMarker;
 var selectedPoiMarker;
 var wheelchairMarkerList = [];
-
+var restroomMarkerList = [];
 /**
  * global variable
  * tmap
  *    moveCenter
  */
+function setRestroomMark(markList) {
+  console.log(markList);
+  markList.forEach((element) => {
+    var lonlat = new Tmapv2.LatLng(element.lat, element.lon);
+    const mark = new Tmapv2.Marker({
+      position: lonlat, //Marker의 중심좌표 설정.
+      map: map, //Marker가 표시될 Map 설정..
+      // label: '현재위치', //Marker의 라벨.
+      title: element.placeName, //Marker 타이틀.
+    });
+    restroomMarkerList.push(mark);
+  }); //화장실 마크 표시
+}
 function setWheelchairMark(markList) {
   console.log(markList);
   markList.forEach((element) => {
@@ -59,6 +72,7 @@ function setSelectedPoi(poi) {
     moveCenter,
     setSelectedPoi,
     setWheelchairMark,
+    setRestroomMark,
     startX: currentLocation?.lon,
     startY: currentLocation?.lat,
     endX: selectedLocation?.lon,
