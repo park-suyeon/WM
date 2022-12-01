@@ -1,6 +1,5 @@
-const uri =
-  process.env.DB_URI ||
-  "mongodb+srv://root:1234@cluster0.fela1ej.mongodb.net/wmap?retryWrites=true&w=majority";
+const uri = process.env.DB_URI;
+
 const mongoose = require("mongoose");
 
 const connectMongo = async () => mongoose.connect(uri);
