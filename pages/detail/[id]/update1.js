@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
 import axios from "axios";
+import OptionIcon from "../../../components/detail/OptionIcon";
 
 const Content1 = styled.div`
   position: fixed;
@@ -78,6 +79,7 @@ export default function Home() {
       </Content1>
       <Content2>
         <Title title={data.name}></Title>
+        <OptionIcon options={data.options}></OptionIcon>
         <ShareCallBox></ShareCallBox>
         {currentStep === "1" && (
           <Step1 btnActive={btnActive} SetBtnActive={SetBtnActive}></Step1>

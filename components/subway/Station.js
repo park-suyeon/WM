@@ -1,64 +1,128 @@
 import styled from "styled-components";
+import { subwayLineColor } from "../../config/subwayLineColor";
 const StationBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding-top: 20px;
-  .line {
-    width: 90%;
-    height: 25px;
-    align-items: center;
-    background-color: #c66a28;
-    border-radius: 20px;
+  //모바일
+  @media screen and (max-width: 768px) {
     display: flex;
-    justify-content: space-between;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 7.5px;
-    .previousStation {
-      color: white;
-      font-size: 13px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: 20px;
+    .line {
+      width: 90%;
+      height: 25px;
+      align-items: center;
+      background-color: ${(props) => subwayLineColor[props.lineText]};
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-top: 7.5px;
+      .previousStation {
+        color: white;
+        font-size: 13px;
+      }
+      .nextStation {
+        color: white;
+        font-size: 13px;
+      }
     }
-    .nextStation {
-      color: white;
-      font-size: 13px;
+    .stationName {
+      width: 210px;
+      height: 40px;
+      background-color: white;
+      border: 2px solid ${(props) => subwayLineColor[props.lineText]};
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      padding: 10px;
+      .text {
+        font-weight: 700;
+        font-size: 17px;
+        text-align: center;
+      }
+    }
+    .distanceWrapper {
+      display: flex;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      .exit {
+        font-size: 12px;
+        margin-right: 6px;
+      }
+      .distance {
+        font-size: 12px;
+        color: #c248ad;
+      }
     }
   }
-  .stationName {
-    width: 280px;
-    height: 40px;
-    background-color: white;
-    border: 2px solid #c66a28;
-    border-radius: 30px;
+
+  //데스크탑
+  @media screen and (min-width: 769px) {
     display: flex;
+    flex-direction: column;
+    width: 80%;
     align-items: center;
-    justify-content: center;
-    position: absolute;
-    padding: 10px;
-    .text {
-      font-weight: 700;
-      font-size: 17px;
-      text-align: center;
+    padding-top: 20px;
+    .line {
+      width: 90%;
+      height: 25px;
+      align-items: center;
+      background-color: ${(props) => subwayLineColor[props.lineText]};
+      /* background-color: #c66a28; */
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-top: 7.5px;
+      .previousStation {
+        color: white;
+        font-size: 13px;
+      }
+      .nextStation {
+        color: white;
+        font-size: 13px;
+      }
     }
-  }
-  .distanceWrapper {
-    display: flex;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    .exit {
-      font-size: 12px;
-      margin-right: 6px;
+    .stationName {
+      width: 280px;
+      height: 40px;
+      background-color: white;
+      border: 2px solid ${(props) => subwayLineColor[props.lineText]};
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      padding: 10px;
+      .text {
+        font-weight: 700;
+        font-size: 17px;
+        text-align: center;
+      }
     }
-    .distance {
-      font-size: 12px;
-      color: #c248ad;
+    .distanceWrapper {
+      display: flex;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      .exit {
+        font-size: 12px;
+        margin-right: 6px;
+      }
+      .distance {
+        font-size: 12px;
+        color: #c248ad;
+      }
     }
   }
 `;
 const Station = ({ title, left, right }) => {
   return (
-    <StationBlock>
+    <StationBlock lineText="2">
       <div className="line">
         <div className="previousStation">{left}</div>
         <div className="nextStation">{right}</div>

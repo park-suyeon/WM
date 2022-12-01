@@ -34,17 +34,18 @@ const Index = styled.div`
       bottom: 0;
     }
     .Content2 {
-      z-index: 10;
-      position: absolute;
+      z-index: 1;
+      /* position: relative; */
       display: flex;
+      background-color: rgba(255, 255, 255, 0);
       justify-content: flex-end;
       width: 100vw;
       padding-right: 10px;
+      margin-bottom: 10px;
     }
 
     .Content3 {
-      z-index: 10;
-      position: fixed;
+      /* position: absolute; */
       background-color: white;
       bottom: 0px;
       left: 0;
@@ -67,7 +68,7 @@ const Index = styled.div`
       position: fixed;
       top: 0;
       left: 0;
-      width: 500px;
+      width: 100%;
       .moveNav {
         padding: 0px 0px 0px 20px;
       }
@@ -76,23 +77,27 @@ const Index = styled.div`
       position: fixed;
       display: flex;
       flex-direction: column;
-      z-index: 1000;
+      /* z-index: 1000; */
       width: 100vw;
       bottom: 0;
     }
     .Content2 {
       display: flex;
+      /* position: absolute; */
       justify-content: flex-end;
-      bottom: 0;
+      background-color: rgba(255, 255, 255, 0);
       left: 0;
       width: 100vw;
       padding-right: 10px;
-      padding-bottom: 10px;
+      /* padding-bottom: 10px; */
       margin-left: 10px;
+      margin-bottom: 10px;
     }
 
     .Content3 {
+      position: fixed;
       background-color: white;
+      position: relative;
       left: 0;
       bottom: 0;
       width: 100%;
