@@ -56,56 +56,6 @@ const Index = styled.div`
       box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
     }
   }
-  //데스크탑
-  @media screen and (min-width: 769px) {
-    .Content1 {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      .moveNav {
-        padding: 0px 0px 0px 20px;
-      }
-    }
-    .ContentWrapper {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      bottom: 0;
-    }
-    .Content2 {
-      display: flex;
-      /* position: absolute; */
-      justify-content: flex-end;
-      background-color: rgba(255, 255, 255, 0);
-      left: 0;
-      width: 100vw;
-      padding-right: 10px;
-      margin-left: 10px;
-      margin-bottom: 10px;
-    }
-
-    .Content3 {
-      /* position: fixed; */
-      /* z-index: 2; */
-      background-color: white;
-      position: relative;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      overflow: scroll;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 0px 10px 10px 0px;
-      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
-      &::-webkit-scrollbar {
-        display: none;
-        width: 0 !important;
-      }
-    }
-  }
 `;
 
 const RootWrapper = styled.div`

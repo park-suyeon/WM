@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const axios = require('axios');
-const data = require('../../../components/testPublicTrans.json');
+const axios = require("axios");
+const data = require("../../../components/testPublicTrans.json");
 export default async function handler(req, res) {
   const { startX, startY, endX, endY } = req.body;
 
@@ -31,13 +31,13 @@ export default async function handler(req, res) {
   const tempI = JSON.parse(JSON.stringify(itineraries));
   const lessTransfer = tempI.sort((a, b) => {
     return (
-      a.legs.filter((ia) => ia.mode === 'TRANSFER').length -
-      b.legs.filter((ia) => ia.mode === 'TRANSFER').length
+      a.legs.filter((ia) => ia.mode === "TRANSFER").length -
+      b.legs.filter((ia) => ia.mode === "TRANSFER").length
     );
   })[0];
   const onlySubway =
     itineraries.find((item) => {
-      return !item.legs.some((leg) => leg.mode === 'BUS');
+      return !item.legs.some((leg) => leg.mode === "BUS");
     }) || lessTransfer;
   const faster = itineraries.sort((a, b) => {
     return a.totalTime - b.totalTime;
