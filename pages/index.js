@@ -87,6 +87,7 @@ export default function Home() {
       .get(`/api/subway/close`, { params: { lat, lon } })
       .then((res) => res.data)
   );
+
   const {
     isLoading: wheelchairLoding,
     error: wheelchairError,
@@ -94,6 +95,15 @@ export default function Home() {
   } = useQuery(["wheelchair"], () =>
     axios.get(`/api/wheelchair`).then((res) => res.data)
   );
+
+  const {
+    isLoading: toiletLoding,
+    error: toiletError,
+    data: toiletData,
+  } = useQuery(["toilet"], () =>
+    axios.get(`/api/toilet`).then((res) => res.data)
+  );
+
   useEffect(() => {
     if (fastSearch === "charger") {
       window.tmap.setWheelchairMark(wheelchairData || []);
@@ -101,6 +111,15 @@ export default function Home() {
       window.tmap?.setWheelchairMark([]);
     }
   }, [fastSearch]);
+
+  useEffect(() => {
+    if (fastSearch === "toilet") {
+      window.tmap.setToiletMark(toiletData || []);
+    } else {
+      window.tmap?.setToiletMark([]);
+    }
+  }, [fastSearch]);
+
   if (isLoading) return null;
   console.log("setPage : ", setPage);
   return (
@@ -116,7 +135,6 @@ export default function Home() {
           ></mets>
         </Head>
         <Map></Map>
-
         <div className="Content1">
           <Header></Header>
           <div className="moveNav">

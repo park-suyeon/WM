@@ -7,6 +7,7 @@ var currentMarker;
 var selectedStartPoiMarker;
 var selectedEndPoiMarker;
 var wheelchairMarkerList = [];
+var toiletMarkerList = [];
 
 /**
  * global variable
@@ -24,6 +25,19 @@ function setWheelchairMark(markList) {
       title: element.placeName, //Marker 타이틀.
     });
     wheelchairMarkerList.push(mark);
+  });
+}
+function setToiletMark(markList) {
+  console.log(markList);
+  markList.forEach((element) => {
+    var lonlat = new Tmapv2.LatLng(element.lat, element.lon);
+    const mark = new Tmapv2.Marker({
+      position: lonlat, //Marker의 중심좌표 설정.
+      map: map, //Marker가 표시될 Map 설정..
+      // label: '현재위치', //Marker의 라벨.
+      title: element.placeName, //Marker 타이틀.
+    });
+    toiletMarkerList.push(mark);
   });
 }
 
@@ -73,6 +87,7 @@ function setSelectedPoi(poi, isStart) {
     moveCenter,
     setSelectedPoi,
     setWheelchairMark,
+    setToiletMark,
     drawData,
     startX: selectedStartLocation?.lon,
     startY: selectedStartLocation?.lat,
@@ -117,7 +132,7 @@ const getTmap = () => {
   map = new Tmapv2.Map("TMapApp", {
     center: new Tmapv2.LatLng(37.5652045, 126.98702028),
     width: "100%", // 지도의 넓이
-    height: "600px", // 지도의 높이
+    height: "1000px", // 지도의 높이
     zoom: 17,
   });
   return map;
@@ -291,6 +306,7 @@ window.tmap = {
   moveCenter,
   setSelectedPoi,
   setWheelchairMark,
+  setToiletMark,
   drawData,
   startX: selectedStartLocation?.lon,
   startY: selectedStartLocation?.lat,

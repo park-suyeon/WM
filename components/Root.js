@@ -30,7 +30,7 @@ export default function Root({ setPage, className }) {
   const [lessTransfer, setLessTransfer] = useState();
   const [currentOrder, setCurrentOrder] = useState("onlySubway"); // lessTransfer | faster
 
-  let selectedPath;
+  let selectedPath; //css consol.log();찍어서 보고 어떻게 표현할지 수정
   if (currentOrder === "onlySubway") {
     selectedPath = onlySubway;
   }
