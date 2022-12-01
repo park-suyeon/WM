@@ -11,11 +11,8 @@ import Step3 from "../../../components/detail/Step3";
 import ShareCallBox from "../../../components/detail/ShareCall";
 import ButtonBox from "../../../components/index/ButtonBox";
 import Map from "../../../components/Map";
-import { useRouter } from "next/router";
-import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
 import axios from "axios";
-import OptionIcon from "../../../components/detail/OptionIcon";
 
 const Content1 = styled.div`
   position: fixed;
@@ -38,17 +35,12 @@ const Content2 = styled.div`
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
-
 export default function Home() {
   const [currentStep, setCurrentStep] = useState("1");
   const [btnActive, SetBtnActive] = useState([]);
   const [placeOption, setPlaceOption] = useState({});
   const step2ref = useRef(0);
   const id = "634400ba562a10fc789991e6";
-  const { isLoading, error, data } = useQuery(["place", id], () =>
-    axios(`/api/place/${id}`).then((res) => res.data)
-  );
-  if (isLoading) return "로딩중";
   const next = () => {
     const i = step2ref.current;
     if (currentStep === "1") {
@@ -78,8 +70,7 @@ export default function Home() {
         <Header></Header>
       </Content1>
       <Content2>
-        <Title title={data.name}></Title>
-        <OptionIcon options={data.options}></OptionIcon>
+        <Title></Title>
         <ShareCallBox></ShareCallBox>
         {currentStep === "1" && (
           <Step1 btnActive={btnActive} SetBtnActive={SetBtnActive}></Step1>

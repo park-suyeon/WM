@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Link from "next/link";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import styled from 'styled-components';
+import Link from 'next/link';
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const HeaderWrapper = styled.div`
   position: relative;
@@ -63,19 +63,19 @@ const HeaderWrapper = styled.div`
 `;
 
 export default function Header() {
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [openResult, setOpenResult] = useState(false);
-  const { data, loading, refetch } = useQuery(["search-result"], () => {
+  const { data, loading, refetch } = useQuery(['search-result'], () => {
     if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && searchText) {
       return axios
         .get(
-          "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
+          'https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result',
           {
             params: {
               appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
               searchKeyword: searchText,
-              resCoordType: "WGS84GEO",
-              reqCoordType: "WGS84GEO",
+              resCoordType: 'WGS84GEO',
+              reqCoordType: 'WGS84GEO',
               count: 10,
             },
           }
@@ -84,15 +84,15 @@ export default function Header() {
     }
   });
   // const data = searchResult;
-  console.log("data : ", data);
+  console.log('data : ', data);
   const pois = data?.searchPoiInfo?.pois.poi || [];
   return (
     <HeaderWrapper>
-      <Link href="/">
-        <img className="logo" src="/images/logo.png" />
+      <Link href='/'>
+        <img className='logo' src='/images/logo.png' />
       </Link>
       <input
-        className="searchBar"
+        className='searchBar'
         onChange={(e) => setSearchText(e.target.value)}
       />
       <img
@@ -100,17 +100,17 @@ export default function Header() {
           setOpenResult(true);
           refetch();
         }}
-        className="icon"
-        src="/images/icon/search.png"
+        className='icon'
+        src='/images/icon/search.png'
       />
       {openResult && (
         <>
-          <div className="pois-wrapper">
+          <div className='pois-wrapper'>
             {pois.map((poi) => {
               return (
                 <div key={poi.pkey}>
                   <div
-                    className="poi"
+                    className='poi'
                     onClick={() => {
                       window.tmap.setSelectedPoi(poi);
                       setOpenResult(false);
@@ -124,7 +124,7 @@ export default function Header() {
           </div>
           <div
             onClick={() => setOpenResult(false)}
-            className="pois-fullcover"
+            className='pois-fullcover'
           ></div>
         </>
       )}
