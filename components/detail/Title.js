@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Link from "next/link";
-import OptionIcon from "./OptionIcon";
 
 const Detail = styled.div`
   width: 100%;
@@ -104,7 +102,6 @@ const Detail = styled.div`
     }
   }
 `;
-
 const Title = ({ title, options }) => {
   const Options = options?.map((option) => {
     if (option === "경사로") {
@@ -154,7 +151,6 @@ const Title = ({ title, options }) => {
     <Detail>
       <div className="Placename">{title}</div>
       <div className="Wrapper">{Options}</div>
-      {/* <OptionIcon options={data.Options}></OptionIcon> */}
       <div className="Buttons">
         <div className="Start">
           <img className="icon" src="/images/icon/pin_blue(2).png" />

@@ -5,7 +5,6 @@ const OptionBox = styled.div`
   align-items: center;
   width: 100%;
   border-bottom: 2px solid #ededed;
-  background-color: white;
 
   .Wrapper {
     display: flex;

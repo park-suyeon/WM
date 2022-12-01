@@ -4,7 +4,6 @@ import styled from "styled-components";
 import ButtonBox from "../components/index/ButtonBox";
 import InputBox from "../components/InputBox";
 import Nav from "../components/Nav";
-import Link from "next/link";
 
 const Line = styled.div`
   background-color: #4461f2;
@@ -76,9 +75,7 @@ export default function Home() {
             </label>
           </div>
         </div>
-        <Link href="/">
-          <ButtonBox text="로그인" />
-        </Link>
+        <ButtonBox text="로그인" />
       </LoginBlock>
     </div>
   );
