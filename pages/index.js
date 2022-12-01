@@ -38,7 +38,7 @@ const Index = styled.div`
       position: absolute;
       display: flex;
       justify-content: flex-end;
-      /* width: 100vw; */
+      width: 100vw;
       padding-right: 10px;
     }
 
@@ -48,7 +48,7 @@ const Index = styled.div`
       background-color: white;
       bottom: 0px;
       left: 0;
-      /* width: 100vw; */
+      width: 100vw;
       overflow: scroll;
       display: flex;
       flex-direction: column;
@@ -77,14 +77,15 @@ const Index = styled.div`
       display: flex;
       flex-direction: column;
       z-index: 1000;
-      /* width: 100vw; */
+      width: 100vw;
       bottom: 0;
     }
     .Content2 {
       display: flex;
+      justify-content: flex-end;
       bottom: 0;
       left: 0;
-      /* width: 100vw; */
+      width: 100vw;
       padding-right: 10px;
       padding-bottom: 10px;
       margin-left: 10px;
@@ -94,7 +95,7 @@ const Index = styled.div`
       background-color: white;
       left: 0;
       bottom: 0;
-      width: 500px;
+      width: 100%;
       overflow: scroll;
       display: flex;
       flex-direction: column;

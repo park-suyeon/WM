@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const LoginBox = styled.div`
   .iconWrapper {
@@ -20,9 +21,11 @@ const LoginBox = styled.div`
 export default function LoginButton() {
   return (
     <LoginBox>
-      <div className="iconWrapper">
-        <img className="icon" src="/images/icon/login.png" />
-      </div>
+      <Link href="/login">
+        <div className="iconWrapper">
+          <img className="icon" src="/images/icon/login.png" />
+        </div>
+      </Link>
     </LoginBox>
   );
 }
