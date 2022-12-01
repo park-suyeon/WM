@@ -11,6 +11,8 @@ const Place = new Schema({
   options: [Object],
   images: [String],
   updatedAt: Date,
+  lat: Number,
+  lon: Number,
 });
 const Placemodel = mongoose.models.Place || mongoose.model("Place", Place);
 export default Placemodel;

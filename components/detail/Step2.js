@@ -94,7 +94,7 @@ const UpdateWrapper = styled.div`
   }
 `;
 
-export default function Step2({ name, setPlaceOption }) {
+export default function Step2({ name, setPlaceOption, setCurrentStep }) {
   return (
     <UpdateWrapper>
       <div className="title">보행장애인 편의 시설 정보 등록</div>
@@ -119,7 +119,7 @@ export default function Step2({ name, setPlaceOption }) {
           className="text"
           onChange={(e) => {
             setPlaceOption((prev) => {
-              return { ...prev, [name]: e.target.value };
+              return [...prev, { name, desc: e.target.value }];
             });
           }}
           placeholder="수정할 내용이 있으면 입력해 주세요"

@@ -84,7 +84,7 @@ const PhotoWrapper = styled.div`
   }
 `;
 
-const MorePhoto = (props) => {
+const MorePhoto = ({ id }) => {
   return (
     <PhotoWrapper>
       <div className="wrapper">
@@ -126,7 +126,7 @@ const MorePhoto = (props) => {
             <div>2022.09.01</div>
           </div>
         </div>
-        <Link href={`/detail/update`}>
+        <Link href={`/detail/${id}/update`}>
           <div className="edit">
             <img className="icon" src="/images/icon/edit.png" />
           </div>

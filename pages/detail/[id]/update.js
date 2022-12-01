@@ -11,8 +11,10 @@ import Step3 from "../../../components/detail/Step3";
 import ShareCallBox from "../../../components/detail/ShareCall";
 import ButtonBox from "../../../components/index/ButtonBox";
 import Map from "../../../components/Map";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
+import { useQuery } from "@tanstack/react-query";
 
 const Content1 = styled.div`
   position: fixed;
@@ -36,28 +38,49 @@ const Content2 = styled.div`
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
 `;
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState("1");
+  const router = useRouter();
+  const id = router.query.id;
+  const { isLoading, error, data } = useQuery(
+    ["place", id],
+    () => id && axios(`/api/place/${id}`).then((res) => res.data)
+  );
+
+  const [currentStep, setCurrentStep] = useState(-1);
   const [btnActive, SetBtnActive] = useState([]);
-  const [placeOption, setPlaceOption] = useState({});
+  const btnActivelength = btnActive.length;
+  const [placeOption, setPlaceOption] = useState([]);
   const step2ref = useRef(0);
-  const id = "634400ba562a10fc789991e6";
+  // const id = "634400ba562a10fc789991e6";
   const next = () => {
     const i = step2ref.current;
-    if (currentStep === "1") {
-      setCurrentStep(data[i]);
-      step2ref.current++;
-    }
-    if (currentStep !== "1" && currentStep !== "3") {
-      setCurrentStep(data[i]);
-      step2ref.current++;
-    }
-    if (i === data.length) {
-      setCurrentStep("3");
-    }
-    if (currentStep === "3") {
+    // if (currentStep === -1) {
+    //   setCurrentStep(data[i]);
+    //   step2ref.current++;
+    // }
+    // if (currentStep !== -1 && currentStep !== btnActivelength) {
+    //   setCurrentStep(data[i]);
+    //   step2ref.current++;
+    // }
+    // if (i === data.length) {
+    //   setCurrentStep(btnActivelength);
+    // }
+
+    if (currentStep === btnActivelength) {
       axios.put(`/api/place/${id}`, placeOption);
+    } else {
+      setCurrentStep((s) => s + 1);
     }
   };
+  console.log(data);
+  useEffect(() => {
+    if (!data || window.tmap) return;
+    const { lat, lon } = data;
+    if (lat) {
+      console.log(window.tmap);
+      window.tmap?.moveCenter(lat, lon);
+    }
+  }, [data]);
+  if (isLoading || !data) return "로딩중";
   return (
     <div>
       <Head>
@@ -70,17 +93,21 @@ export default function Home() {
         <Header></Header>
       </Content1>
       <Content2>
-        <Title></Title>
+        <Title title={data?.name}></Title>
         <ShareCallBox></ShareCallBox>
-        {currentStep === "1" && (
+        {currentStep === -1 && (
           <Step1 btnActive={btnActive} SetBtnActive={SetBtnActive}></Step1>
         )}
-        {currentStep !== "1" && currentStep !== "3" && (
-          <Step2 name={currentStep} setPlaceOption={setPlaceOption}></Step2>
+        {currentStep !== -1 && currentStep !== btnActivelength && (
+          <Step2
+            name={btnActive[currentStep]}
+            setCurrentStep={setCurrentStep}
+            setPlaceOption={setPlaceOption}
+          ></Step2>
         )}
-        {currentStep === "3" && <Step3></Step3>}
+        {currentStep === btnActivelength && <Step3></Step3>}
         <ButtonBox
-          text={currentStep === "3" ? "저장" : "다음"}
+          text={currentStep === btnActivelength ? "저장" : "다음"}
           onClick={next}
         />
       </Content2>

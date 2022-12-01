@@ -1,10 +1,10 @@
-import axios from 'axios';
-import Script from 'next/script';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import useCoordinate from '../hooks/useCoordinate';
-import LoginButton from './index/LoginButton';
-import PresentPosition from './index/PresentPosition';
+import axios from "axios";
+import Script from "next/script";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import useCoordinate from "../hooks/useCoordinate";
+import LoginButton from "./index/LoginButton";
+import PresentPosition from "./index/PresentPosition";
 
 const MapButtons = styled.div`
   position: absolute;
@@ -25,17 +25,12 @@ const TmapBlock = styled.div`
   }
 `;
 const Tmap = () => {
-  console.log('map render');
+  console.log("map render");
 
   return (
     <TmapBlock>
-      <div id='TMapApp'></div>
-      <MapButtons>
-        <PresentPosition></PresentPosition>
-        <LoginButton></LoginButton>
-      </MapButtons>
-
-      <Script type='text/javascript' src='/tmap.js'></Script>
+      <div id="TMapApp"></div>
+      <Script type="text/javascript" src="/tmap.js"></Script>
     </TmapBlock>
   );
 };

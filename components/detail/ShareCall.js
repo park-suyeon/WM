@@ -34,10 +34,10 @@ const ShareCallBox = (props) => {
         <img className="icon" src="/images/icon/call.png" />
         <div className="text">전화</div>
       </div>
-      <div className="iconWrap">
+      {/* <div className="iconWrap">
         <img className="icon" src="/images/icon/map.png" />
         <div className="text">거리뷰</div>
-      </div>
+      </div> */}
       <div className="iconWrap">
         <img className="icon" src="/images/icon/share.png" />
         <div className="text">공유</div>

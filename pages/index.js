@@ -166,7 +166,7 @@ export default function Home() {
           ></mets>
         </Head>
         <Map></Map>
-        <button onClick={() => setPage("root")}>root로 이동</button>
+
         <div className="Content1">
           <Header></Header>
           <div className="moveNav">
@@ -178,6 +178,7 @@ export default function Home() {
         </div>
         <div className="ContentWrapper">
           <div className="Content2">
+            <button onClick={() => setPage("root")}>root로 이동</button>
             <PresentPosition></PresentPosition>
             <LoginButton></LoginButton>
           </div>
