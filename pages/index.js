@@ -1,21 +1,20 @@
-import Head from "next/head";
-import Image from "next/image";
-import styled from "styled-components";
-import FastSearch from "../components/index/FastSearch";
-import Facilities from "../components/subway/Facilities";
-import Header from "../components/detail/Header";
-import dynamic from "next/dynamic";
-import Station from "../components/subway/Station";
-import RecommendPlace from "../components/index/RecommendPlace";
-import useCoordinate from "../hooks/useCoordinate";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import PresentPosition from "../components/index/PresentPosition";
-import LoginButton from "../components/index/LoginButton";
-import { useEffect, useState } from "react";
-const Map = dynamic(() => import("../components/Map"), { ssr: false });
+import Head from 'next/head';
+import Image from 'next/image';
+import styled from 'styled-components';
+import FastSearch from '../components/index/FastSearch';
+import Facilities from '../components/subway/Facilities';
+import Header from '../components/detail/Header';
+import dynamic from 'next/dynamic';
+import Station from '../components/subway/Station';
+import useCoordinate from '../hooks/useCoordinate';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import PresentPosition from '../components/index/PresentPosition';
+import LoginButton from '../components/index/LoginButton';
+import { useEffect, useState } from 'react';
+const Root = dynamic(() => import('../components/root'), { ssr: false });
+const Map = dynamic(() => import('../components/Map'), { ssr: false });
 const Index = styled.div`
-  //모바일
   @media screen and (max-width: 768px) {
     .Content1 {
       position: fixed;
@@ -30,22 +29,21 @@ const Index = styled.div`
       position: fixed;
       display: flex;
       flex-direction: column;
+      z-index: 1000;
+      height: 63vh;
       width: 100vw;
       bottom: 0;
     }
     .Content2 {
-      z-index: 1;
-      /* position: relative; */
+      position: absolute;
       display: flex;
-      background-color: rgba(255, 255, 255, 0);
       justify-content: flex-end;
       width: 100vw;
       padding-right: 10px;
-      margin-bottom: 10px;
     }
 
     .Content3 {
-      /* position: absolute; */
+      position: fixed;
       background-color: white;
       bottom: 0px;
       left: 0;
@@ -56,73 +54,35 @@ const Index = styled.div`
       align-items: center;
       border-radius: 10px 10px 0px 0px;
       box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
-      &::-webkit-scrollbar {
-        display: none;
-        width: 0 !important;
-      }
     }
   }
-  //데스크탑
-  @media screen and (min-width: 769px) {
-    .Content1 {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      .moveNav {
-        padding: 0px 0px 0px 20px;
-      }
-    }
-    .ContentWrapper {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      /* z-index: 1000; */
-      width: 100vw;
-      bottom: 0;
-    }
-    .Content2 {
-      display: flex;
-      /* position: absolute; */
-      justify-content: flex-end;
-      background-color: rgba(255, 255, 255, 0);
-      left: 0;
-      width: 100vw;
-      padding-right: 10px;
-      /* padding-bottom: 10px; */
-      margin-left: 10px;
-      margin-bottom: 10px;
-    }
+`;
 
-    .Content3 {
-      position: fixed;
-      background-color: white;
-      position: relative;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      overflow: scroll;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 0px 10px 10px 0px;
-      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
-      &::-webkit-scrollbar {
-        display: none;
-        width: 0 !important;
-      }
+const RootWrapper = styled.div`
+  .root {
+    opacity: 1;
+    &.hide {
+      opacity: 0;
+      z-index: -1;
     }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
   }
 `;
 
 export default function Home() {
   const [lat, lon] = useCoordinate();
   const [fastSearch, setFastSearch] = useState();
+  const [page, setPage] = useState('index');
   const {
     isLoading,
     error,
     data: data,
-  } = useQuery(["subway", lat, lon], () =>
+  } = useQuery(['subway', lat, lon], () =>
     axios
       .get(`/api/subway/close`, { params: { lat, lon } })
       .then((res) => res.data)
@@ -131,57 +91,63 @@ export default function Home() {
     isLoading: wheelchairLoding,
     error: wheelchairError,
     data: wheelchairData,
-  } = useQuery(["wheelchair"], () =>
+  } = useQuery(['wheelchair'], () =>
     axios.get(`/api/wheelchair`).then((res) => res.data)
   );
   useEffect(() => {
-    if (fastSearch === "charger") {
+    if (fastSearch === 'charger') {
       window.tmap.setWheelchairMark(wheelchairData || []);
+    } else {
+      window.tmap?.setWheelchairMark([]);
     }
   }, [fastSearch]);
-  console.log("wheelchairdata", wheelchairData);
   if (isLoading) return null;
-  console.log("map : ", Map);
+  console.log('setPage : ', setPage);
   return (
-    <Index>
-      <Head>
-        <title>WMap</title>
-        <meta name="description" content="Generated by create next app" />
-        <link rel="icon" href="/favicon.icon" />
-        <mets
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></mets>
-      </Head>
-      <Map></Map>
+    <>
+      <Index>
+        <Head>
+          <title>WMap</title>
+          <meta name='description' content='Generated by create next app' />
+          <link rel='icon' href='/favicon.icon' />
+          <mets
+            name='viewport'
+            content='width=device-width, initial-scale=1'
+          ></mets>
+        </Head>
+        <Map></Map>
+        <button onClick={() => setPage('root')}>root로 이동</button>
+        <div className='Content1'>
+          <Header></Header>
+          <div className='moveNav'>
+            <FastSearch
+              fastSearch={fastSearch}
+              setFastSearch={setFastSearch}
+            ></FastSearch>
+          </div>
+        </div>
+        <div className='ContentWrapper'>
+          <div className='Content2'>
+            <PresentPosition></PresentPosition>
+            <LoginButton></LoginButton>
+          </div>
+          <div className='Content3'>
+            <Station
+              title={data.name}
+              left={data.left}
+              right={data.right}
+            ></Station>
+            <Facilities data={data}></Facilities>
+          </div>
+        </div>
+      </Index>
 
-      <div className="Content1">
-        <Header></Header>
-        <div className="moveNav">
-          <FastSearch
-            fastSearch={fastSearch}
-            setFastSearch={setFastSearch}
-          ></FastSearch>
-        </div>
-      </div>
-      <div className="ContentWrapper">
-        <div className="Content2">
-          <PresentPosition></PresentPosition>
-          <LoginButton></LoginButton>
-        </div>
-        <div className="Content3">
-          <Station
-            title={data.name}
-            left={data.left}
-            right={data.right}
-          ></Station>
-          <Facilities data={data}></Facilities>
-          {/* <RecommendPlace
-            title={data.name}
-            options={[data.options]}
-          ></RecommendPlace> */}
-        </div>
-      </div>
-    </Index>
+      <RootWrapper className={`${page === 'index' ? 'hide' : ''}`}>
+        <Root
+          className={`${page === 'index' ? 'hide' : ''}` + ' root'}
+          setPage={setPage}
+        />
+      </RootWrapper>
+    </>
   );
 }
