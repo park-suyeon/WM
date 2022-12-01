@@ -77,7 +77,6 @@ const Index = styled.div`
       position: fixed;
       display: flex;
       flex-direction: column;
-      /* z-index: 1000; */
       width: 100vw;
       bottom: 0;
     }
@@ -89,13 +88,13 @@ const Index = styled.div`
       left: 0;
       width: 100vw;
       padding-right: 10px;
-      /* padding-bottom: 10px; */
       margin-left: 10px;
       margin-bottom: 10px;
     }
 
     .Content3 {
-      position: fixed;
+      /* position: fixed; */
+      /* z-index: 2; */
       background-color: white;
       position: relative;
       left: 0;

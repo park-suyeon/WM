@@ -126,7 +126,7 @@ const MorePhoto = (props) => {
             <div>2022.09.01</div>
           </div>
         </div>
-        <Link href="/detail/update">
+        <Link href={`/detail/update`}>
           <div className="edit">
             <img className="icon" src="/images/icon/edit.png" />
           </div>
