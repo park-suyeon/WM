@@ -163,16 +163,12 @@ export default function Home() {
   useEffect(() => {
     if (fastSearch === "charger") {
       window.tmap.setWheelchairMark(wheelchairData || []);
-    } else {
-      window.tmap?.setWheelchairMark([]);
     }
   }, [fastSearch]);
 
   useEffect(() => {
     if (fastSearch === "toilet") {
       window.tmap.setToiletMark(toiletData || []);
-    } else {
-      window.tmap?.setToiletMark([]);
     }
   }, [fastSearch]);
 

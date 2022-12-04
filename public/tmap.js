@@ -20,27 +20,42 @@ const attachTmap = () => {
   return tmap;
 };
 function setWheelchairMark(markList) {
-  console.log(markList);
+  console.log("markList", markList);
+  toiletMarkerList.forEach((e) => {
+    e.setMap(null);
+  });
+  toiletMarkerList = [];
   markList.forEach((element) => {
-    var lonlat = new Tmapv2.LatLng(element.lat, element.lon);
+    const lonlat = new Tmapv2.LatLng(element.lat, element.lon);
     const mark = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
+      icon: "/images/icon/toilet_blue.png",
+      iconSize: new Tmapv2.Size(20, 20),
       title: element.placeName, //Marker 타이틀.
     });
     wheelchairMarkerList.push(mark);
   });
+  console.log("markTest", wheelchairMarkerList);
 }
+
 function setToiletMark(markList) {
   console.log(markList);
+  wheelchairMarkerList.forEach((e) => {
+    e.setMap(null);
+  });
+  wheelchairMarkerList = [];
+
   markList.forEach((element) => {
-    var lonlat = new Tmapv2.LatLng(element.lat, element.lon);
+    const lonlat = new Tmapv2.LatLng(element.lat, element.lon);
     const mark = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
       title: element.placeName, //Marker 타이틀.
+      icon: "/images/icon/toilet_blue.png",
+      iconSize: new Tmapv2.Size(20, 20),
     });
     toiletMarkerList.push(mark);
   });
