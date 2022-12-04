@@ -159,7 +159,7 @@ const getTmap = () => {
   map = new Tmapv2.Map("TMapApp", {
     center: new Tmapv2.LatLng(37.5652045, 126.98702028),
     width: "100%", // 지도의 넓이
-    height: "1000px", // 지도의 높이
+    height: "600px", // 지도의 높이
     zoom: 17,
   });
   return map;
@@ -211,8 +211,13 @@ function drawLineInfo(data) {
 // },
 let new_polyLine = [];
 let currentTransferMark = [];
+let startMarker;
+let endMarker;
 
 function drawData(data) {
+  console.log("drawData:", data);
+  startMarker?.setMap(null);
+  endMarker?.setMap(null);
   // 지도위에 선은 다 지우기
   new_polyLine.forEach((item) => {
     item.setMap(null);
@@ -289,13 +294,19 @@ function drawData(data) {
     if (!polyline) continue;
     new_polyLine.push(polyline);
   }
-  addMarker(
+
+  startMarker = addMarker(
     "llStart",
     selectedStartLocation?.lon,
     selectedStartLocation?.lat,
     1
   );
-  addMarker("llEnd", selectedEndLocation?.lon, selectedEndLocation?.lat, 2);
+  endMarker = addMarker(
+    "llEnd",
+    selectedEndLocation?.lon,
+    selectedEndLocation?.lat,
+    2
+  );
 }
 
 // 2. 시작, 도착 심볼찍기

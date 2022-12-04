@@ -51,7 +51,7 @@ export default function Home() {
   const [placeOption, setPlaceOption] = useState([]);
   const step2ref = useRef(0);
   // const id = "634400ba562a10fc789991e6";
-  const next = () => {
+  const next = async () => {
     const i = step2ref.current;
     // if (currentStep === -1) {
     //   setCurrentStep(data[i]);
@@ -66,7 +66,8 @@ export default function Home() {
     // }
 
     if (currentStep === btnActivelength) {
-      axios.put(`/api/place/${id}`, placeOption);
+      await axios.put(`/api/place/${id}`, placeOption);
+      router.push(`/detail/${id}`);
     } else {
       setCurrentStep((s) => s + 1);
     }
@@ -94,7 +95,7 @@ export default function Home() {
       </Content1>
       <Content2>
         <Title title={data?.name}></Title>
-        <ShareCallBox></ShareCallBox>
+        {/* <ShareCallBox></ShareCallBox> */}
         {currentStep === -1 && (
           <Step1 btnActive={btnActive} SetBtnActive={SetBtnActive}></Step1>
         )}

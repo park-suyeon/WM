@@ -33,7 +33,7 @@ const StartPoint = styled.div`
     }
   }
 `;
-const Start = (props) => {
+const Start = ({ startPlace }) => {
   return (
     <StartPoint>
       <div className="iconWrapper">
@@ -41,7 +41,7 @@ const Start = (props) => {
         <div className="iconText">출발</div>
       </div>
       <div className="content">
-        <div className="start">서초역 2호선</div>
+        <div className="start">{startPlace}</div>
         {/* <FacilityWrapper firstcount={4} secondcount={0}></FacilityWrapper> */}
       </div>
     </StartPoint>

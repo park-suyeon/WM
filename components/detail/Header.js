@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { useRouter } from 'next/router';
+import styled from "styled-components";
+import Link from "next/link";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const HeaderWrapper = styled.div`
   position: relative;
@@ -64,20 +64,20 @@ const HeaderWrapper = styled.div`
 `;
 
 export default function Header() {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const [openResult, setOpenResult] = useState(false);
   const router = useRouter();
-  const { data, loading, refetch } = useQuery(['search-result'], () => {
+  const { data, loading, refetch } = useQuery(["search-result"], () => {
     if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && searchText) {
       return axios
         .get(
-          'https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result',
+          "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
           {
             params: {
               appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
               searchKeyword: searchText,
-              resCoordType: 'WGS84GEO',
-              reqCoordType: 'WGS84GEO',
+              resCoordType: "WGS84GEO",
+              reqCoordType: "WGS84GEO",
               count: 10,
             },
           }
@@ -87,7 +87,6 @@ export default function Header() {
   });
 
   const clickPoi = (poi) => async () => {
-    console.log('click poi : ', poi);
     window.tmap.setSelectedPoi(poi);
     try {
       const resPoi = await axios.get(`/api/place/${poi.name}/name`);
@@ -99,26 +98,23 @@ export default function Header() {
         lon: poi.frontLon,
         address: `${poi.upperAddrName} ${poi.middleAddrName} ${poi.lowerAddrName} ${poi.roadName} ${poi.firstNo}-${poi.secondNo}`,
       });
-      console.log('resPoi : ', resPoi);
       router.push(`/detail/${resPoi.data._id}`);
     } finally {
       setOpenResult(false);
     }
   };
   // const data = searchResult;
-  console.log('data : ', data);
   const pois = data?.searchPoiInfo?.pois.poi || [];
-  console.log('pois : ', pois);
   return (
     <HeaderWrapper>
-      <Link href='/'>
-        <img className='logo' src='/images/logo.png' />
+      <Link href="/">
+        <img className="logo" src="/images/logo.png" />
       </Link>
       <input
-        className='searchBar'
+        className="searchBar"
         onChange={(e) => setSearchText(e.target.value)}
         onKeyDown={(e) => {
-          if (e.key !== 'Enter') return;
+          if (e.key !== "Enter") return;
           setOpenResult(true);
           refetch();
         }}
@@ -128,16 +124,16 @@ export default function Header() {
           setOpenResult(true);
           refetch();
         }}
-        className='icon'
-        src='/images/icon/search.png'
+        className="icon"
+        src="/images/icon/search.png"
       />
       {openResult && (
         <>
-          <div className='pois-wrapper'>
+          <div className="pois-wrapper">
             {pois.map((poi) => {
               return (
                 <div key={poi.pkey}>
-                  <div className='poi' onClick={clickPoi(poi)}>
+                  <div className="poi" onClick={clickPoi(poi)}>
                     {poi.name}
                   </div>
                 </div>
@@ -146,7 +142,7 @@ export default function Header() {
           </div>
           <div
             onClick={() => setOpenResult(false)}
-            className='pois-fullcover'
+            className="pois-fullcover"
           ></div>
         </>
       )}

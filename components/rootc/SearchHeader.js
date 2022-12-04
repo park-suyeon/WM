@@ -102,7 +102,6 @@ const SearchHeader = ({
 }) => {
   const locationInfo = JSON.parse(localStorage.getItem("locationInfo"));
   const router = useRouter();
-  console.log("location Info  :", locationInfo);
   const [startSearchText, setStartSearchText] = useState(
     locationInfo?.isStart ? locationInfo.name : ""
   );
@@ -114,7 +113,11 @@ const SearchHeader = ({
   const isStartPoi = useRef(false);
   if (locationInfo && window.tmap) {
     window.tmap.setSelectedPoi(
-      { frontLat: locationInfo.lat, frontLon: locationInfo.lon },
+      {
+        frontLat: locationInfo.lat,
+        frontLon: locationInfo.lon,
+        name: locationInfo.name,
+      },
       isStartPoi.current ? "start" : "end"
     );
     setTimeout(() => {
@@ -194,7 +197,6 @@ const SearchHeader = ({
       console.log("err: ", err);
     }
   };
-  console.log("poi : ", pois);
   // const data = searchResult;
   return (
     <SearchBlock>
@@ -202,10 +204,10 @@ const SearchHeader = ({
         <input
           className="searchBar"
           placeholder="출발지 입력"
+          value={startSearchText}
           onChange={(e) => setStartSearchText(e.target.value)}
           onKeyDown={(e) => {
             if (e.key !== "Enter") return;
-            console.log("keydown");
             setOpenResult(true);
             startRefetch();
           }}
@@ -213,6 +215,7 @@ const SearchHeader = ({
         <input
           className="searchBar"
           placeholder="도착지 입력"
+          value={endSearchText}
           onChange={(e) => setEndSearchText(e.target.value)}
           onKeyDown={(e) => {
             if (e.key !== "Enter") return;

@@ -74,7 +74,6 @@ const OptionBox = styled.div`
   }
 `;
 const OptionIcon = ({ options }) => {
-  console.log(options);
   const Options = options?.map(({ name }) => {
     if (name === "경사로") {
       return (
