@@ -14,6 +14,11 @@ var toiletMarkerList = [];
  * tmap
  *    moveCenter
  */
+
+const attachTmap = () => {
+  const tmap = getTmap();
+  return tmap;
+};
 function setWheelchairMark(markList) {
   console.log(markList);
   markList.forEach((element) => {
@@ -84,6 +89,7 @@ function setSelectedPoi(poi, isStart) {
   }
 
   window.tmap = {
+    attachTmap,
     moveCenter,
     setSelectedPoi,
     setWheelchairMark,
@@ -132,19 +138,11 @@ const getTmap = () => {
   map = new Tmapv2.Map("TMapApp", {
     center: new Tmapv2.LatLng(37.5652045, 126.98702028),
     width: "100%", // 지도의 넓이
-    height: "1500px", // 지도의 높이
+    height: "1000px", // 지도의 높이
     zoom: 17,
   });
   return map;
 };
-
-const attachTmap = () => {
-  const tmap = getTmap();
-  return tmap;
-};
-
-var new_polyLine = [];
-var new_Click_polyLine = [];
 
 function drawLineInfo(data) {
   // 5. 경로탐색 결과 Line 그리기
@@ -190,11 +188,19 @@ function drawLineInfo(data) {
 //   map.fitBounds(PTbounds);
 
 // },
-var new_polyLine = [];
+let new_polyLine = [];
+let currentTransferMark = [];
 
 function drawData(data) {
   // 지도위에 선은 다 지우기
+  new_polyLine.forEach((item) => {
+    item.setMap(null);
+  });
+  currentTransferMark.forEach((item) => {
+    item.setMap(null);
+  });
   new_polyLine = [];
+  currentTransferMark = [];
   var resultStr = "";
   var distance = 0;
   var idx = 1;
@@ -206,6 +212,7 @@ function drawData(data) {
 
   for (var i = 0; i < myData.length; i++) {
     var leg = myData[i];
+    let polyline;
     //배열에 경로 좌표 저장
     if (leg.mode === "WORK") {
       for (var j = 0; j < leg.steps.length; j++) {
@@ -220,14 +227,14 @@ function drawData(data) {
         ar_line.push(endPt);
         // pointArray.push(leg);
       }
-      var polyline = new Tmapv2.Polyline({
+      polyline = new Tmapv2.Polyline({
         path: ar_line,
         strokeColor: "#000000",
         strokeWeight: 6,
         map: map,
       });
     }
-    if (leg.mode === "BUS" || leg.mode === "TRAIN") {
+    if (leg.mode === "BUS" || leg.mode === "TRAIN" || leg.mode === "SUBWAY") {
       for (var j = 0; j < leg.passStopList.stationList.length; j++) {
         const item = leg.passStopList.stationList[j];
         const { lon: p1Lon, lat: p1Lat } = item;
@@ -237,13 +244,29 @@ function drawData(data) {
         ar_line.push(startPt);
         // pointArray.push(leg);
       }
-      var polyline = new Tmapv2.Polyline({
+      let strokeColor = "#ffffff";
+      if (leg.mode === "BUS") {
+        strokeColor = "#ff00dd";
+      }
+      if (leg.mode === "TRAIN") {
+        strokeColor = "#0000ff";
+      }
+      if (leg.mode === "SUBWAY") {
+        strokeColor = "#00ff00";
+      }
+      polyline = new Tmapv2.Polyline({
         path: ar_line,
-        strokeColor: "#444444",
+        strokeColor,
         strokeWeight: 6,
         map: map,
       });
     }
+    if (leg.mode === "TRANSFER") {
+      const marker = addMarker("llPass", leg.start?.lon, leg.start?.lat, 1);
+      currentTransferMark.push(marker);
+    }
+    if (!polyline) continue;
+    new_polyLine.push(polyline);
   }
   addMarker(
     "llStart",
@@ -252,7 +275,6 @@ function drawData(data) {
     1
   );
   addMarker("llEnd", selectedEndLocation?.lon, selectedEndLocation?.lat, 2);
-  new_polyLine.push(polyline);
 }
 
 // 2. 시작, 도착 심볼찍기
@@ -303,6 +325,7 @@ const main = () => {
 main();
 
 window.tmap = {
+  attachTmap,
   moveCenter,
   setSelectedPoi,
   setWheelchairMark,

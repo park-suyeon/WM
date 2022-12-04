@@ -128,9 +128,12 @@ const RootWrapper = styled.div`
 `;
 
 export default function Home() {
+  if (typeof window === "undefined") return "";
+  const locationInfo = JSON.parse(localStorage.getItem("locationInfo"));
+  console.log("locationInfo : ", locationInfo);
   const [lat, lon] = useCoordinate();
   const [fastSearch, setFastSearch] = useState();
-  const [page, setPage] = useState("index");
+  const [page, setPage] = useState(locationInfo ? "root" : "index");
   const {
     isLoading,
     error,
@@ -174,7 +177,6 @@ export default function Home() {
   }, [fastSearch]);
 
   if (isLoading) return null;
-  console.log("setPage : ", setPage);
   return (
     <>
       <Index>

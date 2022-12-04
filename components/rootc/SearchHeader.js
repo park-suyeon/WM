@@ -100,12 +100,27 @@ const SearchHeader = ({
   setOnlySubway,
   setLessTransfer,
 }) => {
+  const locationInfo = JSON.parse(localStorage.getItem("locationInfo"));
   const router = useRouter();
-  const [startSearchText, setStartSearchText] = useState("");
-  const [endSearchText, setEndSearchText] = useState("");
+  console.log("location Info  :", locationInfo);
+  const [startSearchText, setStartSearchText] = useState(
+    locationInfo?.isStart ? locationInfo.name : ""
+  );
+  const [endSearchText, setEndSearchText] = useState(
+    locationInfo && !locationInfo?.isStart ? locationInfo.name : ""
+  );
   const [openResult, setOpenResult] = useState(false);
   const [pois, setPois] = useState([]);
   const isStartPoi = useRef(false);
+  if (locationInfo && window.tmap) {
+    window.tmap.setSelectedPoi(
+      { frontLat: locationInfo.lat, frontLon: locationInfo.lon },
+      isStartPoi.current ? "start" : "end"
+    );
+    setTimeout(() => {
+      localStorage.setItem("locationInfo", null);
+    }, 2000);
+  }
   const { data: startData, refetch: startRefetch } = useQuery(
     ["search-start-result"],
     () => {

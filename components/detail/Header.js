@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const HeaderWrapper = styled.div`
   position: relative;
@@ -65,6 +66,7 @@ const HeaderWrapper = styled.div`
 export default function Header() {
   const [searchText, setSearchText] = useState('');
   const [openResult, setOpenResult] = useState(false);
+  const router = useRouter();
   const { data, loading, refetch } = useQuery(['search-result'], () => {
     if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && searchText) {
       return axios
@@ -83,9 +85,30 @@ export default function Header() {
         .then((res) => res.data);
     }
   });
+
+  const clickPoi = (poi) => async () => {
+    console.log('click poi : ', poi);
+    window.tmap.setSelectedPoi(poi);
+    try {
+      const resPoi = await axios.get(`/api/place/${poi.name}/name`);
+      router.push(`/detail/${resPoi.data._id}`);
+    } catch (err) {
+      const resPoi = await axios.post(`/api/place`, {
+        name: poi.name,
+        lat: poi.frontLat,
+        lon: poi.frontLon,
+        address: `${poi.upperAddrName} ${poi.middleAddrName} ${poi.lowerAddrName} ${poi.roadName} ${poi.firstNo}-${poi.secondNo}`,
+      });
+      console.log('resPoi : ', resPoi);
+      router.push(`/detail/${resPoi.data._id}`);
+    } finally {
+      setOpenResult(false);
+    }
+  };
   // const data = searchResult;
   console.log('data : ', data);
   const pois = data?.searchPoiInfo?.pois.poi || [];
+  console.log('pois : ', pois);
   return (
     <HeaderWrapper>
       <Link href='/'>
@@ -94,6 +117,11 @@ export default function Header() {
       <input
         className='searchBar'
         onChange={(e) => setSearchText(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key !== 'Enter') return;
+          setOpenResult(true);
+          refetch();
+        }}
       />
       <img
         onClick={() => {
@@ -109,13 +137,7 @@ export default function Header() {
             {pois.map((poi) => {
               return (
                 <div key={poi.pkey}>
-                  <div
-                    className='poi'
-                    onClick={() => {
-                      window.tmap.setSelectedPoi(poi);
-                      setOpenResult(false);
-                    }}
-                  >
+                  <div className='poi' onClick={clickPoi(poi)}>
                     {poi.name}
                   </div>
                 </div>
