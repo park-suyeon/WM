@@ -31,8 +31,8 @@ function setWheelchairMark(markList) {
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
-      icon: "/images/icon/toilet_blue.png",
-      iconSize: new Tmapv2.Size(20, 20),
+      icon: "/images/icon/markerCharge.png",
+      iconSize: new Tmapv2.Size(25, 32),
       title: element.placeName, //Marker 타이틀.
     });
     wheelchairMarkerList.push(mark);
@@ -54,8 +54,8 @@ function setToiletMark(markList) {
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
       title: element.placeName, //Marker 타이틀.
-      icon: "/images/icon/toilet_blue.png",
-      iconSize: new Tmapv2.Size(20, 20),
+      icon: "/images/icon/markerToilet.png",
+      iconSize: new Tmapv2.Size(25, 32),
     });
     toiletMarkerList.push(mark);
   });
@@ -87,6 +87,8 @@ function setSelectedPoi(poi, isStart) {
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
       title: "시작 : " + poi.name, //Marker 타이틀.
+      icon: "/images/icon/markerStart.png",
+      iconSize: new Tmapv2.Size(25, 32),
     });
     map.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
   } else {
@@ -99,6 +101,8 @@ function setSelectedPoi(poi, isStart) {
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
       title: "도착 : " + poi.name, //Marker 타이틀.
+      icon: "/images/icon/markerEnd.png",
+      iconSize: new Tmapv2.Size(25, 32),
     });
     map.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
   }
@@ -131,6 +135,8 @@ function trackingCurrentLocation() {
         map: map, //Marker가 표시될 Map 설정..
         // label: '현재위치', //Marker의 라벨.
         title: "현재위치", //Marker 타이틀.
+        icon: "/images/icon/markerPresent.png",
+        iconSize: new Tmapv2.Size(25, 32),
       });
     });
   }, 1000);
@@ -303,13 +309,13 @@ function addMarker(status, lon, lat, tag) {
   var markerLayer;
   switch (status) {
     case "llStart":
-      imgURL = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+      imgURL = "/images/icon/markerStart.png";
       break;
     case "llPass":
       imgURL = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_p.png";
       break;
     case "llEnd":
-      imgURL = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+      imgURL = "/images/icon/markerEnd.png";
       break;
     default:
   }

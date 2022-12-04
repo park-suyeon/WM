@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import Link from "next/link";
 const LoginBox = styled.div`
   .iconWrapper {
     width: 55px;
@@ -9,6 +9,7 @@ const LoginBox = styled.div`
     border-radius: 20px;
     align-items: center;
     margin-right: 9px;
+    border: none;
     cursor: pointer;
     .icon {
       width: 26px;
@@ -20,9 +21,11 @@ const LoginBox = styled.div`
 export default function LoginButton() {
   return (
     <LoginBox>
-      <div className="iconWrapper">
-        <img className="icon" src="/images/icon/login.png" />
-      </div>
+      <Link href="/login">
+        <div className="iconWrapper" href="/login.js">
+          <img className="icon" src="/images/icon/login.png" />
+        </div>
+      </Link>
     </LoginBox>
   );
 }
