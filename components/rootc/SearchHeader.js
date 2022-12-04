@@ -1,34 +1,49 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useRef, useState } from 'react';
-import styled from 'styled-components';
-import testPublicTrans from '../testPublicTrans.json';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useRef, useState } from "react";
+import styled from "styled-components";
+import testPublicTrans from "../testPublicTrans.json";
 
 const SearchBlock = styled.div`
   background-color: #1093ff;
   padding: 24px 10px 0px 15px;
   display: flex;
-  flex-direction: column;
-  .searchBar {
-    height: 45px;
-    width: 90%;
-    border-radius: 15px;
-    border: none;
-    background-color: white;
-    padding: 10px;
-    font-size: 18px;
-    margin-bottom: 10px;
+  .right {
+    display: flex;
+    flex-direction: column;
+    .xicon {
+      /* position: absolute; */
+      width: 18px;
+      /* top: 20px; */
+      right: 15px;
+      margin-bottom: 15px;
+    }
+    .searchBtn {
+      background-color: #1093ff;
+      border: none;
+      right: 15px;
+    }
   }
+  .left {
+    display: flex;
+    flex-direction: column;
+    .searchBar {
+      height: 45px;
+      width: 90%;
+      border-radius: 15px;
+      border: none;
+      background-color: white;
+      padding: 10px;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  }
+
   .swapicon {
     position: absolute;
     top: 60px;
     right: 10px;
-  }
-  .xicon {
-    position: absolute;
-    top: 20px;
-    right: 15px;
   }
 
   .center-poi {
@@ -86,24 +101,24 @@ const SearchHeader = ({
   setLessTransfer,
 }) => {
   const router = useRouter();
-  const [startSearchText, setStartSearchText] = useState('');
-  const [endSearchText, setEndSearchText] = useState('');
+  const [startSearchText, setStartSearchText] = useState("");
+  const [endSearchText, setEndSearchText] = useState("");
   const [openResult, setOpenResult] = useState(false);
   const [pois, setPois] = useState([]);
   const isStartPoi = useRef(false);
   const { data: startData, refetch: startRefetch } = useQuery(
-    ['search-start-result'],
+    ["search-start-result"],
     () => {
       if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && startSearchText) {
         return axios
           .get(
-            'https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result',
+            "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
             {
               params: {
                 appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
                 searchKeyword: startSearchText,
-                resCoordType: 'WGS84GEO',
-                reqCoordType: 'WGS84GEO',
+                resCoordType: "WGS84GEO",
+                reqCoordType: "WGS84GEO",
                 count: 10,
               },
             }
@@ -118,18 +133,18 @@ const SearchHeader = ({
     }
   );
   const { data: endData, refetch: endRefetch } = useQuery(
-    ['search-end-result'],
+    ["search-end-result"],
     () => {
       if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && endSearchText) {
         return axios
           .get(
-            'https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result',
+            "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
             {
               params: {
                 appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
                 searchKeyword: endSearchText,
-                resCoordType: 'WGS84GEO',
-                reqCoordType: 'WGS84GEO',
+                resCoordType: "WGS84GEO",
+                reqCoordType: "WGS84GEO",
                 count: 10,
               },
             }
@@ -148,7 +163,7 @@ const SearchHeader = ({
     try {
       const { startX, startY, endX, endY } = window.tmap;
       const { faster, onlySubway, lessTransfer } = (
-        await axios.post('/api/route', {
+        await axios.post("/api/route", {
           startX,
           startY,
           endX,
@@ -161,58 +176,64 @@ const SearchHeader = ({
       setOnlySubway(onlySubway);
       setLessTransfer(lessTransfer);
     } catch (err) {
-      console.log('err: ', err);
+      console.log("err: ", err);
     }
   };
-  console.log('poi : ', pois);
+  console.log("poi : ", pois);
   // const data = searchResult;
   return (
     <SearchBlock>
-      <img
-        className='xicon'
-        src='/images/icon/x.png'
-        onClick={() => setPage('index')}
-      />
-      <input
-        className='searchBar'
-        placeholder='출발지 입력'
-        onChange={(e) => setStartSearchText(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key !== 'Enter') return;
-          console.log('keydown');
-          setOpenResult(true);
-          startRefetch();
-        }}
-      />
-      <input
-        className='searchBar'
-        placeholder='도착지 입력'
-        onChange={(e) => setEndSearchText(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key !== 'Enter') return;
-          setOpenResult(true);
-          endRefetch();
-        }}
-      />
-      <button
-        onClick={() => {
-          getRoute();
-        }}
-      >
-        길찾기
-      </button>
+      <div className="left">
+        <input
+          className="searchBar"
+          placeholder="출발지 입력"
+          onChange={(e) => setStartSearchText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key !== "Enter") return;
+            console.log("keydown");
+            setOpenResult(true);
+            startRefetch();
+          }}
+        />
+        <input
+          className="searchBar"
+          placeholder="도착지 입력"
+          onChange={(e) => setEndSearchText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key !== "Enter") return;
+            setOpenResult(true);
+            endRefetch();
+          }}
+        />
+      </div>
+      <div className="right">
+        <img
+          className="xicon"
+          src="/images/icon/x.png"
+          onClick={() => setPage("index")}
+        />
+        <button
+          className="searchBtn"
+          onClick={() => {
+            getRoute();
+          }}
+        >
+          <img className="icon" src="/images/icon/search_white.png" />
+        </button>
+      </div>
+
       {openResult && (
-        <div className='center-poi'>
-          <div className='pois-wrapper'>
+        <div className="center-poi">
+          <div className="pois-wrapper">
             {pois.map((poi) => {
               return (
                 <div key={poi.pkey}>
                   <div
-                    className='poi'
+                    className="poi"
                     onClick={() => {
                       window.tmap.setSelectedPoi(
                         poi,
-                        isStartPoi.current ? 'start' : 'end'
+                        isStartPoi.current ? "start" : "end"
                       );
                       setOpenResult(false);
                     }}
@@ -225,7 +246,7 @@ const SearchHeader = ({
           </div>
           <div
             onClick={() => setOpenResult(false)}
-            className='pois-fullcover'
+            className="pois-fullcover"
           ></div>
         </div>
       )}

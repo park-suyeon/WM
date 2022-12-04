@@ -12,9 +12,11 @@ import axios from "axios";
 import PresentPosition from "../components/index/PresentPosition";
 import LoginButton from "../components/index/LoginButton";
 import { useEffect, useState } from "react";
-const Root = dynamic(() => import("../components/root"), { ssr: false });
+import RouteButton from "../components/index/RouteButton";
+const Root = dynamic(() => import("../components/Root"), { ssr: false });
 const Map = dynamic(() => import("../components/Map"), { ssr: false });
 const Index = styled.div`
+  //모바일
   @media screen and (max-width: 768px) {
     .Content1 {
       position: fixed;
@@ -30,23 +32,24 @@ const Index = styled.div`
       display: flex;
       flex-direction: column;
       z-index: 1000;
-      height: 63vh;
       width: 100vw;
       bottom: 0;
     }
     .Content2 {
-      position: absolute;
       display: flex;
-      justify-content: flex-end;
+      bottom: 0;
+      right: 0;
       width: 100vw;
       padding-right: 10px;
+      padding-bottom: 10px;
+      margin-left: 10px;
+      flex-direction: column;
     }
 
     .Content3 {
-      position: fixed;
       background-color: white;
-      bottom: 0px;
       left: 0;
+      bottom: 0;
       width: 100vw;
       overflow: scroll;
       display: flex;
@@ -54,6 +57,56 @@ const Index = styled.div`
       align-items: center;
       border-radius: 10px 10px 0px 0px;
       box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
+    }
+  }
+  //데스크탑
+  @media screen and (min-width: 1025px) {
+    .Content1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 500px;
+      .moveNav {
+        padding: 0px 0px 0px 20px;
+      }
+    }
+    .ContentWrapper {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      height: 500px;
+      bottom: 0;
+    }
+    .Content2 {
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      width: 500px;
+      padding-left: 10px;
+    }
+
+    .Content3 {
+      position: fixed;
+      background-color: white;
+      bottom: 0px;
+      left: 0;
+      width: 500px;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px 10px 0px 0px;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
     }
   }
 `;
@@ -146,7 +199,7 @@ export default function Home() {
         </div>
         <div className="ContentWrapper">
           <div className="Content2">
-            <button onClick={() => setPage("root")}>root로 이동</button>
+            <RouteButton setPage={setPage}></RouteButton>
             <PresentPosition></PresentPosition>
             <LoginButton></LoginButton>
           </div>
