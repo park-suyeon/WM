@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Location = styled.div`
   width: 100%;
@@ -76,31 +76,25 @@ const Location = styled.div`
   }
 `;
 
-const MainLocation = (props) => {
+const MainLocation = ({ address }) => {
   return (
     <Location>
-      <div className="contentWrapper">
-        <img className="icon" src="/images/location.png" />
-        <div className="addres">
-          <div className="addressLine1">
-            <div className="addressOption1">도로명</div>
-            <div className="text">서울 중구 세종대로 110</div>
-          </div>
-          <div className="addressLine2">
-            <div className="addressOption2">지번</div>
-            <div className="subText">태평로1가 31</div>
-            <div className="addressOption3">우</div>
-            <div className="subText">04524</div>
+      <div className='contentWrapper'>
+        <img className='icon' src='/images/location.png' />
+        <div className='addres'>
+          <div className='addressLine1'>
+            <div className='addressOption1'>도로명</div>
+            <div className='text'>{address}</div>
           </div>
         </div>
       </div>
-      <div className="contentWrapper">
-        <img className="icon" src="/images/time.png" />
-        <div className="text">이용시간: 9 : 00 에 영업 시작</div>
+      <div className='contentWrapper'>
+        <img className='icon' src='/images/time.png' />
+        <div className='text'>이용시간: 9 : 00 에 영업 시작</div>
       </div>
-      <div className="contentWrapper">
-        <img className="icon" src="/images/phone.png" />
-        <div className="text">02-3433-0600</div>
+      <div className='contentWrapper'>
+        <img className='icon' src='/images/phone.png' />
+        <div className='text'>02-3433-0600</div>
       </div>
     </Location>
   );
