@@ -25,7 +25,6 @@ const TmapBlock = styled.div`
   }
 `;
 const Tmap = () => {
-  console.log("map render");
   useEffect(() => {
     window.tmap?.attachTmap();
   }, []);
