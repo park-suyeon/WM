@@ -84,12 +84,12 @@ export default function Root({ setPage, className }) {
           ></TimeTransfer>
           <Start startPlace={selectedPath?.legs[0].start.name}></Start>
           <StationRoot1
-          // start={"서초"}
-          // exit={2}
-          // direction={"방배"}
-          // quick={"3-4"}
-          // time={5}
-          // arrive={"사당"}
+            start={"서초"}
+            exit={2}
+            direction={"방배"}
+            quick={"3-4"}
+            time={5}
+            arrive={"사당"}
           ></StationRoot1>
           <StationRoot2 transferway={"휠체어"} transfertime={5}></StationRoot2>
           <StationRoot3
