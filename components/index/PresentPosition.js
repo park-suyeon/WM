@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Present = styled.div`
   .iconWrapper {
@@ -9,7 +9,6 @@ const Present = styled.div`
     border-radius: 20px;
     align-items: center;
     margin-right: 9px;
-    margin-bottom: 9px;
     cursor: pointer;
     .icon {
       width: 26px;

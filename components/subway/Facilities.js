@@ -72,7 +72,7 @@ const Facilities = ({ data }) => {
           >
             <img className="icon" src="\images\icon\lift_black.png" />
             <div className="textOn">휠체어리프트</div>
-            {/* <div className="textOn">2번 출구</div> */}
+            <div className="textOn">2번 출구</div>
           </div>
           <div
             className="detailed"
@@ -103,7 +103,7 @@ const Facilities = ({ data }) => {
           >
             <img className="icon" src="\images\icon\elevator_black.png" />
             <div className="textOn">엘리베이터</div>
-            {/* <div className="textOn">3번출구</div> */}
+            <div className="textOn">3번출구</div>
           </div>
           <div
             className="detailed"
