@@ -7,30 +7,33 @@ import testPublicTrans from "../testPublicTrans.json";
 
 const SearchBlock = styled.div`
   background-color: #1093ff;
-  padding: 24px 10px 0px 15px;
+  padding: 20px 15px 0px 15px;
   display: flex;
+  justify-content: flex-end;
   .right {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
     .xicon {
-      /* position: absolute; */
       width: 18px;
-      /* top: 20px; */
-      right: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
     }
     .searchBtn {
       background-color: #1093ff;
       border: none;
-      right: 15px;
+      .icon {
+        width: 20px;
+      }
     }
   }
   .left {
     display: flex;
     flex-direction: column;
+    width: 90%;
     .searchBar {
       height: 45px;
-      width: 90%;
+      width: 100%;
       border-radius: 15px;
       border: none;
       background-color: white;
