@@ -8,12 +8,18 @@ const LoginBox = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     align-items: center;
-    margin-right: 9px;
+    margin: 5px;
     border: none;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
     .icon {
       width: 26px;
-      margin: 15px;
+      margin: 4px;
+    }
+    .text {
+      font-size: 9px;
+      color: #666666;
     }
   }
 `;
@@ -24,6 +30,7 @@ export default function LoginButton() {
       <Link href="/login">
         <div className="iconWrapper" href="/login.js">
           <img className="icon" src="/images/icon/login.png" />
+          <div className="text">로그인</div>
         </div>
       </Link>
     </LoginBox>

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import styled from "styled-components";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Detail = styled.div`
   width: 100%;
@@ -104,64 +104,20 @@ const Detail = styled.div`
     }
   }
 `;
-const Title = ({ title, options, poi }) => {
+const Title = ({ title, poi }) => {
   const router = useRouter();
-  const Options = options?.map((option) => {
-    if (option === '경사로') {
-      return (
-        <div className='slope' key={option}>
-          <div className='text'>경사로</div>
-        </div>
-      );
-    }
-    if (option === '엘리베이터') {
-      return (
-        <div className='elevator' key={option}>
-          <div className='text'>엘리베이터</div>
-        </div>
-      );
-    }
-    if (option === '휠체어충전기') {
-      return (
-        <div className='charge' key={option}>
-          <div className='text'>충전</div>
-        </div>
-      );
-    }
-    if (option === '장애인화장실') {
-      return (
-        <div className='toilet' key={option}>
-          <div className='text'>장애인 화장실</div>
-        </div>
-      );
-    }
-    if (option === '휠체어리프트') {
-      return (
-        <div className='lift' key={option}>
-          <div className='text'>리프트</div>
-        </div>
-      );
-    }
-    if (option === '기타') {
-      return (
-        <div className='etc' key={option}>
-          <div className='text'>기타</div>
-        </div>
-      );
-    }
-  });
   return (
     <Detail>
-      <div className='Placename'>{title}</div>
-      <div className='Wrapper'>{Options}</div>
-      <div className='Buttons'>
-        <div className='Start'>
-          <img className='icon' src='/images/icon/pin_blue(2).png' />
+      <div className="Placename">{title}</div>
+      <div className="Wrapper"></div>
+      <div className="Buttons">
+        <div className="Start">
+          <img className="icon" src="/images/icon/pin_blue(2).png" />
           <div
-            className='text'
+            className="text"
             onClick={() => {
               localStorage.setItem(
-                'locationInfo',
+                "locationInfo",
                 JSON.stringify({
                   isStart: true,
                   lat: poi.lat,
@@ -169,19 +125,19 @@ const Title = ({ title, options, poi }) => {
                   name: poi.name,
                 })
               );
-              router.push('/');
+              router.push("/");
             }}
           >
             출발
           </div>
         </div>
-        <div className='Arrival'>
-          <img className='icon' src='/images/icon/pin_white.png' />
+        <div className="Arrival">
+          <img className="icon" src="/images/icon/pin_white.png" />
           <div
-            className='text'
+            className="text"
             onClick={() => {
               localStorage.setItem(
-                'locationInfo',
+                "locationInfo",
                 JSON.stringify({
                   isStart: false,
                   lat: poi.lat,
@@ -189,7 +145,7 @@ const Title = ({ title, options, poi }) => {
                   name: poi.name,
                 })
               );
-              router.push('/');
+              router.push("/");
             }}
           >
             도착

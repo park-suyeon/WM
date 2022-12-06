@@ -38,15 +38,22 @@ const HeaderWrapper = styled.div`
     position: absolute;
     z-index: 10001;
     top: 80px;
-    left: 130px;
+    left: 120px;
     background-color: white;
     padding: 20px;
-
-    .poi {
-      border: 1px solid gray;
-      padding: 10px 30px;
+    border-radius: 20px;
+    .pois-imd-wrapper {
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+      .poi {
+        padding: 10px 30px;
+      }
+      .search_img {
+        position: absolute;
+      }
       &:hover {
-        background-color: skyblue;
+        background-color: #e0f4ff;
         cursor: pointer;
       }
     }
@@ -132,10 +139,14 @@ export default function Header() {
           <div className="pois-wrapper">
             {pois.map((poi) => {
               return (
-                <div key={poi.pkey}>
+                <div className="pois-imd-wrapper" key={poi.pkey}>
                   <div className="poi" onClick={clickPoi(poi)}>
                     {poi.name}
                   </div>
+                  <img
+                    className="search_img"
+                    src="/images/icon/search_gray.png"
+                  />
                 </div>
               );
             })}

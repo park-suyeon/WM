@@ -9,12 +9,17 @@ const RouteBox = styled.div`
     border-radius: 20px;
     border: none;
     align-items: center;
-    margin-right: 9px;
-    margin-bottom: 9px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
     .icon {
-      width: 35px;
-      margin: 8px 5px;
+      width: 30px;
+      margin: 4px 2px;
+    }
+    .text {
+      font-size: 9px;
+      color: #666666;
     }
   }
 `;
@@ -24,6 +29,7 @@ export default function RouteButton({ setPage }) {
     <RouteBox>
       <button className="btn" onClick={() => setPage("root")}>
         <img className="icon" src="/images/icon/route2.png" />
+        <div className="text">길찾기</div>
       </button>
     </RouteBox>
   );
