@@ -6,95 +6,194 @@ import styled from "styled-components";
 import testPublicTrans from "../testPublicTrans.json";
 
 const SearchBlock = styled.div`
-  background-color: #1093ff;
-  padding: 20px 15px 0px 15px;
-  display: flex;
-  justify-content: flex-end;
-  .right {
+  //모바일
+  @media screen and (max-width: 768px) {
+    background-color: #1093ff;
+    padding: 20px 15px 0px 15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 10px;
-    .xicon {
-      width: 18px;
-      margin-bottom: 30px;
-    }
-    .searchBtn {
-      background-color: #1093ff;
-      border: none;
-      .icon {
-        width: 20px;
-      }
-    }
-  }
-  .left {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    .searchBar {
-      height: 45px;
-      width: 100%;
-      border-radius: 15px;
-      border: none;
-      background-color: white;
-      padding: 10px;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-  }
-
-  .swapicon {
-    position: absolute;
-    top: 60px;
-    right: 10px;
-  }
-
-  .center-poi {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .pois-wrapper {
-      padding: 20px;
-      background-color: skyblue;
+    justify-content: flex-end;
+    .right {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      z-index: 50;
-
-      .poi {
-        padding: 20px;
-        font-size: 20px;
+      align-items: center;
+      margin-left: 10px;
+      .xicon {
+        width: 18px;
+        margin-bottom: 30px;
       }
-      .poi:hover {
+      .searchBtn {
+        background-color: #1093ff;
+        border: none;
+        .icon {
+          width: 20px;
+        }
+      }
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      .searchBar {
+        height: 45px;
+        width: 100%;
+        border-radius: 15px;
+        border: none;
         background-color: white;
-        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 10px;
       }
     }
 
-    .pois-fullcover {
+    .swapicon {
+      position: absolute;
+      top: 60px;
+      right: 10px;
+    }
+
+    .center-poi {
       position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0 0 0 / 20%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .pois-wrapper {
+        padding: 20px;
+        background-color: skyblue;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        z-index: 50;
+
+        .poi {
+          padding: 20px;
+          font-size: 20px;
+        }
+        .poi:hover {
+          background-color: white;
+          cursor: pointer;
+        }
+      }
+
+      .pois-fullcover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: a(0 0 0 / 20%);
+      }
+    }
+    .routes {
+      background-color: white;
+      position: absolute;
+      top: 100px;
+      right: 50px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
   }
-  .routes {
-    background-color: white;
-    position: absolute;
-    top: 100px;
-    right: 50px;
-    padding: 10px;
+  //데스크탑
+  @media screen and (min-width: 769px) {
+    background-color: #1093ff;
+    padding: 20px 15px 0px 15px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    justify-content: flex-end;
+    width: 500px;
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+      .xicon {
+        width: 18px;
+        margin-bottom: 23px;
+      }
+      .searchBtn {
+        background-color: #1093ff;
+        border: none;
+        align-content: center;
+        justify-content: center;
+        .icon {
+          width: 20px;
+        }
+      }
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      .searchBar {
+        height: 45px;
+        width: 100%;
+        border-radius: 15px;
+        border: none;
+        background-color: white;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .swapicon {
+      position: absolute;
+      top: 60px;
+      right: 10px;
+    }
+
+    .center-poi {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .pois-wrapper {
+        padding: 20px;
+        background-color: skyblue;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        z-index: 50;
+
+        .poi {
+          padding: 20px;
+          font-size: 20px;
+        }
+        .poi:hover {
+          background-color: white;
+          cursor: pointer;
+        }
+      }
+
+      .pois-fullcover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0 0 0 / 20%);
+      }
+    }
+    .routes {
+      background-color: white;
+      position: absolute;
+      top: 100px;
+      right: 50px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
   }
 `;
 const SearchHeader = ({

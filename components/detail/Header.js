@@ -37,7 +37,7 @@ const HeaderWrapper = styled.div`
   .pois-wrapper {
     position: absolute;
     z-index: 10001;
-    top: 80px;
+    top: 100px;
     left: 120px;
     background-color: white;
     padding: 20px;

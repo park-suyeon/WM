@@ -27,13 +27,15 @@ function setWheelchairMark(markList) {
   toiletMarkerList = [];
   markList.forEach((element) => {
     const lonlat = new Tmapv2.LatLng(element.lat, element.lon);
+    // const label = new Tmapv2.Label();
     const mark = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
-      // label: '현재위치', //Marker의 라벨.
+      label: element.placeName + element.detailedAddress, //Marker의 라벨.
+      // fontColor: "blue",
       icon: "/images/icon/markerCharge.png",
       iconSize: new Tmapv2.Size(25, 32),
-      title: element.placeName, //Marker 타이틀.
+      // title: element.placeName, //Marker 타이틀.
     });
     wheelchairMarkerList.push(mark);
   });
@@ -159,7 +161,7 @@ const getTmap = () => {
   map = new Tmapv2.Map("TMapApp", {
     center: new Tmapv2.LatLng(37.5652045, 126.98702028),
     width: "100%", // 지도의 넓이
-    height: "600px", // 지도의 높이
+    height: "900px", // 지도의 높이
     zoom: 17,
   });
   return map;
