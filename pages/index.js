@@ -64,7 +64,7 @@ const Index = styled.div`
     }
   }
   //데스크탑
-  @media screen and (min-width: 1025px) {
+  @media screen and (min-width: 769px) {
     .Content1 {
       position: fixed;
       top: 0;

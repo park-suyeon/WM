@@ -3,8 +3,6 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useCoordinate from "../hooks/useCoordinate";
-import LoginButton from "./index/LoginButton";
-import PresentPosition from "./index/PresentPosition";
 
 const MapButtons = styled.div`
   position: absolute;
@@ -20,8 +18,8 @@ const TmapBlock = styled.div`
 
   #TMapApp {
     width: 100%;
-    height: 600px;
-    background-color: gray;
+    height: 900px;
+    background-color: #e0f4ff;
   }
 `;
 const Tmap = () => {

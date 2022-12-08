@@ -124,6 +124,11 @@ export default function Step2({ name, setPlaceOption, setCurrentStep }) {
           }}
           placeholder="수정할 내용이 있으면 입력해 주세요"
         ></input>
+        <form action="" method="post" encType="multipart/form-data">
+          <input type="file" name="profile"></input>
+          <input type="submit"></input>
+        </form>
+
         {/* <div className="midTitleWrap">
           <div className="midTitle">사진 추가</div>
           <img className="plusIcon" src="/images/icon/plus_gray.png" />
