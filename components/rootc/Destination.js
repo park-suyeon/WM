@@ -24,7 +24,7 @@ const DestinationPoint = styled.div`
   .content {
     display: flex;
     flex-direction: column;
-    .start {
+    .finish {
       font-weight: 700;
       font-size: 18px;
       margin-left: 10px;
@@ -32,7 +32,7 @@ const DestinationPoint = styled.div`
     }
   }
 `;
-const Destination = (props) => {
+const Destination = ({ finishPlace }) => {
   return (
     <DestinationPoint>
       <div className="iconWrapper">
@@ -40,7 +40,7 @@ const Destination = (props) => {
         <div className="iconText">도착</div>
       </div>
       <div className="content">
-        <div className="start">명동역</div>
+        <div className="finish">{finishPlace}</div>
       </div>
     </DestinationPoint>
   );

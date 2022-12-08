@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { subwayLineColor } from "../../config/subwayLineColor";
 const StationBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@ const StationBlock = styled.div`
     width: 90%;
     height: 25px;
     align-items: center;
-    background-color: #c66a28;
+    background-color: #c66a28; //${(props) => subwayLineColor[props.lineText]};
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -29,7 +30,7 @@ const StationBlock = styled.div`
     width: 40%;
     height: 40px;
     background-color: white;
-    border: 2px solid #c66a28;
+    border: 2px solid #c66a28; // ${(props) => subwayLineColor[props.lineText]};
     border-radius: 30px;
     display: flex;
     align-items: center;

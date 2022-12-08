@@ -10,6 +10,7 @@ import Start from "./rootc/Start";
 import Destination from "./rootc/Destination";
 import TimeTransfer from "./rootc/TimeTransfer";
 import { useEffect, useState } from "react";
+import SubwayLine from "./rootc/SubwayLine";
 
 const Content1 = styled.div`
   z-index: 1;
@@ -22,6 +23,7 @@ const Contente2 = styled.div`
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 `;
 
 export default function Root({ setPage, className }) {
@@ -53,6 +55,13 @@ export default function Root({ setPage, className }) {
   const transferCount = selectedPath?.legs.filter(
     (leg) => leg.mode === "TRANSFER"
   ).length;
+  const fare = selectedPath?.fare.regular.totalFare;
+  // let info = Object.entries(selectedPath.legs);
+  // console.log("info:", info, typeof info);
+  // const howToGo = routePath();
+  // selectedPath?.legs[0].steps[1].description;
+  const transfertime =
+    selectedPath?.legs.find((leg) => leg.mode === "TRANSFER").sectionTime / 60;
   return (
     <div className={className}>
       <Head>
@@ -81,26 +90,35 @@ export default function Root({ setPage, className }) {
             time={totalTime}
             timeunit={"분"}
             transfer={transferCount}
+            fare={fare}
           ></TimeTransfer>
           <Start startPlace={selectedPath?.legs[0].start.name}></Start>
           <StationRoot1
-            start={"서초"}
-            exit={2}
-            direction={"방배"}
+            start={selectedPath?.legs[0].start.name}
+            exit={selectedPath?.legs[0].steps[0].description}
+            direction={selectedPath?.legs[0].steps[0].description}
             quick={"3-4"}
-            time={5}
-            arrive={"사당"}
+            // info={info}
+            time={Math.floor(selectedPath?.walkTime / 60)}
+            arrive={selectedPath?.legs[0].end.name}
           ></StationRoot1>
-          <StationRoot2 transferway={"휠체어"} transfertime={5}></StationRoot2>
+          <StationRoot2
+            transferway={"휠체어"}
+            transfertime={transfertime}
+          ></StationRoot2>
           <StationRoot3
-            start={"사당"}
+            start={selectedPath?.legs[selectedPath.legs.length - 1].start.name}
             exit={3}
-            direction={"당고개행"}
+            direction={"ㅇㅇ"}
             quick={"4-1"}
             time={20}
-            arrive={"명동"}
+            arrive={selectedPath?.legs[selectedPath.legs.length - 1].end.name}
           ></StationRoot3>
-          <Destination></Destination>
+          <Destination
+            finishPlace={
+              selectedPath?.legs[selectedPath.legs.length - 1].end.name
+            }
+          ></Destination>
           {/* <Title title={data.name} options={data.option}></Title> */}
         </Contente2>
       )}

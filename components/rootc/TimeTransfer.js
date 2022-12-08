@@ -25,7 +25,7 @@ const TimeBlock = styled.div`
     }
   }
 `;
-const TimeTransfer = ({ time, timeunit, transfer }) => {
+const TimeTransfer = ({ time, timeunit, transfer, fare }) => {
   return (
     <TimeBlock time={time} transfer={transfer}>
       <div className="TimeWrapper">
@@ -33,6 +33,7 @@ const TimeTransfer = ({ time, timeunit, transfer }) => {
         <div className="Time">{timeunit}</div>
         <div className="transferUnit">환승</div>
         <div className="transferUnit">{transfer}회</div>
+        <div className="transferUnit">{fare}원</div>
       </div>
     </TimeBlock>
   );
