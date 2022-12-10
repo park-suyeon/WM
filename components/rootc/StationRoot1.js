@@ -30,7 +30,6 @@ const RootBlock1 = styled.div`
       /* margin-top: 5px; */
       margin-left: 2px;
       position: relative;
-      top: 40px;
     }
     .icon {
       margin-top: 8px;
@@ -55,7 +54,6 @@ const RootBlock1 = styled.div`
       margin-top: 5px;
       padding-left: 3px;
       position: relative;
-      top: 15px;
     }
     .exitText {
       margin-top: 5px;
@@ -86,7 +84,6 @@ const StationRoot1 = ({
     <RootBlock1
       exit={exit}
       direction={direction}
-      quick={quick}
       time={time}
       start={start}
       arrive={arrive}
@@ -94,24 +91,21 @@ const StationRoot1 = ({
     >
       <div className="rootwrapper">
         <SubwayLine lineText={2}></SubwayLine>
+
         <div className="placeWrapper">
           <div className="placeline">
             <div className="startName">{start} </div>
-            <img className="icon" src="/images/icon/toilet_black.png" />
-            <div className="exitText">{exit} </div>
-          </div>
-          <div className="placeline">
-            <div className="directionText">{direction}</div>
-            <img className="icon" src="/images/icon/toilet_black/.png" />
+            <img className="icon" src="images\icon\elevator_black.png" />
             <div className="transferText">안전 환승 </div>
-            <div className="transferText">{quick} </div>
-          </div>
-          <div className="placeline">
-            <div className="directionText">dd{info}</div>
+            <div className="transferText">{direction} </div>
           </div>
           <div className="placeline">
             <div className="timeText"> {time}분</div>
           </div>
+          <div className="placeline">
+            <div className="directionText">{info}</div>
+          </div>
+
           <div className="placeline">
             <div className="arriveName">{arrive} </div>
           </div>

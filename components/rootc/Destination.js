@@ -11,7 +11,6 @@ const DestinationPoint = styled.div`
     align-items: center;
     .icon {
       width: 30px;
-      position: absolute;
     }
     .iconText {
       position: absolute;
