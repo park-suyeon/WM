@@ -61,8 +61,8 @@ const Station = ({ title, left, right }) => {
   return (
     <StationBlock>
       <div className="line">
-        <div className="previousStation">{left.split("-")[1]}</div>
-        <div className="nextStation">{right.split("-")[1]}</div>
+        <div className="previousStation">{left?.split("-")[1]}</div>
+        <div className="nextStation">{right?.split("-")[1]}</div>
       </div>
       <div className="stationName">
         <div className="text">{title}</div>

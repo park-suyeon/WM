@@ -191,7 +191,7 @@ export default function Step2({ name, setPlaceOption, setCurrentStep }) {
           ></input>
           <div>
             {files.map((file) => {
-              return <img src={file} />;
+              return <img src={file} key={file} />;
             })}
           </div>
         </div>

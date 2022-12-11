@@ -70,22 +70,71 @@ export default function Root({ setPage, className }) {
   const walking = selectedPath?.legs
     .find((leg) => leg.mode === "WALK")
     ?.steps.map((item) => {
-      return <div>{item.description}</div>;
+      return <div key={item.description}>{item.description}</div>;
     });
   const bus = selectedPath?.legs
     .find((leg) => leg.mode === "BUS")
     ?.passStopList.stationList?.map((item) => {
-      return <div>{item.stationName}</div>;
+      return <div key={item.stationName}>{item.stationName}</div>;
     });
   const subway = selectedPath?.legs
     .find((leg) => leg.mode === "SUBWAY")
     ?.passStopList.stationList?.map((item) => {
-      return <div>{item.stationName}</div>;
+      return <div key={item.stationName}>{item.stationName}</div>;
     });
-  const busNumber =
-    selectedPath?.legs.find((leg) => leg.mode === "BUS").route || null;
-  const subwayNumber =
-    selectedPath?.legs.find((leg) => leg.mode === "SUBWAY")?.route || null;
+
+  const PathList = selectedPath?.legs.map((leg, index) => {
+    if (leg.mode === "BUS") {
+      return (
+        <StationRoot1
+          key={index}
+          color={leg.routeColor}
+          start={leg.start.name}
+          direction={leg.route}
+          // info={subwayNumber}
+          time={Math.floor(leg.sectionTime / 60)}
+          arrive={leg.end.name}
+        ></StationRoot1>
+      );
+    }
+    if (leg.mode === "SUBWAY") {
+      return (
+        <StationRoot1
+          key={index}
+          color={leg.routeColor}
+          start={leg.start.name}
+          direction={leg.route}
+          // info={subwayNumber}
+          time={Math.floor(leg.sectionTime / 60)}
+          arrive={leg.end.name}
+        ></StationRoot1>
+      );
+    }
+    if (leg.mode === "WALK") {
+      return (
+        <StationRoot2
+          key={index}
+          start={leg.start.name}
+          direction={leg.distance}
+          info={leg.steps}
+          time={Math.floor(leg.sectionTime / 60)}
+          arrive={leg.end.name}
+        ></StationRoot2>
+      );
+    }
+    if (leg.mode === "TRANSFER") {
+      return (
+        <StationRoot2
+          key={index}
+          start={leg.start.name}
+          direction={leg.distance}
+          // info={leg.steps}
+          time={Math.floor(leg.sectionTime / 60)}
+          arrive={leg.end.name}
+        ></StationRoot2>
+      );
+    }
+  });
   return (
     <div className={className}>
       <Head>
@@ -117,27 +166,8 @@ export default function Root({ setPage, className }) {
             fare={fare}
           ></TimeTransfer>
           <Start startPlace={selectedPath?.legs[0].start.name}></Start>
-          <StationRoot1
-            start={selectedPath?.legs[0].start.name}
-            direction={"3-4"}
-            info={subwayNumber}
-            time={Math.floor(selectedPath?.walkTime / 60)}
-            arrive={selectedPath?.legs[0].end.name}
-          ></StationRoot1>
-          <StationRoot2
-            start={selectedPath?.legs[0].start.name}
-            direction={"3-4"}
-            info={subwayNumber}
-            time={transfertime}
-            arrive={selectedPath?.legs[0].end.name}
-          ></StationRoot2>
-          <StationRoot1
-            start={selectedPath?.legs[0].start.name}
-            direction={"3-4"}
-            info={subwayNumber}
-            time={Math.floor(selectedPath?.walkTime / 60)}
-            arrive={selectedPath?.legs[0].end.name}
-          ></StationRoot1>
+
+          {PathList}
 
           <Destination
             finishPlace={

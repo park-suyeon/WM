@@ -91,6 +91,7 @@ export default function Header() {
         )
         .then((res) => res.data);
     }
+    return null;
   });
 
   const clickPoi = (poi) => async () => {

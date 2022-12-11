@@ -195,7 +195,6 @@ const StationRoot2 = ({
       time={time}
       start={start}
       arrive={arrive}
-      info={info}
       text={text}
     >
       <div className="rootwrapper">
@@ -220,7 +219,15 @@ const StationRoot2 = ({
             <div className="timeText"> {time}분</div>
           </div>
           <div className="placeline">
-            <div className="directionText">{info}</div>
+            <div className="directionText">
+              {info?.map((v) => {
+                return (
+                  <div key={v.description}>
+                    <div>{v.description}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="placeline">

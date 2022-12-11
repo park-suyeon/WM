@@ -10,7 +10,12 @@ const Subway = styled.div`
       width: 30px;
       height: 30px;
       /* background-color: #3cb449; */
-      background-color: ${(props) => subwayLineColor[props.lineText]};
+      background-color: ${(props) => {
+        if (props.color) {
+          return "#" + props.color;
+        }
+        return subwayLineColor[props.lineText];
+      }};
       border-radius: 99999px;
       display: flex;
       align-items: center;
@@ -32,14 +37,20 @@ const Subway = styled.div`
       top: -2px;
       left: 8px;
       margin-bottom: -5px;
-      border-left: 15px solid ${(props) => subwayLineColor[props.lineText]};
+      border-left: 15px solid
+        ${(props) => {
+          if (props.color) {
+            return "#" + props.color;
+          }
+          return subwayLineColor[props.lineText];
+        }};
       height: 100px;
     }
   }
 `;
-const SubwayLine = ({ lineText }) => {
+const SubwayLine = ({ lineText, color }) => {
   return (
-    <Subway lineText={lineText}>
+    <Subway lineText={lineText} color={color}>
       <div className="lineWrapper">
         <div className="startLineCircle">
           <div className="startLineText">{lineText}</div>
