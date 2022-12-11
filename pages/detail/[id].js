@@ -60,7 +60,12 @@ export default function Home() {
         <OptionIcon options={data.options}></OptionIcon>
         <MainLocation title={data.name} address={data.address}></MainLocation>
         {/* <Photo></Photo> */}
-        <MorePhoto id={id}></MorePhoto>
+        <MorePhoto
+          id={id}
+          updatedAt={data.updatedAt}
+          options={data.options}
+          desc={data.desc}
+        ></MorePhoto>
       </Content2>
     </div>
   );

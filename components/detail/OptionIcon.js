@@ -75,7 +75,7 @@ const OptionBox = styled.div`
 `;
 const OptionIcon = ({ options }) => {
   const Options = options?.map(({ name }) => {
-    if (name === "경사로") {
+    if (name === "입구 경사로") {
       return (
         <div className="slope" key={name}>
           <div className="text">경사로</div>
@@ -89,21 +89,21 @@ const OptionIcon = ({ options }) => {
         </div>
       );
     }
-    if (name === "휠체어충전기") {
+    if (name === "휠체어 급속 충전기") {
       return (
         <div className="charge" key={name}>
           <div className="text">충전</div>
         </div>
       );
     }
-    if (name === "장애인화장실") {
+    if (name === "장애인 화장실") {
       return (
         <div className="toilet" key={name}>
           <div className="text">장애인 화장실</div>
         </div>
       );
     }
-    if (name === "휠체어리프트") {
+    if (name === "휠체어 리프트") {
       return (
         <div className="lift" key={name}>
           <div className="text">리프트</div>

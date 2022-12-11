@@ -84,37 +84,78 @@ const PhotoWrapper = styled.div`
   }
 `;
 
-const MorePhoto = ({ id }) => {
+const MorePhoto = ({ id, updatedAt, options }) => {
+  const Options = options?.map(({ name, desc, image: images }) => {
+    if (name === "입구 경사로") {
+      return (
+        <div className="wrapper">
+          <div className="title" key={name}>
+            입구 경사로
+          </div>
+          <div className="content">{desc}</div>
+          <div className="photos">{images}</div>
+        </div>
+      );
+    }
+    if (name === "승강기") {
+      return (
+        <div className="wrapper">
+          <div className="title" key={name}>
+            엘리베이터
+          </div>
+          <div className="content">{desc}</div>
+          <div className="photos">{images}</div>
+        </div>
+      );
+    }
+    if (name === "휠체어 급속 충전기") {
+      return (
+        <div className="wrapper">
+          <div className="title" key={name}>
+            휠체어 급속 충전기
+          </div>
+          <div className="content">{desc}</div>
+          <div className="photos">{images}</div>
+        </div>
+      );
+    }
+    if (name === "장애인 화장실") {
+      return (
+        <div className="wrapper">
+          <div className="title" key={name}>
+            장애인 화장실
+          </div>
+          <div className="content">{desc}</div>
+          <div className="photos">{images}</div>
+        </div>
+      );
+    }
+    if (name === "휠체어 리프트") {
+      return (
+        <div className="wrapper">
+          <div className="title" key={name}>
+            휠체어 리프트
+          </div>
+          <div className="content">{desc}</div>
+          <div className="photos">{images}</div>
+        </div>
+      );
+    }
+    if (name === "기타") {
+      return (
+        <div className="wrapper">
+          <div className="title" key={name}>
+            기타
+          </div>
+          <div className="content">{desc}</div>
+          <div className="photos">{images}</div>
+        </div>
+      );
+    }
+  });
   return (
     <PhotoWrapper>
-      <div className="wrapper">
-        <div className="title">휠체어 급속 충전기</div>
-        <div className="content">1층 로비 옆 계단에 위치</div>
-        <div className="photos">
-          <img className="photo1" src="/images/photo1.jpg" />
-          <img className="photo2" src="/images/photo2.jpg" />
-          <img className="photo3" src="/images/photo3.jpg" />
-          <img className="photo1" src="/images/photo1.jpg" />
-        </div>
-      </div>
-      <div className="wrapper">
-        <div className="title">경사로</div>
-        <div className="content">정문 출입구</div>
-        <div className="photos">
-          <img className="photo2" src="/images/photo2.jpg" />
-          <img className="photo3" src="/images/photo3.jpg" />
-        </div>
-      </div>
-      <div className="wrapper">
-        <div className="title">승강기</div>
-        <div className="content">안내센터 오른쪽</div>
-        <div className="photos">
-          <img className="photo3" src="/images/photo3.jpg" />
-          <img className="photo1" src="/images/photo1.jpg" />
-          <img className="photo2" src="/images/photo2.jpg" />
-        </div>
-      </div>
-
+      <div>{Options}</div>
       <div className="editWrapper">
         <div className="finalWrapper">
           <div className="final">
@@ -123,7 +164,7 @@ const MorePhoto = ({ id }) => {
           </div>
           <div className="final">
             <div className="text">최종 수정일 :</div>
-            <div>2022.09.01</div>
+            {updatedAt.split("T")[0]}
           </div>
         </div>
         <Link href={`/detail/${id}/update`}>
