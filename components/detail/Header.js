@@ -37,8 +37,8 @@ const HeaderWrapper = styled.div`
   .pois-wrapper {
     position: absolute;
     z-index: 10001;
-    top: 100px;
-    left: 120px;
+    top: 70px;
+    left: 98px;
     background-color: white;
     padding: 20px;
     border-radius: 20px;
@@ -98,7 +98,7 @@ export default function Header() {
     window.tmap.setSelectedPoi(poi);
     try {
       const resPoi = await axios.get(`/api/place/${poi.name}/name`);
-      router.push(`/detail/${resPoi.data._id}`);
+      window.location.href = `/detail/${resPoi.data._id}`;
     } catch (err) {
       const resPoi = await axios.post(`/api/place`, {
         name: poi.name,
@@ -106,7 +106,7 @@ export default function Header() {
         lon: poi.frontLon,
         address: `${poi.upperAddrName} ${poi.middleAddrName} ${poi.lowerAddrName} ${poi.roadName} ${poi.firstNo}-${poi.secondNo}`,
       });
-      router.push(`/detail/${resPoi.data._id}`);
+      window.location.href = `/detail/${resPoi.data._id}`;
     } finally {
       setOpenResult(false);
     }

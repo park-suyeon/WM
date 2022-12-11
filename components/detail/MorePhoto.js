@@ -86,13 +86,16 @@ const PhotoWrapper = styled.div`
 `;
 
 const MorePhoto = ({ id, updatedAt, options }) => {
-  const Options = options?.map(({ name, desc, image: images }) => {
+  const Options = options?.map(({ name, desc, images }) => {
+    const Images = images.map((image) => {
+      return <img src={image} />;
+    });
     if (name === "입구 경사로") {
       return (
         <div className="wrapper" key={name}>
           <div className="title">입구 경사로</div>
           <div className="content">{desc}</div>
-          <div className="photos">{images}</div>
+          <div className="photos">{Images}</div>
         </div>
       );
     }
@@ -101,7 +104,7 @@ const MorePhoto = ({ id, updatedAt, options }) => {
         <div className="wrapper" key={name}>
           <div className="title">엘리베이터</div>
           <div className="content">{desc}</div>
-          <div className="photos">{images}</div>
+          <div className="photos">{Images}</div>
         </div>
       );
     }
@@ -110,7 +113,7 @@ const MorePhoto = ({ id, updatedAt, options }) => {
         <div className="wrapper" key={name}>
           <div className="title">휠체어 급속 충전기</div>
           <div className="content">{desc}</div>
-          <div className="photos">{images}</div>
+          <div className="photos">{Images}</div>
         </div>
       );
     }
@@ -119,7 +122,7 @@ const MorePhoto = ({ id, updatedAt, options }) => {
         <div className="wrapper" key={name}>
           <div className="title">장애인 화장실</div>
           <div className="content">{desc}</div>
-          <div className="photos">{images}</div>
+          <div className="photos">{Images}</div>
         </div>
       );
     }
@@ -128,7 +131,7 @@ const MorePhoto = ({ id, updatedAt, options }) => {
         <div className="wrapper" key={name}>
           <div className="title">휠체어 리프트</div>
           <div className="content">{desc}</div>
-          <div className="photos">{images}</div>
+          <div className="photos">{Images}</div>
         </div>
       );
     }
@@ -137,7 +140,7 @@ const MorePhoto = ({ id, updatedAt, options }) => {
         <div className="wrapper" key={name}>
           <div className="title">기타</div>
           <div className="content">{desc}</div>
-          <div className="photos">{images}</div>
+          <div className="photos">{Images}</div>
         </div>
       );
     }

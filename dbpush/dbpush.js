@@ -23,8 +23,8 @@ const result3 = require("./parse4");
 async function main() {
   await connectMongo();
   await ConfigModel.updateOne(
-    { _id: "637f669fd2b14239913251b9" },
-    { wheelchairCharger: result2 }
+    { _id: "637f5b77ca571d0ffbb3a42a" },
+    { subway: result }
   );
 }
 main();

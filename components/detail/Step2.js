@@ -109,14 +109,24 @@ function fileToBase64(file) {
     };
   });
 }
-export default function Step2({ name, setPlaceOption, setCurrentStep }) {
-  const [descText, setDescText] = useState("");
-  const [files, setFiles] = useState([]);
+export default function Step2({
+  name,
+  placeOption,
+  setPlaceOption,
+  setCurrentStep,
+}) {
+  console.log("step2", placeOption);
+
+  const [descText, setDescText] = useState(placeOption?.desc || "");
+  const [files, setFiles] = useState(placeOption?.images || []);
   const fileRef = useRef();
+
   useEffect(() => {
-    setDescText("");
-    setFiles([]);
-    fileRef.current.value = "";
+    if (!placeOption) {
+      setDescText("");
+      setFiles([]);
+      fileRef.current.value = "";
+    }
   }, [name]);
   return (
     <UpdateWrapper>
