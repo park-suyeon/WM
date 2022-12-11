@@ -43,7 +43,6 @@ export default function Home() {
     axios(`/api/place/${id}`).then((res) => res.data)
   );
   if (isLoading || !data) return "로딩중";
-  const title = data.options.map((title) => title.name);
   return (
     <div>
       <Head>
@@ -57,21 +56,15 @@ export default function Home() {
       </Content1>
       <Content2>
         <Title title={data.name} poi={data}></Title>
-        <ShareCallBox></ShareCallBox>
+        {/* <ShareCallBox></ShareCallBox> */}
         <OptionIcon options={data.options}></OptionIcon>
         <MainLocation title={data.name} address={data.address}></MainLocation>
         {/* <Photo></Photo> */}
         <MorePhoto
           id={id}
-          charger={""}
-          information={""}
-          runway={""}
-          elevator={""}
-          lift={""}
-          restroom={""}
-          ect={""}
-          updateDay={data.updatedAt}
-          createDay={data.createdAt}
+          updatedAt={data.updatedAt}
+          options={data.options}
+          desc={data.desc}
         ></MorePhoto>
       </Content2>
     </div>

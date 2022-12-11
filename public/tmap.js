@@ -20,42 +20,40 @@ const attachTmap = () => {
   return tmap;
 };
 function setWheelchairMark(markList) {
-  console.log("markList", markList);
   toiletMarkerList.forEach((e) => {
     e.setMap(null);
   });
   toiletMarkerList = [];
   markList.forEach((element) => {
     const lonlat = new Tmapv2.LatLng(element.lat, element.lon);
-    // const label = new Tmapv2.Label();
     const mark = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
-      label: element.placeName + element.detailedAddress, //Marker의 라벨.
-      // fontColor: "blue",
+      //Marker의 라벨.
+      label: `<span class="Tmap-label">
+      <div class="Tmap-label-title">${element.placeName}</div>
+      <div class="Tmap-label-content">${element.detailedAddress}</div></span>`,
       icon: "/images/icon/markerCharge.png",
       iconSize: new Tmapv2.Size(25, 32),
       // title: element.placeName, //Marker 타이틀.
     });
     wheelchairMarkerList.push(mark);
   });
-  console.log("markTest", wheelchairMarkerList);
 }
 
 function setToiletMark(markList) {
-  console.log(markList);
   wheelchairMarkerList.forEach((e) => {
     e.setMap(null);
   });
   wheelchairMarkerList = [];
-
   markList.forEach((element) => {
     const lonlat = new Tmapv2.LatLng(element.lat, element.lon);
     const mark = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
-      // label: '현재위치', //Marker의 라벨.
-      title: element.placeName, //Marker 타이틀.
+      label: `<span class="Tmap-label">
+      <div class="Tmap-label-title">${element.placeName}</div>
+      <div class="Tmap-label-content">${element.detailedAddress}</div></span>`,
       icon: "/images/icon/markerToilet.png",
       iconSize: new Tmapv2.Size(25, 32),
     });

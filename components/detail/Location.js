@@ -21,7 +21,7 @@ const Location = styled.div`
       .addressLine1 {
         display: flex;
         align-items: center;
-        margin-bottom: 7px;
+
         .addressOption1 {
           width: 36px;
           height: 20px;

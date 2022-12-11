@@ -49,6 +49,7 @@ export default function Home() {
   const [btnActive, SetBtnActive] = useState([]);
   const btnActivelength = btnActive.length;
   const [placeOption, setPlaceOption] = useState([]);
+  console.log(placeOption);
   const step2ref = useRef(0);
   // const id = "634400ba562a10fc789991e6";
   const next = async () => {
