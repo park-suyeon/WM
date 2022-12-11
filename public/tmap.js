@@ -30,9 +30,9 @@ function setWheelchairMark(markList) {
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       //Marker의 라벨.
-      label: `<span class="Tmap-label">
+      label: `<span class="Tmap-label"><div class="labelBox">
       <div class="Tmap-label-title">${element.placeName}</div>
-      <div class="Tmap-label-content">${element.detailedAddress}</div></span>`,
+      <div class="Tmap-label-content">${element.detailedAddress}</div></div></span>`,
       icon: "/images/icon/markerCharge.png",
       iconSize: new Tmapv2.Size(25, 32),
       // title: element.placeName, //Marker 타이틀.
@@ -46,14 +46,15 @@ function setToiletMark(markList) {
     e.setMap(null);
   });
   wheelchairMarkerList = [];
+
   markList.forEach((element) => {
     const lonlat = new Tmapv2.LatLng(element.lat, element.lon);
     const mark = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
-      label: `<span class="Tmap-label">
-      <div class="Tmap-label-title">${element.placeName}</div>
-      <div class="Tmap-label-content">${element.detailedAddress}</div></span>`,
+      label: `<span class="Tmap-label"><div class="labelBox">
+      <div class="Tmap-label-title">${element.name}</div>
+      <div class="Tmap-label-content">${element.detailed}</div></div></span>`,
       icon: "/images/icon/markerToilet.png",
       iconSize: new Tmapv2.Size(25, 32),
     });
@@ -90,7 +91,7 @@ function setSelectedPoi(poi, isStart) {
       icon: "/images/icon/markerStart.png",
       iconSize: new Tmapv2.Size(25, 32),
     });
-    map.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
+    map?.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
   } else {
     const lat = poi.frontLat;
     const lon = poi.frontLon;
@@ -104,7 +105,7 @@ function setSelectedPoi(poi, isStart) {
       icon: "/images/icon/markerEnd.png",
       iconSize: new Tmapv2.Size(25, 32),
     });
-    map.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
+    map?.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
   }
 
   window.tmap = {

@@ -46,7 +46,7 @@ export default function Home() {
   );
 
   const [currentStep, setCurrentStep] = useState(-1);
-  const [btnActive, SetBtnActive] = useState([]);
+  const [btnActive, setBtnActive] = useState([]);
   const btnActivelength = btnActive.length;
   const [placeOption, setPlaceOption] = useState([]);
   console.log(placeOption);
@@ -68,12 +68,19 @@ export default function Home() {
 
     if (currentStep === btnActivelength) {
       await axios.put(`/api/place/${id}`, placeOption);
-      router.push(`/detail/${id}`);
+      window.location.href = `/detail/${id}`;
     } else {
       setCurrentStep((s) => s + 1);
     }
   };
-  console.log(data);
+  useEffect(() => {
+    if (data?.options) {
+      setBtnActive(data.options.map((v) => v.name));
+      setPlaceOption(data.options);
+    }
+  }, [data]);
+  console.log("rata", data);
+  console.log("data", btnActive);
   useEffect(() => {
     if (!data || window.tmap) return;
     const { lat, lon } = data;
@@ -98,12 +105,13 @@ export default function Home() {
         <Title title={data?.name}></Title>
         {/* <ShareCallBox></ShareCallBox> */}
         {currentStep === -1 && (
-          <Step1 btnActive={btnActive} SetBtnActive={SetBtnActive}></Step1>
+          <Step1 btnActive={btnActive} SetBtnActive={setBtnActive}></Step1>
         )}
         {currentStep !== -1 && currentStep !== btnActivelength && (
           <Step2
             name={btnActive[currentStep]}
             setCurrentStep={setCurrentStep}
+            placeOption={placeOption[currentStep]}
             setPlaceOption={setPlaceOption}
           ></Step2>
         )}
