@@ -1,48 +1,191 @@
+// import styled from "styled-components";
+
+// const RootBlock2 = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   margin: 5px 5px 5px 20px;
+//   position: relative;
+//   left: 8px;
+
+//   .transferBar {
+//     justify-content: center;
+//     border-left: 15px dotted #545454;
+//     height: 100px;
+//   }
+//   .transferWrapper {
+//     display: flex;
+//     flex-direction: row;
+//     height: 20px;
+//     position: relative;
+//     left: 10px;
+
+//     .divisionline {
+//       border-left: solid 2px black;
+//       height: 20px;
+//       margin: 0px 0px 0px 4px;
+//     }
+//   }
+//   .text {
+//     font-size: 13px;
+//     margin-left: 5px;
+//   }
+//   .placeline {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: flex-end;
+//     .startName {
+//       font-size: 18px;
+//       color: black;
+//       font-weight: bolder;
+//       margin-top: 5px;
+//       margin-left: 2px;
+//     }
+//     .arriveName {
+//       font-size: 18px;
+//       color: black;
+//       font-weight: bolder;
+//       /* margin-top: 5px; */
+//       margin-left: 2px;
+//     }
+//   }
+//   .startName {
+//     font-size: 18px;
+//     color: black;
+//     font-weight: bolder;
+//     margin-left: 2px;
+//   }
+// `;
+
+// const StationRoot2 = ({ transferway, transfertime }) => {
+//   return (
+//     <RootBlock2>
+//       {/* <div className="transferBar">
+//         <div className="startName">dd</div>
+//       </div> */}
+//       <div className="transferWrapper">
+//         <div className="text">휠체어</div>
+//         <div className="divisionline "></div>
+//         <div className="text">{transfertime}분</div>
+//       </div>
+//       <div className="text">{transferway} </div>
+//     </RootBlock2>
+//   );
+// };
+// export default StationRoot2;
 import styled from "styled-components";
+import SubwayLine from "./SubwayLine";
 
-const RootBlock2 = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 5px 5px 5px 20px;
-  position: relative;
-  top: -15px;
-  left: 8px;
-
-  .transferBar {
-    justify-content: center;
-    border-left: 15px dotted #545454;
-    height: 100px;
-  }
-  .transferWrapper {
+const RootBlock1 = styled.div`
+  .rootwrapper {
     display: flex;
     flex-direction: row;
-    height: 20px;
-    position: relative;
-    top: 40px;
-    left: 10px;
-    .text {
-      font-size: 13px;
-      margin-left: 5px;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .placeWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .placeline {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    .startName {
+      font-size: 18px;
+      color: black;
+      font-weight: bolder;
+      margin-top: 5px;
+      margin-left: 2px;
     }
-    .divisionline {
-      border-left: solid 2px black;
-      height: 20px;
-      margin: 0px 0px 0px 4px;
+    .arriveName {
+      font-size: 18px;
+      color: black;
+      font-weight: bolder;
+      /* margin-top: 5px; */
+      margin-left: 2px;
+      position: relative;
+    }
+    .icon {
+      margin-top: 8px;
+      margin-left: 15px;
+      width: 17px;
+      height: 17px;
+    }
+    .transferText {
+      padding-left: 3px;
+      font-size: 13px;
+      color: #c248ad;
+    }
+    .directionText {
+      font-size: 13px;
+      color: black;
+      margin-top: 5px;
+      padding-left: 3px;
+    }
+    .timeText {
+      font-size: 13px;
+      color: black;
+      margin-top: 5px;
+      padding-left: 3px;
+      position: relative;
+    }
+    .exitText {
+      margin-top: 5px;
+      padding-left: 3px;
+      font-size: 13px;
+      color: #c248ad;
     }
   }
+  .moreicon {
+    width: 15px;
+    height: 3px;
+    position: absolute;
+    top: 400px;
+    right: 10%;
+    cursor: pointer;
+  }
 `;
-
-const StationRoot2 = ({ transferway, transfertime }) => {
+const StationRoot1 = ({
+  exit,
+  direction,
+  quick,
+  time,
+  start,
+  arrive,
+  info,
+}) => {
   return (
-    <RootBlock2>
-      <div className="transferBar"></div>
-      <div className="transferWrapper">
-        <div className="text">환승</div>
-        <div className="divisionline "></div>
-        <div className="text">{transferway} </div>
-        <div className="text">{transfertime}분</div>
+    <RootBlock1
+      exit={exit}
+      direction={direction}
+      time={time}
+      start={start}
+      arrive={arrive}
+      info={info}
+    >
+      <div className="rootwrapper">
+        <SubwayLine lineText={2}></SubwayLine>
+        <div className="placeWrapper">
+          <div className="placeline">
+            <div className="startName">{start} </div>
+            <img className="icon" src="images\icon\elevator_black.png" />
+            <div className="transferText">안전 환승 </div>
+            <div className="transferText">{direction} </div>
+          </div>
+          <div className="placeline">
+            <div className="timeText"> {time}분</div>
+          </div>
+          <div className="placeline">
+            <div className="directionText">{info}</div>
+          </div>
+
+          <div className="placeline">
+            <div className="arriveName">{arrive} </div>
+          </div>
+        </div>
+        <img className="moreicon" src="/images/icon/more.png" />
       </div>
-    </RootBlock2>
+    </RootBlock1>
   );
 };
-export default StationRoot2;
+export default StationRoot1;

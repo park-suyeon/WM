@@ -159,7 +159,7 @@ const getTmap = () => {
   map = new Tmapv2.Map("TMapApp", {
     center: new Tmapv2.LatLng(37.5652045, 126.98702028),
     width: "100%", // 지도의 넓이
-    height: "900px", // 지도의 높이
+    height: "600px", // 지도의 높이
     zoom: 17,
   });
   return map;

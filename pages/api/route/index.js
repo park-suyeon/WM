@@ -4,7 +4,6 @@ const data = require("../../../components/testPublicTrans.json");
 export default async function handler(req, res) {
   const { startX, startY, endX, endY } = req.body;
 
-  // console.log(startX, startY, endX, endY);
   // if (!startX || !startY || !endX || !endY)
   //   return res.status(400).send('없는 값');
 

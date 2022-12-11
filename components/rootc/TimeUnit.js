@@ -3,7 +3,6 @@ import styled from "styled-components";
 const TimeBlock = styled.div`
   display: flex;
   align-items: flex-end;
-
   flex-direction: row;
   margin-bottom: 5px;
   padding: 5px 0px 0px 5px;

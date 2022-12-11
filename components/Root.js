@@ -56,12 +56,36 @@ export default function Root({ setPage, className }) {
     (leg) => leg.mode === "TRANSFER"
   ).length;
   const fare = selectedPath?.fare.regular.totalFare;
-  // let info = Object.entries(selectedPath.legs);
-  // console.log("info:", info, typeof info);
-  // const howToGo = routePath();
-  // selectedPath?.legs[0].steps[1].description;
+  function chooseMode() {
+    if (selectedPath?.legs.find((leg) => leg.mode === "BUS")) {
+      return <div>{bus}</div>;
+    } else if (selectedPath?.legs.find((leg) => leg.mode === "WALK")) {
+      return <div>{walking}</div>;
+    } else if (selectedPath?.legs.find((leg) => leg.mode === "WALK")) {
+      return <div>{subway}</div>;
+    } else return <div>경로없음</div>;
+  }
   const transfertime =
-    selectedPath?.legs.find((leg) => leg.mode === "TRANSFER").sectionTime / 60;
+    selectedPath?.legs.find((leg) => leg.mode === "TRANSFER")?.sectionTime / 60;
+  const walking = selectedPath?.legs
+    .find((leg) => leg.mode === "WALK")
+    ?.steps.map((item) => {
+      return <div>{item.description}</div>;
+    });
+  const bus = selectedPath?.legs
+    .find((leg) => leg.mode === "BUS")
+    ?.passStopList.stationList?.map((item) => {
+      return <div>{item.stationName}</div>;
+    });
+  const subway = selectedPath?.legs
+    .find((leg) => leg.mode === "SUBWAY")
+    ?.passStopList.stationList?.map((item) => {
+      return <div>{item.stationName}</div>;
+    });
+  const busNumber =
+    selectedPath?.legs.find((leg) => leg.mode === "BUS").route || null;
+  const subwayNumber =
+    selectedPath?.legs.find((leg) => leg.mode === "SUBWAY")?.route || null;
   return (
     <div className={className}>
       <Head>
@@ -95,25 +119,23 @@ export default function Root({ setPage, className }) {
           <Start startPlace={selectedPath?.legs[0].start.name}></Start>
           <StationRoot1
             start={selectedPath?.legs[0].start.name}
-            exit={selectedPath?.legs[0].steps[0].description}
-            direction={selectedPath?.legs[0].steps[0].description}
-            quick={"3-4"}
-            // info={info}
+            direction={"3-4"}
+            info={subwayNumber}
             time={Math.floor(selectedPath?.walkTime / 60)}
             arrive={selectedPath?.legs[0].end.name}
           ></StationRoot1>
           <StationRoot2
+            start={selectedPath?.legs[0].start.name}
+            direction={"3-4"}
+            info={subwayNumber}
+            time={Math.floor(selectedPath?.walkTime / 60)}
+            arrive={selectedPath?.legs[0].end.name}
+          ></StationRoot2>
+          {/* <StationRoot2
             transferway={"휠체어"}
             transfertime={transfertime}
-          ></StationRoot2>
-          <StationRoot3
-            start={selectedPath?.legs[selectedPath.legs.length - 1].start.name}
-            exit={3}
-            direction={"ㅇㅇ"}
-            quick={"4-1"}
-            time={20}
-            arrive={selectedPath?.legs[selectedPath.legs.length - 1].end.name}
-          ></StationRoot3>
+          ></StationRoot2> */}
+
           <Destination
             finishPlace={
               selectedPath?.legs[selectedPath.legs.length - 1].end.name

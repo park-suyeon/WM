@@ -125,7 +125,7 @@ const Title = ({ title, poi }) => {
                   name: poi.name,
                 })
               );
-              router.push("/");
+              window.location.href = "/";
             }}
           >
             출발
