@@ -6,6 +6,7 @@ const PhotoWrapper = styled.div`
   flex-direction: column;
   background-color: white;
   width: 100%;
+  overflow: scroll;
   .wrapper {
     display: flex;
     justify-content: flex-start;
@@ -162,8 +163,8 @@ const MorePhoto = ({ id, updatedAt, options }) => {
       <div className="editWrapper">
         <div className="finalWrapper">
           <div className="final">
-            <div className="text">최종 수정인 :</div>
-            <div>박수연</div>
+            <div className="text">최초 생성일 :</div>
+            <div>{createDay}</div>
           </div>
           <div className="final">
             <div className="text">최종 수정일 :</div>

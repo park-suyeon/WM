@@ -75,7 +75,40 @@
 import styled from "styled-components";
 import SubwayLine from "./SubwayLine";
 
-const RootBlock1 = styled.div`
+const RootBlock2 = styled.div`
+  .lineWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 5px 5px 20px;
+    .startLineCircle {
+      width: 30px;
+      height: 30px;
+      background-color: #808080;
+      border-radius: 99999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      .startLineText {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+      }
+      .arriveLineText {
+        color: white;
+        font-size: 13px;
+      }
+    }
+    .stationLine {
+      display: flex;
+      position: relative;
+      top: -3px;
+      left: 10px;
+      margin-bottom: -5px;
+      border-left: 10px dotted #808080;
+      height: 100px;
+    }
+  }
   .rootwrapper {
     display: flex;
     flex-direction: row;
@@ -145,7 +178,7 @@ const RootBlock1 = styled.div`
     cursor: pointer;
   }
 `;
-const StationRoot1 = ({
+const StationRoot2 = ({
   exit,
   direction,
   quick,
@@ -153,18 +186,29 @@ const StationRoot1 = ({
   start,
   arrive,
   info,
+  text,
 }) => {
   return (
-    <RootBlock1
+    <RootBlock2
       exit={exit}
       direction={direction}
       time={time}
       start={start}
       arrive={arrive}
       info={info}
+      text={text}
     >
       <div className="rootwrapper">
-        <SubwayLine lineText={2}></SubwayLine>
+        <div className="lineWrapper">
+          <div className="startLineCircle">
+            <div className="arriveLineText">{text}</div>
+          </div>
+          <div className="stationLine"></div>
+          <div className="startLineCircle">
+            <div className="arriveLineText">하차</div>
+          </div>
+        </div>
+        {/* <SubwayLine lineText={2}></SubwayLine> */}
         <div className="placeWrapper">
           <div className="placeline">
             <div className="startName">{start} </div>
@@ -185,7 +229,7 @@ const StationRoot1 = ({
         </div>
         <img className="moreicon" src="/images/icon/more.png" />
       </div>
-    </RootBlock1>
+    </RootBlock2>
   );
 };
-export default StationRoot1;
+export default StationRoot2;
