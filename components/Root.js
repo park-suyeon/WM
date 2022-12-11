@@ -52,36 +52,9 @@ export default function Root({ setPage, className }) {
 
   console.log("selectedPath : ", selectedPath);
   const totalTime = Math.floor(selectedPath?.totalTime / 60);
-  const transferCount = selectedPath?.legs.find(
-    (leg) => leg.mode === "TRANSFER"
-  ).length;
+  const transferCount =
+    selectedPath?.legs.find((leg) => leg.mode === "TRANSFER")?.length || 0;
   const fare = selectedPath?.fare.regular.totalFare;
-  function chooseMode() {
-    if (selectedPath?.legs.find((leg) => leg.mode === "BUS")) {
-      return <div>{bus}</div>;
-    } else if (selectedPath?.legs.find((leg) => leg.mode === "WALK")) {
-      return <div>{walking}</div>;
-    } else if (selectedPath?.legs.find((leg) => leg.mode === "WALK")) {
-      return <div>{subway}</div>;
-    } else return <div>경로없음</div>;
-  }
-  const transfertime =
-    selectedPath?.legs.find((leg) => leg.mode === "TRANSFER")?.sectionTime / 60;
-  const walking = selectedPath?.legs
-    .find((leg) => leg.mode === "WALK")
-    ?.steps.map((item) => {
-      return <div key={item.description}>{item.description}</div>;
-    });
-  const bus = selectedPath?.legs
-    .find((leg) => leg.mode === "BUS")
-    ?.passStopList.stationList?.map((item) => {
-      return <div key={item.stationName}>{item.stationName}</div>;
-    });
-  const subway = selectedPath?.legs
-    .find((leg) => leg.mode === "SUBWAY")
-    ?.passStopList.stationList?.map((item) => {
-      return <div key={item.stationName}>{item.stationName}</div>;
-    });
 
   const PathList = selectedPath?.legs.map((leg, index) => {
     if (leg.mode === "BUS") {

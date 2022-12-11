@@ -8,7 +8,10 @@ var selectedStartPoiMarker;
 var selectedEndPoiMarker;
 var wheelchairMarkerList = [];
 var toiletMarkerList = [];
-
+let new_polyLine = [];
+let currentTransferMark = [];
+let startMarker;
+let endMarker;
 /**
  * global variable
  * tmap
@@ -83,7 +86,7 @@ function setSelectedPoi(poi, isStart) {
     const lon = poi.frontLon;
     selectedStartLocation = { lat, lon, name: poi.name };
     var lonlat = new Tmapv2.LatLng(lat, lon);
-    selectedStartPoiMarker = new Tmapv2.Marker({
+    startMarker = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
@@ -97,7 +100,7 @@ function setSelectedPoi(poi, isStart) {
     const lon = poi.frontLon;
     selectedEndLocation = { lat, lon, name: poi.name };
     var lonlat = new Tmapv2.LatLng(lat, lon);
-    selectedEndPoiMarker = new Tmapv2.Marker({
+    endMarker = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
@@ -210,10 +213,6 @@ function drawLineInfo(data) {
 //   map.fitBounds(PTbounds);
 
 // },
-let new_polyLine = [];
-let currentTransferMark = [];
-let startMarker;
-let endMarker;
 
 function drawData(data) {
   console.log("drawData:", data);
