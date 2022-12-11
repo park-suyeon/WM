@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Root from "../Root";
 import SubwayLine from "./SubwayLine";
 
 const RootBlock1 = styled.div`

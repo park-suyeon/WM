@@ -52,7 +52,7 @@ export default function Root({ setPage, className }) {
 
   console.log("selectedPath : ", selectedPath);
   const totalTime = Math.floor(selectedPath?.totalTime / 60);
-  const transferCount = selectedPath?.legs.filter(
+  const transferCount = selectedPath?.legs.find(
     (leg) => leg.mode === "TRANSFER"
   ).length;
   const fare = selectedPath?.fare.regular.totalFare;
@@ -128,13 +128,16 @@ export default function Root({ setPage, className }) {
             start={selectedPath?.legs[0].start.name}
             direction={"3-4"}
             info={subwayNumber}
-            time={Math.floor(selectedPath?.walkTime / 60)}
+            time={transfertime}
             arrive={selectedPath?.legs[0].end.name}
           ></StationRoot2>
-          {/* <StationRoot2
-            transferway={"휠체어"}
-            transfertime={transfertime}
-          ></StationRoot2> */}
+          <StationRoot1
+            start={selectedPath?.legs[0].start.name}
+            direction={"3-4"}
+            info={subwayNumber}
+            time={Math.floor(selectedPath?.walkTime / 60)}
+            arrive={selectedPath?.legs[0].end.name}
+          ></StationRoot1>
 
           <Destination
             finishPlace={

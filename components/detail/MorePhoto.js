@@ -6,6 +6,7 @@ const PhotoWrapper = styled.div`
   flex-direction: column;
   background-color: white;
   width: 100%;
+  overflow: scroll;
   .wrapper {
     display: flex;
     justify-content: flex-start;
@@ -84,12 +85,24 @@ const PhotoWrapper = styled.div`
   }
 `;
 
-const MorePhoto = ({ id }) => {
+const MorePhoto = ({
+  id,
+  charger,
+  information,
+  createDay,
+  updateDay,
+  runway,
+  elevator,
+  lift,
+  restroom,
+  ect,
+  photo,
+}) => {
   return (
     <PhotoWrapper>
       <div className="wrapper">
-        <div className="title">휠체어 급속 충전기</div>
-        <div className="content">1층 로비 옆 계단에 위치</div>
+        <div className="title">{charger}휠체어 급속 충전기</div>
+        <div className="content">{information}1층 로비 옆 계단에 위치</div>
         <div className="photos">
           <img className="photo1" src="/images/photo1.jpg" />
           <img className="photo2" src="/images/photo2.jpg" />
@@ -98,8 +111,8 @@ const MorePhoto = ({ id }) => {
         </div>
       </div>
       <div className="wrapper">
-        <div className="title">경사로</div>
-        <div className="content">정문 출입구</div>
+        <div className="title">입구 경사로</div>
+        <div className="content">{runway}정문 출입구</div>
         <div className="photos">
           <img className="photo2" src="/images/photo2.jpg" />
           <img className="photo3" src="/images/photo3.jpg" />
@@ -107,23 +120,50 @@ const MorePhoto = ({ id }) => {
       </div>
       <div className="wrapper">
         <div className="title">승강기</div>
-        <div className="content">안내센터 오른쪽</div>
+        <div className="content">{elevator}안내센터 오른쪽</div>
+        <div className="photos">
+          {photo}
+          <img className="photo3" src="/images/photo3.jpg" />
+          <img className="photo1" src="/images/photo1.jpg" />
+          <img className="photo2" src="/images/photo2.jpg" />
+        </div>
+      </div>
+      <div className="wrapper">
+        <div className="title">휠체어 리프트</div>
+        <div className="content">{lift}안내센터 오른쪽</div>
         <div className="photos">
           <img className="photo3" src="/images/photo3.jpg" />
           <img className="photo1" src="/images/photo1.jpg" />
           <img className="photo2" src="/images/photo2.jpg" />
         </div>
       </div>
-
+      <div className="wrapper">
+        <div className="title">장애인 화장실</div>
+        <div className="content">{restroom}안내센터 오른쪽</div>
+        <div className="photos">
+          <img className="photo3" src="/images/photo3.jpg" />
+          <img className="photo1" src="/images/photo1.jpg" />
+          <img className="photo2" src="/images/photo2.jpg" />
+        </div>
+      </div>
+      <div className="wrapper">
+        <div className="title">기타</div>
+        <div className="content">{ect}안내센터 오른쪽</div>
+        <div className="photos">
+          <img className="photo3" src="/images/photo3.jpg" />
+          <img className="photo1" src="/images/photo1.jpg" />
+          <img className="photo2" src="/images/photo2.jpg" />
+        </div>
+      </div>
       <div className="editWrapper">
         <div className="finalWrapper">
           <div className="final">
-            <div className="text">최종 수정인 :</div>
-            <div>박수연</div>
+            <div className="text">최초 생성일 :</div>
+            <div>{createDay}</div>
           </div>
           <div className="final">
             <div className="text">최종 수정일 :</div>
-            <div>2022.09.01</div>
+            <div>{updateDay}</div>
           </div>
         </div>
         <Link href={`/detail/${id}/update`}>
