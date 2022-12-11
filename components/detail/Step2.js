@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const UpdateWrapper = styled.div`
@@ -92,9 +93,31 @@ const UpdateWrapper = styled.div`
       }
     }
   }
+  .addimg {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
 `;
-
+function fileToBase64(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      resolve(reader.result);
+      console.dir(reader.result); // base64
+    };
+  });
+}
 export default function Step2({ name, setPlaceOption, setCurrentStep }) {
+  const [descText, setDescText] = useState("");
+  const [files, setFiles] = useState([]);
+  const fileRef = useRef();
+  useEffect(() => {
+    setDescText("");
+    setFiles([]);
+    fileRef.current.value = "";
+  }, [name]);
   return (
     <UpdateWrapper>
       <div className="title">보행장애인 편의 시설 정보 등록</div>
@@ -108,8 +131,8 @@ export default function Step2({ name, setPlaceOption, setCurrentStep }) {
           <div className="record">
             <div className="recordContent">건물 후문 출입구에 위치</div>
             <div className="recordText">
-              <div className="who">박수연</div>
-              <div className="words">님이</div>
+              {/* <div className="who">박수연</div>
+              <div className="words">님이</div> */}
               <div className="when">2022.09.01 </div>
               <div className="words">등록한 내용입니다.</div>
             </div>
@@ -117,23 +140,61 @@ export default function Step2({ name, setPlaceOption, setCurrentStep }) {
         </div>
         <input
           className="text"
+          value={descText}
           onChange={(e) => {
+            setDescText(e.target.value);
             setPlaceOption((prev) => {
-              return [...prev, { name, desc: e.target.value }];
+              if (prev.some((item) => item.name === name)) {
+                const i = prev.findIndex((item) => {
+                  return item.name === name;
+                });
+                prev[i] = { ...prev[i], desc: e.target.value };
+                return [...prev];
+              }
+              return [...prev, { name, desc: e.target.value, images: [] }];
             });
           }}
           placeholder="수정할 내용이 있으면 입력해 주세요"
         ></input>
-        <form action="" method="post" encType="multipart/form-data">
-          <input type="file" name="profile"></input>
-          <input type="submit"></input>
-        </form>
 
-        {/* <div className="midTitleWrap">
+        <div className="midTitleWrap">
           <div className="midTitle">사진 추가</div>
-          <img className="plusIcon" src="/images/icon/plus_gray.png" />
+          <label for="addimg">
+            <img className="plusIcon" src="/images/icon/plus_gray.png" />
+          </label>
+
           <div className="choice">선택</div>
-        </div> */}
+          <input
+            id="addimg"
+            className="addimg"
+            type="file"
+            ref={fileRef}
+            onChange={async (e) => {
+              const imageURL = await fileToBase64(e.target.files[0]);
+              setFiles((s) => [...s, imageURL]);
+
+              setPlaceOption((prev) => {
+                if (prev.some((item) => item.name === name)) {
+                  const i = prev.findIndex((item) => {
+                    return item.name === name;
+                  });
+                  const copyPrev = JSON.parse(JSON.stringify(prev));
+                  copyPrev[i] = {
+                    ...copyPrev[i],
+                    images: [...copyPrev[i].images, imageURL],
+                  };
+                  return [...copyPrev];
+                }
+                return [...prev, { name, desc: "", images: [imageURL] }];
+              });
+            }}
+          ></input>
+          <div>
+            {files.map((file) => {
+              return <img src={file} />;
+            })}
+          </div>
+        </div>
       </div>
     </UpdateWrapper>
   );
