@@ -201,7 +201,7 @@ export default function Step2({
           ></input>
           <div>
             {files.map((file) => {
-              return <img src={file} />;
+              return <img src={file} key={file} />;
             })}
           </div>
         </div>

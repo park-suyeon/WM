@@ -92,10 +92,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
     });
     if (name === "입구 경사로") {
       return (
-        <div className="wrapper">
-          <div className="title" key={name}>
-            입구 경사로
-          </div>
+        <div className="wrapper" key={name}>
+          <div className="title">입구 경사로</div>
           <div className="content">{desc}</div>
           <div className="photos">{Images}</div>
         </div>
@@ -103,10 +101,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
     }
     if (name === "승강기") {
       return (
-        <div className="wrapper">
-          <div className="title" key={name}>
-            엘리베이터
-          </div>
+        <div className="wrapper" key={name}>
+          <div className="title">엘리베이터</div>
           <div className="content">{desc}</div>
           <div className="photos">{Images}</div>
         </div>
@@ -114,10 +110,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
     }
     if (name === "휠체어 급속 충전기") {
       return (
-        <div className="wrapper">
-          <div className="title" key={name}>
-            휠체어 급속 충전기
-          </div>
+        <div className="wrapper" key={name}>
+          <div className="title">휠체어 급속 충전기</div>
           <div className="content">{desc}</div>
           <div className="photos">{Images}</div>
         </div>
@@ -125,10 +119,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
     }
     if (name === "장애인 화장실") {
       return (
-        <div className="wrapper">
-          <div className="title" key={name}>
-            장애인 화장실
-          </div>
+        <div className="wrapper" key={name}>
+          <div className="title">장애인 화장실</div>
           <div className="content">{desc}</div>
           <div className="photos">{Images}</div>
         </div>
@@ -136,10 +128,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
     }
     if (name === "휠체어 리프트") {
       return (
-        <div className="wrapper">
-          <div className="title" key={name}>
-            휠체어 리프트
-          </div>
+        <div className="wrapper" key={name}>
+          <div className="title">휠체어 리프트</div>
           <div className="content">{desc}</div>
           <div className="photos">{Images}</div>
         </div>
@@ -147,10 +137,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
     }
     if (name === "기타") {
       return (
-        <div className="wrapper">
-          <div className="title" key={name}>
-            기타
-          </div>
+        <div className="wrapper" key={name}>
+          <div className="title">기타</div>
           <div className="content">{desc}</div>
           <div className="photos">{Images}</div>
         </div>
@@ -168,7 +156,7 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
           </div>
           <div className="final">
             <div className="text">최종 수정일 :</div>
-            {updatedAt.split("T")[0]}
+            {updatedAt?.split("T")[0]}
           </div>
         </div>
         <Link href={`/detail/${id}/update`}>

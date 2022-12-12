@@ -80,6 +80,7 @@ const StationRoot1 = ({
   start,
   arrive,
   info,
+  color,
 }) => {
   return (
     <RootBlock1
@@ -91,7 +92,7 @@ const StationRoot1 = ({
       info={info}
     >
       <div className="rootwrapper">
-        <SubwayLine lineText={2}></SubwayLine>
+        <SubwayLine lineText={2} color={color}></SubwayLine>
 
         <div className="placeWrapper">
           <div className="placeline">
