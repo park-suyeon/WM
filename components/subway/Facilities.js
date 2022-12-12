@@ -76,7 +76,7 @@ const Facilities = ({ data }) => {
           </div>
           <div
             className="detailed"
-            style={{ opacity: data.safe === "0" ? 0.4 : 1 }}
+            style={{ opacity: data.Foothold === "0" ? 0.4 : 1 }}
           >
             <img className="icon" src="\images\icon\footplate_black.png" />
             <div className="textOn">안전발판</div>
@@ -107,11 +107,11 @@ const Facilities = ({ data }) => {
           </div>
           <div
             className="detailed"
-            style={{ opacity: data.distance === "-" ? 0.4 : 1 }}
+            style={{ opacity: data.safeDistance === "-" ? 0.4 : 1 }}
           >
             <img className="icon" src="\images\icon\distance_black.png" />
             <div className="textOn">열차 승강장 간격</div>
-            <div className="textOn">{data.distance}cm</div>
+            <div className="textOn">{data.safeDistance}cm</div>
           </div>
         </div>
       </div>

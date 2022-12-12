@@ -62,6 +62,7 @@ export default function Home() {
         {/* <Photo></Photo> */}
         <MorePhoto
           id={id}
+          createdAt={data.createdAt}
           updatedAt={data.updatedAt}
           options={data.options}
           desc={data.desc}

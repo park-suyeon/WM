@@ -23,7 +23,7 @@ const result3 = require("./parse4");
 async function main() {
   await connectMongo();
   await ConfigModel.updateOne(
-    { _id: "637f5b77ca571d0ffbb3a42a" },
+    { _id: "6397aceab5b96bc4184ed77f" },
     { subway: result }
   );
 }

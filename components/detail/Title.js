@@ -82,6 +82,7 @@ const Detail = styled.div`
       align-items: center;
       width: 90px;
       height: 35px;
+      cursor: pointer;
     }
     .Arrival {
       color: white;
@@ -93,6 +94,7 @@ const Detail = styled.div`
       align-items: center;
       width: 90px;
       height: 35px;
+      cursor: pointer;
     }
     .icon {
       margin-right: 13px;

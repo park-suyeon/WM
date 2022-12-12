@@ -203,7 +203,7 @@ export default function Home() {
           </div>
           <div className="Content3">
             <Station
-              title={data.name}
+              name={data.name}
               left={data.left}
               right={data.right}
             ></Station>

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const data = fs.readFileSync("./mainFacility.csv").toString();
+const data = fs.readFileSync("./mainInformation.csv").toString();
 const data2 = data.split("\r\n");
 const result = [];
 data2.forEach((e) => {

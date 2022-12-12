@@ -85,7 +85,7 @@ const PhotoWrapper = styled.div`
   }
 `;
 
-const MorePhoto = ({ id, updatedAt, options }) => {
+const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
   const Options = options?.map(({ name, desc, images }) => {
     const Images = images.map((image) => {
       return <img src={image} />;
@@ -164,7 +164,7 @@ const MorePhoto = ({ id, updatedAt, options }) => {
         <div className="finalWrapper">
           <div className="final">
             <div className="text">최초 생성일 :</div>
-            <div>{createDay}</div>
+            {createdAt.split("T")[0]}
           </div>
           <div className="final">
             <div className="text">최종 수정일 :</div>
