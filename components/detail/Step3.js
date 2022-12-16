@@ -46,7 +46,7 @@ const UpdateWrapper = styled.div`
       font-size: 14px;
       background-color: white;
       width: 90%;
-      height: 120px;
+      height: 60px;
       margin-left: 18px;
       border-radius: 5px;
       border: 2px solid #677185;
@@ -94,26 +94,21 @@ const UpdateWrapper = styled.div`
   }
 `;
 
-export default function Step2() {
+export default function Step2({ name, setName }) {
   return (
     <UpdateWrapper>
       <div className="title">보행장애인 편의 시설 정보 등록</div>
       <div className="content">
         <div className="midTitleWrap">
-          <div className="midTitle">
-            [#태그]해당 장소에 대해 간략히 입력해 주세요
-          </div>
-          <div className="choice">선택</div>
+          <div className="midTitle">이름을 입력해 주세요</div>
+          <div className="choice">필수</div>
         </div>
         <input
           className="text"
-          placeholder="해당 장소에서의 경험을 해시태그로 입력해 주세요. #태그 입력(ex. #유동인구 많음 #공간협소)"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="실명을 입력해 주세요"
         ></input>
-        {/* <div className="midTitleWrap">
-          <div className="midTitle">사진 추가</div>
-          <img className="plusIcon" src="/images/icon/plus_gray.png" />
-          <div className="choice">선택</div>
-        </div> */}
       </div>
     </UpdateWrapper>
   );

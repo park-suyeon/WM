@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import placemodel from '../../../server/db/model/place.js';
-import mongodbconnect from '../../../server/db/index.js';
-import ConfigModel from '../../../server/db/model/config.js';
-import {get} from 'mongoose';
+import placemodel from "../../../server/db/model/place.js";
+import mongodbconnect from "../../../server/db/index.js";
+import ConfigModel from "../../../server/db/model/config.js";
+import { get } from "mongoose";
 function getDistance(lat1, lon1, lat2, lon2) {
   if (lat1 == lat2 && lon1 == lon2) return 0;
 
@@ -24,13 +24,15 @@ function getDistance(lat1, lon1, lat2, lon2) {
   return dist;
 }
 export default async function handler(req, res) {
-  const {lat, lon} = req.query;
+  const { lat, lon } = req.query;
   await mongodbconnect();
   const configList = await ConfigModel.find();
-  const subwayValues = {...configList[0]};
-
-  let closestSubway = subwayValues._doc['2-대림'];
-  Object.values(subwayValues._doc).forEach(sb => {
+  const subwayValues = { ...configList[2] };
+  console.log("subwayValuesway", subwayValues);
+  let closestSubway = subwayValues._doc.subway.find(
+    (v) => v.title === "2-대림"
+  );
+  Object.values(subwayValues._doc.subway).forEach((sb) => {
     if (
       sb.lat &&
       getDistance(closestSubway.lat, closestSubway.lon, lat, lon) >
@@ -39,5 +41,6 @@ export default async function handler(req, res) {
       closestSubway = sb;
     }
   });
-  res.status(200).json({...closestSubway});
+  console.log("way", closestSubway);
+  res.status(200).json({ ...closestSubway });
 }

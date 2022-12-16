@@ -7,6 +7,10 @@ const PhotoWrapper = styled.div`
   background-color: white;
   width: 100%;
   overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
   .wrapper {
     display: flex;
     justify-content: flex-start;
@@ -87,7 +91,7 @@ const PhotoWrapper = styled.div`
 
 const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
   const Options = options?.map(({ name, desc, images }) => {
-    const Images = images.map((image) => {
+    const Images = images?.map((image) => {
       return <img src={image} />;
     });
     if (name === "입구 경사로") {

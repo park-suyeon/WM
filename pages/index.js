@@ -171,7 +171,7 @@ export default function Home() {
       window.tmap.setToiletMark(toiletData || []);
     }
   }, [fastSearch]);
-
+  console.log("subway", data);
   if (isLoading) return null;
   return (
     <>

@@ -49,6 +49,8 @@ export default function Home() {
   const [btnActive, setBtnActive] = useState([]);
   const btnActivelength = btnActive.length;
   const [placeOption, setPlaceOption] = useState([]);
+  const [name, setName] = useState([]);
+
   console.log(placeOption);
   const step2ref = useRef(0);
   // const id = "634400ba562a10fc789991e6";
@@ -67,7 +69,11 @@ export default function Home() {
     // }
 
     if (currentStep === btnActivelength) {
-      await axios.put(`/api/place/${id}`, placeOption);
+      console.log("옵션", JSON.stringify(placeOption));
+      await axios.put(`/api/place/${id}`, {
+        options: placeOption,
+        author: name,
+      });
       window.location.href = `/detail/${id}`;
     } else {
       setCurrentStep((s) => s + 1);
@@ -77,6 +83,7 @@ export default function Home() {
     if (data?.options) {
       setBtnActive(data.options.map((v) => v.name));
       setPlaceOption(data.options);
+      setName(data.name);
     }
   }, [data]);
   console.log("rata", data);
@@ -113,9 +120,13 @@ export default function Home() {
             setCurrentStep={setCurrentStep}
             placeOption={placeOption[currentStep]}
             setPlaceOption={setPlaceOption}
+            author={data?.author}
+            desc={data?.desc}
           ></Step2>
         )}
-        {currentStep === btnActivelength && <Step3></Step3>}
+        {currentStep === btnActivelength && (
+          <Step3 name={name} setName={setName}></Step3>
+        )}
         <ButtonBox
           text={currentStep === btnActivelength ? "저장" : "다음"}
           onClick={next}

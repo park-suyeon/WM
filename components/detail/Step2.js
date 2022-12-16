@@ -20,6 +20,10 @@ const UpdateWrapper = styled.div`
 
   .content {
     align-items: center;
+    .photo {
+      width: 250px;
+      margin: 5px 15px;
+    }
     .midTitleWrap {
       display: flex;
       text-align: left;
@@ -41,6 +45,7 @@ const UpdateWrapper = styled.div`
         align-items: center;
         height: 15px;
         margin-left: 7px;
+        cursor: pointer;
       }
     }
     .text {
@@ -114,6 +119,8 @@ export default function Step2({
   placeOption,
   setPlaceOption,
   setCurrentStep,
+  author,
+  desc,
 }) {
   console.log("step2", placeOption);
 
@@ -136,18 +143,21 @@ export default function Step2({
           <div className="midTitle">[{name}]상세 설명을 입력해 주세요.</div>
           <div className="choice">선택</div>
         </div>
-        <div className="recordWrapper">
-          <img className="memberIcon" src="/images/icon/member.png" />
-          <div className="record">
-            <div className="recordContent">건물 후문 출입구에 위치</div>
-            <div className="recordText">
-              {/* <div className="who">박수연</div>
-              <div className="words">님이</div> */}
-              <div className="when">2022.09.01 </div>
-              <div className="words">등록한 내용입니다.</div>
+        {author && (
+          <div className="recordWrapper">
+            <img className="memberIcon" src="/images/icon/member.png" />
+            <div className="record">
+              <div className="recordContent">{placeOption?.desc}</div>
+              <div className="recordText">
+                <div className="who">{author}</div>
+                <div className="words">님이</div>
+                <div className="when">2022.09.01 </div>
+                <div className="words">등록한 내용입니다.</div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
         <input
           className="text"
           value={descText}
@@ -199,11 +209,11 @@ export default function Step2({
               });
             }}
           ></input>
-          <div>
-            {files.map((file) => {
-              return <img src={file} key={file} />;
-            })}
-          </div>
+        </div>
+        <div className="photoWrap">
+          {files.map((file) => {
+            return <img className="photo" src={file} key={file} />;
+          })}
         </div>
       </div>
     </UpdateWrapper>

@@ -14,6 +14,7 @@ const Place = new Schema(
     lat: Number,
     lon: Number,
     timestamp: Date,
+    author: String,
   },
   {
     timestamps: true,

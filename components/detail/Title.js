@@ -16,63 +16,11 @@ const Detail = styled.div`
   .Placename {
     font-size: 19px;
     font-weight: bold;
-    margin-bottom: 5px;
-  }
-  .Wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    .text {
-      font-size: 15px;
-      margin: 3px 10px;
-      text-align: center;
-    }
-    .charge {
-      background-color: #62d2ff;
-      border-radius: 20px;
-      height: 25px;
-      align-items: center;
-      margin-right: 10px;
-    }
-    .slope {
-      background-color: #c248ad;
-      border-radius: 20px;
-      height: 25px;
-      align-items: center;
-      color: white;
-      margin-right: 10px;
-    }
-    .elevator {
-      background-color: #3a96fb;
-      border-radius: 20px;
-      height: 25px;
-      align-items: center;
-      color: white;
-      margin-right: 10px;
-    }
-    .toilet {
-      background-color: #bdecff;
-      border-radius: 20px;
-      margin-right: 10px;
-    }
-    .lift {
-      background-color: #4461f2;
-      border-radius: 20px;
-      height: 25px;
-      align-items: center;
-      color: white;
-      margin-right: 10px;
-    }
-    .etc {
-      background-color: #c4c4c4;
-      border-radius: 20px;
-      height: 25px;
-      align-items: center;
-    }
+    margin-bottom: 10px;
   }
   .Buttons {
     display: flex;
+    padding: 5px;
     .Start {
       border: 2px solid #3a96fb;
       border-radius: 20px;

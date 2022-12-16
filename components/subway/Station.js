@@ -61,18 +61,16 @@ const Station = ({ name, left, right }) => {
   return (
     <StationBlock>
       <div className="line">
-        <div className="previousStation">{left}</div>
-        <div className="nextStation">{right}</div>
-        {/* <div className="previousStation">{left.split("-")[1]}</div>
-        <div className="nextStation">{right.split("-")[1]}</div> */}
+        <div className="previousStation">{left.split("-")[1]}</div>
+        <div className="nextStation">{right.split("-")[1]}</div>
       </div>
       <div className="stationName">
         <div className="text">{name}</div>
       </div>
-      <div className="distanceWrapper">
+      {/* <div className="distanceWrapper">
         <div className="exit">3번 출구</div>
         <div className="distance">50m</div>
-      </div>
+      </div> */}
     </StationBlock>
   );
 };
