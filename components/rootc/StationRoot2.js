@@ -106,7 +106,7 @@ const RootBlock2 = styled.div`
       left: 10px;
       margin-bottom: -5px;
       border-left: 10px dotted #808080;
-      height: 100px;
+      height: ${({ len }) => len * 30}px;
     }
   }
   .rootwrapper {
@@ -196,6 +196,7 @@ const StationRoot2 = ({
       start={start}
       arrive={arrive}
       text={text}
+      len={info.length}
     >
       <div className="rootwrapper">
         <div className="lineWrapper">
