@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { set } from "nprogress";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import testPublicTrans from "../testPublicTrans.json";
@@ -201,15 +202,12 @@ const SearchHeader = ({
   setFaster,
   setOnlySubway,
   setLessTransfer,
+  locationInfo,
+  startSearchText,
+  endSearchText,
+  setEndSearchText,
+  setStartSearchText,
 }) => {
-  const locationInfo = JSON.parse(localStorage.getItem("locationInfo"));
-  const router = useRouter();
-  const [startSearchText, setStartSearchText] = useState(
-    locationInfo?.isStart ? locationInfo.name : ""
-  );
-  const [endSearchText, setEndSearchText] = useState(
-    locationInfo && !locationInfo?.isStart ? locationInfo.name : ""
-  );
   const [openResult, setOpenResult] = useState(false);
   const [pois, setPois] = useState([]);
   const isStartPoi = useRef(false);
@@ -355,6 +353,11 @@ const SearchHeader = ({
                         poi,
                         isStartPoi.current ? "start" : "end"
                       );
+                      if (isStartPoi.current) {
+                        setStartSearchText(poi.name);
+                      } else {
+                        setEndSearchText(poi.name);
+                      }
                       setOpenResult(false);
                     }}
                   >

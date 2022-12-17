@@ -31,7 +31,13 @@ export default function Root({ setPage, className }) {
   const [onlySubway, setOnlySubway] = useState();
   const [lessTransfer, setLessTransfer] = useState();
   const [currentOrder, setCurrentOrder] = useState("onlySubway"); // lessTransfer | faster
-
+  const locationInfo = JSON.parse(localStorage.getItem("locationInfo"));
+  const [startSearchText, setStartSearchText] = useState(
+    locationInfo?.isStart ? locationInfo.name : ""
+  );
+  const [endSearchText, setEndSearchText] = useState(
+    locationInfo && !locationInfo?.isStart ? locationInfo.name : ""
+  );
   let selectedPath; //css consol.log();찍어서 보고 어떻게 표현할지 수정
 
   if (currentOrder === "onlySubway") {
@@ -87,11 +93,15 @@ export default function Root({ setPage, className }) {
       return (
         <StationRoot2
           key={index}
-          start={leg.start.name}
+          start={index === 0 ? startSearchText : leg.start.name}
           direction={leg.distance}
           info={leg.steps}
           time={Math.floor(leg.sectionTime / 60)}
-          arrive={leg.end.name}
+          arrive={
+            index === selectedPath.legs.length - 1
+              ? endSearchText
+              : leg.end.name
+          }
         ></StationRoot2>
       );
     }
@@ -122,6 +132,11 @@ export default function Root({ setPage, className }) {
           setFaster={setFaster}
           setOnlySubway={setOnlySubway}
           setLessTransfer={setLessTransfer}
+          locationInfo={locationInfo}
+          startSearchText={startSearchText}
+          endSearchText={endSearchText}
+          setEndSearchText={setEndSearchText}
+          setStartSearchText={setStartSearchText}
         ></SearchHeader>
         <Order
           currentOrder={currentOrder}
@@ -138,15 +153,11 @@ export default function Root({ setPage, className }) {
             transfer={transferCount}
             fare={fare}
           ></TimeTransfer>
-          <Start startPlace={selectedPath?.legs[0].start.name}></Start>
+          <Start startPlace={startSearchText}></Start>
 
           {PathList}
 
-          <Destination
-            finishPlace={
-              selectedPath?.legs[selectedPath.legs.length - 1].end.name
-            }
-          ></Destination>
+          <Destination finishPlace={endSearchText}></Destination>
           {/* <Title title={data.name} options={data.option}></Title> */}
         </Contente2>
       )}

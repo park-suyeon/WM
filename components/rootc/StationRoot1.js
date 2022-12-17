@@ -1,3 +1,5 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import styled from "styled-components";
 import Root from "../Root";
 import SubwayLine from "./SubwayLine";
@@ -82,6 +84,12 @@ const StationRoot1 = ({
   info,
   color,
 }) => {
+  const { isLoading, error, data } = useQuery(["subway"], () =>
+    axios(`/api/subway`).then((res) => res.data)
+  );
+  console.log("data", data);
+  const alight = data?.find((v) => start.includes(v.name)).alight;
+
   return (
     <RootBlock1
       exit={exit}
@@ -99,7 +107,7 @@ const StationRoot1 = ({
             <div className="startName">{start} </div>
             <img className="icon" src="images\icon\elevator_black.png" />
             <div className="transferText">안전 환승 </div>
-            <div className="transferText">{direction} </div>
+            <div className="transferText">{alight} </div>
           </div>
           <div className="placeline">
             <div className="timeText"> {time}분</div>

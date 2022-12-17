@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const axios = require("axios");
-const data = require("../../../components/test2.json");
+const data = require("../../../components/test.json");
 export default async function handler(req, res) {
-  const { startX, startY, endX, endY } = req.body;
+  // const { startX, startY, endX, endY } = req.body;
 
   // if (!startX || !startY || !endX || !endY)
   //   return res.status(400).send("없는 값");
