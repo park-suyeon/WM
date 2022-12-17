@@ -6,6 +6,7 @@ const StationBlock = styled.div`
   width: 100%;
   align-items: center;
   padding-top: 20px;
+  margin-bottom: 20px;
   .line {
     width: 90%;
     height: 25px;

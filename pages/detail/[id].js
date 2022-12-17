@@ -64,6 +64,7 @@ export default function Home() {
           id={id}
           createdAt={data.createdAt}
           updatedAt={data.updatedAt}
+          author={data?.author}
           options={data.options}
           desc={data.desc}
         ></MorePhoto>

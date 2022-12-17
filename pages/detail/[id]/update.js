@@ -51,7 +51,6 @@ export default function Home() {
   const [placeOption, setPlaceOption] = useState([]);
   const [name, setName] = useState([]);
 
-  console.log(placeOption);
   const step2ref = useRef(0);
   // const id = "634400ba562a10fc789991e6";
   const next = async () => {
@@ -69,7 +68,6 @@ export default function Home() {
     // }
 
     if (currentStep === btnActivelength) {
-      console.log("옵션", JSON.stringify(placeOption));
       await axios.put(`/api/place/${id}`, {
         options: placeOption,
         author: name,
@@ -83,11 +81,9 @@ export default function Home() {
     if (data?.options) {
       setBtnActive(data.options.map((v) => v.name));
       setPlaceOption(data.options);
-      setName(data.name);
+      setName(data.author);
     }
   }, [data]);
-  console.log("rata", data);
-  console.log("data", btnActive);
   useEffect(() => {
     if (!data || window.tmap) return;
     const { lat, lon } = data;
@@ -122,6 +118,7 @@ export default function Home() {
             setPlaceOption={setPlaceOption}
             author={data?.author}
             desc={data?.desc}
+            updatedAt={data?.updatedAt}
           ></Step2>
         )}
         {currentStep === btnActivelength && (

@@ -121,9 +121,8 @@ export default function Step2({
   setCurrentStep,
   author,
   desc,
+  updatedAt,
 }) {
-  console.log("step2", placeOption);
-
   const [descText, setDescText] = useState(placeOption?.desc || "");
   const [files, setFiles] = useState(placeOption?.images || []);
   const fileRef = useRef();
@@ -151,7 +150,7 @@ export default function Step2({
               <div className="recordText">
                 <div className="who">{author}</div>
                 <div className="words">님이</div>
-                <div className="when">2022.09.01 </div>
+                <div className="when">{updatedAt?.split("T")[0]} </div>
                 <div className="words">등록한 내용입니다.</div>
               </div>
             </div>

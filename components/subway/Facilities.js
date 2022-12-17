@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const FacilitiesBlock = styled.div`
   display: flex;
-  padding: 0px 15px;
+  padding: 10px 15px;
   flex-direction: column;
   width: 100%;
   align-items: center;
@@ -9,6 +9,7 @@ const FacilitiesBlock = styled.div`
     font-size: 13px;
     margin-bottom: 15px;
     width: 100%;
+    margin-left: 10px;
   }
   .blockWrap {
     display: flex;
@@ -85,7 +86,7 @@ const Facilities = ({ data }) => {
             className="detailed"
             style={{ opacity: data.charge === "0" ? 0.4 : 1 }}
           >
-            <img className="icon" src="\images\icon\charge_gray.png" />
+            <img className="icon" src="\images\icon\charge_black.png" />
             <div className="textOn">휠체어 급속충전</div>
           </div>
         </div>
@@ -94,7 +95,7 @@ const Facilities = ({ data }) => {
             className="detailed"
             style={{ opacity: data.toilet === "0" ? 0.4 : 1 }}
           >
-            <img className="icon" src="\images\icon\toilet_gray.png" />
+            <img className="icon" src="\images\icon\toilet_black.png" />
             <div className="textOn">장애인 화장실</div>
           </div>
           <div
@@ -110,7 +111,7 @@ const Facilities = ({ data }) => {
             style={{ opacity: data.safeDistance === "-" ? 0.4 : 1 }}
           >
             <img className="icon" src="\images\icon\distance_black.png" />
-            <div className="textOn">열차 승강장 간격</div>
+            <div className="textOn">열차 승강장 간격 </div>
             <div className="textOn">{data.safeDistance}cm</div>
           </div>
         </div>

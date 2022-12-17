@@ -89,7 +89,7 @@ const PhotoWrapper = styled.div`
   }
 `;
 
-const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
+const MorePhoto = ({ id, updatedAt, options, author }) => {
   const Options = options?.map(({ name, desc, images }) => {
     const Images = images?.map((image) => {
       return <img src={image} />;
@@ -155,8 +155,8 @@ const MorePhoto = ({ id, createdAt, updatedAt, options }) => {
       <div className="editWrapper">
         <div className="finalWrapper">
           <div className="final">
-            <div className="text">최초 생성일 :</div>
-            {createdAt.split("T")[0]}
+            <div className="text">작성자 :</div>
+            {author}
           </div>
           <div className="final">
             <div className="text">최종 수정일 :</div>
