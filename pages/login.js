@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 import ButtonBox from "../components/index/ButtonBox";
 import InputBox from "../components/InputBox";
@@ -75,7 +76,9 @@ export default function Home() {
             </label>
           </div>
         </div>
-        <ButtonBox text="로그인" />
+        <Link href="/">
+          <ButtonBox text="로그인" />
+        </Link>
       </LoginBlock>
     </div>
   );
