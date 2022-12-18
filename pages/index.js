@@ -118,7 +118,7 @@ const RootWrapper = styled.div`
       opacity: 0;
       z-index: -1;
     }
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
