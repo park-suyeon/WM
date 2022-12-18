@@ -1,6 +1,7 @@
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 import ButtonBox from "../components/index/ButtonBox";
 import InputBox from "../components/InputBox";
@@ -133,7 +134,9 @@ export default function Home() {
               개인정보 수집에 동의합니다.
             </label>
           </div>
-          <ButtonBox text="회원가입"></ButtonBox>
+          <Link href="/login">
+            <ButtonBox text="회원가입"></ButtonBox>
+          </Link>
         </form>
       </SignUpBlock>
     </div>

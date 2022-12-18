@@ -205,6 +205,7 @@ export default function Home() {
               name={data.name}
               left={data.left}
               right={data.right}
+              line={data.line}
             ></Station>
             <Facilities data={data}></Facilities>
           </div>
