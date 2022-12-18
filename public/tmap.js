@@ -163,11 +163,23 @@ const getTmap = () => {
   map = new Tmapv2.Map("TMapApp", {
     center: new Tmapv2.LatLng(37.5652045, 126.98702028),
     width: "100%", // 지도의 넓이
-    height: "600px", // 지도의 높이
+    height: window.innerHeight + "px", // 지도의 높이
     zoom: 17,
+    zoomControl: false,
   });
   return map;
 };
+
+//지도의 사이즈를 지정한 값만큼 변경할 수 있는 함수입니다.
+function fn_Resize() {}
+
+function fn_Update() {
+  var mapResize = document.getElementById("TMapApp"); //map의 div
+  mapResize.style.width = "100%"; //map의 width 변경
+  mapResize.style.height = window.innerHeight; //map의 height 변경
+  //맵의 div의 사이즈가 외부 코드로 동적으로 바뀐 경우 호출합니다.
+  map.resize(); //map 크기 재설정
+}
 
 function drawLineInfo(data) {
   // 5. 경로탐색 결과 Line 그리기

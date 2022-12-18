@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 const DestinationPoint = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ const DestinationPoint = styled.div`
   }
 `;
 const Destination = ({ finishPlace }) => {
+  const [name] = useState(finishPlace);
   return (
     <DestinationPoint>
       <div className="iconWrapper">
@@ -40,7 +42,7 @@ const Destination = ({ finishPlace }) => {
         <div className="iconText">도착</div>
       </div>
       <div className="content">
-        <div className="finish">{finishPlace}</div>
+        <div className="finish">{name}</div>
       </div>
     </DestinationPoint>
   );

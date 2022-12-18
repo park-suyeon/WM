@@ -97,7 +97,8 @@ export default function Header() {
   const clickPoi = (poi) => async () => {
     window.tmap.setSelectedPoi(poi);
     try {
-      const resPoi = await axios.get(`/api/place/${poi.name}/name`);
+      const name = poi.name.split("역")[0];
+      const resPoi = await axios.get(`/api/place/${name}/name`);
       window.location.href = `/detail/${resPoi.data._id}`;
     } catch (err) {
       const resPoi = await axios.post(`/api/place`, {

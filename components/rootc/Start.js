@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import FacilityWrapper from "./FacilityWrapper";
 const StartPoint = styled.div`
@@ -36,6 +37,7 @@ const StartPoint = styled.div`
   }
 `;
 const Start = ({ startPlace }) => {
+  const [name] = useState(startPlace);
   return (
     <StartPoint>
       <div className="iconWrapper">
@@ -43,7 +45,7 @@ const Start = ({ startPlace }) => {
         <div className="iconText">출발</div>
       </div>
       <div className="content">
-        <div className="start">{startPlace}</div>
+        <div className="start">{name}</div>
         {/* <FacilityWrapper firstcount={4} secondcount={0}></FacilityWrapper> */}
       </div>
     </StartPoint>
