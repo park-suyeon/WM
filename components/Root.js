@@ -20,10 +20,10 @@ const Content1 = styled.div`
 `;
 const Contente2 = styled.div`
   background-color: white;
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   z-index: -1;
   .icon {
     margin: 7px;
@@ -66,7 +66,8 @@ export default function Root({ setPage, className }) {
   const transferCount =
     selectedPath?.legs.find((leg) => leg.mode === "TRANSFER")?.length || 0;
   const fare = selectedPath?.fare.regular.totalFare;
-
+  const [startText] = useState(startSearchText);
+  const [endText] = useState(endSearchText);
   const PathList = selectedPath?.legs.map((leg, index) => {
     if (leg.mode === "BUS") {
       return (
@@ -101,14 +102,12 @@ export default function Root({ setPage, className }) {
       return (
         <StationRoot2
           key={index}
-          start={index === 0 ? startSearchText : leg.start.name}
+          start={index === 0 ? startText : leg.start.name}
           direction={leg.distance}
           info={leg.steps}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={
-            index === selectedPath.legs.length - 1
-              ? endSearchText
-              : leg.end.name
+            index === selectedPath.legs.length - 1 ? endText : leg.end.name
           }
         ></StationRoot2>
       );

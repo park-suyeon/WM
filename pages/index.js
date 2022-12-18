@@ -118,11 +118,12 @@ const RootWrapper = styled.div`
       opacity: 0;
       z-index: -1;
     }
+    overflow: scroll;
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     z-index: 10000;
   }
 `;
@@ -210,14 +211,13 @@ export default function Home() {
             <Facilities data={data}></Facilities>
           </div>
         </div>
+        <RootWrapper className={`${page === "index" ? "hide" : ""}`}>
+          <Root
+            className={`${page === "index" ? "hide " : ""}` + "root"}
+            setPage={setPage}
+          />
+        </RootWrapper>
       </Index>
-
-      <RootWrapper className={`${page === "index" ? "hide" : ""}`}>
-        <Root
-          className={`${page === "index" ? "hide" : ""}` + " root"}
-          setPage={setPage}
-        />
-      </RootWrapper>
     </>
   );
 }
