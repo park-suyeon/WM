@@ -17,9 +17,11 @@ const Content1 = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
 `;
 const Contente2 = styled.div`
   background-color: white;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;

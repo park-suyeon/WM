@@ -32,6 +32,7 @@ const OrderWrapper = styled.div`
     width: 500px;
     border-top: 4px solid #ededed;
     border-radius: 0px 0px 10px 10px;
+    z-index: 1000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 
     display: flex;
@@ -62,19 +63,19 @@ export default function Order({ currentOrder, setCurrentOrder }) {
         className={currentOrder === "onlySubway" ? "buttonOn" : "buttonOff"}
         onClick={() => setCurrentOrder("onlySubway")}
       >
-        <div className="text">휠체어 추천순</div>
+        <div className="text">휠체어 추천 경로</div>
       </div>
       <div
         className={currentOrder === "lessTransfer" ? "buttonOn" : "buttonOff"}
         onClick={() => setCurrentOrder("lessTransfer")}
       >
-        <div className="text">최소 환승순</div>
+        <div className="text">최소 환승 경로</div>
       </div>
       <div
         className={currentOrder === "faster" ? "buttonOn" : "buttonOff"}
         onClick={() => setCurrentOrder("faster")}
       >
-        <div className="text">빠른 도착순</div>
+        <div className="text">빠른 도착 경로</div>
       </div>
     </OrderWrapper>
   );
