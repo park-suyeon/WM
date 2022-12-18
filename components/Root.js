@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import SubwayLine from "./rootc/SubwayLine";
 
 const Content1 = styled.div`
-  z-index: 1;
+  z-index: 100000;
   top: 0;
   left: 0;
   width: 100vw;
@@ -24,9 +24,10 @@ const Contente2 = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  .transicon {
-    width: 17px;
-    height: 17px;
+  z-index: -1;
+  .icon {
+    margin: 7px;
+    width: 15px;
   }
 `;
 
@@ -73,7 +74,7 @@ export default function Root({ setPage, className }) {
           key={index}
           color={leg.routeColor}
           start={leg.start.name}
-          direction={"버스 번호" + " " + leg.route + "번 버스"}
+          direction={leg.route + "번 버스"}
           // info={subwayNumber}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
@@ -91,7 +92,7 @@ export default function Root({ setPage, className }) {
           // info={subwayNumber}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
-          mode={<img src="images\icon\subway.png" />}
+          mode={<img className="icon" src="images\icon\subway.png" />}
         ></StationRoot1>
       );
     }

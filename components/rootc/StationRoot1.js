@@ -11,9 +11,6 @@ const RootBlock1 = styled.div`
     margin-top: 10px;
     width: 90%;
     margin-left: 5%;
-    border: 2px solid #1093ff;
-    /* border-radius: 10px; */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
 
   .placeWrapper {
@@ -59,8 +56,8 @@ const RootBlock1 = styled.div`
     }
     .timeText {
       font-size: 15px;
-      color: black;
-      font-weight: 700;
+      color: #1093ff;
+      font-weight: 600;
       margin-top: 8%;
       padding-left: 3px;
       position: relative;
@@ -121,7 +118,7 @@ const StationRoot1 = ({
           <div className="placeline">
             <div className="timeText"> {time}분</div>
             <img className="icon" src="images\icon\elevator_black.png" />
-            <div className="transferText">안전 환승 </div>
+            <div className="transferText">안전 환승 : </div>
             <div className="transferText">{alight} </div>
           </div>
           <div className="placeline">

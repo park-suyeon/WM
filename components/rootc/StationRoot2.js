@@ -115,9 +115,6 @@ const RootBlock2 = styled.div`
     margin-top: 10px;
     margin-left: 5%;
     width: 90%;
-    border: 2px solid #1093ff;
-    /* border-radius: 10px; */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
   .placeWrapper {
     display: flex;
@@ -138,7 +135,6 @@ const RootBlock2 = styled.div`
       font-size: 18px;
       color: black;
       font-weight: bolder;
-      /* margin-top: 5px; */
       margin-left: 2px;
       position: relative;
       top: ${({ len }) => len * 0.2}px;
@@ -161,16 +157,18 @@ const RootBlock2 = styled.div`
       line-height: 150%;
       display: flex;
       flex-direction: column;
-      /* margin-top: 2px;
-      margin-left: 2px;
-      margin-right: 10px; */
+      padding: 10px;
+      .contentText {
+        margin-bottom: 5px;
+      }
     }
     .timeText {
       font-size: 15px;
-      color: black;
+      color: #1093ff;
       margin-top: 5px;
       padding-left: 3px;
       position: relative;
+      font-weight: 600;
     }
     .exitText {
       margin-top: 5px;
@@ -233,7 +231,7 @@ const StationRoot2 = ({
             <div className="directionText">
               {info?.map((v) => {
                 return (
-                  <div key={v.description}>
+                  <div className="contentText" key={v.description}>
                     <div>{v.description}</div>
                   </div>
                 );

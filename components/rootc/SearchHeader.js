@@ -53,7 +53,7 @@ const SearchBlock = styled.div`
     }
 
     .center-poi {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
@@ -63,19 +63,23 @@ const SearchBlock = styled.div`
       align-items: center;
 
       .pois-wrapper {
+        position: absolute;
         padding: 20px;
-        background-color: skyblue;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 4px;
+        top: 130px;
+        background-color: white;
         z-index: 50;
-
+        align-items: center;
+        border-radius: 20px;
         .poi {
-          padding: 20px;
-          font-size: 20px;
+          padding: 10px;
+          border-radius: 20px;
         }
         .poi:hover {
-          background-color: white;
+          background-color: #e0f4ff;
           cursor: pointer;
         }
       }
@@ -86,7 +90,7 @@ const SearchBlock = styled.div`
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: a(0 0 0 / 20%);
+        background-color: rgba(0 0 0 / 20%);
       }
     }
     .routes {
@@ -157,27 +161,30 @@ const SearchBlock = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-
       .pois-wrapper {
+        position: absolute;
         padding: 20px;
-        background-color: skyblue;
+        background-color: white;
         display: flex;
         flex-direction: column;
         gap: 4px;
+        top: 130px;
+        left: 15px;
         z-index: 50;
-
+        align-items: center;
+        border-radius: 20px;
         .poi {
-          padding: 20px;
-          font-size: 20px;
+          padding: 10px;
+          border-radius: 20px;
         }
         .poi:hover {
-          background-color: white;
+          background-color: #e0f4ff;
           cursor: pointer;
         }
       }
 
       .pois-fullcover {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;

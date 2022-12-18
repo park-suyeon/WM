@@ -17,7 +17,7 @@ const FacilitiesBlock = styled.div`
     & > .block1 {
       display: flex;
       flex-direction: column;
-      margin-right: 10px;
+      margin-right: 20px;
       overflow-wrap: normal;
       .detailed {
         display: flex;
@@ -69,7 +69,10 @@ const Facilities = ({ data }) => {
         <div className="block1">
           <div
             className="detailed"
-            style={{ opacity: data.lift === "0" ? 0.4 : 1 }}
+            style={{
+              opacity: data.lift === "0" ? 0.4 : 1,
+              fontWeight: data.lift === "1" ? 600 : 400,
+            }}
           >
             <img className="icon" src="\images\icon\lift_black.png" />
             <div className="textOn">휠체어리프트</div>
@@ -77,14 +80,20 @@ const Facilities = ({ data }) => {
           </div>
           <div
             className="detailed"
-            style={{ opacity: data.Foothold === "0" ? 0.4 : 1 }}
+            style={{
+              opacity: data.Foothold === "0" ? 0.4 : 1,
+              fontWeight: data.Foothold === "1" ? 600 : 400,
+            }}
           >
             <img className="icon" src="\images\icon\footplate_black.png" />
             <div className="textOn">안전발판</div>
           </div>
           <div
             className="detailed"
-            style={{ opacity: data.charge === "0" ? 0.4 : 1 }}
+            style={{
+              opacity: data.charge === "0" ? 0.4 : 1,
+              fontWeight: data.charge === "1" ? 600 : 400,
+            }}
           >
             <img className="icon" src="\images\icon\charge_black.png" />
             <div className="textOn">휠체어 급속충전</div>
@@ -93,14 +102,20 @@ const Facilities = ({ data }) => {
         <div className="block2">
           <div
             className="detailed"
-            style={{ opacity: data.toilet === "0" ? 0.4 : 1 }}
+            style={{
+              opacity: data.toilet === "0" ? 0.4 : 1,
+              fontWeight: data.toilet === "1" ? 600 : 400,
+            }}
           >
             <img className="icon" src="\images\icon\toilet_black.png" />
             <div className="textOn">장애인 화장실</div>
           </div>
           <div
             className="detailed"
-            style={{ opacity: data.elevator === "0" ? 0.4 : 1 }}
+            style={{
+              opacity: data.elevator === "0" ? 0.4 : 1,
+              fontWeight: data.elevator === "1" ? 600 : 400,
+            }}
           >
             <img className="icon" src="\images\icon\elevator_black.png" />
             <div className="textOn">엘리베이터</div>
@@ -108,7 +123,10 @@ const Facilities = ({ data }) => {
           </div>
           <div
             className="detailed"
-            style={{ opacity: data.safeDistance === "-" ? 0.4 : 1 }}
+            style={{
+              opacity: data.safeDistance === "-" ? 0.4 : 1,
+              fontWeight: data.safeDistance !== "-" ? 600 : 400,
+            }}
           >
             <img className="icon" src="\images\icon\distance_black.png" />
             <div className="textOn">열차 승강장 간격 </div>
