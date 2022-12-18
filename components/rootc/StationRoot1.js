@@ -9,7 +9,13 @@ const RootBlock1 = styled.div`
     display: flex;
     flex-direction: row;
     margin-top: 10px;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+    border: 2px solid #1093ff;
+    /* border-radius: 10px; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .placeWrapper {
   }
   .placeWrapper {
     display: flex;
@@ -53,7 +59,7 @@ const RootBlock1 = styled.div`
       padding-left: 3px;
     }
     .timeText {
-      font-size: 13px;
+      font-size: 15px;
       color: black;
       margin-top: 5px;
       padding-left: 3px;
@@ -106,12 +112,12 @@ const StationRoot1 = ({
         <div className="placeWrapper">
           <div className="placeline">
             <div className="startName">{start} </div>
-            <img className="icon" src="images\icon\elevator_black.png" />
-            <div className="transferText">안전 환승 </div>
-            <div className="transferText">{alight} </div>
           </div>
           <div className="placeline">
             <div className="timeText"> {time}분</div>
+            <img className="icon" src="images\icon\elevator_black.png" />
+            <div className="transferText">안전 환승 </div>
+            <div className="transferText">{alight} </div>
           </div>
           <div className="placeline">
             <div className="directionText">{info}</div>
@@ -121,7 +127,7 @@ const StationRoot1 = ({
             <div className="arriveName">{arrive} </div>
           </div>
         </div>
-        <img className="moreicon" src="/images/icon/more.png" />
+        {/* <img className="moreicon" src="/images/icon/more.png" /> */}
       </div>
     </RootBlock1>
   );

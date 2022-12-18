@@ -5,7 +5,8 @@ const Subway = styled.div`
   .lineWrapper {
     display: flex;
     flex-direction: column;
-    margin: 5px 5px 5px 30px;
+    margin: 5px 5px 5px 10px;
+
     .startLineCircle {
       width: 30px;
       height: 30px;

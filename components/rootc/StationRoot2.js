@@ -79,7 +79,7 @@ const RootBlock2 = styled.div`
   .lineWrapper {
     display: flex;
     flex-direction: column;
-    margin: 5px 5px 5px 30px;
+    margin: 5px 5px 5px 10px;
     .startLineCircle {
       width: 30px;
       height: 30px;
@@ -96,7 +96,7 @@ const RootBlock2 = styled.div`
       }
       .arriveLineText {
         color: white;
-        font-size: 13px;
+        font-size: 12px;
       }
     }
     .stationLine {
@@ -106,14 +106,18 @@ const RootBlock2 = styled.div`
       left: 10px;
       margin-bottom: -5px;
       border-left: 10px dotted #808080;
-      height: ${({ len }) => len * 25}px;
+      height: ${({ len }) => len * 30}px;
     }
   }
   .rootwrapper {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
-    width: 100%;
+    margin-left: 5%;
+    width: 90%;
+    border: 2px solid #1093ff;
+    /* border-radius: 10px; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
   .placeWrapper {
     display: flex;
@@ -137,6 +141,7 @@ const RootBlock2 = styled.div`
       /* margin-top: 5px; */
       margin-left: 2px;
       position: relative;
+      top: ${({ len }) => len * 0.5}px;
     }
     .icon {
       margin-top: 8px;
@@ -150,19 +155,22 @@ const RootBlock2 = styled.div`
       color: #c248ad;
     }
     .directionText {
-      border: 1px solid #808080;
       font-size: 13px;
       color: black;
-      margin-top: -10px;
-      padding-left: 3px;
+      margin: 2px 10px 2px 2px;
+      line-height: 150%;
+      display: flex;
+      flex-direction: column;
+      /* margin-top: 2px;
+      margin-left: 2px;
+      margin-right: 10px; */
     }
     .timeText {
-      font-size: 13px;
+      font-size: 15px;
       color: black;
       margin-top: 5px;
       padding-left: 3px;
       position: relative;
-      left: -50px;
     }
     .exitText {
       margin-top: 5px;
@@ -214,12 +222,12 @@ const StationRoot2 = ({
         <div className="placeWrapper">
           <div className="placeline">
             <div className="startName">{start} </div>
-            <img className="icon" src="images\icon\elevator_black.png" />
-            <div className="transferText">휠체어 이동 거리 </div>
-            <div className="transferText">{direction}m </div>
           </div>
           <div className="placeline">
             <div className="timeText"> {time}분</div>
+            <img className="icon" src="images\icon\wheelchair_black.png" />
+            <div className="transferText">휠체어 이동 </div>
+            <div className="transferText">{direction}m </div>
           </div>
           <div className="placeline">
             <div className="directionText">

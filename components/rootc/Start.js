@@ -3,8 +3,11 @@ import FacilityWrapper from "./FacilityWrapper";
 const StartPoint = styled.div`
   display: flex;
   align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
   .iconWrapper {
-    margin: 0px 0px 5px 30px;
+    margin: 0px -15px 0px 25px;
     width: 50px;
     height: 38px;
     display: flex;
@@ -16,7 +19,7 @@ const StartPoint = styled.div`
     .iconText {
       position: relative;
       z-index: 10;
-      font-size: 5px;
+      font-size: 10px;
       color: white;
       left: -25px;
       top: -3px;
@@ -28,7 +31,7 @@ const StartPoint = styled.div`
     .start {
       font-weight: 700;
       font-size: 18px;
-      padding-bottom: 6px;
+      margin-left: 2px;
     }
   }
 `;
