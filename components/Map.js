@@ -24,8 +24,10 @@ const TmapBlock = styled.div`
 `;
 const Tmap = () => {
   useEffect(() => {
-    const tmapApp = document.getElementById("TMapApp").childNodes.length === 0;
-    if (!tmapApp) {
+    const tmapApp = document.getElementById("TMapApp");
+    if (!(tmapApp.childNodes.length === 0)) {
+    } else {
+      tmapApp.innerHTML = "";
       window.tmap?.attachTmap();
     }
   }, []);

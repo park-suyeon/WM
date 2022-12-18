@@ -93,6 +93,7 @@ export default function Root({ setPage, className }) {
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
           mode={<img className="icon" src="images\icon\subway.png" />}
+          quick={"안전환승"}
         ></StationRoot1>
       );
     }

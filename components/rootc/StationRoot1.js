@@ -93,7 +93,6 @@ const StationRoot1 = ({
   const { isLoading, error, data } = useQuery(["subway"], () =>
     axios(`/api/subway`).then((res) => res.data)
   );
-  console.log("data", data);
   const alight = data?.find((v) => start.includes(v.name)).alight;
 
   return (
@@ -104,6 +103,7 @@ const StationRoot1 = ({
       start={start}
       arrive={arrive}
       info={info}
+      quick={quick}
     >
       <div className="rootwrapper">
         <SubwayLine lineText={mode} color={color}></SubwayLine>
@@ -118,8 +118,8 @@ const StationRoot1 = ({
           <div className="placeline">
             <div className="timeText"> {time}분</div>
             <img className="icon" src="images\icon\elevator_black.png" />
-            <div className="transferText">안전 환승 : </div>
-            <div className="transferText">{alight} </div>
+            <div className="transferText">{quick} </div>
+            {quick && <div className="transferText">{alight} </div>}
           </div>
           <div className="placeline">
             <div className="directionText">{info}</div>
