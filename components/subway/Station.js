@@ -11,7 +11,7 @@ const StationBlock = styled.div`
     width: 90%;
     height: 25px;
     align-items: center;
-    background-color: #c66a28; //${(props) => subwayLineColor[props.lineText]};
+    background-color: ${(props) => subwayLineColor[props.line]};
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@ const StationBlock = styled.div`
     width: 40%;
     height: 40px;
     background-color: white;
-    border: 2px solid #c66a28; // ${(props) => subwayLineColor[props.lineText]};
+    border: 2px solid ${(props) => subwayLineColor[props.line]};
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ const StationBlock = styled.div`
     }
   }
 `;
-const Station = ({ name, left, right }) => {
+const Station = ({ name, left, right, line }) => {
   return (
     <StationBlock>
       <div className="line">
