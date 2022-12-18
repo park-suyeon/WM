@@ -33,6 +33,7 @@ const RootBlock1 = styled.div`
       /* margin-top: 5px; */
       margin-left: 2px;
       position: relative;
+      top: 75px;
     }
     .icon {
       margin-top: 8px;

@@ -3,8 +3,8 @@ const DestinationPoint = styled.div`
   display: flex;
   align-items: center;
   .iconWrapper {
-    margin: 0px 0px 5px 20px;
-    width: 30px;
+    margin: 0px 0px 5px 30px;
+    width: 50px;
     height: 38px;
     display: flex;
     justify-content: center;
@@ -13,11 +13,12 @@ const DestinationPoint = styled.div`
       width: 30px;
     }
     .iconText {
-      position: absolute;
+      position: relative;
       z-index: 10;
       font-size: 5px;
       color: white;
-      padding-bottom: 4px;
+      left: -25px;
+      top: -3px;
     }
   }
   .content {
@@ -26,7 +27,6 @@ const DestinationPoint = styled.div`
     .finish {
       font-weight: 700;
       font-size: 18px;
-      margin-left: 10px;
       padding-bottom: 6px;
     }
   }

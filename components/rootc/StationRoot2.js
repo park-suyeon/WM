@@ -79,7 +79,7 @@ const RootBlock2 = styled.div`
   .lineWrapper {
     display: flex;
     flex-direction: column;
-    margin: 5px 5px 5px 20px;
+    margin: 5px 5px 5px 30px;
     .startLineCircle {
       width: 30px;
       height: 30px;
@@ -106,7 +106,7 @@ const RootBlock2 = styled.div`
       left: 10px;
       margin-bottom: -5px;
       border-left: 10px dotted #808080;
-      height: ${({ len }) => len * 30}px;
+      height: ${({ len }) => len * 25}px;
     }
   }
   .rootwrapper {
@@ -150,9 +150,10 @@ const RootBlock2 = styled.div`
       color: #c248ad;
     }
     .directionText {
+      border: 1px solid #808080;
       font-size: 13px;
       color: black;
-      margin-top: 5px;
+      margin-top: -10px;
       padding-left: 3px;
     }
     .timeText {
@@ -161,6 +162,7 @@ const RootBlock2 = styled.div`
       margin-top: 5px;
       padding-left: 3px;
       position: relative;
+      left: -50px;
     }
     .exitText {
       margin-top: 5px;
@@ -169,14 +171,14 @@ const RootBlock2 = styled.div`
       color: #c248ad;
     }
   }
-  .moreicon {
+  /* .moreicon {
     width: 15px;
     height: 3px;
     position: absolute;
     top: 400px;
     right: 10%;
     cursor: pointer;
-  }
+  } */
 `;
 const StationRoot2 = ({
   exit,
@@ -201,7 +203,7 @@ const StationRoot2 = ({
       <div className="rootwrapper">
         <div className="lineWrapper">
           <div className="startLineCircle">
-            <div className="arriveLineText">{text}</div>
+            <div className="arriveLineText">도보</div>
           </div>
           <div className="stationLine"></div>
           <div className="startLineCircle">
@@ -213,8 +215,8 @@ const StationRoot2 = ({
           <div className="placeline">
             <div className="startName">{start} </div>
             <img className="icon" src="images\icon\elevator_black.png" />
-            <div className="transferText">안전 환승 </div>
-            <div className="transferText">{direction} </div>
+            <div className="transferText">휠체어 이동 거리 </div>
+            <div className="transferText">{direction}m </div>
           </div>
           <div className="placeline">
             <div className="timeText"> {time}분</div>
@@ -235,7 +237,7 @@ const StationRoot2 = ({
             <div className="arriveName">{arrive} </div>
           </div>
         </div>
-        <img className="moreicon" src="/images/icon/more.png" />
+        {/* <img className="moreicon" src="/images/icon/more.png" /> */}
       </div>
     </RootBlock2>
   );
