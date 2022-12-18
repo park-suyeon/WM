@@ -14,7 +14,7 @@ const OrderWrapper = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     .text {
       font-weight: 500;
-      font-size: 15px;
+      font-size: 14px;
     }
     .buttonOn {
       cursor: pointer;
