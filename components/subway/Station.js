@@ -60,9 +60,8 @@ const StationBlock = styled.div`
 `;
 const Station = ({ name, left, right, line }) => {
   return (
-    <StationBlock>
+    <StationBlock line={line}>
       <div className="line">
-        {line}
         <div className="previousStation">{left.split("-")[1]}</div>
         <div className="nextStation">{right.split("-")[1]}</div>
       </div>
