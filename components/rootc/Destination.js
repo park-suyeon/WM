@@ -5,7 +5,7 @@ const DestinationPoint = styled.div`
   align-items: center;
   .iconWrapper {
     margin: 20px -10px 5px 30px;
-    width: 50px;
+    width: 70px;
     height: 38px;
     display: flex;
     justify-content: center;
@@ -18,8 +18,8 @@ const DestinationPoint = styled.div`
       z-index: 10;
       font-size: 10px;
       color: white;
-      left: -25px;
-      top: -3px;
+      left: -32px;
+      top: -4px;
     }
   }
   .content {
