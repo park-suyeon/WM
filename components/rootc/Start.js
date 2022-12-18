@@ -8,7 +8,7 @@ const StartPoint = styled.div`
 
   .iconWrapper {
     margin: 0px -15px 0px 25px;
-    width: 50px;
+    width: 70px;
     height: 38px;
     display: flex;
     justify-content: center;
@@ -21,8 +21,8 @@ const StartPoint = styled.div`
       z-index: 10;
       font-size: 10px;
       color: white;
-      left: -25px;
-      top: -3px;
+      left: -32px;
+      top: -4px;
     }
   }
   .content {
