@@ -112,19 +112,45 @@ const Index = styled.div`
 `;
 
 const RootWrapper = styled.div`
-  .root {
-    opacity: 1;
-    &.hide {
-      opacity: 0;
-      z-index: -1;
+  @media screen and (max-width: 768px) {
+    .root {
+      opacity: 1;
+      &.hide {
+        opacity: 0;
+        z-index: -1;
+      }
+      overflow: scroll;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      min-height: 100vh;
+      z-index: 10000;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
     }
-    overflow: scroll;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    min-height: 100vh;
-    z-index: 10000;
+  }
+  @media screen and (min-width: 769px) {
+    .root {
+      opacity: 1;
+      &.hide {
+        opacity: 0;
+        z-index: -1;
+      }
+      overflow: scroll;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 500px;
+      min-height: 100vh;
+      z-index: 10000;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+      }
+    }
   }
 `;
 

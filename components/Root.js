@@ -21,6 +21,10 @@ const Content1 = styled.div`
 const Contente2 = styled.div`
   background-color: white;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
   display: flex;
   flex-direction: column;
   min-height: 100vh;
