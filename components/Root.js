@@ -73,6 +73,7 @@ export default function Root({ setPage, className }) {
           // info={subwayNumber}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
+          mode={"BUS"}
         ></StationRoot1>
       );
     }
@@ -86,6 +87,7 @@ export default function Root({ setPage, className }) {
           // info={subwayNumber}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
+          mode={"SUB"}
         ></StationRoot1>
       );
     }

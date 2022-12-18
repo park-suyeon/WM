@@ -15,8 +15,7 @@ const RootBlock1 = styled.div`
     /* border-radius: 10px; */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
-  .placeWrapper {
-  }
+
   .placeWrapper {
     display: flex;
     flex-direction: column;
@@ -39,7 +38,7 @@ const RootBlock1 = styled.div`
       /* margin-top: 5px; */
       margin-left: 2px;
       position: relative;
-      top: 75px;
+      top: 27px;
     }
     .icon {
       margin-top: 8px;
@@ -61,15 +60,17 @@ const RootBlock1 = styled.div`
     .timeText {
       font-size: 15px;
       color: black;
-      margin-top: 5px;
+      font-weight: 700;
+      margin-top: 8%;
       padding-left: 3px;
       position: relative;
     }
-    .exitText {
+    .text {
       margin-top: 5px;
       padding-left: 3px;
-      font-size: 13px;
-      color: #c248ad;
+      font-weight: 700;
+      font-size: 15px;
+      color: black;
     }
   }
   .moreicon {
@@ -90,6 +91,7 @@ const StationRoot1 = ({
   arrive,
   info,
   color,
+  mode,
 }) => {
   const { isLoading, error, data } = useQuery(["subway"], () =>
     axios(`/api/subway`).then((res) => res.data)
@@ -107,11 +109,14 @@ const StationRoot1 = ({
       info={info}
     >
       <div className="rootwrapper">
-        <SubwayLine lineText={2} color={color}></SubwayLine>
+        <SubwayLine lineText={mode} color={color}></SubwayLine>
 
         <div className="placeWrapper">
           <div className="placeline">
             <div className="startName">{start} </div>
+          </div>
+          <div className="placeline">
+            <div className="text">{direction} </div>
           </div>
           <div className="placeline">
             <div className="timeText"> {time}분</div>

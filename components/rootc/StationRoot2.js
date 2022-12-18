@@ -79,7 +79,7 @@ const RootBlock2 = styled.div`
   .lineWrapper {
     display: flex;
     flex-direction: column;
-    margin: 5px 5px 5px 10px;
+    margin: 15px 5px 5px 10px;
     .startLineCircle {
       width: 30px;
       height: 30px;
@@ -106,7 +106,7 @@ const RootBlock2 = styled.div`
       left: 10px;
       margin-bottom: -5px;
       border-left: 10px dotted #808080;
-      height: ${({ len }) => len * 30}px;
+      height: ${({ len }) => len * 35}px;
     }
   }
   .rootwrapper {
@@ -131,7 +131,7 @@ const RootBlock2 = styled.div`
       font-size: 18px;
       color: black;
       font-weight: bolder;
-      margin-top: 5px;
+      margin-top: 10px;
       margin-left: 2px;
     }
     .arriveName {
@@ -141,7 +141,7 @@ const RootBlock2 = styled.div`
       /* margin-top: 5px; */
       margin-left: 2px;
       position: relative;
-      top: ${({ len }) => len * 0.5}px;
+      top: ${({ len }) => len * 0.2}px;
     }
     .icon {
       margin-top: 8px;

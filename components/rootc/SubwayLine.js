@@ -24,8 +24,8 @@ const Subway = styled.div`
       z-index: 1;
       .startLineText {
         color: white;
-        font-size: 20px;
-        font-weight: bolder;
+        font-size: 13px;
+        /* font-weight: bolder; */
       }
       .arriveLineText {
         color: white;
