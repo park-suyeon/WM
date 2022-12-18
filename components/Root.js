@@ -24,6 +24,10 @@ const Contente2 = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  .transicon {
+    width: 17px;
+    height: 17px;
+  }
 `;
 
 export default function Root({ setPage, className }) {
@@ -69,11 +73,11 @@ export default function Root({ setPage, className }) {
           key={index}
           color={leg.routeColor}
           start={leg.start.name}
-          direction={leg.route}
+          direction={"버스 번호" + " " + leg.route + "번 버스"}
           // info={subwayNumber}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
-          mode={"BUS"}
+          mode={<img src="images\icon\bus.png" />}
         ></StationRoot1>
       );
     }
@@ -83,11 +87,11 @@ export default function Root({ setPage, className }) {
           key={index}
           color={leg.routeColor}
           start={leg.start.name}
-          direction={leg.route}
+          direction={"지하철" + " " + leg.route}
           // info={subwayNumber}
           time={Math.floor(leg.sectionTime / 60)}
           arrive={leg.end.name}
-          mode={"SUB"}
+          mode={<img src="images\icon\subway.png" />}
         ></StationRoot1>
       );
     }
