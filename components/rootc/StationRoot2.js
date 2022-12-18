@@ -238,10 +238,6 @@ const StationRoot2 = ({
               })}
             </div>
           </div>
-
-          <div className="placeline">
-            <div className="arriveName">{arrive} </div>
-          </div>
         </div>
         {/* <img className="moreicon" src="/images/icon/more.png" /> */}
       </div>
