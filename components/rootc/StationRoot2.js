@@ -204,7 +204,7 @@ const StationRoot2 = ({
       start={start}
       arrive={arrive}
       text={text}
-      len={info.length}
+      len={info?.length}
     >
       <div className="rootwrapper">
         <div className="lineWrapper">
