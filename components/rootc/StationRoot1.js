@@ -93,7 +93,7 @@ const StationRoot1 = ({
   const { isLoading, error, data } = useQuery(["subway"], () =>
     axios(`/api/subway`).then((res) => res.data)
   );
-  const alight = data?.find((v) => start.includes(v.name)).alight;
+  const alight = data?.find((v) => start.includes(v.name))?.alight;
 
   return (
     <RootBlock1
