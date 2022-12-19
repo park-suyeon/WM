@@ -17,25 +17,54 @@ import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 
 const Content1 = styled.div`
-  position: fixed;
-  top: 0px;
-  left: 0;
-  width: 100vw;
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+  }
+  @media screen and (min-width: 769px) {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 520px;
+  }
 `;
 const Content2 = styled.div`
-  position: fixed;
-  z-index: 100;
-  background-color: #ebf8ff;
-  height: 70vh;
-  bottom: 0px;
-  left: 0;
-  width: 100vw;
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px 10px 0px 0px;
-  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    z-index: 100;
+    background-color: #ebf8ff;
+    height: 70vh;
+    bottom: 0px;
+    left: 0;
+    width: 100vw;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+  }
+  @media screen and (min-width: 769px) {
+    position: fixed;
+    z-index: 100;
+    background-color: #ebf8ff;
+    height: 90vh;
+    bottom: 0px;
+    left: 0;
+    width: 500px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+    }
+  }
 `;
 export default function Home() {
   const router = useRouter();
