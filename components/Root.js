@@ -70,7 +70,7 @@ export default function Root({ setPage, className }) {
   console.log("selectedPath : ", selectedPath);
   const totalTime = Math.floor(selectedPath?.totalTime / 60);
   const transferCount =
-    selectedPath?.legs.find((leg) => leg.mode === "TRANSFER")?.length || 0;
+    selectedPath?.legs.filter((leg) => leg.mode === "TRANSFER")?.length || 0;
   const fare = selectedPath?.fare.regular.totalFare;
   const [startText] = useState(startSearchText);
   const [endText] = useState(endSearchText);
