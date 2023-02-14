@@ -39,6 +39,7 @@ const Contente2 = styled.div`
 
 export default function Root({ setPage, className }) {
   const [faster, setFaster] = useState();
+  const [isPedestrian, setIsPedestrian] = useState();
   const [onlySubway, setOnlySubway] = useState();
   const [lessTransfer, setLessTransfer] = useState();
   const [currentOrder, setCurrentOrder] = useState("onlySubway"); // lessTransfer | faster
@@ -63,74 +64,92 @@ export default function Root({ setPage, className }) {
 
   useEffect(() => {
     if (window.tmap && selectedPath) {
-      window.tmap.drawData(selectedPath);
+      if (isPedestrian) {
+        console.log(selectedPath);
+        window.tmap.routesPedestrian(selectedPath);
+      } else {
+        window.tmap.drawData(selectedPath);
+      }
     }
-  }, [selectedPath, currentOrder]);
+  }, [selectedPath, currentOrder, isPedestrian]);
 
   console.log("selectedPath : ", selectedPath);
   const totalTime = Math.floor(selectedPath?.totalTime / 60);
   const transferCount =
-    selectedPath?.legs.filter((leg) => leg.mode === "TRANSFER")?.length || 0;
-  const fare = selectedPath?.fare.regular.totalFare;
+    selectedPath?.legs?.filter((leg) => leg.mode === "TRANSFER")?.length || 0;
+  const fare = selectedPath?.fare?.regular.totalFare;
   const [startText] = useState(startSearchText);
   const [endText] = useState(endSearchText);
-  const PathList = selectedPath?.legs.map((leg, index) => {
-    if (leg.mode === "BUS") {
-      return (
-        <StationRoot1
-          key={index}
-          color={leg.routeColor}
-          start={leg.start.name}
-          direction={leg.route + "번 버스"}
-          // info={subwayNumber}
-          time={Math.floor(leg.sectionTime / 60)}
-          arrive={leg.end.name}
-          mode={<img src="images\icon\bus.png" />}
-        ></StationRoot1>
-      );
-    }
-    if (leg.mode === "SUBWAY") {
-      return (
-        <StationRoot1
-          key={index}
-          color={leg.routeColor}
-          start={leg.start.name}
-          direction={"지하철" + " " + leg.route}
-          // info={subwayNumber}
-          time={Math.floor(leg.sectionTime / 60)}
-          arrive={leg.end.name}
-          mode={<img className="icon" src="images\icon\subway.png" />}
-          quick={"안전환승"}
-        ></StationRoot1>
-      );
-    }
-    if (leg.mode === "WALK") {
-      return (
-        <StationRoot2
-          key={index}
-          start={index === 0 ? startText : leg.start.name}
-          direction={leg.distance}
-          info={leg.steps}
-          time={Math.floor(leg.sectionTime / 60)}
-          arrive={
-            index === selectedPath.legs.length - 1 ? endText : leg.end.name
-          }
-        ></StationRoot2>
-      );
-    }
-    if (leg.mode === "TRANSFER") {
-      return (
-        <StationRoot2
-          key={index}
-          start={leg.start.name}
-          direction={leg.distance}
-          // info={leg.steps}
-          time={Math.floor(leg.sectionTime / 60)}
-          arrive={leg.end.name}
-        ></StationRoot2>
-      );
-    }
-  });
+  let PathList;
+  if (isPedestrian === false) {
+    PathList = selectedPath?.legs?.map((leg, index) => {
+      if (leg.mode === "BUS") {
+        return (
+          <StationRoot1
+            key={index}
+            color={leg.routeColor}
+            start={leg.start.name}
+            direction={leg.route + "번 버스"}
+            // info={subwayNumber}
+            time={Math.floor(leg.sectionTime / 60)}
+            arrive={leg.end.name}
+            mode={<img src="images\icon\bus.png" />}
+          ></StationRoot1>
+        );
+      }
+      if (leg.mode === "SUBWAY") {
+        return (
+          <StationRoot1
+            key={index}
+            color={leg.routeColor}
+            start={leg.start.name}
+            direction={"지하철" + " " + leg.route}
+            // info={subwayNumber}
+            time={Math.floor(leg.sectionTime / 60)}
+            arrive={leg.end.name}
+            mode={<img className="icon" src="images\icon\subway.png" />}
+            quick={"안전환승"}
+          ></StationRoot1>
+        );
+      }
+      if (leg.mode === "WALK") {
+        return (
+          <StationRoot2
+            key={index}
+            start={index === 0 ? startText : leg.start.name}
+            direction={leg.distance}
+            info={leg.steps}
+            time={Math.floor(leg.sectionTime / 60)}
+            arrive={
+              index === selectedPath.legs.length - 1 ? endText : leg.end.name
+            }
+          ></StationRoot2>
+        );
+      }
+      if (leg.mode === "TRANSFER") {
+        return (
+          <StationRoot2
+            key={index}
+            start={leg.start.name}
+            direction={leg.distance}
+            // info={leg.steps}
+            time={Math.floor(leg.sectionTime / 60)}
+            arrive={leg.end.name}
+          ></StationRoot2>
+        );
+      }
+    });
+  } else {
+    PathList = (
+      <StationRoot2
+        start={selectedPath?.features[0].properties.facilityName}
+        direction={selectedPath?.features[0].properties.totalDistance}
+        info={selectedPath?.features.map((path, index) => path.properties)}
+        time={Math.floor(selectedPath?.features[0].properties.totalTime / 60)}
+        arrive={selectedPath?.features[0].properties.facilityName}
+      ></StationRoot2>
+    );
+  }
   return (
     <div className={className}>
       <Head>
@@ -150,6 +169,7 @@ export default function Root({ setPage, className }) {
           endSearchText={endSearchText}
           setEndSearchText={setEndSearchText}
           setStartSearchText={setStartSearchText}
+          setIsPedestrian={setIsPedestrian}
         ></SearchHeader>
         <Order
           currentOrder={currentOrder}

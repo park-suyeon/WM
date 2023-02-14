@@ -120,6 +120,7 @@ export default function Header() {
         <img className="logo" src="/images/logo.png" />
       </Link>
       <input
+        inputMode="search"
         className="searchBar"
         onChange={(e) => setSearchText(e.target.value)}
         onKeyDown={(e) => {

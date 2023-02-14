@@ -209,6 +209,7 @@ const SearchHeader = ({
   setFaster,
   setOnlySubway,
   setLessTransfer,
+  setIsPedestrian,
   locationInfo,
   startSearchText,
   endSearchText,
@@ -287,7 +288,7 @@ const SearchHeader = ({
   const getRoute = async () => {
     try {
       const { startX, startY, endX, endY } = window.tmap;
-      const { faster, onlySubway, lessTransfer } = (
+      const { faster, onlySubway, lessTransfer, isPedestrian } = (
         await axios.post("/api/route", {
           startX,
           startY,
@@ -300,6 +301,7 @@ const SearchHeader = ({
       setFaster(faster);
       setOnlySubway(onlySubway);
       setLessTransfer(lessTransfer);
+      setIsPedestrian(isPedestrian);
     } catch (err) {
       console.log("err: ", err);
     }
@@ -309,6 +311,7 @@ const SearchHeader = ({
     <SearchBlock>
       <div className="left">
         <input
+          inputMode="search"
           className="searchBar"
           placeholder="출발지 입력"
           value={startSearchText}

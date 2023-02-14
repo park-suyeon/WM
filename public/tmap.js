@@ -112,6 +112,7 @@ function setSelectedPoi(poi, isStart) {
   }
 
   window.tmap = {
+    routesPedestrian,
     attachTmap,
     moveCenter,
     setSelectedPoi,
@@ -366,9 +367,95 @@ const main = () => {
   }, 1000);
 };
 
+function routesPedestrian(result) {
+  console.log(result);
+  if (!result) {
+    return;
+  }
+  const startx = selectedStartLocation.lat;
+  const starty = selectedStartLocation.lon;
+  const endx = selectedStartLocation.lat;
+  const endy = selectedStartLocation.lon;
+  const markerArr = [];
+  const lineArr = [];
+  const tData = [];
+  var optionObj = {
+    coordType: "WGS84GEO", //응답좌표 타입 옵션 설정 입니다.
+    addressType: "A10", //주소타입 옵션 설정 입니다.
+  };
+
+  var startLatLng = new Tmapv2.LatLng(starty, startx);
+  var endLatLng = new Tmapv2.LatLng(endy, endx);
+
+  var resultData = result?.features;
+  console.log("resultData: ", resultData);
+  //결과 출력
+  var appendHtml =
+    "보행자 경로안내: 총 거리 : " +
+    (resultData[0].properties.totalDistance / 1000).toFixed(1) +
+    "km,";
+  appendHtml +=
+    " 총 시간 : " + (resultData[0].properties.totalTime / 60).toFixed(0) + "분";
+
+  console.log(appendHtml);
+
+  // 시작마커설정
+  var marker_s = new Tmapv2.Marker({
+    position: new Tmapv2.LatLng(starty, startx),
+    icon: "http://topopen.tmap.co.kr/imgs/start.png",
+    iconSize: new Tmapv2.Size(24, 38),
+    map: map,
+  });
+
+  // 도착마커설정
+  var marker_e = new Tmapv2.Marker({
+    position: new Tmapv2.LatLng(endy, endx),
+    icon: "http://topopen.tmap.co.kr/imgs/arrival.png",
+    iconSize: new Tmapv2.Size(24, 38),
+    map: map,
+  });
+  markerArr.push(marker_s);
+  markerArr.push(marker_e);
+
+  // GeoJSON함수를 이용하여 데이터 파싱 및 지도에 그린다.
+  var jsonObject = new Tmapv2.extension.GeoJSON();
+  var jsonForm = jsonObject.read(result);
+
+  jsonObject.drawRoute(map, jsonForm, {}, function (e) {
+    // 경로가 표출된 이후 실행되는 콜백 함수.
+
+    for (var m of e.markers) {
+      markerArr.push(m);
+    }
+    for (var l of e.polylines) {
+      lineArr.push(l);
+    }
+
+    var positionBounds = new Tmapv2.LatLngBounds(); //맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
+    for (var polyline of e.polylines) {
+      for (var latlng of polyline.getPath().path) {
+        positionBounds.extend(latlng); // LatLngBounds의 객체 확장
+      }
+    }
+
+    map.panToBounds(positionBounds);
+    map.zoomOut();
+  });
+
+  // tData.getRoutePlanForPeopleJson(
+  //   startLatLng,
+  //   endLatLng,
+  //   "출발지",
+  //   "도착지",
+  //   optionObj,
+  //   params
+  // );
+}
+
 main();
 
 window.tmap = {
+  routesPedestrian,
   attachTmap,
   moveCenter,
   setSelectedPoi,

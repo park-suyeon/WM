@@ -1,3 +1,4 @@
+import { start } from "nprogress";
 import Placemodel from "../../../server/db/model/place";
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
     itineraries.find((item) => {
       return !item.legs.some((leg) => leg.mode === "BUS");
     }) || null;
+  let isPedestrian = false;
   if (onlySubway) {
     const subways = onlySubway.legs.filter((leg) => {
       return leg.mode === "SUBWAY";
@@ -70,12 +72,27 @@ export default async function handler(req, res) {
       return false;
     });
     if (result) {
-      onlySubway = null;
+      isPedestrian = true;
+      const pedestrianResult = await axios.post(
+        "https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1",
+        {
+          startX,
+          startY,
+          endX,
+          endY,
+          speed: 3,
+          searchOption: 30,
+          startName: "start",
+          endName: "end",
+        }
+      );
+      console.log("pedestrianResult : ", pedestrianResult.data);
+      onlySubway = pedestrianResult.data;
     }
   }
   const faster = itineraries.sort((a, b) => {
     return a.totalTime - b.totalTime;
   })[0];
 
-  res.status(200).json({ faster, onlySubway, lessTransfer });
+  res.status(200).json({ faster, onlySubway, lessTransfer, isPedestrian });
 }
