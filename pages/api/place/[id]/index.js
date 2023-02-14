@@ -9,8 +9,10 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "PUT") {
+    console.log("db");
     await mongodbconnect();
     const id = req.query.id;
+    console.log("id", id);
     await placemodel.findOneAndUpdate(
       { _id: id },
       { options: req.body.options, author: req.body.author }

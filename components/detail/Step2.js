@@ -109,8 +109,27 @@ function fileToBase64(file) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      resolve(reader.result);
-      console.dir(reader.result); // base64
+      const image = new Image();
+      image.src = reader.result;
+      image.onload = (event) => {
+        const $canvas = document.createElement(`canvas`);
+        const ctx = $canvas.getContext(`2d`);
+
+        $canvas.width = event.target.width;
+        $canvas.height = event.target.height;
+
+        ctx.drawImage(event.target, 0, 0);
+
+        // 용량이 줄어든 base64 이미지
+
+        let original = $canvas.toDataURL(`image/jpeg`);
+
+        let size = original.length;
+        let quality = size > 500 ? 0.1 : 1.0;
+
+        const result = $canvas.toDataURL(`image/jpeg`, quality);
+        resolve(result);
+      };
     };
   });
 }
@@ -190,6 +209,7 @@ export default function Step2({
             ref={fileRef}
             onChange={async (e) => {
               const imageURL = await fileToBase64(e.target.files[0]);
+              // const imageURL = URL.createObjectURL(e.target.files[0]);
               setFiles((s) => [...s, imageURL]);
 
               setPlaceOption((prev) => {

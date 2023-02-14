@@ -97,6 +97,7 @@ export default function Home() {
     // }
 
     if (currentStep === btnActivelength) {
+      console.log("placeOption", placeOption);
       await axios.put(`/api/place/${id}`, {
         options: placeOption,
         author: name,

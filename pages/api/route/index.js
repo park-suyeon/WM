@@ -1,5 +1,8 @@
+import Placemodel from "../../../server/db/model/place";
+
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const axios = require("axios");
+const fs = require("fs");
 //const data = require("../../../components/test2.json");
 export default async function handler(req, res) {
   const { startX, startY, endX, endY } = req.body;
@@ -34,10 +37,42 @@ export default async function handler(req, res) {
       b.legs.filter((ia) => ia.mode === "TRANSFER").length
     );
   })[0];
-  const onlySubway =
+
+  const places = await Placemodel.find();
+  let onlySubway =
     itineraries.find((item) => {
       return !item.legs.some((leg) => leg.mode === "BUS");
-    }) || lessTransfer;
+    }) || null;
+  if (onlySubway) {
+    const subways = onlySubway.legs.filter((leg) => {
+      return leg.mode === "SUBWAY";
+    });
+    const result = subways.some((subway) => {
+      const startPlace = places.find((place) => {
+        return place.name === subway.start.name;
+      });
+      const hasStartplace = startPlace.options.find((option) => {
+        return option.name === "승강기";
+      });
+      if (!hasStartplace) {
+        return true;
+      }
+      const endPlace = places.find((place) => {
+        return place.name === subway.end.name;
+      });
+      const hasendplace = endPlace.options.find((option) => {
+        return option.name === "승강기";
+      });
+      if (!hasendplace) {
+        return true;
+      }
+
+      return false;
+    });
+    if (result) {
+      onlySubway = null;
+    }
+  }
   const faster = itineraries.sort((a, b) => {
     return a.totalTime - b.totalTime;
   })[0];

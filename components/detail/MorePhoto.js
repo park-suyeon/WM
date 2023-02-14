@@ -35,15 +35,7 @@ const PhotoWrapper = styled.div`
         display: none;
         width: 0 !important;
       }
-      .photo1 {
-        width: 100px;
-        margin-right: 10px;
-      }
-      .photo2 {
-        width: 100px;
-        margin-right: 10px;
-      }
-      .photo3 {
+      img {
         width: 100px;
         margin-right: 10px;
       }
