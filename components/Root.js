@@ -64,7 +64,7 @@ export default function Root({ setPage, className }) {
 
   useEffect(() => {
     if (window.tmap && selectedPath) {
-      if (isPedestrian) {
+      if (isPedestrian && currentOrder === "onlySubway") {
         console.log(selectedPath);
         window.tmap.routesPedestrian(selectedPath);
       } else {
@@ -81,7 +81,7 @@ export default function Root({ setPage, className }) {
   const [startText] = useState(startSearchText);
   const [endText] = useState(endSearchText);
   let PathList;
-  if (isPedestrian === false) {
+  if (isPedestrian === false || currentOrder !== "onlySubway") {
     PathList = selectedPath?.legs?.map((leg, index) => {
       if (leg.mode === "BUS") {
         return (
