@@ -142,11 +142,11 @@ export default function Root({ setPage, className }) {
   } else {
     PathList = (
       <StationRoot2
-        start={selectedPath?.features[0].properties.facilityName}
-        direction={selectedPath?.features[0].properties.totalDistance}
-        info={selectedPath?.features.map((path, index) => path.properties)}
-        time={Math.floor(selectedPath?.features[0].properties.totalTime / 60)}
-        arrive={selectedPath?.features[0].properties.facilityName}
+        start={selectedPath?.features?.[0].properties.facilityName}
+        direction={selectedPath?.features?.[0].properties.totalDistance}
+        info={selectedPath?.features?.map((path, index) => path.properties)}
+        time={Math.floor(selectedPath?.features?.[0].properties.totalTime / 60)}
+        arrive={selectedPath?.features?.[0].properties.facilityName}
       ></StationRoot2>
     );
   }
