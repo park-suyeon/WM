@@ -45,11 +45,12 @@ export default async function handler(req, res) {
       return !item.legs.some((leg) => leg.mode === "BUS");
     }) || null;
   let isPedestrian = false;
+  let result = false;
   if (onlySubway) {
     const subways = onlySubway.legs.filter((leg) => {
       return leg.mode === "SUBWAY";
     });
-    const result = subways.some((subway) => {
+    result = subways.some((subway) => {
       const startPlace = places.find((place) => {
         return place.name === subway.start.name;
       });
@@ -71,24 +72,27 @@ export default async function handler(req, res) {
 
       return false;
     });
-    if (result) {
-      isPedestrian = true;
-      const pedestrianResult = await axios.post(
-        "https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1",
-        {
-          startX,
-          startY,
-          endX,
-          endY,
-          speed: 3,
-          searchOption: 30,
-          startName: "start",
-          endName: "end",
-        }
-      );
-      console.log("pedestrianResult : ", pedestrianResult.data);
-      onlySubway = pedestrianResult.data;
-    }
+  }
+  if (result || !onlySubway) {
+    isPedestrian = true;
+    const pedestrianResult = await axios.post(
+      "https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1",
+      {
+        startX,
+        startY,
+        endX,
+        endY,
+        speed: 3,
+        searchOption: 30,
+        startName: "start",
+        endName: "end",
+      }
+    );
+    console.log("pedestrianResult : ", pedestrianResult.data);
+    onlySubway = {
+      ...pedestrianResult.data,
+      totalTime: pedestrianResult.data.features[0].properties.totalTime,
+    };
   }
   const faster = itineraries.sort((a, b) => {
     return a.totalTime - b.totalTime;
