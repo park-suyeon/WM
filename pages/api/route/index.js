@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      appKey: process.env.TMAP_CLIENT_ID,
+      appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
     },
   });
   const itineraries = data.metaData?.plan.itineraries;
