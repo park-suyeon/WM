@@ -64,7 +64,7 @@ export default function Root({ setPage, className }) {
 
   useEffect(() => {
     if (window.tmap && selectedPath) {
-      if (isPedestrian) {
+      if (isPedestrian && currentOrder === "onlySubway") {
         console.log(selectedPath);
         window.tmap.routesPedestrian(selectedPath);
       } else {
@@ -74,16 +74,17 @@ export default function Root({ setPage, className }) {
   }, [selectedPath, currentOrder, isPedestrian]);
 
   console.log("selectedPath : ", selectedPath);
-  const totalTime = Math.floor(selectedPath?.totalTime / 60);
+  let totalTime = Math.floor(selectedPath?.totalTime / 60);
   const transferCount =
     selectedPath?.legs?.filter((leg) => leg.mode === "TRANSFER")?.length || 0;
   const fare = selectedPath?.fare?.regular.totalFare;
   const [startText] = useState(startSearchText);
   const [endText] = useState(endSearchText);
   let PathList;
-  if (isPedestrian === false) {
+  if (isPedestrian === false || currentOrder !== "onlySubway") {
     PathList = selectedPath?.legs?.map((leg, index) => {
       if (leg.mode === "BUS") {
+        console.log("BUS");
         return (
           <StationRoot1
             key={index}
@@ -140,13 +141,20 @@ export default function Root({ setPage, className }) {
       }
     });
   } else {
+    console.log(
+      "walktime:",
+      Math.floor(selectedPath?.features?.[0].properties.totalTime / 60)
+    );
+    totalTime = Math.floor(
+      selectedPath?.features?.[0].properties.totalTime / 60
+    );
     PathList = (
       <StationRoot2
-        start={selectedPath?.features[0].properties.facilityName}
-        direction={selectedPath?.features[0].properties.totalDistance}
-        info={selectedPath?.features.map((path, index) => path.properties)}
-        time={Math.floor(selectedPath?.features[0].properties.totalTime / 60)}
-        arrive={selectedPath?.features[0].properties.facilityName}
+        start={selectedPath?.features?.[0].properties.facilityName}
+        direction={selectedPath?.features?.[0].properties.totalDistance}
+        info={selectedPath?.features?.map((path, index) => path.properties)}
+        time={Math.floor(selectedPath?.features?.[0].properties.totalTime / 60)}
+        arrive={selectedPath?.features?.[0].properties.facilityName}
       ></StationRoot2>
     );
   }

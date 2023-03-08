@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
     },
   });
-  const itineraries = data.metaData?.plan.itineraries;
+  const itineraries = data.metaData?.plan.itineraries || [];
 
   const tempI = JSON.parse(JSON.stringify(itineraries));
   const lessTransfer = tempI.sort((a, b) => {
@@ -45,11 +45,12 @@ export default async function handler(req, res) {
       return !item.legs.some((leg) => leg.mode === "BUS");
     }) || null;
   let isPedestrian = false;
+  let result = false;
   if (onlySubway) {
     const subways = onlySubway.legs.filter((leg) => {
       return leg.mode === "SUBWAY";
     });
-    const result = subways.some((subway) => {
+    result = subways.some((subway) => {
       const startPlace = places.find((place) => {
         return place.name === subway.start.name;
       });
@@ -71,25 +72,27 @@ export default async function handler(req, res) {
 
       return false;
     });
-    if (result) {
-      isPedestrian = true;
-      const pedestrianResult = await axios.post(
-        "https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1",
-        {
-          startX,
-          startY,
-          endX,
-          endY,
-          speed: 3,
-          searchOption: 30,
-          startName: "start",
-          endName: "end",
-        }
-      );
-      console.log("pedestrianResult : ", pedestrianResult.data);
-      onlySubway = pedestrianResult.data;
-    }
   }
+  if (result || !onlySubway) {
+    isPedestrian = true;
+    const pedestrianResult = await axios.post(
+      `https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1&format=json`,
+      {
+        startX,
+        startY,
+        endX,
+        endY,
+        speed: 3,
+        searchOption: 30,
+        startName: "start",
+        endName: "end",
+      },
+      { headers: { appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID } }
+    );
+    console.log("pedestrianResult : ", pedestrianResult.data);
+    onlySubway = pedestrianResult.data;
+  }
+
   const faster = itineraries.sort((a, b) => {
     return a.totalTime - b.totalTime;
   })[0];

@@ -196,6 +196,7 @@ const StationRoot2 = ({
   info,
   text,
 }) => {
+  console.log("stationRoot2", time);
   return (
     <RootBlock2
       exit={exit}
