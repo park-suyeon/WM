@@ -10,6 +10,7 @@ var wheelchairMarkerList = [];
 var toiletMarkerList = [];
 let new_polyLine = [];
 let currentTransferMark = [];
+let markers = [];
 let startMarker;
 let endMarker;
 /**
@@ -86,7 +87,7 @@ function setSelectedPoi(poi, isStart) {
     const lon = poi.frontLon;
     selectedStartLocation = { lat, lon, name: poi.name };
     var lonlat = new Tmapv2.LatLng(lat, lon);
-    startMarker = new Tmapv2.Marker({
+    const startMarker = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
@@ -94,13 +95,14 @@ function setSelectedPoi(poi, isStart) {
       icon: "/images/icon/markerStart.png",
       iconSize: new Tmapv2.Size(25, 32),
     });
+    markers.push(startMarker);
     map?.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
   } else {
     const lat = poi.frontLat;
     const lon = poi.frontLon;
     selectedEndLocation = { lat, lon, name: poi.name };
     var lonlat = new Tmapv2.LatLng(lat, lon);
-    endMarker = new Tmapv2.Marker({
+    const endMarker = new Tmapv2.Marker({
       position: lonlat, //Marker의 중심좌표 설정.
       map: map, //Marker가 표시될 Map 설정..
       // label: '현재위치', //Marker의 라벨.
@@ -108,6 +110,7 @@ function setSelectedPoi(poi, isStart) {
       icon: "/images/icon/markerEnd.png",
       iconSize: new Tmapv2.Size(25, 32),
     });
+    markers.push(endMarker);
     map?.setCenter(lonlat); // 지도의 중심 좌표를 설정합니다.
   }
 
@@ -229,8 +232,9 @@ function drawLineInfo(data) {
 
 function drawData(data) {
   console.log("drawData:", data);
-  startMarker?.setMap(null);
-  endMarker?.setMap(null);
+  markers.forEach((item) => {
+    item.setMap(null);
+  });
   // 지도위에 선은 다 지우기
   new_polyLine.forEach((item) => {
     item.setMap(null);
@@ -238,6 +242,7 @@ function drawData(data) {
   currentTransferMark.forEach((item) => {
     item.setMap(null);
   });
+  markers = [];
   new_polyLine = [];
   currentTransferMark = [];
   var resultStr = "";
@@ -308,18 +313,20 @@ function drawData(data) {
     new_polyLine.push(polyline);
   }
 
-  startMarker = addMarker(
+  const startMarker = addMarker(
     "llStart",
     selectedStartLocation?.lon,
     selectedStartLocation?.lat,
     1
   );
-  endMarker = addMarker(
+  markers.push(startMarker);
+  const endMarker = addMarker(
     "llEnd",
     selectedEndLocation?.lon,
     selectedEndLocation?.lat,
     2
   );
+  markers.push(endMarker);
 }
 
 // 2. 시작, 도착 심볼찍기
@@ -336,7 +343,7 @@ function addMarker(status, lon, lat, tag) {
       imgURL = "/images/icon/markerStart.png";
       break;
     case "llPass":
-      imgURL = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_p.png";
+      imgURL = "/images/icon/markerPass.png";
       break;
     case "llEnd":
       imgURL = "/images/icon/markerEnd.png";
@@ -372,13 +379,23 @@ function routesPedestrian(result) {
   if (!result) {
     return;
   }
+  markers.forEach((item) => {
+    item.setMap(null);
+  });
+  // 지도위에 선은 다 지우기
+  new_polyLine.forEach((item) => {
+    item.setMap(null);
+  });
+  currentTransferMark.forEach((item) => {
+    item.setMap(null);
+  });
+  new_polyLine = [];
+  currentTransferMark = [];
+  markers = [];
   const startx = selectedStartLocation.lat;
   const starty = selectedStartLocation.lon;
   const endx = selectedStartLocation.lat;
   const endy = selectedStartLocation.lon;
-  const markerArr = [];
-  const lineArr = [];
-  const tData = [];
   var optionObj = {
     coordType: "WGS84GEO", //응답좌표 타입 옵션 설정 입니다.
     addressType: "A10", //주소타입 옵션 설정 입니다.
@@ -400,22 +417,22 @@ function routesPedestrian(result) {
   console.log(appendHtml);
 
   // 시작마커설정
-  var marker_s = new Tmapv2.Marker({
+  const startMarker = new Tmapv2.Marker({
     position: new Tmapv2.LatLng(starty, startx),
     icon: "http://topopen.tmap.co.kr/imgs/start.png",
     iconSize: new Tmapv2.Size(24, 38),
     map: map,
   });
+  markers.push(startMarker);
 
   // 도착마커설정
-  var marker_e = new Tmapv2.Marker({
+  const endMarker = new Tmapv2.Marker({
     position: new Tmapv2.LatLng(endy, endx),
     icon: "http://topopen.tmap.co.kr/imgs/arrival.png",
     iconSize: new Tmapv2.Size(24, 38),
     map: map,
   });
-  markerArr.push(marker_s);
-  markerArr.push(marker_e);
+  markers.push(endMarker);
 
   // GeoJSON함수를 이용하여 데이터 파싱 및 지도에 그린다.
   var jsonObject = new Tmapv2.extension.GeoJSON();
@@ -424,11 +441,8 @@ function routesPedestrian(result) {
   jsonObject.drawRoute(map, jsonForm, {}, function (e) {
     // 경로가 표출된 이후 실행되는 콜백 함수.
 
-    for (var m of e.markers) {
-      markerArr.push(m);
-    }
     for (var l of e.polylines) {
-      lineArr.push(l);
+      new_polyLine.push(l);
     }
 
     var positionBounds = new Tmapv2.LatLngBounds(); //맵에 결과물 확인 하기 위한 LatLngBounds객체 생성

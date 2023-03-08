@@ -76,7 +76,7 @@ export default async function handler(req, res) {
   if (result || !onlySubway) {
     isPedestrian = true;
     const pedestrianResult = await axios.post(
-      `https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1&format=json`,
+      "https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1",
       {
         startX,
         startY,
@@ -86,13 +86,14 @@ export default async function handler(req, res) {
         searchOption: 30,
         startName: "start",
         endName: "end",
-      },
-      { headers: { appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID } }
+      }
     );
     console.log("pedestrianResult : ", pedestrianResult.data);
-    onlySubway = pedestrianResult.data;
+    onlySubway = {
+      ...pedestrianResult.data,
+      totalTime: pedestrianResult.data.features[0].properties.totalTime,
+    };
   }
-
   const faster = itineraries.sort((a, b) => {
     return a.totalTime - b.totalTime;
   })[0];

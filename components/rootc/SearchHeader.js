@@ -218,6 +218,8 @@ const SearchHeader = ({
 }) => {
   const [openResult, setOpenResult] = useState(false);
   const [pois, setPois] = useState([]);
+  const [sstext, setSstext] = useState(startSearchText);
+  const [esstext, setEsstext] = useState(endSearchText);
   const isStartPoi = useRef(false);
   if (locationInfo && window.tmap) {
     window.tmap.setSelectedPoi(
@@ -235,14 +237,14 @@ const SearchHeader = ({
   const { data: startData, refetch: startRefetch } = useQuery(
     ["search-start-result"],
     () => {
-      if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && startSearchText) {
+      if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && sstext) {
         return axios
           .get(
             "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
             {
               params: {
                 appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
-                searchKeyword: startSearchText,
+                searchKeyword: sstext,
                 resCoordType: "WGS84GEO",
                 reqCoordType: "WGS84GEO",
                 count: 10,
@@ -261,14 +263,14 @@ const SearchHeader = ({
   const { data: endData, refetch: endRefetch } = useQuery(
     ["search-end-result"],
     () => {
-      if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && endSearchText) {
+      if (process.env.NEXT_PUBLIC_TMAP_CLIENT_ID && esstext) {
         return axios
           .get(
             "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
             {
               params: {
                 appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
-                searchKeyword: endSearchText,
+                searchKeyword: esstext,
                 resCoordType: "WGS84GEO",
                 reqCoordType: "WGS84GEO",
                 count: 10,
@@ -302,6 +304,8 @@ const SearchHeader = ({
       setOnlySubway(onlySubway);
       setLessTransfer(lessTransfer);
       setIsPedestrian(isPedestrian);
+      setStartSearchText(sstext);
+      setEndSearchText(esstext);
     } catch (err) {
       console.log("err: ", err);
     }
@@ -314,8 +318,8 @@ const SearchHeader = ({
           inputMode="search"
           className="searchBar"
           placeholder="출발지 입력"
-          value={startSearchText}
-          onChange={(e) => setStartSearchText(e.target.value)}
+          value={sstext}
+          onChange={(e) => setSstext(e.target.value)}
           onKeyDown={(e) => {
             if (e.key !== "Enter") return;
             setOpenResult(true);
@@ -325,8 +329,8 @@ const SearchHeader = ({
         <input
           className="searchBar"
           placeholder="도착지 입력"
-          value={endSearchText}
-          onChange={(e) => setEndSearchText(e.target.value)}
+          value={esstext}
+          onChange={(e) => setEsstext(e.target.value)}
           onKeyDown={(e) => {
             if (e.key !== "Enter") return;
             setOpenResult(true);
@@ -364,9 +368,9 @@ const SearchHeader = ({
                         isStartPoi.current ? "start" : "end"
                       );
                       if (isStartPoi.current) {
-                        setStartSearchText(poi.name);
+                        setSstext(poi.name);
                       } else {
-                        setEndSearchText(poi.name);
+                        setEsstext(poi.name);
                       }
                       setOpenResult(false);
                     }}

@@ -34,7 +34,6 @@ const DestinationPoint = styled.div`
   }
 `;
 const Destination = ({ finishPlace }) => {
-  const [name] = useState(finishPlace);
   return (
     <DestinationPoint>
       <div className="iconWrapper">
@@ -42,7 +41,7 @@ const Destination = ({ finishPlace }) => {
         <div className="iconText">도착</div>
       </div>
       <div className="content">
-        <div className="finish">{name}</div>
+        <div className="finish">{finishPlace}</div>
       </div>
     </DestinationPoint>
   );
