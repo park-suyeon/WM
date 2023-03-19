@@ -106,7 +106,7 @@ const RootBlock2 = styled.div`
       left: 10px;
       margin-bottom: -5px;
       border-left: 10px dotted #808080;
-      height: ${({ len }) => len * 35}px;
+      height: 100%;
     }
   }
   .rootwrapper {
@@ -230,13 +230,15 @@ const StationRoot2 = ({
           </div>
           <div className="placeline">
             <div className="directionText">
-              {info?.map((v) => {
-                return (
-                  <div className="contentText" key={v.description}>
-                    <div>{v.description}</div>
-                  </div>
-                );
-              })}
+              {info
+                ?.filter((step) => step.description.includes("이동"))
+                ?.map((v, i) => {
+                  return (
+                    <div className="contentText" key={i}>
+                      <div>{v.description}</div>
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>

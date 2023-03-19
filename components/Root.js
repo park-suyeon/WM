@@ -63,7 +63,7 @@ export default function Root({ setPage, className }) {
   }
 
   useEffect(() => {
-    if (window.tmap && selectedPath) {
+    if (window.tmap && selectedPath && JSON.stringify(selectedPath) !== "{}") {
       if (isPedestrian && currentOrder === "onlySubway") {
         console.log(selectedPath);
         window.tmap.routesPedestrian(selectedPath);
@@ -113,6 +113,7 @@ export default function Root({ setPage, className }) {
           ></StationRoot1>
         );
       }
+      console.log("leg.steps", leg.steps);
       if (leg.mode === "WALK") {
         return (
           <StationRoot2

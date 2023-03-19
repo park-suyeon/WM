@@ -73,6 +73,7 @@ export default async function handler(req, res) {
       return false;
     });
   }
+  console.log();
   if (result || !onlySubway) {
     isPedestrian = true;
     const pedestrianResult = await axios.post(
@@ -86,12 +87,20 @@ export default async function handler(req, res) {
         searchOption: 30,
         startName: "start",
         endName: "end",
+      },
+      {
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+          appKey: process.env.NEXT_PUBLIC_TMAP_CLIENT_ID,
+        },
       }
     );
+    console.log("pedestrianResult_nodata : ", pedestrianResult);
     console.log("pedestrianResult : ", pedestrianResult.data);
     onlySubway = {
       ...pedestrianResult.data,
-      totalTime: pedestrianResult.data.features[0].properties.totalTime,
+      totalTime: pedestrianResult?.data?.features?.[0]?.properties?.totalTime,
     };
   }
   const faster = itineraries.sort((a, b) => {
